@@ -12,9 +12,9 @@ function getTopPlayerHTML(rank, name, point) {
             image = 'little-stars';
     }
 
-    return '<li class="highscore-item">' + 
+    return '<li class="highscore-item">' +
         '<div class = "best-player">' +
-        '<img src="https://woay.online/u/default/images/' + image + '.png"></div>' +
+        '<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.2/images/' + image + '.png"></div>' +
         '<div class="best-player-name">' +
         '<span class="player-name" title="' + name + '">' + name + '</span></div>' +
         '<div class="best-player-point">' +
@@ -29,23 +29,23 @@ function getTopPlayer() {
     }
     var BASE_URL = WHEEL_SETTINGS.Wheel.SERVER_URL;
     var game_id = WHEEL_SETTINGS.Wheel.id;
-  
+
     var endpoint = BASE_URL + '/api.point/top10/' + game_id;
     if (!$$woay) {
         return;
     }
     var $ = $$woay.$;
     $$woay.http.get(endpoint)
-    .then(function(resp) {
-        var topPlayers =  resp.data;
-        if (topPlayers.length) {
-            $('.highscore').html('');
-            topPlayers.forEach(function(player, index) {
-                $('.highscore').append(getTopPlayerHTML(index + 1, player.name, (player.sum || 0)))
-            })
-        } else {
-            $('.highscore').append('<div style="color: white; text-align:center: font-size: 16px">Chưa có người chơi nào</div>');
-        }
-    })
+        .then(function(resp) {
+            var topPlayers = resp.data;
+            if (topPlayers.length) {
+                $('.highscore').html('');
+                topPlayers.forEach(function(player, index) {
+                    $('.highscore').append(getTopPlayerHTML(index + 1, player.name, (player.sum || 0)))
+                })
+            } else {
+                $('.highscore').append('<div style="color: white; text-align:center: font-size: 16px">Chưa có người chơi nào</div>');
+            }
+        })
 
 }
