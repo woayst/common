@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'woay-sdk';
-  src:  url('fonts/woay-sdk.eot?7qfuu4');
-  src:  url('fonts/woay-sdk.eot?7qfuu4#iefix') format('embedded-opentype'),
-    url('fonts/woay-sdk.ttf?7qfuu4') format('truetype'),
-    url('fonts/woay-sdk.woff?7qfuu4') format('woff'),
-    url('fonts/woay-sdk.svg?7qfuu4#woay-sdk') format('svg');
+  src:  url('fonts/woay-sdk.eot?cx9q9y');
+  src:  url('fonts/woay-sdk.eot?cx9q9y#iefix') format('embedded-opentype'),
+    url('fonts/woay-sdk.ttf?cx9q9y') format('truetype'),
+    url('fonts/woay-sdk.woff?cx9q9y') format('woff'),
+    url('fonts/woay-sdk.svg?cx9q9y#woay-sdk') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="wic-"], [class*=" wic-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'woay-sdk' !important;
   speak: never;
@@ -35,30 +35,30 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-checkmark1:before {
+.wic-checkmark1:before {
   content: "\e901";
 }
-.icon-tick1:before {
+.wic-tick1:before {
   content: "\e901";
 }
-.icon-approve:before {
+.wic-approve:before {
   content: "\e901";
 }
-.icon-submit:before {
+.wic-submit:before {
   content: "\e901";
 }
-.icon-list:before {
+.wic-list:before {
   content: "\e9ba";
 }
-.icon-link:before {
+.wic-link:before {
   content: "\e9cb";
 }
-.icon-cancel-circle:before {
+.wic-cancel-circle:before {
   content: "\ea0d";
 }
-.icon-facebook:before {
+.wic-facebook:before {
   content: "\ea90";
 }
-.icon-facebook2:before {
+.wic-facebook2:before {
   content: "\ea91";
 }
