@@ -1,10 +1,7 @@
 @font-face {
   font-family: 'woay-sdk';
-  src:  url('fonts/woay-sdk.eot?dn9z0r');
-  src:  url('fonts/woay-sdk.eot?dn9z0r#iefix') format('embedded-opentype'),
-    url('fonts/woay-sdk.ttf?dn9z0r') format('truetype'),
-    url('fonts/woay-sdk.woff?dn9z0r') format('woff'),
-    url('fonts/woay-sdk.svg?dn9z0r#woay-sdk') format('svg');
+  src: url('fonts/woay-sdk.eot?9vpa87');
+  src: url('fonts/woay-sdk.eot?9vpa87#iefix') format('embedded-opentype'), url('fonts/woay-sdk.ttf?9vpa87') format('truetype'), url('fonts/woay-sdk.woff?9vpa87') format('woff'), url('fonts/woay-sdk.svg?9vpa87#woay-sdk') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -19,7 +16,6 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  
   /* Enable Ligatures ================ */
   letter-spacing: 0;
   -webkit-font-feature-settings: "liga";
@@ -29,39 +25,55 @@
   font-feature-settings: "liga";
   -webkit-font-variant-ligatures: discretionary-ligatures;
   font-variant-ligatures: discretionary-ligatures;
-
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.wic-copy:before {
-  content: "\e900";
+.wic-volume-high:before {
+  content: "\ea26";
 }
-.wic-checkmark1:before {
-  content: "\e901";
+
+.wic-volume-mute2:before {
+  content: "\ea2a";
 }
-.wic-tick1:before {
-  content: "\e901";
-}
-.wic-approve:before {
-  content: "\e901";
-}
-.wic-submit:before {
-  content: "\e901";
-}
+
 .wic-list:before {
   content: "\e9ba";
 }
+
 .wic-link:before {
   content: "\e9cb";
 }
+
 .wic-cancel-circle:before {
   content: "\ea0d";
 }
+
 .wic-facebook:before {
   content: "\ea90";
 }
+
 .wic-facebook2:before {
   content: "\ea91";
+}
+
+.wic-copy:before {
+  content: "\e900";
+}
+
+.wic-checkmark1:before {
+  content: "\e901";
+}
+
+.wic-tick1:before {
+  content: "\e901";
+}
+
+.wic-approve:before {
+  content: "\e901";
+}
+
+.wic-submit:before {
+  content: "\e901";
 }

@@ -8,8 +8,7 @@
     transition: 0.4s all;
 }
 
-.woay-modal button:focus,
-.woay-modal button:hover {
+.woay-modal button:focus, .woay-modal button:hover {
     outline: none !important;
 }
 
@@ -44,6 +43,15 @@
     border-radius: 4px;
     overflow-y: auto;
     box-sizing: border-box;
+}
+
+@media (min-width: 992px) {
+    .modal__overlay {
+        padding-top: 0;
+    }
+    .modal__container {
+        margin-top: 5%;
+    }
 }
 
 @media (min-width: 768px) {
@@ -127,8 +135,7 @@
     transition: transform .25s ease-out, -webkit-transform .25s ease-out;
 }
 
-.modal__btn:focus,
-.modal__btn:hover {
+.modal__btn:focus, .modal__btn:hover {
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
 }
@@ -137,7 +144,6 @@
     background-color: #00449e;
     color: #fff;
 }
-
 
 /**************************\
     Demo Animation Style
@@ -203,11 +209,9 @@
     animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
 }
 
-.micromodal-slide .modal__container,
-.micromodal-slide .modal__overlay {
+.micromodal-slide .modal__container, .micromodal-slide .modal__overlay {
     will-change: transform;
 }
-
 
 /* form */
 
@@ -356,8 +360,7 @@
     max-width: 290px;
 }
 
-.popup-woay .box-btn-2,
-.popup-woay .box-btn-3 {
+.popup-woay .box-btn-2, .popup-woay .box-btn-3 {
     margin-left: -5px;
     margin-right: -5px;
     display: flex;
