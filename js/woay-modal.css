@@ -397,7 +397,7 @@
 }
 
 .popup-woay .w-form-group {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .popup-woay .w-form-group label {
@@ -701,9 +701,6 @@ select.floating-select::-ms-expand {
     }
     .popup-woay .title-popup {
         font-size: 16px;
-    }
-    .popup-woay .w-form-group {
-        margin-bottom: 15px;
     }
 }
 
