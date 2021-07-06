@@ -8,7 +8,8 @@
     transition: 0.4s all;
 }
 
-.w-modal button:focus, .w-modal button:hover {
+.w-modal button:focus,
+.w-modal button:hover {
     outline: none !important;
 }
 
@@ -133,7 +134,8 @@
     transition: transform .25s ease-out, -webkit-transform .25s ease-out;
 }
 
-.modal__btn:focus, .modal__btn:hover {
+.modal__btn:focus,
+.modal__btn:hover {
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
 }
@@ -142,6 +144,7 @@
     background-color: #00449e;
     color: #fff;
 }
+
 
 /**************************\
     Demo Animation Style
@@ -207,9 +210,11 @@
     animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
 }
 
-.micromodal-slide .modal__container, .micromodal-slide .modal__overlay {
+.micromodal-slide .modal__container,
+.micromodal-slide .modal__overlay {
     will-change: transform;
 }
+
 
 /* form */
 
@@ -355,7 +360,8 @@
     max-width: 290px;
 }
 
-.popup-woay .box-btn-2, .popup-woay .box-btn-3 {
+.popup-woay .box-btn-2,
+.popup-woay .box-btn-3 {
     margin-left: -5px;
     margin-right: -5px;
     display: flex;
@@ -445,6 +451,7 @@
     cursor: pointer;
 }
 
+
 /* Floating label */
 
 .floating-form-content {
@@ -467,7 +474,8 @@
     -webkit-transition: 0.2s ease all;
 }
 
-.floating-input, .floating-select {
+.floating-input,
+.floating-select {
     font-size: 13px;
     display: block;
     width: 100%;
@@ -479,11 +487,13 @@
     box-sizing: border-box;
 }
 
-.floating-input:focus, .floating-select:focus {
+.floating-input:focus,
+.floating-select:focus {
     outline: none;
 }
 
-.floating-input:focus~.floating-label, .floating-select:focus~.floating-label {
+.floating-input:focus~.floating-label,
+.floating-select:focus~.floating-label {
     top: -10px;
     font-size: 13px;
 }
@@ -513,23 +523,21 @@ select.floating-select::-ms-expand {
     font-size: 13px;
 }
 
-.error input, input.error {
+.error input,
+input.error {
     border: 1px solid red;
     color: red !important;
 }
 
 .w-error-log {
-    padding: 9px 7px 2px !important;
-    font-size: 10px;
-    line-height: 12px;
-    color: red;
-    position: relative;
+    color: #242628;
+    position: absolute;
     z-index: 1;
-    bottom: 0;
+    bottom: -16px !important;
     left: 5px !important;
     letter-spacing: 0;
-    opacity: 0;
     transition: all 0.4s;
+    opacity: 0;
 }
 
 .error .w-error-log {
@@ -653,7 +661,9 @@ select.floating-select::-ms-expand {
 }
 
 @media (max-width: 991px) {
-    .text-number-turns, .btn-check-reward, .info-more-vongquay .box-action a {
+    .text-number-turns,
+    .btn-check-reward,
+    .info-more-vongquay .box-action a {
         font-size: 16px;
     }
     .text-number-turns {
