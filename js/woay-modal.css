@@ -2,22 +2,22 @@
   Basic Modal Styles
 \**************************/
 
-.woay-modal {
+.w-modal {
     font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
     z-index: 99;
     transition: 0.4s all;
 }
 
-.woay-modal button:focus, .woay-modal button:hover {
+.w-modal button:focus, .w-modal button:hover {
     outline: none !important;
 }
 
-.woay-modal a {
+.w-modal a {
     text-decoration: none;
     box-sizing: border-box;
 }
 
-.woay-modal input {
+.w-modal input {
     box-sizing: border-box;
 }
 
@@ -213,12 +213,12 @@
 
 /* form */
 
-.woay-form-group {
+.w-form-group {
     margin-bottom: 15px;
     position: relative;
 }
 
-.woay-form-group label {
+.w-form-group label {
     display: inline-block;
     max-width: 100%;
     margin-bottom: 5px;
@@ -226,7 +226,7 @@
     font-size: 14px;
 }
 
-.woay-form-control {
+.w-form-control {
     display: block;
     width: 100%;
     height: 34px;
@@ -396,16 +396,16 @@
     background: #27AE60;
 }
 
-.popup-woay .woay-form-group {
+.popup-woay .w-form-group {
     margin-bottom: 20px;
 }
 
-.popup-woay .woay-form-group label {
+.popup-woay .w-form-group label {
     font-weight: normal;
     font-size: 12px;
 }
 
-.popup-woay .woay-form-control {
+.popup-woay .w-form-control {
     height: 45px;
 }
 
@@ -625,6 +625,33 @@ select.floating-select::-ms-expand {
     background-color: #FF8144;
 }
 
+#w-no-item-left {
+    font-size: 15px;
+}
+
+#w-no-item-left .modal__content {
+    background: url('${background}');
+    text-align: center;
+    padding: 40px 40px 50px;
+}
+
+#w-no-item-left .modal__content .title-login {
+    margin-bottom: 25px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+#w-no-item-left .close {
+    opacity: 1;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+#w-no-item-left .close i {
+    color: #8a8a8a;
+}
+
 @media (max-width: 991px) {
     .text-number-turns, .btn-check-reward, .info-more-vongquay .box-action a {
         font-size: 16px;
@@ -652,6 +679,18 @@ select.floating-select::-ms-expand {
     }
 }
 
+@media (min-width: 768px) {
+    #w-no-item-left .modal-container {
+        width: 600px;
+    }
+}
+
+@media(max-width: 767px) {
+    #w-no-item-left .modal__content {
+        padding: 40px 20px;
+    }
+}
+
 @media(max-width: 575px) {
     .popup-woay .close {
         top: 5px;
@@ -663,8 +702,21 @@ select.floating-select::-ms-expand {
     .popup-woay .title-popup {
         font-size: 16px;
     }
-    .popup-woay .woay-form-group {
+    .popup-woay .w-form-group {
         margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    #w-no-item-left .modal__close {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 380px) {
+    #w-no-item-left .modal__content .title-login {
+        font-size: 17px;
     }
 }
 
