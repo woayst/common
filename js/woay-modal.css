@@ -406,7 +406,7 @@
 }
 
 .popup-woay .woay-form-control {
-    height: 40px;
+    height: 45px;
 }
 
 .popup-woay .noti-submit {
@@ -468,10 +468,9 @@
 }
 
 .floating-input, .floating-select {
-    font-size: 12px;
+    font-size: 13px;
     display: block;
     width: 100%;
-    height: 36px;
     padding: 0 20px;
     background: #fff;
     color: #323840;
@@ -512,6 +511,145 @@ select.floating-select::-ms-expand {
 .floating-select[value=""]:focus~.floating-label {
     top: 11px;
     font-size: 13px;
+}
+
+.error input, input.error {
+    border: 1px solid red;
+    color: red !important;
+}
+
+.w-error-log {
+    padding: 9px 7px 2px !important;
+    font-size: 10px;
+    line-height: 12px;
+    color: red;
+    position: relative;
+    z-index: 1;
+    bottom: 0;
+    left: 5px !important;
+    letter-spacing: 0;
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+.error .w-error-log {
+    opacity: 1;
+}
+
+.w-error-alert {
+    color: red;
+    opacity: 0;
+    font-size: 14px;
+    text-align: center;
+}
+
+.w-box-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.w-box-img img {
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#w-award .modal__container {
+    background: white;
+    background-size: cover;
+    text-align: center;
+}
+
+#w-text-code:focus {
+    outline: none;
+}
+
+.info-more-vongquay {
+    margin-bottom: 40px;
+}
+
+.info-more-vongquay a:hover {
+    text-decoration: none;
+}
+
+.text-number-turns {
+    font-weight: 900;
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 15px;
+    text-shadow: -1px -1px 0px #3c4915, 1px -1px 0px #3c4915, -1px 1px 0px #3c4915, 1px 1px 0px #3c4915;
+}
+
+.text-number-turns span {
+    color: #FAC53B;
+    font-size: 40px;
+    text-shadow: -1px -1px 0px #3c4915, 1px -1px 0px #3c4915, -1px 1px 0px #3c4915, 1px 1px 0px #3c4915;
+}
+
+.btn-check-reward {
+    display: block;
+    font-weight: 500;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.info-more-vongquay .box-action .box-btn {
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.info-more-vongquay .box-action a {
+    display: inline-block;
+    padding: 16px 80px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.info-more-vongquay .box-action a:last-child {
+    margin-right: 0;
+}
+
+.box-action .btn-play {
+    background-color: #FAC53B;
+    color: #000;
+}
+
+.box-action .btn-add-turn {
+    color: #fff;
+    background-color: #FF8144;
+}
+
+@media (max-width: 991px) {
+    .text-number-turns, .btn-check-reward, .info-more-vongquay .box-action a {
+        font-size: 16px;
+    }
+    .text-number-turns {
+        margin-bottom: 10px;
+    }
+    .text-number-turns span {
+        font-size: 18px;
+    }
+    .btn-check-reward {
+        margin-bottom: 20px;
+    }
+    .info-more-vongquay .box-action {
+        margin: 0 -10px;
+    }
+    .info-more-vongquay .box-action .box-btn {
+        width: 49%;
+        padding: 0 10px;
+    }
+    .info-more-vongquay .box-action a {
+        padding: 10px 26px;
+        width: 100%;
+        text-decoration: none;
+    }
 }
 
 @media(max-width: 575px) {
