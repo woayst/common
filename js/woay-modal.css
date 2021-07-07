@@ -214,11 +214,11 @@
     will-change: transform;
 }
 
-<<<<<<< HEAD=======.w-modal .description {
+w-modal .description {
     margin-bottom: 1rem;
 }
 
->>>>>>>21a92b9 (update woay-modal)
+
 /* form */
 
 .w-form-group {
@@ -675,7 +675,7 @@ input.error {
     color: red;
     position: absolute;
     right: 5px;
-    bottom: 5px;
+    top: 0;
 }
 
 [class*=btn] {
