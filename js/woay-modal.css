@@ -8,7 +8,8 @@
     transition: 0.4s all;
 }
 
-.w-modal button:focus, .w-modal button:hover {
+.w-modal button:focus,
+.w-modal button:hover {
     outline: none !important;
 }
 
@@ -132,7 +133,8 @@
     transition: transform .25s ease-out, -webkit-transform .25s ease-out;
 }
 
-.modal__btn:focus, .modal__btn:hover {
+.modal__btn:focus,
+.modal__btn:hover {
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
 }
@@ -141,6 +143,7 @@
     background-color: #00449e;
     color: #fff;
 }
+
 
 /**************************\
     Demo Animation Style
@@ -206,18 +209,16 @@
     animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
 }
 
-.w-modal .modal__container, .w-modal .modal__overlay {
+.w-modal .modal__container,
+.w-modal .modal__overlay {
     will-change: transform;
 }
 
-<<<<<<< HEAD
-=======
-.w-modal .description {
+<<<<<<< HEAD=======.w-modal .description {
     margin-bottom: 1rem;
 }
 
-
->>>>>>> 21a92b9 (update woay-modal)
+>>>>>>>21a92b9 (update woay-modal)
 /* form */
 
 .w-form-group {
@@ -296,7 +297,8 @@
     text-align: center;
 }
 
-.w-modal .modal__content, .w-modal .modal__footer {
+.w-modal .modal__content,
+.w-modal .modal__footer {
     padding: 10px 40px;
 }
 
@@ -358,7 +360,8 @@
     margin-right: 5px;
 }
 
-.w-modal .box-btn-2, .w-modal .box-btn-3 {
+.w-modal .box-btn-2,
+.w-modal .box-btn-3 {
     margin-left: -5px;
     margin-right: -5px;
     display: flex;
@@ -373,7 +376,8 @@
     flex: 1;
 }
 
-.w-modal .box-btn-2 .btn-popup, .w-modal .box-btn-3 .btn-popup {
+.w-modal .box-btn-2 .btn-popup,
+.w-modal .box-btn-3 .btn-popup {
     margin-left: 5px;
     margin-right: 5px;
 }
@@ -439,11 +443,13 @@
     cursor: pointer;
 }
 
+
 /* Floating label */
 
 .w-form-group.floating {
     position: relative;
     margin: 0 0 2rem;
+    border: 1px solid #3D85D8;
 }
 
 .w-form-group.floating label {
@@ -452,8 +458,8 @@
     font-weight: normal;
     position: absolute;
     pointer-events: none;
-    left: 10px;
-    top: 8px;
+    left: 5px;
+    top: 0px;
     background: #fff;
     padding: 0 5px;
     transition: 0.2s ease all;
@@ -461,7 +467,8 @@
     -webkit-transition: 0.2s ease all;
 }
 
-.w-form-group.floating input, .w-form-group.floating select {
+.w-form-group.floating input,
+.w-form-group.floating select {
     font-size: 16px;
     height: 40px;
     display: block;
@@ -469,16 +476,22 @@
     padding: 0 20px;
     background: #fff;
     color: #323840;
-    border: 1px solid #3D85D8;
+    border: none !important;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
-.w-form-group.floating input:focus, .w-form-group.floating select:focus {
+.w-form-group.floating select {
+    width: calc(100% - 5px);
+}
+
+.w-form-group.floating input:focus,
+.w-form-group.floating select:focus {
     outline: none;
 }
 
-.w-form-group.floating input:focus~label, .w-form-group.floating select~label {
+.w-form-group.floating input:focus~label,
+.w-form-group.floating select~label {
     top: -10px;
     font-size: 13px;
 }
@@ -502,7 +515,8 @@
     font-size: 13px;
 }
 
-.error input, input.error {
+.error input,
+input.error {
     border: 1px solid red;
 }
 
@@ -610,7 +624,9 @@
 }
 
 @media (max-width: 991px) {
-    .text-number-turns, .btn-check-reward, .info-more-vongquay .box-action a {
+    .text-number-turns,
+    .btn-check-reward,
+    .info-more-vongquay .box-action a {
         font-size: 16px;
     }
     .text-number-turns {
