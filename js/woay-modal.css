@@ -104,10 +104,6 @@
     font-size: 14px;
 }
 
-.modal__content .description {
-    margin-bottom: 10px;
-}
-
 .modal__btn {
     font-size: .875rem;
     padding-left: 1rem;
@@ -214,7 +210,7 @@
     will-change: transform;
 }
 
-.w-modal .description {
+.w-modal p[w-role="description"] {
     margin-bottom: 1rem;
 }
 
@@ -228,7 +224,6 @@
 .w-form-group label {
     display: inline-block;
     max-width: 100%;
-    margin-bottom: 5px;
     font-weight: 700;
     font-size: 14px;
 }
@@ -464,7 +459,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     position: absolute;
     pointer-events: none;
     left: 5px;
-    top: 0px;
+    top: 10px;
     background: #fff;
     padding: 0 5px;
     transition: 0.2s ease all;
@@ -691,7 +686,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     color: red;
     position: absolute;
     right: 5px;
-    top: 0;
+    top: 13px;
 }
 
 [class*=btn] {
