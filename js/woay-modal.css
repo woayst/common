@@ -430,6 +430,7 @@
 .w-modal .text-tutorial {
     color: #9F9F9F;
     text-align: center;
+    margin: 10px 0;
 }
 
 .w-modal .close {
@@ -669,8 +670,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     .w-modal .modal__content, .w-modal .modal__footer {
         padding: 15px;
     }
-    .w-modal .text-tutorial {
-        margin: 10px 0;
+    .w-modal .text-tutorial span {
         font-size: 14px;
     }
 }
