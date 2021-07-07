@@ -444,7 +444,7 @@
 
 .w-form-group.floating {
     position: relative;
-    margin: 1em 0;
+    margin: 0 0 2rem;
 }
 
 .w-form-group.floating label {
@@ -487,12 +487,6 @@
     font-size: 13px;
 }
 
-.w-form-group.floating select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-}
-
 .w-form-group.floating select::-ms-expand {
     display: none;
 }
@@ -515,11 +509,10 @@
 .error input,
 input.error {
     border: 1px solid red;
-    color: red !important;
 }
 
 .w-error-log {
-    color: #242628;
+    color: red;
     position: absolute;
     z-index: 1;
     left: 5px !important;
