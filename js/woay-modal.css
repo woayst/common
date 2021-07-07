@@ -214,7 +214,7 @@
     will-change: transform;
 }
 
-w-modal .description {
+.w-modal .description {
     margin-bottom: 1rem;
 }
 
