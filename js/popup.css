@@ -1,0 +1,358 @@
+#w-popup-section {
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    transition: all 0.7s;
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#w-popup-section a {
+    text-decoration: none;
+}
+
+#w-popup-section a:hover {
+    opacity: 0.8;
+}
+
+#w-popup-section button:focus,
+#w-popup-section button:hover {
+    outline: none;
+    box-sizing: border-box;
+}
+
+#w-popup-container {
+    background: #0077cb;
+    position: relative;
+    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden !important;
+    z-index: 10;
+    top: 0;
+    left: -50%;
+    transition: all 0.7s;
+    width: 80%;
+    min-height: 100vh;
+    max-width: 790px;
+    padding: 15px;
+    box-sizing: border-box;
+    box-shadow: 5px 2px 60px 0px #000;
+}
+
+#w-popup-close {
+    top: 0;
+    right: 0;
+    height: 100%;
+    position: relative;
+    flex: 1;
+}
+
+#w-popup-section #vongquaymayman {
+    margin: 0;
+    position: absolute;
+    width: 75%;
+    max-height: 90%;
+    left: 43%;
+    top: 50%;
+    transform: translate(-100%, -50%);
+}
+
+#w-popup-userinfo-form {
+    width: 46%;
+    top: 0;
+    right: 0;
+    padding: 15% 5% 5% 0;
+    position: absolute;
+    color: white;
+    opacity: 1;
+    visibility: visible;
+    transition: 0.4s all;
+    /* display: none; */
+}
+
+#w-popup-userinfo-form h4 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+#w-popup-userinfo-form-submit-btn {
+    margin-top: 10px;
+    background: #fffffe;
+    color: #823435;
+    font-size: 16px;
+    letter-spacing: 2px;
+    padding: 0;
+    height: 36px;
+    line-height: 36px;
+    width: 100%;
+    opacity: 1;
+    border: none;
+    border-radius: 3px;
+    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+#w-popup-reward {
+    width: 46%;
+    top: 0;
+    right: 0;
+    padding: 15% 5% 5% 0;
+    position: absolute;
+    color: white;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.4s all;
+}
+
+#w-popup-section .w-btn-wrapper {
+    clear: both;
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#w-popup-section .w-btn-wrapper .w-btn {
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+
+#w-popup-section .w-buy-btn {
+    color: #cb2228;
+    border: 1px solid #cb2228;
+    margin-right: 10px;
+    background: white;
+}
+
+#w-popup-section .w-btn-screenshot {
+    background-color: #749366;
+    margin-top: 10px;
+    color: white;
+    margin-right: 10px;
+}
+
+#w-popup-section .w-btn-inbox {
+    background-color: #cb2228;
+    color: white;
+}
+
+x #w-popup-reward .title-voucher {
+    font-size: 20px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+#w-popup-reward .title-big {
+    font-size: 38px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+#w-popup-section .award-image {
+    max-width: 50%;
+    max-height: 100px;
+    margin-bottom: 15px;
+}
+
+#w-popup-reward .input-code {
+    position: relative;
+    margin: 0 auto;
+}
+
+#wheel-coupon-title {
+    text-align: center;
+    margin-top: 30px;
+    padding-right: 53px;
+}
+
+#w-popup-reward .text-guide {
+    max-width: 440px;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+#w-popup-reward .copy-code {
+    background: #f2f2f2;
+    border-radius: 4px;
+    padding: 10px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+#w-popup-reward #w-text-code {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    flex: 1;
+    margin-right: 10px;
+    color: #242628;
+}
+
+#w-popup-reward #btn-copy-code {
+    text-align: right;
+    width: 40%;
+    color: #454644;
+    text-decoration: underline;
+}
+
+#w-popup-reward .box-btn {
+    display: flex;
+}
+
+#w-popup-reward .btn-popup {
+    box-shadow: 0px 4px 6px rgba(36, 38, 40, 0.15);
+    border-radius: 4px;
+    display: inline-block;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    padding: 11px 10px;
+    text-align: center;
+    cursor: pointer;
+    background: #242628;
+    flex: 1;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#w-form-award {
+    width: 95%;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #bbbb;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 1px 5px 5px #777;
+}
+
+@media (min-width: 768px) {
+    #w-popup-reward .box-btn {
+        margin: 0px auto;
+    }
+}
+
+@media (min-width: 581px) {
+    #w-popup-rewar .box-btn .btn-login-fb:first-child {
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 991px) {
+    #w-popup-reward .title-voucher {
+        font-size: 28px;
+    }
+    #w-popup-reward .title-big {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 767px) {
+    #w-popup-reward .box-btn {
+        width: 100%;
+        margin-top: 20px;
+    }
+    #w-popup-section #vongquaymayman {
+        position: relative;
+        width: 90%;
+        max-height: 90%;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    #w-popup-reward .text-guide {
+        font-size: 13px;
+    }
+    #w-popup-reward .title-voucher {
+        font-size: 22px;
+    }
+    #w-popup-reward .title-big {
+        font-size: 25px;
+    }
+}
+
+.w-popup-close-btn-wrapper {
+    margin-top: 40px;
+    font-size: 14px;
+    width: 100%;
+    text-align: right;
+    opacity: 0.4;
+    text-shadow: 0 -1px 0 #000;
+    background: #242628;
+    width: max-content;
+    float: right;
+    padding: 0 10px;
+    border-radius: 5px;
+}
+
+.w-popup-close-btn-wrapper:hover {
+    opacity: 0.8;
+}
+
+.w-popup-close-btn {
+    line-height: 35px;
+    cursor: pointer;
+    padding-right: 14px;
+}
+
+#w-popup-userinfo-form-submit-btn:hover {
+    opacity: 0.6;
+}
+
+.w-x-icon {
+    display: inline-block;
+    position: relative;
+    width: 35px;
+    height: 35px;
+    border-width: 0px;
+    border-style: solid;
+    cursor: pointer;
+    float: right;
+}
+
+.w-x-icon::after {
+    content: "";
+    position: absolute;
+    left: 25%;
+    width: 70%;
+    border-top-style: solid;
+    border-color: inherit;
+    border-width: 1px;
+    transform: rotate(45deg);
+    top: 50%;
+}
+
+.w-x-icon::before {
+    content: "";
+    position: absolute;
+    left: 25%;
+    width: 70%;
+    border-top-style: solid;
+    border-color: inherit;
+    border-width: 1px;
+    transform: rotate(-45deg);
+    bottom: 46%;
+}
+
+#w-popup-reward input:focus {
+    outline: none;
+}
+
+
+/* fix pop-up close */
+
+.hidden {
+    display: none !important;
+}
