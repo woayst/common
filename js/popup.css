@@ -22,8 +22,7 @@
     opacity: 0.8;
 }
 
-#w-popup-section button:focus,
-#w-popup-section button:hover {
+#w-popup-section button:focus, #w-popup-section button:hover {
     outline: none;
     box-sizing: border-box;
 }
@@ -50,8 +49,9 @@
     top: 0;
     right: 0;
     height: 100%;
-    position: relative;
-    flex: 1;
+    width: 100%;
+    position: fixed;
+    display: block;
 }
 
 #w-popup-section #vongquaymayman {
@@ -196,6 +196,7 @@ x #w-popup-reward .title-voucher {
     flex: 1;
     margin-right: 10px;
     color: #242628;
+    width: 100%;
 }
 
 #w-popup-reward #btn-copy-code {
@@ -221,8 +222,7 @@ x #w-popup-reward .title-voucher {
     cursor: pointer;
     background: #242628;
     flex: 1;
-    margin-right: 5px;
-    margin-left: 5px;
+    margin: 5px;
 }
 
 #w-form-award {
@@ -236,55 +236,8 @@ x #w-popup-reward .title-voucher {
     box-shadow: 1px 5px 5px #777;
 }
 
-@media (min-width: 768px) {
-    #w-popup-reward .box-btn {
-        margin: 0px auto;
-    }
-}
-
-@media (min-width: 581px) {
-    #w-popup-rewar .box-btn .btn-login-fb:first-child {
-        margin-right: 10px;
-    }
-}
-
-@media (max-width: 991px) {
-    #w-popup-reward .title-voucher {
-        font-size: 28px;
-    }
-    #w-popup-reward .title-big {
-        font-size: 34px;
-    }
-}
-
-@media (max-width: 767px) {
-    #w-popup-reward .box-btn {
-        width: 100%;
-        margin-top: 20px;
-    }
-    #w-popup-section #vongquaymayman {
-        position: relative;
-        width: 90%;
-        max-height: 90%;
-        margin: auto;
-        margin-bottom: 20px;
-    }
-}
-
-@media (max-width: 480px) {
-    #w-popup-reward .text-guide {
-        font-size: 13px;
-    }
-    #w-popup-reward .title-voucher {
-        font-size: 22px;
-    }
-    #w-popup-reward .title-big {
-        font-size: 25px;
-    }
-}
-
 .w-popup-close-btn-wrapper {
-    margin-top: 40px;
+    margin-top: 20px;
     font-size: 14px;
     width: 100%;
     text-align: right;
@@ -350,9 +303,144 @@ x #w-popup-reward .title-voucher {
     outline: none;
 }
 
-
 /* fix pop-up close */
 
 .hidden {
     display: none !important;
+}
+
+/* Add on css from popup.js */
+
+.countdown-wrapper {
+    display: block;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+    z-index: 990;
+    background: #5e42eb;
+    color: #fff;
+}
+
+.countdown-wrapper .close {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    right: 0;
+    font-size: 150%;
+    line-height: 150%;
+    opacity: 0.3;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.countdown-wrapper .countdown {
+    margin: 0 10px;
+    font-size: 22px;
+    font-weight: normal;
+    vertical-align: -2px;
+    letter-spacing: 2px;
+}
+
+.w-popup-close-btn-wrapper {
+    text-align: center;
+    width: 100%;
+    padding: 0;
+}
+
+.w-popup-close-btn {
+    padding: 0;
+}
+
+#w-popup-section #vongquaymayman {
+    top: 50%;
+    left: 45%;
+    position: absolute;
+}
+
+#w-popup-userinfo-form .w-error-log {
+    padding-top: 5px;
+}
+
+@media (max-width: 991px) {
+    #w-popup-reward .title-voucher {
+        font-size: 28px;
+    }
+    #w-popup-reward .title-big {
+        font-size: 34px;
+    }
+}
+
+@media (max-width: 767px) {
+    #w-popup-reward .box-btn {
+        width: 100%;
+        display: block;
+    }
+    #w-popup-section #vongquaymayman {
+        width: 90%;
+        max-height: 90%;
+        margin: auto;
+        margin-bottom: 20px;
+    }
+    #w-popup-reward, #w-popup-userinfo-form {
+        padding-top: 5%;
+    }
+    #w-popup-reward #w-text-code {
+        margin-right: 0;
+    }
+    #w-popup-reward #btn-copy-code {
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px) {
+    #w-popup-reward .box-btn {
+        margin: 0px auto;
+    }
+}
+
+@media (min-width: 581px) {
+    #w-popup-rewar .box-btn .btn-login-fb:first-child {
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    #w-popup-reward .text-guide {
+        font-size: 13px;
+    }
+    #w-popup-reward .title-voucher {
+        font-size: 14px;
+    }
+    .voucher-content span {
+        font-size: 14px !important;
+    }
+    #w-popup-reward .title-big {
+        font-size: 18px;
+    }
+    #w-popup-reward #btn-copy-code {
+        width: 100%;
+    }
+    #w-popup-container {
+        width: 90%;
+    }
+    #w-popup-userinfo-form h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    #w-popup-userinfo-form .w-error-log {
+        font-size: 12px;
+    }
+    #w-popup-reward .btn-popup {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 320px) {
+    #w-popup-userinfo-form .w-error-log {
+        font-size: 10px;
+    }
 }
