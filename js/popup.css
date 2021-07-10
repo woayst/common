@@ -22,7 +22,8 @@
     opacity: 0.8;
 }
 
-#w-popup-section button:focus, #w-popup-section button:hover {
+#w-popup-section button:focus,
+#w-popup-section button:hover {
     outline: none;
     box-sizing: border-box;
 }
@@ -303,11 +304,13 @@ x #w-popup-reward .title-voucher {
     outline: none;
 }
 
+
 /* fix pop-up close */
 
 .hidden {
     display: none !important;
 }
+
 
 /* Add on css from popup.js */
 
@@ -384,7 +387,8 @@ x #w-popup-reward .title-voucher {
         margin: auto;
         margin-bottom: 20px;
     }
-    #w-popup-reward, #w-popup-userinfo-form {
+    #w-popup-reward,
+    #w-popup-userinfo-form {
         padding-top: 5%;
     }
     #w-popup-reward #w-text-code {
@@ -442,4 +446,8 @@ x #w-popup-reward .title-voucher {
     #w-popup-userinfo-form .w-error-log {
         font-size: 10px;
     }
+}
+
+.badluck .hide-badluck {
+    display: none !important;
 }
