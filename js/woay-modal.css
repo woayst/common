@@ -8,8 +8,7 @@
     transition: 0.4s all;
 }
 
-.w-modal button:focus,
-.w-modal button:hover {
+.w-modal button:focus, .w-modal button:hover {
     outline: none !important;
 }
 
@@ -124,8 +123,7 @@
     transition: transform .25s ease-out, -webkit-transform .25s ease-out;
 }
 
-.modal__btn:focus,
-.modal__btn:hover {
+.modal__btn:focus, .modal__btn:hover {
     -webkit-transform: scale(1.05);
     transform: scale(1.05);
 }
@@ -134,7 +132,6 @@
     background-color: #00449e;
     color: #fff;
 }
-
 
 /**************************\
     Demo Animation Style
@@ -200,15 +197,13 @@
     animation: mmslideOut .3s cubic-bezier(0, 0, .2, 1);
 }
 
-.w-modal .modal__container,
-.w-modal .modal__overlay {
+.w-modal .modal__container, .w-modal .modal__overlay {
     will-change: transform;
 }
 
 .w-modal p[w-role="description"] {
     margin-bottom: 1rem;
 }
-
 
 /* form */
 
@@ -287,8 +282,7 @@
     text-align: center;
 }
 
-.w-modal .modal__content,
-.w-modal .modal__footer {
+.w-modal .modal__content, .w-modal .modal__footer {
     padding: 10px 40px;
 }
 
@@ -350,8 +344,7 @@
     margin-right: 5px;
 }
 
-.w-modal .box-btn-2,
-.w-modal .box-btn-3 {
+.w-modal .box-btn-2, .w-modal .box-btn-3 {
     margin-left: -5px;
     margin-right: -5px;
     display: flex;
@@ -366,8 +359,7 @@
     flex: 1;
 }
 
-.w-modal .box-btn-2 .btn-popup,
-.w-modal .box-btn-3 .btn-popup {
+.w-modal .box-btn-2 .btn-popup, .w-modal .box-btn-3 .btn-popup {
     margin-left: 5px;
     margin-right: 5px;
 }
@@ -420,7 +412,7 @@
 }
 
 .w-modal .copy-code .btn-copy {
-    text-align: right;
+    text-align: center;
     width: 40%;
     color: #454644;
     text-decoration: underline;
@@ -436,22 +428,12 @@
     cursor: pointer;
 }
 
-
 /* Change autocomplete styles in WebKit */
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, textarea:-webkit-autofill, textarea:-webkit-autofill:hover, textarea:-webkit-autofill:focus, select:-webkit-autofill, select:-webkit-autofill:hover, select:-webkit-autofill:focus {
     -webkit-box-shadow: 0 0 0px 1000px #fff inset;
     transition: background-color 5000s ease-in-out 0s;
 }
-
 
 /* Floating label */
 
@@ -476,8 +458,7 @@ select:-webkit-autofill:focus {
     -webkit-transition: 0.2s ease all;
 }
 
-.w-form-group.floating input,
-.w-form-group.floating select {
+.w-form-group.floating input, .w-form-group.floating select {
     font-size: 16px;
     height: 40px;
     display: block;
@@ -503,13 +484,11 @@ select:-webkit-autofill:focus {
     width: calc(100% - 5px);
 }
 
-.w-form-group.floating input:focus,
-.w-form-group.floating select:focus {
+.w-form-group.floating input:focus, .w-form-group.floating select:focus {
     outline: none;
 }
 
-.w-form-group.floating input:focus~label,
-.w-form-group.floating select~label {
+.w-form-group.floating input:focus~label, .w-form-group.floating select~label {
     top: -10px;
     font-size: 13px;
 }
@@ -533,8 +512,7 @@ select:-webkit-autofill:focus {
     font-size: 13px;
 }
 
-.error input,
-input.error {
+.error input, input.error {
     border: 1px solid red;
 }
 
@@ -643,9 +621,7 @@ input.error {
 }
 
 @media (max-width: 991px) {
-    .text-number-turns,
-    .btn-check-reward,
-    .info-more-vongquay .box-action a {
+    .text-number-turns, .btn-check-reward, .info-more-vongquay .box-action a {
         font-size: 16px;
     }
     .text-number-turns {
@@ -682,8 +658,7 @@ input.error {
     .info-more-vongquay .box-action a {
         font-size: 12px;
     }
-    .w-modal .modal__content,
-    .w-modal .modal__footer {
+    .w-modal .modal__content, .w-modal .modal__footer {
         padding: 15px;
     }
     .w-modal .text-tutorial span {
@@ -708,7 +683,6 @@ input.error {
 [class*=btn] {
     cursor: pointer;
 }
-
 
 /*** LOADING  ***/
 
@@ -874,7 +848,6 @@ input.error {
     max-height: 40vh;
     overflow-y: auto;
 }
-
 
 /*** Custom Scrollbar ***/
 
