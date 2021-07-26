@@ -12,7 +12,9 @@
     outline: none !important;
 }
 
-.w-modal a {
+.w-modal a,
+#vongquaymayman a,
+.box-action a {
     text-decoration: none;
     box-sizing: border-box;
 }
