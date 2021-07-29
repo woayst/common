@@ -12,9 +12,7 @@
     outline: none !important;
 }
 
-.w-modal a,
-#vongquaymayman a,
-.box-action a {
+.w-modal a, #vongquaymayman a, .box-action a {
     text-decoration: none;
     box-sizing: border-box;
 }
@@ -868,4 +866,14 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     border-radius: 10px;
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background-color: #bcc0c4;
+}
+
+.reward-list {
+    text-align: center;
+}
+
+.reward-list .item-reward {
+    display: flex;
+    align-item: center;
+    justify-content: space-between;
 }
