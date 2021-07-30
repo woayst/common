@@ -877,3 +877,11 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     align-item: center;
     justify-content: space-between;
 }
+
+.w-modal .btn-hotline {
+    background: #2D9CDB;
+}
+
+.w-modal .btn-submit {
+    background: #F2994A;
+}
