@@ -885,3 +885,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .w-modal .btn-submit {
     background: #F2994A;
 }
+
+#lixi-game canvas {
+    width: 100%;
+}
