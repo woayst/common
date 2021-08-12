@@ -45,6 +45,18 @@
     box-sizing: border-box;
 }
 
+@media (max-width: 1400px) {
+    .modal__container {
+        margin-top: 5%;
+    }
+}
+
+@media (max-width: 767px) {
+    .modal__container {
+        margin-top: 10%;
+    }
+}
+
 @media (min-width: 768px) {
     .modal__container {
         width: 600px;
