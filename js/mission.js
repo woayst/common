@@ -72,11 +72,11 @@ function renderMissions(missions, template_id) {
     var $ = Woay.$;
     $('#mission-list').html('');
     var hasMissionActive = false;
-    missions.forEach(function (mission) {
+    for (var mission in missions) {
         if (mission.active) {
             hasMissionActive = true;
             mission.isDone = false;
             $('#mission-list').append(tmpl(template_id, mission))
         }
-    })
+    }
 }
