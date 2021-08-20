@@ -44,11 +44,11 @@ function getMission() {
     var endpoint = BASE_URL + '/api.wheel/' + WHEEL_ID + '/mission-data';
     var $ = $$woay.$;
     $$woay.http.get(endpoint)
-        .then(function(resp) {
+        .then(function (resp) {
             if (resp && resp.data && resp.data.missions) {
                 $('.mission').html('');
                 var hasMissionActive = false;
-                resp.data.missions.forEach(function(mission, index) {
+                resp.data.missions.forEach(function (mission, index) {
                     if (mission.active) {
                         hasMissionActive = true;
                         mission.isDone = false;
@@ -62,7 +62,20 @@ function getMission() {
         })
     $('.mission').after(css);
 
-    $(document).on('click', '.mission-item', function() {
+    $(document).on('click', '.mission-item', function () {
         $(this).siblings('.mission-collapse-ctn').toggleClass('active');
+    })
+}
+/// Render mission
+function renderMissions(missions, template_id) {
+    console.log('missions', missions, 'template_id', template_id);
+    $('#mission-list').html('');
+    var hasMissionActive = false;
+    missions.forEach(function (mission) {
+        if (mission.active) {
+            hasMissionActive = true;
+            mission.isDone = false;
+            $('#mission-list').append(tmpl(template_id, mission))
+        }
     })
 }
