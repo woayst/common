@@ -69,6 +69,7 @@ function getMission() {
 /// Render mission
 function renderMissions(missions, template_id) {
     console.log('missions', missions, 'template_id', template_id);
+    var $ = Woay.$;
     $('#mission-list').html('');
     var hasMissionActive = false;
     missions.forEach(function (mission) {
