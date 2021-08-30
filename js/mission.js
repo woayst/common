@@ -1,11 +1,15 @@
 var enableMission = false;
 var wref = '';
-if (client.getParam('wref')) {
-    wref = client.getParam('wref');
+
+function checkParam() {
+    if (client.getParam('wref')) {
+        wref = client.getParam('wref');
+    }
 }
+checkParam();
 /// Render mission
 function renderMissions(missions, template_id) {
-    var $ = Woay.$;
+    var $ = Woay.$ || Flipcard.$ || Matching.$;
     var missions = client.mission.getAll();
     $('#mission-list').html('');
     var hasMissionActive = false;
