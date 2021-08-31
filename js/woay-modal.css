@@ -38,7 +38,7 @@
 .modal__container {
     background-color: #fff;
     width: 80%;
-    max-height: 80%;
+    max-height: 100%;
     margin-top: 10%;
     border-radius: 4px;
     overflow-y: auto;
@@ -65,7 +65,7 @@
 
 .modal__header {
     display: block;
-    padding: 15px;
+    padding: 10px;
     border-bottom: 1px solid #e5e5e5;
 }
 
@@ -671,7 +671,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         font-size: 12px;
     }
     .w-modal .modal__content, .w-modal .modal__footer {
-        padding: 15px;
+        padding: 10px;
     }
     .w-modal .text-tutorial span {
         font-size: 14px;
@@ -857,7 +857,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 
 .modal__content {
-    max-height: 40vh;
+    max-height: 35vh;
     overflow-y: auto;
 }
 
