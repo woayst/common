@@ -9,7 +9,7 @@ function checkParam() {
 checkParam();
 /// Render mission
 function renderMissions(missions, template_id) {
-    var $ = Woay.$ || Flipcard.$ || Matching.$;
+    var $ = client.$;
     var missions = client.mission.getAll();
     $('#mission-list').html('');
     var hasMissionActive = false;
