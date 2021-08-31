@@ -96,7 +96,7 @@ function missionComplete(name) {
             if (name !== 'register') {
                 console.log('show popup mission complete');
                 client.html.closeAllModal();
-                Woay.Modal.show('w-complete');
+                MicroModal.show('w-complete');
                 $('#w-complete .title-popup').html('Chúc mừng bạn đã nhận được ' + quantity + ' lượt');
             }
             $('.mission-' + name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
@@ -147,6 +147,10 @@ function processGoldHourMission() {
         $('.mission-gold_hour .btn-challenge a').html('Đã hoàn thành').addClass('active');
     }
 }
+
+$(document).on("click", '.btn-invite-friend', function () {
+    MicroModal.show('w-share');
+})
 
 $(document).on("click", '.btn-share-fb', function () {
     FB.ui({
