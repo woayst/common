@@ -39,6 +39,7 @@ client.eventBus.on('login-done', function () {
 
 function fetchAllMission() {
     var enableMission = true;
+    var $ = client.$;
     if (enableMission) {
         client.mission.fetchAll()
             .then(function () {
