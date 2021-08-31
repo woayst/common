@@ -162,3 +162,7 @@ $(document).on("click", '.btn-share-fb', function () {
         }
     });
 })
+
+$(document).on("click", '.my-copy-link-btn', function () {
+    client.copyToClipboard('#w-text-share-url');
+})
