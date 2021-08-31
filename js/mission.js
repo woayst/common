@@ -1,5 +1,6 @@
 var enableMission = false;
 var wref = '';
+var $ = client.$;
 
 function checkParam() {
     if (client.getParam('wref')) {
@@ -9,7 +10,6 @@ function checkParam() {
 checkParam();
 /// Render mission
 function renderMissions(missions, template_id) {
-    var $ = client.$;
     var missions = client.mission.getAll();
     $('#mission-list').html('');
     var hasMissionActive = false;
@@ -39,7 +39,7 @@ client.eventBus.on('login-done', function () {
 
 function fetchAllMission() {
     var enableMission = true;
-    var $ = client.$;
+
     if (enableMission) {
         client.mission.fetchAll()
             .then(function () {
@@ -55,7 +55,6 @@ function fetchAllMission() {
 }
 
 function fetchMission() {
-    var $ = client.$;
     var missions = client.mission.getAll();
     $('#w-text-share-url').val(getShareLink());
     console.log('missions', typeof missions);
@@ -67,7 +66,7 @@ function fetchMission() {
 }
 
 function deactiveDoneMissions() {
-    var $ = client.$;
+
     var missions = client.mission.getAll();
     console.log('deactive done mission');
     missions.forEach(function (mission) {
@@ -84,7 +83,7 @@ function removeHash(str) {
 }
 
 function missionComplete(name) {
-    var $ = client.$;
+
     if (!client.mission.isReady()) return;
     if (name === 'login' || name === 'invite_friend') {
         return;
@@ -117,7 +116,6 @@ function getShareLink() {
     return share_link_url + (uid ? '?wref=' + uid : '');
 }
 function processMissionAutoCompleteMission() {
-    var $ = client.$;
     var AUTO_COMPLETE_MISSIONS = ['login'];
     var player_id = client.user.get().player_id;
     console.log('player_id', player_id);
@@ -135,7 +133,6 @@ function processMissionAutoCompleteMission() {
 }
 
 function processGoldHourMission() {
-    var $ = client.$;
     var date = new Date();
     var GOLD_HOUR_START = 9;
     var GOLD_HOUR_END = 23;
