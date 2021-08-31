@@ -52,7 +52,6 @@ function fetchAllMission() {
             })
     }
 }
-fetchAllMission();
 
 function fetchMission() {
     var $ = client.$;
