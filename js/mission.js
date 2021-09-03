@@ -127,8 +127,9 @@ function processMissionAutoCompleteMission() {
 
 function processGoldHourMission() {
     var date = new Date();
-    var GOLD_HOUR_START = client.mission.get('gold_hour').meta.from;
-    var GOLD_HOUR_END = client.mission.get('gold_hour').meta.to;
+    var GOLD_HOUR_START = parseInt(client.mission.get('gold_hour').meta.from);
+    var GOLD_HOUR_END = parseInt(client.mission.get('gold_hour').meta.to);
+    console.log('gold_hour', GOLD_HOUR_START, GOLD_HOUR_END);
     var current_hour = date.getHours();
     var isValid = (GOLD_HOUR_START <= current_hour && current_hour < GOLD_HOUR_END);
     var isDone = client.mission.get('gold_hour').isDone;
