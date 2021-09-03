@@ -1,4 +1,5 @@
 var enableMission = false;
+var wref = '';
 var $ = client.$;
 
 /// Render mission
@@ -59,6 +60,7 @@ function fetchMission() {
 }
 
 function deactiveDoneMissions() {
+
     var missions = client.mission.getAll();
     console.log('deactive done mission');
     missions.forEach(function (mission) {
@@ -96,7 +98,7 @@ function missionComplete(name) {
             client.updateTurnCount();
         }).catch(function (err) {
             console.log(name, ' error');
-            client.checkError(err);
+            console.error(err);
         })
 }
 
@@ -109,16 +111,16 @@ function getShareLink() {
 }
 function processMissionAutoCompleteMission() {
     var AUTO_COMPLETE_MISSIONS = ['login'];
-    var player_id = client.user.get().player_id;
-    console.log('player_id', player_id);
+    var player_game_id = client.user.get().player_game_id;
+    console.log('player_game_id', player_game_id);
     AUTO_COMPLETE_MISSIONS.forEach(function (key) {
         var m = client.mission.get(key);
         console.log('m', m);
         console.log('m.isDone', m.isDone);
         if (m.active && !m.isDone) {
-            client.mission.complete(m.name, player_id);
+            client.mission.complete(m.name, player_game_id);
             $('.mission-' + m.name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
-            client.addTurnForMission(mission_name, quantity);
+            client.addTurnForMission(m.name, m.quantity);
             client.updateTurnCount();
         }
     })
