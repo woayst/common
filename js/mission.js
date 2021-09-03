@@ -79,8 +79,8 @@ function missionComplete(name) {
     if (name === 'invite_friend') {
         return;
     }
-    var player_id = client.user.get().player_id;
-    client.mission.complete(name, player_id)
+    var player_game_id = client.user.get().player_game_id;
+    client.mission.complete(name, player_game_id)
         .then(function () {
             var mission_name = client.mission.get(name).name;
             var quantity = client.mission.get(name).quantity;
