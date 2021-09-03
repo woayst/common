@@ -77,7 +77,7 @@ function removeHash(str) {
 function missionComplete(name) {
 
     if (!client.mission.isReady()) return;
-    if (name === 'invite_friend') {
+    if (name === 'login' || name === 'invite_friend') {
         return;
     }
     var player_game_id = client.user.get().player_game_id;
@@ -117,6 +117,9 @@ function processMissionAutoCompleteMission() {
         console.log('m.isDone', m.isDone);
         if (m.active && !m.isDone) {
             client.mission.complete(m.name, player_id);
+            $('.mission-' + m.name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
+            client.addTurnForMission(mission_name, quantity);
+            client.updateTurnCount();
         }
     })
 }
