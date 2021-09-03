@@ -87,6 +87,9 @@ function missionComplete(name, new_quantity) {
             var mission_name = client.mission.get(name).name;
             var quantity = client.mission.get(name).quantity;
             var mission_type = client.mission.get(name).type;
+            if (new_quantity) {
+                quantity = new_quantity;
+            }
             if (name !== 'register') {
                 console.log('show popup mission complete');
                 client.html.closeAllModal();
@@ -96,6 +99,9 @@ function missionComplete(name, new_quantity) {
                 } else {
                     $('#w-complete .title-popup').html('Chúc mừng bạn đã nhận được ' + quantity + ' lượt');
                 }
+            }
+            if (quantity <= 0) {
+                $('#w-complete .title-popup').html('Rất tiếc bạn không được cộng lượt');
             }
             $('.mission-' + name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
             client.addTurnForMission(mission_name, quantity);
