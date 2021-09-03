@@ -115,8 +115,9 @@ function processMissionAutoCompleteMission() {
     console.log('player_game_id', player_game_id);
     AUTO_COMPLETE_MISSIONS.forEach(function (key) {
         var m = client.mission.get(key);
-        // console.log('m', m);
-        // console.log('m.isDone', m.isDone);
+        if (!m.active) return;
+        console.log('m', m);
+        console.log('m.isDone', m.isDone);
         if (m.active && !m.isDone) {
             client.mission.complete(m.name, player_game_id);
             $('.mission-' + m.name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
