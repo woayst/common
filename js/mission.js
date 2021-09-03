@@ -91,7 +91,11 @@ function missionComplete(name, new_quantity) {
                 console.log('show popup mission complete');
                 client.html.closeAllModal();
                 MicroModal.show('w-complete');
-                $('#w-complete .title-popup').html('Chúc mừng bạn đã nhận được ' + quantity + mission_type);
+                if (mission_type == 'point') {
+                    $('#w-complete .title-popup').html('Chúc mừng bạn đã nhận được ' + quantity + ' điểm');
+                } else {
+                    $('#w-complete .title-popup').html('Chúc mừng bạn đã nhận được ' + quantity + ' lượt');
+                }
             }
             $('.mission-' + name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
             client.addTurnForMission(mission_name, quantity);
