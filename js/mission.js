@@ -60,7 +60,6 @@ function fetchMission() {
 }
 
 function deactiveDoneMissions() {
-
     var missions = client.mission.getAll();
     console.log('deactive done mission');
     missions.forEach(function (mission) {
@@ -115,7 +114,6 @@ function processMissionAutoCompleteMission() {
     console.log('player_game_id', player_game_id);
     AUTO_COMPLETE_MISSIONS.forEach(function (key) {
         var m = client.mission.get(key);
-        if (!m.active) return;
         console.log('m', m);
         console.log('m.isDone', m.isDone);
         if (m.active && !m.isDone) {
@@ -129,8 +127,8 @@ function processMissionAutoCompleteMission() {
 
 function processGoldHourMission() {
     var date = new Date();
-    var GOLD_HOUR_START = 9;
-    var GOLD_HOUR_END = 23;
+    var GOLD_HOUR_START = client.mission.get('gold_hour').meta.from;
+    var GOLD_HOUR_END = client.mission.get('gold_hour').meta.to;
     var current_hour = date.getHours();
     var isValid = (GOLD_HOUR_START <= current_hour && current_hour < GOLD_HOUR_END);
     var isDone = client.mission.get('gold_hour').isDone;
