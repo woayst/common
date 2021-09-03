@@ -82,7 +82,7 @@ function missionComplete(name, new_quantity) {
         return;
     }
     var player_game_id = client.user.get().player_game_id;
-    client.mission.complete(name, new_quantity, player_game_id)
+    client.mission.complete(name, player_game_id, new_quantity)
         .then(function () {
             var mission_name = client.mission.get(name).name;
             var quantity = client.mission.get(name).quantity;
