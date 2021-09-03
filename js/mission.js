@@ -88,8 +88,10 @@ function missionComplete(name, new_quantity) {
             var quantity = client.mission.get(name).quantity;
             var mission_type = client.mission.get(name).type;
             if (new_quantity) {
+                console.log('update quantity')
                 quantity = new_quantity;
             }
+            console.log('quantity', quantity);
             if (name !== 'register') {
                 console.log('show popup mission complete');
                 client.html.closeAllModal();
