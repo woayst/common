@@ -26,6 +26,7 @@ client.eventBus.on('login-done', function () {
 
     client.mission.fetch()
         .then(deactiveDoneMissions)
+        .then(processMissionAutoCompleteMission)
         .then(processGoldHourMission)
 })
 
