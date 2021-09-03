@@ -58,7 +58,6 @@ function fetchMission() {
 }
 
 function deactiveDoneMissions() {
-
     var missions = client.mission.getAll();
     console.log('deactive done mission');
     missions.forEach(function (mission) {
@@ -96,7 +95,7 @@ function missionComplete(name) {
             client.updateTurnCount();
         }).catch(function (err) {
             console.log(name, ' error');
-            console.error(err);
+            client.checkError(err);
         })
 }
 
