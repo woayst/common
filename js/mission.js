@@ -119,7 +119,6 @@ function processMissionAutoCompleteMission() {
         if (m.active && !m.isDone) {
             client.mission.complete(m.name, player_id);
             $('.mission-' + m.name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
-            client.updateTurnCount();
         }
     })
 }
