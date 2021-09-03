@@ -1,13 +1,6 @@
 var enableMission = false;
-var wref = '';
 var $ = client.$;
 
-function checkParam() {
-    if (client.getParam('wref')) {
-        wref = client.getParam('wref');
-    }
-}
-checkParam();
 /// Render mission
 function renderMissions(missions, template_id) {
     var missions = client.mission.getAll();
@@ -111,7 +104,7 @@ function missionComplete(name) {
 function getShareLink() {
     var user = client.user.get();
     console.log('user', user);
-    var uid = user && user.player_id;
+    var uid = user && user.player_game_id;
     var share_link_url = window.location.href.split('?')[0];
     return share_link_url + (uid ? '?wref=' + uid : '');
 }
