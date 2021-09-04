@@ -29,6 +29,15 @@ client.eventBus.on('login-done', function () {
         .then(deactiveDoneMissions)
         .then(processMissionAutoCompleteMission)
         .then(processGoldHourMission)
+        .then(function () {
+            var action_qr = '';
+            var secret_qr = '';
+            if (client.getParam('action') && client.getParam('secret')) {
+                action_qr = client.getParam('action');
+                secret_qr = client.getParam('secret');
+                processMissionQrCode(secret_qr);
+            }
+        })
 })
 
 function fetchAllMission() {
@@ -176,3 +185,109 @@ $(document).on("click", '.btn-share-fb', function () {
 $(document).on("click", '.my-copy-link-btn', function () {
     client.copyToClipboard('#w-text-share-url');
 })
+
+$(document).on('click', '.btn-show-quiz', function () {
+    renderQuestion('question-tmpl');
+    MicroModal.show('w-quiz');
+})
+
+$(document).on('click', '.item-question', function () {
+    var max_question = client.mission.get('wiki').meta.question.length;
+    console.log('max_question', max_question)
+    checkRightAnswer();
+    setTimeout(function () {
+        current_question++;
+        console.log('current_question', current_question)
+        if (current_question >= max_question) {
+            showResult();
+        } else {
+            renderQuestion('question-tmpl');
+        }
+    }, 1000)
+})
+
+$(document).on('click', '.btn-show-qrcode', function () {
+    checkQrCode();
+})
+
+function checkQrCode() {
+    var action_qr = client.getParam('action');
+    var secret_qr = client.getParam('secret');
+    console.log('action_qr', action_qr, 'secret_qr', secret_qr);
+    if (!action_qr && !secret_qr) {
+        $('.text-qrcode').text('Nhiệm vụ quét mã QR CODE chỉ áp dụng khi đến cửa hàng');
+    }
+    MicroModal.show('w-qrcode');
+}
+
+
+function processMissionQrCode(secret_qr) {
+    console.log('process mission qr code');
+    var secret_key = client.mission.get('explore_store').meta.hash;
+    var mission_done = client.mission.get('explore_store').isDone;
+    var passhash = CryptoJS.MD5(secret_qr).toString();
+    console.log('passhash', passhash, typeof passhash);
+    console.log('secret_key', secret_key, typeof secret_key);
+    console.log('mission_done', mission_done);
+    if (secret_qr.localeCompare(secret_key) == 0) {
+        console.log('mission complete qr code');
+        missionComplete('explore_store');
+    } else if (mission_done) {
+        $('.text-qrcode').text('Nhiệm vụ QR CODE đã hoàn thành');
+    } else {
+        $('.text-qrcode').text('Mã QR CODE không chính xác');
+    }
+    setTimeout(function () {
+        MicroModal.show('w-qrcode');
+    }, 200)
+}
+
+function renderQuestion(template_id) {
+    var questions = client.mission.get('wiki').meta.question;
+    var question = questions[current_question];
+    var answers = question.answer;
+    var answer_1 = answers[0];
+    console.log('answer_1', answer_1)
+    $('#box-question').removeClass('disable');
+    $('#box-question').html(tmpl(template_id, question));
+    $(".title-question").html(question.question);
+    console.log('question of question', question.question);
+}
+
+function checkRightAnswer() {
+    var questions = client.mission.get('wiki').meta.question;
+    var question = questions[current_question];
+    var quantity_per_question = client.mission.get('wiki').meta.quantity_per_question;
+    console.log('question', question);
+    var answers = $('input[name="answer"]');
+    var answer_val;
+    var answer_right = question.rightAnswer;
+    console.log('answer_right', answer_right);
+    for (var i = 0; i < answers.length; i++) {
+        // console.log('answers value', answers[i].checked);
+        if (answers[i].checked) {
+            answer_val = answers[i].value;
+            if (answer_right == answer_val) {
+                $(answers[i]).parent('.item-question').addClass('correct');
+                $(answers[i]).parent('.item-question').find('.checkmark').css('display', 'block');
+                count_right_answer += quantity_per_question;
+                console.log('count_right_answer', count_right_answer);
+            } else {
+                $(answers[i]).parent('.item-question').addClass('wrong');
+            }
+        }
+        if (!answers[i].checked && answers[i].value == answer_right) {
+            $(answers[i]).parent('.item-question').addClass('correct');
+            $(answers[i]).parent('.item-question').find('.checkmark').css('display', 'block');
+        }
+    }
+    $('#box-question').addClass('disable');
+}
+
+function showResult() {
+    var question_per_day = client.mission.get('wiki').meta.question_per_day;
+    var quantity = count_right_answer * question_per_day;
+    console.log('quantity', quantity);
+    MicroModal.close('w-quiz');
+    missionComplete('wiki', quantity);
+}
