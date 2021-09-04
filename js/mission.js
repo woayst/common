@@ -1,6 +1,11 @@
 var enableMission = false;
 var wref = '';
 var $ = client.$;
+var QUESTION_START_DATE = '2021-09-04';
+console.log('QUESTION_START_DATE', QUESTION_START_DATE)
+var QUESTION_DIFF_DATE = Math.floor((Date.now() - new Date(QUESTION_START_DATE)) / 86400000);
+console.log('QUESTION_DIFF_DATE', QUESTION_DIFF_DATE)
+QUESTION_DIFF_DATE = QUESTION_DIFF_DATE % 14;
 
 /// Render mission
 function renderMissions(missions, template_id) {
@@ -24,6 +29,15 @@ client.eventBus.on('login-done', function () {
     if (hasLogin) {
         fetchMission()
     }
+
+    var question_per_day = client.mission.get('wiki').meta.question_per_day;
+    var max_question = client.mission.get('wiki').meta.question.length;
+    current_question = QUESTION_DIFF_DATE * question_per_day;
+    max_question = current_question + question_per_day;
+    console.log({
+        currentQuestion: current_question,
+        MAX_QUESTION: max_question
+    })
 
     client.mission.fetch()
         .then(deactiveDoneMissions)
@@ -192,26 +206,15 @@ $(document).on('click', '.btn-show-quiz', function () {
 })
 
 $(document).on('click', '.item-question', function () {
-    var QUESTION_START_DATE = '2021-09-04';
-    console.log('QUESTION_START_DATE', QUESTION_START_DATE)
-    var QUESTION_DIFF_DATE = Math.floor((Date.now() - new Date(QUESTION_START_DATE)) / 86400000);
-    console.log('QUESTION_DIFF_DATE', QUESTION_DIFF_DATE)
-    var question_per_day = client.mission.get('wiki').meta.question_per_day;
-    var max_question = client.mission.get('wiki').meta.question.length;
-    QUESTION_DIFF_DATE = QUESTION_DIFF_DATE % 14;
-    current_question = QUESTION_DIFF_DATE * 3;
-    max_question = current_question + question_per_day;
-    console.log({
-        currentQuestion: current_question,
-        MAX_QUESTION: max_question
-    })
     checkRightAnswer();
     setTimeout(function () {
         current_question++;
         console.log('current_question', current_question);
         if (current_question >= max_question) {
+            console.log('show result');
             showResult();
         } else {
+            console.log('render tiếp câu hỏi');
             renderQuestion('question-tmpl');
         }
     }, 1000)
