@@ -207,7 +207,8 @@ $(document).on('click', '.item-question', function () {
     })
     checkRightAnswer();
     setTimeout(function () {
-        console.log('current_question', current_question)
+        current_question++;
+        console.log('current_question', current_question);
         if (current_question >= max_question) {
             showResult();
         } else {
