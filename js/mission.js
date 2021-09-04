@@ -229,8 +229,8 @@ function processMissionQrCode(secret_qr) {
     console.log('passhash', passhash, typeof passhash);
     console.log('secret_key', secret_key, typeof secret_key);
     console.log('mission_done', mission_done);
-    console.log('compare string', secret_qr.localeCompare(secret_key));
-    if (secret_qr.localeCompare(secret_key) == 0) {
+    console.log('compare string', passhash.localeCompare(secret_key));
+    if (passhash.localeCompare(secret_key) == 0) {
         console.log('mission complete qr code');
         missionComplete('explore_store');
     } else {
