@@ -200,7 +200,7 @@ $(document).on('click', '.item-question', function () {
     var max_question = client.mission.get('wiki').meta.question.length;
     QUESTION_DIFF_DATE = QUESTION_DIFF_DATE % 14;
     current_question = QUESTION_DIFF_DATE * question_per_day;
-    max_question = current_question + 2;
+    max_question = current_question;
     console.log({
         currentQuestion: current_question,
         MAX_QUESTION: max_question
