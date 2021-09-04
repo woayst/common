@@ -229,13 +229,13 @@ function processMissionQrCode(secret_qr) {
     console.log('passhash', passhash, typeof passhash);
     console.log('secret_key', secret_key, typeof secret_key);
     console.log('mission_done', mission_done);
+    console.log('compare string', secret_qr.localeCompare(secret_key));
     if (secret_qr.localeCompare(secret_key) == 0) {
         console.log('mission complete qr code');
         missionComplete('explore_store');
-    } 
-    // else {
-    //     $('.text-qrcode').text('Mã QR CODE không chính xác');
-    // }
+    } else {
+        $('.text-qrcode').text('Mã QR CODE không chính xác');
+    }
     if (mission_done) {
         $('.text-qrcode').text('Nhiệm vụ QR CODE đã hoàn thành');
     }
