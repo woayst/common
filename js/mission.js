@@ -232,10 +232,11 @@ function processMissionQrCode(secret_qr) {
     if (secret_qr.localeCompare(secret_key) == 0) {
         console.log('mission complete qr code');
         missionComplete('explore_store');
-    } else if (mission_done) {
-        $('.text-qrcode').text('Nhiệm vụ QR CODE đã hoàn thành');
     } else {
         $('.text-qrcode').text('Mã QR CODE không chính xác');
+    }
+    if (mission_done) {
+        $('.text-qrcode').text('Nhiệm vụ QR CODE đã hoàn thành');
     }
     setTimeout(function () {
         MicroModal.show('w-qrcode');
