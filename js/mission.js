@@ -300,7 +300,7 @@ function checkRightAnswer() {
 
 function showResult() {
     var question_per_day = client.mission.get('wiki').meta.question_per_day;
-    var quantity = count_right_answer * question_per_day;
+    var quantity = count_right_answer;
     console.log('quantity', quantity);
     MicroModal.close('w-quiz');
     missionComplete('wiki', quantity);
