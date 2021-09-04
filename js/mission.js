@@ -87,6 +87,7 @@ function missionComplete(name, new_quantity) {
             var mission_name = client.mission.get(name).name;
             var quantity = client.mission.get(name).quantity;
             var mission_type = client.mission.get(name).type;
+            var mission_frequency = client.mission.get(name).frequency;
             if (!isNaN(new_quantity)) {
                 console.log('update quantity', new_quantity)
                 quantity = new_quantity;
@@ -105,7 +106,9 @@ function missionComplete(name, new_quantity) {
             if (quantity <= 0) {
                 $('#w-complete .title-popup').html('Rất tiếc bạn không được cộng lượt');
             }
-            $('.mission-' + name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
+            if (mission_frequency !== 'unlimited') {
+                $('.mission-' + name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
+            }
             client.addTurnForMission(mission_name, quantity);
             client.updateTurnCount();
         }).catch(function (err) {
