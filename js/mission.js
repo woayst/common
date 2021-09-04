@@ -52,6 +52,22 @@ client.eventBus.on('login-done', function () {
                 processMissionQrCode(secret_qr);
             }
         })
+        .then(function () {
+            $(document).on('click', '.item-question', function () {
+                checkRightAnswer();
+                setTimeout(function () {
+                    current_question++;
+                    console.log('current_question', current_question);
+                    if (current_question >= max_question) {
+                        console.log('show result');
+                        showResult();
+                    } else {
+                        console.log('render tiếp câu hỏi');
+                        renderQuestion('question-tmpl');
+                    }
+                }, 1000)
+            })
+        })
 })
 
 function fetchAllMission() {
@@ -203,21 +219,6 @@ $(document).on("click", '.my-copy-link-btn', function () {
 $(document).on('click', '.btn-show-quiz', function () {
     renderQuestion('question-tmpl');
     MicroModal.show('w-quiz');
-})
-
-$(document).on('click', '.item-question', function () {
-    checkRightAnswer();
-    setTimeout(function () {
-        current_question++;
-        console.log('current_question', current_question);
-        if (current_question >= max_question) {
-            console.log('show result');
-            showResult();
-        } else {
-            console.log('render tiếp câu hỏi');
-            renderQuestion('question-tmpl');
-        }
-    }, 1000)
 })
 
 $(document).on('click', '.btn-show-qrcode', function () {
