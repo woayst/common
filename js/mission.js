@@ -196,7 +196,7 @@ $(document).on('click', '.item-question', function () {
     console.log('QUESTION_START_DATE', QUESTION_START_DATE)
     var QUESTION_DIFF_DATE = Math.floor((Date.now() - new Date(QUESTION_START_DATE)) / 86400000);
     console.log('QUESTION_DIFF_DATE', QUESTION_DIFF_DATE)
-    var question_per_day = clinet.mission.get('wiki').meta.question_per_day;
+    var question_per_day = client.mission.get('wiki').meta.question_per_day;
     var max_question = client.mission.get('wiki').meta.question.length;
     QUESTION_DIFF_DATE = QUESTION_DIFF_DATE % 14;
     current_question = QUESTION_DIFF_DATE * question_per_day;
