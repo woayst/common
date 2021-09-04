@@ -239,9 +239,6 @@ function processMissionQrCode(secret_qr) {
     if (mission_done) {
         $('.text-qrcode').text('Nhiệm vụ QR CODE đã hoàn thành');
     }
-    setTimeout(function () {
-        MicroModal.show('w-qrcode');
-    }, 200)
 }
 
 function renderQuestion(template_id) {
