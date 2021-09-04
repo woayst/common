@@ -199,7 +199,7 @@ $(document).on('click', '.item-question', function () {
     var question_per_day = client.mission.get('wiki').meta.question_per_day;
     var max_question = client.mission.get('wiki').meta.question.length;
     QUESTION_DIFF_DATE = QUESTION_DIFF_DATE % 14;
-    current_question = QUESTION_DIFF_DATE * question_per_day;
+    current_question = QUESTION_DIFF_DATE + question_per_day;
     max_question = current_question + question_per_day;
     console.log({
         currentQuestion: current_question,
@@ -207,7 +207,6 @@ $(document).on('click', '.item-question', function () {
     })
     checkRightAnswer();
     setTimeout(function () {
-        current_question++;
         console.log('current_question', current_question)
         if (current_question >= max_question) {
             showResult();
