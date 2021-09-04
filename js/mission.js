@@ -192,8 +192,19 @@ $(document).on('click', '.btn-show-quiz', function () {
 })
 
 $(document).on('click', '.item-question', function () {
+    var QUESTION_START_DATE = '2021-09-04';
+    console.log('QUESTION_START_DATE', QUESTION_START_DATE)
+    var QUESTION_DIFF_DATE = Math.floor((Date.now() - new Date(QUESTION_START_DATE)) / 86400000);
+    console.log('QUESTION_DIFF_DATE', QUESTION_DIFF_DATE)
+    var question_per_day = clinet.mission.get('wiki').meta.question_per_day;
     var max_question = client.mission.get('wiki').meta.question.length;
-    console.log('max_question', max_question)
+    QUESTION_DIFF_DATE = QUESTION_DIFF_DATE % 14;
+    current_question = QUESTION_DIFF_DATE * question_per_day;
+    max_question = current_question + 2;
+    console.log({
+        currentQuestion: current_question,
+        MAX_QUESTION: max_question
+    })
     checkRightAnswer();
     setTimeout(function () {
         current_question++;
