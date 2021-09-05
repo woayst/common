@@ -30,9 +30,11 @@ client.eventBus.on('login-done', function () {
     hasLogin = true;
     if (hasLogin) {
         fetchMission()
-        updatePlayerHistory('#history', 'history-tmpl');
-        updateMyPoint();
-        renderPlayerPoint('#your-point', 'my-score-tmpl');
+        setTimeout(function() {
+            updatePlayerHistory('#history', 'history-tmpl');
+            updateMyPoint();
+            renderPlayerPoint('#your-point', 'my-score-tmpl');
+        }, 1000)
     }
 
     var question_per_day = client.mission.get('wiki').meta.question_per_day;
