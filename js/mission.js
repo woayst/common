@@ -30,6 +30,9 @@ client.eventBus.on('login-done', function () {
     hasLogin = true;
     if (hasLogin) {
         fetchMission()
+        updatePlayerHistory('#history', 'history-tmpl');
+        updateMyPoint();
+        renderPlayerPoint('#your-point', 'my-score-tmpl');
     }
 
     var question_per_day = client.mission.get('wiki').meta.question_per_day;
@@ -308,4 +311,117 @@ function showResult() {
     console.log('quantity', quantity);
     MicroModal.close('w-quiz');
     missionComplete('wiki', quantity);
+}
+
+
+var myUserId = null;
+function getTopPlayer(id, from, to) {
+    var $ = client.$;
+    if (from && to) {
+        from = new Date(from);
+        from.setHours(from.getHours() - 7);
+        to = new Date(to);
+        to.setHours(to.getHours() - 7);
+    }
+    client.api.getTopPlayer(from, to)
+        .then(function (data) {
+            var topPlayers = data.map(function (x, i) {
+                x.stt = i + 1;
+                x.percent = x.sum / data[0].sum * 100;
+                x.point = x.sum;
+                x.activeClass = x.user_id == myUserId ? 'active' : '';
+                return x;
+            })
+            var html = tmpl('highscore-tmpl', topPlayers);
+            $('.tab-content #' + id).html(html);
+        })
+}
+
+function renderRankChart() {
+    getTopPlayer('thang', false, false);
+    var $ = client.$;
+    var startDate = new Date(onAirDate);
+    var startTime = startDate.getTime();
+    console.log('startTime', startTime)
+    var currentDate = new Date();
+    for (var i = 1; i < 5; i++) {
+        var from = new Date(startTime + (i - 1) * 7 * 86400000);
+        var to = new Date(startTime + (i) * 7 * 86400000);
+        if (currentDate > from) {
+            console.log('log i: ', i);
+            var html = '<li class="item-button"><a data-target="tuan' + i + '" class="tablinks">Tuần ' + i + '</a></li>'
+            var html_tab_content = '<div class="tabcontent" id="tuan' + i + '"></div>'
+            $('.wrap-item-button').append(html);
+            $('.wrap-bxh').append(html_tab_content);
+            getTopPlayer('tuan' + i, from, to);
+        }
+    }
+}
+
+
+function updatePlayerHistory(table_selector, template_id) {
+    var rewards = client._.getRewardData().rewards;
+    console.log('rewards', rewards)
+    $(table_selector).html('');
+    if (rewards.length) {
+        rewards.forEach(function (reward) {
+            if (reward.sku == 'BADLUCK' || reward.item_type == 'point') return;
+            $(table_selector).append(tmpl(template_id, reward));
+        })
+    } else {
+        $(table_selector).html('<div style="text-align: center; padding: 15px">Bạn chưa có phần thưởng nào</div>');
+    }
+}
+
+function renderPlayerPoint(table_selector, template_id) {
+    client.api.getHistoryPoint()
+        .then(function (data) {
+            var points = data;
+            console.log('points', points)
+            $(table_selector).html('');
+            if (points.length) {
+                points.forEach(function (point) {
+                    if (point.type == 'mission') {
+                        point.type = 'Nhiệm vụ: ' + client.mission.get(point.type_name).title;
+                    } else if (point.type == 'reward') {
+                        point.type = 'Trúng thưởng: ' + point.type_name;
+                    }
+                    point.created_at = new Date(point.created_at).toLocaleString();
+                    $(table_selector).append(tmpl(template_id, point));
+                })
+            } else {
+                $(table_selector).html('<div style="text-align: center; padding: 15px">Bạn hiện chưa có điểm</div>');
+            }
+        })
+}
+
+function updateMyPoint() {
+    client.api.getMyRank()
+        .then(function (data) {
+            $('.total-point').css('opacity', '1');
+            $('.your-point').html(data.sum);
+        })
+}
+
+var tabLinks = document.querySelectorAll(".tablinks");
+var tabContent = document.querySelectorAll(".tabcontent");
+
+tabLinks.forEach(function (el) {
+    el.addEventListener("click", openTabs);
+});
+function openTabs(el) {
+    var btn = el.currentTarget; // lắng nghe sự kiện và hiển thị các element
+    var electronic = btn.dataset.target; // lấy giá trị trong data-electronic
+
+    tabContent.forEach(function (el) {
+        el.classList.remove("active");
+    });
+
+    tabLinks.forEach(function (el) {
+        el.classList.remove("active");
+    });
+
+    document.querySelector("#" + electronic).classList.add("active");
+
+    btn.classList.add("active");
 }
