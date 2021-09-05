@@ -366,6 +366,7 @@ function updatePlayerHistory(table_selector, template_id) {
     if (rewards.length) {
         rewards.forEach(function (reward) {
             if (reward.sku == 'BADLUCK' || reward.item_type == 'point') return;
+            reward.updated_at = new Date(reward.updated_at).toLocaleString();
             $(table_selector).append(tmpl(template_id, reward));
         })
     } else {
