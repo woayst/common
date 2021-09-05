@@ -266,6 +266,9 @@ function processMissionQrCode(secret_qr) {
 function renderQuestion(template_id) {
     var questions = client.mission.get('wiki').meta.question;
     var question = questions[current_question];
+    if (!questions.length) {
+        current_question = 0;
+    }
     var answers = question.answer;
     var answer_1 = answers[0];
     console.log('answer_1', answer_1)
