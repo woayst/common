@@ -337,14 +337,12 @@ function getTopPlayer(id, from, to) {
                 x.activeClass = x.user_id == myUserId ? 'active' : '';
                 return x;
             })
-            console.log('topPlayers', topPlayers);
-            if (topPlayers.length) {
-                var html = tmpl('highscore-tmpl', topPlayers);
-                $('.tab-content #' + id).html(html);
-            } else {
-                $('.title-rank').append('Chưa có dữ liệu')
+            if (topPlayers == []) {
+                $('.title-rank').append('Chưa có dữ liệu');
+                return;
             }
-            
+            var html = tmpl('highscore-tmpl', topPlayers);
+            $('.tab-content #' + id).html(html);
         })
 }
 
