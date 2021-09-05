@@ -337,10 +337,6 @@ function getTopPlayer(id, from, to) {
                 x.activeClass = x.user_id == myUserId ? 'active' : '';
                 return x;
             })
-            if (topPlayers == []) {
-                $('.title-rank').append('Chưa có dữ liệu');
-                return;
-            }
             var html = tmpl('highscore-tmpl', topPlayers);
             $('.tab-content #' + id).html(html);
         })
