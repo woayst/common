@@ -30,8 +30,12 @@ client.eventBus.on('login-done', function () {
     hasLogin = true;
     if (hasLogin) {
         fetchMission()
-        setTimeout(function() {
-            updatePlayerHistory('#history', 'history-tmpl');
+        setTimeout(function () {
+            if (WHEEL_SETTINGS.Wheel.schema == 'tour') {
+                console.log('ko co kho phan thuong');
+            } else {
+                updatePlayerHistory('#history', 'history-tmpl');
+            }
             updateMyPoint();
             renderPlayerPoint('#your-point', 'my-score-tmpl');
         }, 1000)
