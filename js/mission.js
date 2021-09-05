@@ -150,7 +150,7 @@ function missionComplete(name, new_quantity) {
             if (mission_frequency !== 'unlimited') {
                 $('.mission-' + name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
             }
-            if(mission_type == 'point') return;
+            if (mission_type == 'point') return;
             client.addTurnForMission(mission_name, quantity);
             client.updateTurnCount();
         }).catch(function (err) {
@@ -177,6 +177,7 @@ function processMissionAutoCompleteMission() {
         if (m.active && !m.isDone) {
             client.mission.complete(m.name, player_game_id);
             $('.mission-' + m.name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
+            if (m.type == 'point') return;
             client.addTurnForMission(m.name, m.quantity);
             client.updateTurnCount();
         }
