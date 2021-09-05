@@ -291,7 +291,7 @@ function checkRightAnswer() {
             if (answer_right == answer_val) {
                 $(answers[i]).parent('.item-question').addClass('correct');
                 $(answers[i]).parent('.item-question').find('.checkmark').css('display', 'block');
-                count_right_answer += quantity_per_question;
+                count_right_answer = quantity_per_question;
                 console.log('count_right_answer', count_right_answer);
             } else {
                 $(answers[i]).parent('.item-question').addClass('wrong');
