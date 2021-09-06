@@ -270,7 +270,7 @@ function processMissionQrCode(secret_qr) {
 }
 
 function renderQuestion(template_id) {
-    var questions = client.mission.get('wiki').meta.question;
+    var questions = client.mission.get('wiki').meta;
     var question = questions[current_question];
     console.log('questions', questions);
     console.log('question', question);
