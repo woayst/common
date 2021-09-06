@@ -50,6 +50,10 @@ client.eventBus.on('login-done', function () {
         MAX_QUESTION: max_question
     })
 
+    if (current_question == max_question) {
+        current_question = 0;
+    }
+
     client.mission.fetch()
         .then(deactiveDoneMissions)
         .then(processMissionAutoCompleteMission)
@@ -69,9 +73,6 @@ client.eventBus.on('login-done', function () {
                 setTimeout(function () {
                     current_question++;
                     console.log('current_question', current_question);
-                    if (current_question == max_question) {
-                        current_question = 0;
-                    }
                     if (current_question > max_question) {
                         console.log('show result');
                         showResult();
