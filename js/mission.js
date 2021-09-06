@@ -44,12 +44,19 @@ client.eventBus.on('login-done', function () {
 
     var question_per_day = client.mission.get('wiki').meta.question_per_day;
     var max_question = client.mission.get('wiki').meta.question.length;
-    current_question = QUESTION_DIFF_DATE * question_per_day;
-    max_question = current_question + question_per_day;
+    var questions = client.mission.get('wiki').meta.question.length
+    current_question = QUESTION_DIFF_DATE * question_per_day; //current question = 3
+    max_question = current_question + question_per_day; // max question = 4
+
+    if (max_question > questions.length) { // (Nếu 4 > 3)
+        current_question = 0;  // reset current question
+        max_question = current_question + quantity_per_question // reset max question
+    }
     console.log({
         currentQuestion: current_question,
         MAX_QUESTION: max_question
     })
+
 
     client.mission.fetch()
         .then(deactiveDoneMissions)
@@ -80,6 +87,19 @@ client.eventBus.on('login-done', function () {
                 }, 1000)
             })
         })
+    function renderQuestion(template_id) {
+        var questions = client.mission.get('wiki').meta.question;
+        var question = questions[current_question]; // today current_question = 3
+        console.log('questions', questions);
+        console.log('question', question);
+        console.log('current_question', current_question)
+        $('#box-question').removeClass('disable');
+        console.log('question', question);
+        $('#box-question').html(tmpl(template_id, question));
+        console.log('question of question', question.question);
+        $(".title-question").html(question.question);
+        console.log('question of question', question.question);
+    }
     $(document).on('click', '.btn-show-quiz', function () {
         renderQuestion('question-tmpl');
         MicroModal.show('w-quiz');
@@ -267,27 +287,6 @@ function processMissionQrCode(secret_qr) {
     if (mission_done) {
         $('.text-qrcode').text('Nhiệm vụ QR CODE đã hoàn thành');
     }
-}
-
-function renderQuestion(template_id) {
-    var questions = client.mission.get('wiki').meta.question;
-    var max_question = client.mission.get('wiki').meta.question.length;
-    var question_per_day = client.mission.get('wiki').meta.question_per_day;
-    var question = questions[current_question]; // today current_question = 3
-    if (current_question >= max_question) {
-        console.log('loop question');
-        current_question = 0;
-        max_question = current_question + question_per_day;
-    }
-    console.log('questions', questions);
-    console.log('question', question);
-    console.log('current_question', current_question)
-    $('#box-question').removeClass('disable');
-    console.log('question', question);
-    $('#box-question').html(tmpl(template_id, question));
-    console.log('question of question', question.question);
-    $(".title-question").html(question.question);
-    console.log('question of question', question.question);
 }
 
 function checkRightAnswer() {
