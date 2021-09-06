@@ -84,7 +84,6 @@ client.eventBus.on('login-done', function () {
         })
     function renderQuestion(template_id) {
         var questions = client.mission.get('wiki').meta.question;
-        var index = current_question - 1;
         if (max_question > question_index && index > question_index) { // (Nếu 4 > 3)
             if (current_question >= question_index) {
                 current_question--;
@@ -93,7 +92,6 @@ client.eventBus.on('login-done', function () {
             }
             max_question = current_question + question_per_day // reset max question
         }
-        current_question = index;
         var question = questions[current_question]; // today current_question = 3
         console.log('questions', questions);
         console.log('question', question);
