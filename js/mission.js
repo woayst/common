@@ -278,10 +278,14 @@ function renderQuestion(template_id) {
         max_question: max_question
     })
     if (current_question == max_question) {
+        console.log('loop question');
         current_question = 0;
     }
+    console.log('current_question', current_question)
     $('#box-question').removeClass('disable');
+    console.log('question', question);
     $('#box-question').html(tmpl(template_id, question));
+    console.log('question of question', question.question);
     $(".title-question").html(question.question);
     console.log('question of question', question.question);
 }
