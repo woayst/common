@@ -100,6 +100,7 @@ client.eventBus.on('login-done', function () {
             current_question = 0;  // reset current question
             max_question = current_question + question_per_day // reset max question
         }
+        console.log('max question', max_question);
         renderQuestion('question-tmpl');
         MicroModal.show('w-quiz');
     })
