@@ -280,7 +280,6 @@ function renderQuestion(template_id) {
     if (current_question == max_question) {
         current_question = 0;
     }
-    var answers = question.answer;
     $('#box-question').removeClass('disable');
     $('#box-question').html(tmpl(template_id, question));
     $(".title-question").html(question.question);
