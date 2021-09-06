@@ -6,6 +6,7 @@ console.log('QUESTION_START_DATE', QUESTION_START_DATE)
 var QUESTION_DIFF_DATE = Math.floor((Date.now() - new Date(QUESTION_START_DATE)) / 86400000);
 console.log('QUESTION_DIFF_DATE', QUESTION_DIFF_DATE)
 QUESTION_DIFF_DATE = QUESTION_DIFF_DATE % 14;
+console.log('QUESTION_DIFF_DATE', QUESTION_DIFF_DATE)
 var current_question = 0;
 var count_right_answer = 0;
 
@@ -43,7 +44,7 @@ client.eventBus.on('login-done', function () {
 
     var question_per_day = client.mission.get('wiki').meta.question_per_day;
     var max_question = client.mission.get('wiki').meta.question.length;
-    current_question = QUESTION_DIFF_DATE * question_per_day;
+    current_question = QUESTION_DIFF_DATE + question_per_day;
     max_question = current_question + question_per_day;
     console.log({
         currentQuestion: current_question,
