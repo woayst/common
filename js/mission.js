@@ -71,7 +71,6 @@ client.eventBus.on('login-done', function () {
                 checkRightAnswer();
                 setTimeout(function () {
                     current_question++;
-                    max_question++;
                     console.log('current_question', current_question);
                     if (current_question >= max_question) {
                         console.log('show result');
@@ -101,6 +100,7 @@ client.eventBus.on('login-done', function () {
             current_question = 0;  // reset current question
             max_question = current_question + question_per_day // reset max question
         }
+        max_question++;
         console.log('max question', max_question);
         renderQuestion('question-tmpl');
         MicroModal.show('w-quiz');
