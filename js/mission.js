@@ -71,6 +71,7 @@ client.eventBus.on('login-done', function () {
                 checkRightAnswer();
                 setTimeout(function () {
                     current_question++;
+                    max_question++;
                     console.log('current_question', current_question);
                     if (current_question >= max_question) {
                         console.log('show result');
