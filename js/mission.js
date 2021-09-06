@@ -6,7 +6,7 @@ console.log('QUESTION_START_DATE', QUESTION_START_DATE)
 var QUESTION_DIFF_DATE = Math.floor((Date.now() - new Date(QUESTION_START_DATE)) / 86400000);
 console.log('QUESTION_DIFF_DATE', QUESTION_DIFF_DATE)
 QUESTION_DIFF_DATE = QUESTION_DIFF_DATE % 14;
-var current_question = -1;
+var current_question = 0;
 var count_right_answer = 0;
 
 /// Render mission
@@ -69,6 +69,9 @@ client.eventBus.on('login-done', function () {
                 setTimeout(function () {
                     current_question++;
                     console.log('current_question', current_question);
+                    if (current_question == max_question) {
+                        current_question = 0;
+                    }
                     if (current_question > max_question) {
                         console.log('show result');
                         showResult();
