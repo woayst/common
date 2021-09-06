@@ -44,8 +44,8 @@ client.eventBus.on('login-done', function () {
 
     var question_per_day = client.mission.get('wiki').meta.question_per_day;
     var max_question = client.mission.get('wiki').meta.question.length;
-    current_question = QUESTION_DIFF_DATE + question_per_day;
-    max_question = current_question + question_per_day;
+    current_question = QUESTION_DIFF_DATE * question_per_day;
+    max_question = (current_question - 1) + question_per_day;
     console.log({
         currentQuestion: current_question,
         MAX_QUESTION: max_question
