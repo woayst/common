@@ -70,7 +70,7 @@ client.eventBus.on('login-done', function () {
             $(document).on('click', '.item-question', function () {
                 checkRightAnswer();
                 setTimeout(function () {
-                    current_question += question_per_day;
+                    current_question++;
                     console.log('current_question', current_question);
                     if (current_question >= max_question) {
                         console.log('show result');
@@ -84,10 +84,12 @@ client.eventBus.on('login-done', function () {
         })
     function renderQuestion(template_id) {
         var questions = client.mission.get('wiki').meta.question;
-        if (max_question > question_index) { // (Nếu 4 > 3)
-            current_question = 0;  // reset current question
+        var index = current_question - 1;
+        if (max_question > question_index && index > question_index) { // (Nếu 4 > 3)
+            current_question = 0;  // reset current
             max_question = current_question + question_per_day // reset max question
         }
+        current_question = index;
         var question = questions[current_question]; // today current_question = 3
         console.log('questions', questions);
         console.log('question', question);
@@ -100,10 +102,12 @@ client.eventBus.on('login-done', function () {
         console.log('question of question', question.question);
     }
     $(document).on('click', '.btn-show-quiz', function () {
-        if (max_question > question_index) { // (Nếu 4 > 3)
+        var index = current_question - 1;
+        if (max_question > question_index && index > question_index) { // (Nếu 4 > 3)
             current_question = 0;  // reset current question
             max_question = current_question + question_per_day // reset max question
         }
+        current_question = index;
         max_question = current_question + question_per_day // reset max question
         console.log('max question', max_question);
         renderQuestion('question-tmpl');
