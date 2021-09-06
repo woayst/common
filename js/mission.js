@@ -272,6 +272,7 @@ function processMissionQrCode(secret_qr) {
 function renderQuestion(template_id) {
     var questions = client.mission.get('wiki').meta.question;
     var question = questions[current_question];
+    var max_question = client.mission.get('wiki').meta.question.length;
     console.log({
         current_question: current_question,
         max_question: max_question
