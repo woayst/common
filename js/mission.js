@@ -45,7 +45,7 @@ client.eventBus.on('login-done', function () {
     var question_per_day = client.mission.get('wiki').meta.question_per_day;
     var max_question = client.mission.get('wiki').meta.question.length;
     current_question = QUESTION_DIFF_DATE * question_per_day;
-    max_question = (current_question - 1) + question_per_day;
+    max_question = current_question + question_per_day;
     console.log({
         currentQuestion: current_question,
         MAX_QUESTION: max_question
@@ -80,6 +80,10 @@ client.eventBus.on('login-done', function () {
                 }, 1000)
             })
         })
+    $(document).on('click', '.btn-show-quiz', function () {
+        renderQuestion('question-tmpl');
+        MicroModal.show('w-quiz');
+    })
 })
 
 function fetchAllMission() {
@@ -230,11 +234,6 @@ $(document).on("click", '.my-copy-link-btn', function () {
     client.copyToClipboard('#w-text-share-url');
 })
 
-$(document).on('click', '.btn-show-quiz', function () {
-    renderQuestion('question-tmpl');
-    MicroModal.show('w-quiz');
-})
-
 $(document).on('click', '.btn-show-qrcode', function () {
     checkQrCode();
 })
@@ -272,7 +271,14 @@ function processMissionQrCode(secret_qr) {
 
 function renderQuestion(template_id) {
     var questions = client.mission.get('wiki').meta.question;
-    var question = questions[current_question];
+    var max_question = client.mission.get('wiki').meta.question.length;
+    var question_per_day = client.mission.get('wiki').meta.question_per_day;
+    var question = questions[current_question]; // today current_question = 3
+    if (current_question > max_question) {
+        console.log('loop question');
+        current_question = 0;
+        max_question = current_question + question_per_day;
+    }
     console.log('questions', questions);
     console.log('question', question);
     console.log('current_question', current_question)
