@@ -47,11 +47,6 @@ client.eventBus.on('login-done', function () {
     var question_index = client.mission.get('wiki').meta.question.length
     current_question = QUESTION_DIFF_DATE * question_per_day; //current question = 3
     max_question = current_question + question_per_day; // max question = 4
-
-    if (max_question > question_index) { // (Nếu 4 > 3)
-        current_question = 0;  // reset current question
-        max_question = current_question + question_per_day // reset max question
-    }
     console.log({
         currentQuestion: current_question,
         MAX_QUESTION: max_question
@@ -89,6 +84,10 @@ client.eventBus.on('login-done', function () {
         })
     function renderQuestion(template_id) {
         var questions = client.mission.get('wiki').meta.question;
+        if (max_question > question_index) { // (Nếu 4 > 3)
+            current_question = 0;  // reset current question
+            max_question = current_question + question_per_day // reset max question
+        }
         var question = questions[current_question]; // today current_question = 3
         console.log('questions', questions);
         console.log('question', question);
