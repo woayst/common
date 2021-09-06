@@ -85,7 +85,6 @@ client.eventBus.on('login-done', function () {
     function renderQuestion(template_id) {
         var questions = client.mission.get('wiki').meta.question;
         var question = questions[current_question]; // today current_question = 3
-        max_question++;
         console.log('questions', questions);
         console.log('question', question);
         console.log('current_question', current_question)
@@ -99,8 +98,9 @@ client.eventBus.on('login-done', function () {
     $(document).on('click', '.btn-show-quiz', function () {
         if (max_question > question_index) { // (Nếu 4 > 3)
             current_question = 0;  // reset current question
-            max_question = current_question + question_per_day // reset max question
+            // max_question = current_question + question_per_day // reset max question
         }
+        max_question = current_question + question_per_day // reset max question
         console.log('max question', max_question);
         renderQuestion('question-tmpl');
         MicroModal.show('w-quiz');
