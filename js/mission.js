@@ -70,7 +70,7 @@ client.eventBus.on('login-done', function () {
             $(document).on('click', '.item-question', function () {
                 checkRightAnswer();
                 setTimeout(function () {
-                    current_question++;
+                    current_question += question_per_day;
                     console.log('current_question', current_question);
                     if (current_question >= max_question) {
                         console.log('show result');
