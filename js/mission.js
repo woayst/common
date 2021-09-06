@@ -158,9 +158,13 @@ function removeHash(str) {
 function missionComplete(name, new_quantity) {
 
     if (!client.mission.isReady()) return;
+
     if (name === 'login' || name === 'invite_friend') {
         return;
     }
+
+    if (client.checkSpinning()) return;
+
     var player_game_id = client.user.get().player_game_id;
     client.mission.complete(name, player_game_id, new_quantity)
         .then(function () {
@@ -243,12 +247,6 @@ function processGoldHourMission() {
 $(document).on("click", '.btn-invite-friend', function () {
     if (client.checkSpinning()) return;
     MicroModal.show('w-share');
-})
-
-$(document).on("click", '.btn-mission', function () {
-    if (client.checkSpinning()) return;
-    var mission_name = client.mission.get(name).name;
-    missionComplete(mission_name);
 })
 
 $(document).on("click", '.btn-share-fb', function () {
