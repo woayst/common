@@ -89,17 +89,14 @@ client.eventBus.on('login-done', function () {
             max_question = current_question + question_per_day // reset max question
         }
         var question = questions[current_question]; // today current_question = 3
-        console.log('questions', questions);
-        console.log('question', question);
         console.log('current_question', current_question)
         $('#box-question').removeClass('disable');
         console.log('question', question);
         $('#box-question').html(tmpl(template_id, question));
-        console.log('question of question', question.question);
         $(".title-question").html(question.question);
-        console.log('question of question', question.question);
     }
     $(document).on('click', '.btn-show-quiz', function () {
+        if (client.checkSpinning()) return;
         if (max_question > question_index) { // (Nếu 4 > 3)
             current_question = 0;  // reset current question
             max_question = current_question + question_per_day // reset max question
@@ -266,6 +263,7 @@ $(document).on("click", '.my-copy-link-btn', function () {
 })
 
 $(document).on('click', '.btn-show-qrcode', function () {
+    if (client.checkSpinning()) return;
     checkQrCode();
 })
 
@@ -316,7 +314,7 @@ function checkRightAnswer() {
             if (answer_right == answer_val) {
                 $(answers[i]).parent('.item-question').addClass('correct');
                 $(answers[i]).parent('.item-question').find('.checkmark').css('display', 'block');
-                count_right_answer = quantity_per_question;
+                count_right_answer += quantity_per_question;
                 console.log('count_right_answer', count_right_answer);
             } else {
                 $(answers[i]).parent('.item-question').addClass('wrong');
