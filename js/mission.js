@@ -274,7 +274,7 @@ function renderQuestion(template_id) {
     var max_question = client.mission.get('wiki').meta.question.length;
     var question_per_day = client.mission.get('wiki').meta.question_per_day;
     var question = questions[current_question]; // today current_question = 3
-    if (current_question > max_question) {
+    if (current_question >= max_question) {
         console.log('loop question');
         current_question = 0;
         max_question = current_question + question_per_day;
