@@ -69,7 +69,7 @@ client.eventBus.on('login-done', function () {
                 setTimeout(function () {
                     current_question++;
                     console.log('current_question', current_question);
-                    if (current_question >= max_question) {
+                    if (current_question > max_question) {
                         console.log('show result');
                         showResult();
                     } else {
@@ -317,7 +317,6 @@ function checkRightAnswer() {
 }
 
 function showResult() {
-    var question_per_day = client.mission.get('wiki').meta.question_per_day;
     var quantity = count_right_answer;
     console.log('quantity', quantity);
     MicroModal.close('w-quiz');
