@@ -272,12 +272,14 @@ function processMissionQrCode(secret_qr) {
 function renderQuestion(template_id) {
     var questions = client.mission.get('wiki').meta.question;
     var question = questions[current_question];
-    if (!questions.length) {
+    console.log({
+        current_question: current_question,
+        max_question: max_question
+    })
+    if (current_question == max_question) {
         current_question = 0;
     }
     var answers = question.answer;
-    var answer_1 = answers[0];
-    console.log('answer_1', answer_1)
     $('#box-question').removeClass('disable');
     $('#box-question').html(tmpl(template_id, question));
     $(".title-question").html(question.question);
