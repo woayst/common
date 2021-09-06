@@ -85,11 +85,7 @@ client.eventBus.on('login-done', function () {
     function renderQuestion(template_id) {
         var questions = client.mission.get('wiki').meta.question;
         if (max_question > question_index) { // (Nếu 4 > 3)
-            if (current_question >= question_index) {
-                current_question--;
-            } else {
-                current_question = 0;  // reset current question
-            }
+            current_question = 0;  // reset current question
             max_question = current_question + question_per_day // reset max question
         }
         var question = questions[current_question]; // today current_question = 3
@@ -105,11 +101,7 @@ client.eventBus.on('login-done', function () {
     }
     $(document).on('click', '.btn-show-quiz', function () {
         if (max_question > question_index) { // (Nếu 4 > 3)
-            if (current_question >= question_index) {
-                current_question--;
-            } else {
-                current_question = 0;  // reset current question
-            }
+            current_question = 0;  // reset current question
             max_question = current_question + question_per_day // reset max question
         }
         max_question = current_question + question_per_day // reset max question
