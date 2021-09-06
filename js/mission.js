@@ -76,6 +76,7 @@ client.eventBus.on('login-done', function () {
                         console.log('show result');
                         showResult();
                     } else {
+                        max_question++;
                         console.log('render tiếp câu hỏi');
                         renderQuestion('question-tmpl');
                     }
@@ -100,7 +101,6 @@ client.eventBus.on('login-done', function () {
             current_question = 0;  // reset current question
             max_question = current_question + question_per_day // reset max question
         }
-        max_question++;
         console.log('max question', max_question);
         renderQuestion('question-tmpl');
         MicroModal.show('w-quiz');
