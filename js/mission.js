@@ -76,7 +76,6 @@ client.eventBus.on('login-done', function () {
                         console.log('show result');
                         showResult();
                     } else {
-                        max_question++;
                         console.log('render tiếp câu hỏi');
                         renderQuestion('question-tmpl');
                     }
@@ -86,6 +85,7 @@ client.eventBus.on('login-done', function () {
     function renderQuestion(template_id) {
         var questions = client.mission.get('wiki').meta.question;
         var question = questions[current_question]; // today current_question = 3
+        max_question++;
         console.log('questions', questions);
         console.log('question', question);
         console.log('current_question', current_question)
