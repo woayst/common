@@ -270,23 +270,10 @@ function processMissionQrCode(secret_qr) {
 }
 
 function renderQuestion(template_id) {
-    var max_question = client.mission.get('wiki').meta.question.length;
-    console.log({
-        current_question: current_question,
-        max_question: max_question
-    })
-    if (current_question == max_question) {
-        console.log('loop question');
-        current_question = 0;
-    }
     var questions = client.mission.get('wiki').meta.question;
     var question = questions[current_question];
     console.log('questions', questions);
     console.log('question', question);
-    console.log({
-        current_question: current_question,
-        max_question: max_question
-    })
     console.log('current_question', current_question)
     $('#box-question').removeClass('disable');
     console.log('question', question);
