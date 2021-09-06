@@ -44,11 +44,11 @@ client.eventBus.on('login-done', function () {
 
     var question_per_day = client.mission.get('wiki').meta.question_per_day;
     var max_question = client.mission.get('wiki').meta.question.length;
-    var questions = client.mission.get('wiki').meta.question.length
+    var question_index = client.mission.get('wiki').meta.question.length
     current_question = QUESTION_DIFF_DATE * question_per_day; //current question = 3
     max_question = current_question + question_per_day; // max question = 4
 
-    if (max_question > questions.length) { // (Nếu 4 > 3)
+    if (max_question > question_index) { // (Nếu 4 > 3)
         current_question = 0;  // reset current question
         max_question = current_question + quantity_per_question // reset max question
     }
