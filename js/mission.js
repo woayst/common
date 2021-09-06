@@ -50,7 +50,7 @@ client.eventBus.on('login-done', function () {
 
     if (max_question > question_index) { // (Nếu 4 > 3)
         current_question = 0;  // reset current question
-        max_question = current_question + quantity_per_question // reset max question
+        max_question = current_question + question_per_day // reset max question
     }
     console.log({
         currentQuestion: current_question,
