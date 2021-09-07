@@ -202,11 +202,9 @@ function missionComplete(name, new_quantity) {
                 $('.mission-' + name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
             }
             if (mission_type == 'point') {
-                if (WHEEL_SETTINGS.Wheel.schema == 'tour' || WHEEL_SETTINGS.Wheel.schema == 'mixed') {
-                    console.log('update lai point cho lich su diem + tong diem cua toi');
-                    updateMyPoint()
-                    renderPlayerPoint('#your-point', 'my-score-tmpl');
-                }
+                console.log('update lai point cho lich su diem + tong diem cua toi');
+                updateMyPoint()
+                renderPlayerPoint('#your-point', 'my-score-tmpl');
                 return;
             }
             client.addTurnForMission(mission_name, quantity);
