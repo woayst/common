@@ -70,14 +70,13 @@ client.eventBus.on('login-done', function () {
             $(document).on('click', '.item-question', function () {
                 checkRightAnswer();
                 setTimeout(function () {
-                    if (current_question == question_index) {
+                    if (current_question >= question_index) {
                         console.log('ko tăng current question');
                     } else {
+                        console.log('tagn current question')
                         current_question++;
                     }
-                    max_question = current_question + question_per_day;
                     console.log('current_question', current_question);
-                    console.log('max_question', max_question);
                     if (current_question >= max_question) {
                         console.log('show result');
                         showResult();
