@@ -87,7 +87,11 @@ client.eventBus.on('login-done', function () {
                 checkRightAnswer();
                 setTimeout(function () {
                     current_question++;
-                    console.log('current_question sau khi trả lời xong câu hỏi', current_question);
+                    console.log('tăng current question', {
+                        current_question: current_question,
+                        questions: questions,
+                        question_per_day: question_per_day
+                    })
                     if (current_question >= question_per_day) {
                         console.log('show result');
                         showResult();
@@ -100,14 +104,21 @@ client.eventBus.on('login-done', function () {
         })
     function renderQuestion(template_id) {
         var question = questions[current_question]; // today current_question = 3
-        console.log('question', question)
+        console.log('render question', {
+            questions: questions,
+            question: question,
+            current_question: current_question
+        })
         $('#box-question').removeClass('disable');
         $('#box-question').html(tmpl(template_id, question));
         $(".title-question").html(question.question);
     }
     $(document).on('click', '.btn-show-quiz', function () {
         if (client.checkSpinning()) return;
-        console.log('current_question sau khi reset', current_question);
+        console.log('click btn mission', {
+            current_question: current_question,
+            questions: questions
+        })
         renderQuestion('question-tmpl');
         MicroModal.show('w-quiz');
     })
