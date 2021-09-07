@@ -322,13 +322,11 @@ function checkRightAnswer() {
                 console.log('count_right_answer', count_right_answer);
             } else {
                 $(answers[i]).parent('.item-question').addClass('wrong');
-                count_right_answer = 0;
             }
         }
         if (!answers[i].checked && answers[i].value == answer_right) {
             $(answers[i]).parent('.item-question').addClass('correct');
             $(answers[i]).parent('.item-question').find('.checkmark').css('display', 'block');
-            count_right_answer = 0;
         }
     }
     $('#box-question').addClass('disable');
