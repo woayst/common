@@ -5,10 +5,34 @@ var QUESTION_START_DATE = WHEEL_SETTINGS.Wheel.campaign_start_at;
 console.log('QUESTION_START_DATE', QUESTION_START_DATE)
 var QUESTION_DIFF_DATE = Math.floor((Date.now() - new Date(QUESTION_START_DATE)) / 86400000);
 console.log('QUESTION_DIFF_DATE', QUESTION_DIFF_DATE)
-QUESTION_DIFF_DATE = QUESTION_DIFF_DATE % 14;
-console.log('QUESTION_DIFF_DATE', QUESTION_DIFF_DATE)
 var current_question = 0;
 var count_right_answer = 0;
+var questions = []
+
+function getDayNo() {
+    var today = new Date();
+    today.setHours(0, 0, 0);
+    console.log('today', today);
+    var airDate = new Date(WHEEL_SETTINGS.Wheel.campaign_start_at);
+    airDate.setHours(0, 0, 0);
+    return Math.floor((today - airDate) / 86400000);
+}
+
+function getQuestionAt(k) {
+    var questions = client.mission.get('wiki').meta.question;
+    var i = k % questions.length;
+    return questions[i];
+}
+
+function getTodayQuestions(question_per_day) {
+    var firstIndex = getDayNo() * question_per_day;
+    var arr = [];
+    for (var i = 0; i < question_per_day; i++) {
+        var k = firstIndex + i;
+        arr.push(getQuestionAt(k));
+    }
+    return arr;
+}
 
 /// Render mission
 function renderMissions(missions, template_id) {
@@ -42,16 +66,8 @@ client.eventBus.on('login-done', function () {
         }, 1000)
     }
 
-    var question_per_day = client.mission.get('wiki').meta.question_per_day;
-    var max_question = client.mission.get('wiki').meta.question.length;
-    var question_index = client.mission.get('wiki').meta.question.length
-    current_question = QUESTION_DIFF_DATE * question_per_day - 1; //current question = 3
-    max_question = current_question + question_per_day; // max question = 4
-    console.log({
-        currentQuestion: current_question,
-        MAX_QUESTION: max_question
-    })
-
+    var question_per_day = client.mission.get('wiki').meta.question_per_day; // sửa lại lấy theo format
+    questions = getTodayQuestions(question_per_day);
 
     client.mission.fetch()
         .then(deactiveDoneMissions)
@@ -70,14 +86,9 @@ client.eventBus.on('login-done', function () {
             $(document).on('click', '.item-question', function () {
                 checkRightAnswer();
                 setTimeout(function () {
-                    if (current_question >= question_index) {
-                        console.log('ko tăng current question');
-                    } else {
-                        console.log('tăng current question')
-                        current_question++;
-                    }
+                    current_question++;
                     console.log('current_question sau khi trả lời xong câu hỏi', current_question);
-                    if (current_question >= max_question) {
+                    if (current_question >= question_per_day) {
                         console.log('show result');
                         showResult();
                     } else {
@@ -88,32 +99,15 @@ client.eventBus.on('login-done', function () {
             })
         })
     function renderQuestion(template_id) {
-        var questions = client.mission.get('wiki').meta.question;
-        if (current_question >= question_index) { // (Nếu 4 > 3)
-            console.log('reset current question trong render');
-            current_question = 0;  // reset current question
-            max_question = current_question + question_per_day // reset max question
-        }
-        console.log({
-            current_question: current_question,
-            max_question: max_question
-        })
         var question = questions[current_question]; // today current_question = 3
+        console.log('question', question)
         $('#box-question').removeClass('disable');
-        console.log('question', question);
         $('#box-question').html(tmpl(template_id, question));
         $(".title-question").html(question.question);
     }
     $(document).on('click', '.btn-show-quiz', function () {
         if (client.checkSpinning()) return;
-        if (current_question >= question_index) { // (Nếu 4 > 3)
-            console.log('current question reset');
-            current_question = 0;  // reset current question
-            max_question = current_question + question_per_day // reset max question
-        }
-        max_question = current_question + question_per_day // reset max question
         console.log('current_question sau khi reset', current_question);
-        console.log('max question', max_question);
         renderQuestion('question-tmpl');
         MicroModal.show('w-quiz');
     })
@@ -315,7 +309,6 @@ function processMissionQrCode(secret_qr) {
 }
 
 function checkRightAnswer() {
-    var questions = client.mission.get('wiki').meta.question;
     var question = questions[current_question];
     var quantity_per_question = client.mission.get('wiki').meta.quantity_per_question;
     console.log('question', question);
