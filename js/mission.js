@@ -1,10 +1,6 @@
 var enableMission = false;
 var wref = '';
 var $ = client.$;
-var QUESTION_START_DATE = WHEEL_SETTINGS.Wheel.campaign_start_at;
-console.log('QUESTION_START_DATE', QUESTION_START_DATE)
-var QUESTION_DIFF_DATE = Math.floor((Date.now() - new Date(QUESTION_START_DATE)) / 86400000);
-console.log('QUESTION_DIFF_DATE', QUESTION_DIFF_DATE)
 var current_question = 0;
 var count_right_answer = 0;
 var questions = []
