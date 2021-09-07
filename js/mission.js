@@ -70,7 +70,11 @@ client.eventBus.on('login-done', function () {
             $(document).on('click', '.item-question', function () {
                 checkRightAnswer();
                 setTimeout(function () {
-                    current_question++;
+                    if (current_question == question_index) {
+                        console.log('ko tăng current question');
+                    } else {
+                        current_question++;
+                    }
                     console.log('current_question', current_question);
                     if (current_question >= max_question) {
                         console.log('show result');
