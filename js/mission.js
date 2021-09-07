@@ -335,6 +335,7 @@ function showResult() {
     console.log('quantity', quantity);
     MicroModal.close('w-quiz');
     missionComplete('wiki', quantity);
+    count_right_answer = 0;
 }
 
 
