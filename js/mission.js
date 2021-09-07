@@ -119,6 +119,7 @@ client.eventBus.on('login-done', function () {
             current_question: current_question,
             questions: questions
         })
+        current_question = 0;
         renderQuestion('question-tmpl');
         MicroModal.show('w-quiz');
     })
