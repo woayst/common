@@ -203,6 +203,7 @@ function missionComplete(name, new_quantity) {
             }
             if (mission_type == 'point') {
                 if (WHEEL_SETTINGS.Wheel.schema == 'tour' || WHEEL_SETTINGS.Wheel.schema == 'mixed') {
+                    console.log('update lai point cho lich su diem + tong diem cua toi');
                     updateMyPoint()
                     renderPlayerPoint('#your-point', 'my-score-tmpl');
                 }
