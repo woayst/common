@@ -73,10 +73,10 @@ client.eventBus.on('login-done', function () {
                     if (current_question >= question_index) {
                         console.log('ko tăng current question');
                     } else {
-                        console.log('tagn current question')
+                        console.log('tăng current question')
                         current_question++;
                     }
-                    console.log('current_question', current_question);
+                    console.log('current_question sau khi trả lời xong câu hỏi', current_question);
                     if (current_question >= max_question) {
                         console.log('show result');
                         showResult();
@@ -90,11 +90,15 @@ client.eventBus.on('login-done', function () {
     function renderQuestion(template_id) {
         var questions = client.mission.get('wiki').meta.question;
         if (current_question >= question_index) { // (Nếu 4 > 3)
+            console.log('reset current question trong render');
             current_question = 0;  // reset current question
             max_question = current_question + question_per_day // reset max question
         }
+        console.log({
+            current_question: current_question,
+            max_question: max_question
+        })
         var question = questions[current_question]; // today current_question = 3
-        console.log('current_question', current_question)
         $('#box-question').removeClass('disable');
         console.log('question', question);
         $('#box-question').html(tmpl(template_id, question));
@@ -103,10 +107,12 @@ client.eventBus.on('login-done', function () {
     $(document).on('click', '.btn-show-quiz', function () {
         if (client.checkSpinning()) return;
         if (current_question >= question_index) { // (Nếu 4 > 3)
+            console.log('current question reset');
             current_question = 0;  // reset current question
             max_question = current_question + question_per_day // reset max question
         }
         max_question = current_question + question_per_day // reset max question
+        console.log('current_question sau khi reset', current_question);
         console.log('max question', max_question);
         renderQuestion('question-tmpl');
         MicroModal.show('w-quiz');
