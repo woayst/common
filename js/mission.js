@@ -89,6 +89,11 @@ client.eventBus.on('login-done', function () {
         })
     function renderQuestion(template_id) {
         var questions = client.mission.get('wiki').meta.question;
+        if (current_question >= question_index) { // (Nếu 4 > 3)
+            console.log('reset current question trong render');
+            current_question = -1;  // reset current question
+            max_question = current_question + question_per_day // reset max question
+        }
         console.log({
             current_question: current_question,
             max_question: max_question
