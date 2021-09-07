@@ -91,7 +91,7 @@ client.eventBus.on('login-done', function () {
         var questions = client.mission.get('wiki').meta.question;
         if (current_question >= question_index) { // (Nếu 4 > 3)
             console.log('reset current question trong render');
-            current_question = -1;  // reset current question
+            current_question = 0;  // reset current question
             max_question = current_question + question_per_day // reset max question
         }
         console.log({
@@ -201,7 +201,13 @@ function missionComplete(name, new_quantity) {
             if (mission_frequency !== 'unlimited') {
                 $('.mission-' + name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
             }
-            if (mission_type == 'point') return;
+            if (mission_type == 'point') {
+                if (WHEEL_SETTINGS.Wheel.schema == 'tour' || WHEEL_SETTINGS.Wheel.schema == 'mixed') {
+                    updateMyPoint()
+                    renderPlayerPoint('#your-point', 'my-score-tmpl');
+                }
+                return;
+            }
             client.addTurnForMission(mission_name, quantity);
             client.updateTurnCount();
         }).catch(function (err) {
