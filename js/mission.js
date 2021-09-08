@@ -71,8 +71,6 @@ client.eventBus.on('login-done', function () {
         .then(processMissionAutoCompleteMission)
         .then(processGoldHourMission)
         .then(function () {
-            var question_per_day = client.mission.get('wiki').meta.question_per_day; // sửa lại lấy theo format
-            questions = getTodayQuestions(question_per_day);
             var action_qr = '';
             var secret_qr = '';
             if (client.getParam('action') && client.getParam('secret')) {
@@ -82,6 +80,8 @@ client.eventBus.on('login-done', function () {
             }
         })
         .then(function () {
+            var question_per_day = client.mission.get('wiki').meta.question_per_day; // sửa lại lấy theo format
+            questions = getTodayQuestions(question_per_day);
             $(document).on('click', '.item-question', function () {
                 checkRightAnswer();
                 setTimeout(function () {
@@ -100,28 +100,28 @@ client.eventBus.on('login-done', function () {
                     }
                 }, 1000)
             })
+            function renderQuestion(template_id) {
+                var question = questions[current_question]; // today current_question = 3
+                console.log('render question', {
+                    questions: questions,
+                    question: question,
+                    current_question: current_question
+                })
+                $('#box-question').removeClass('disable');
+                $('#box-question').html(tmpl(template_id, question));
+                $(".title-question").html(question.question);
+            }
+            $(document).on('click', '.btn-show-quiz', function () {
+                if (client.checkSpinning()) return;
+                console.log('click btn mission', {
+                    current_question: current_question,
+                    questions: questions
+                })
+                current_question = 0;
+                renderQuestion('question-tmpl');
+                MicroModal.show('w-quiz');
+            })
         })
-    function renderQuestion(template_id) {
-        var question = questions[current_question]; // today current_question = 3
-        console.log('render question', {
-            questions: questions,
-            question: question,
-            current_question: current_question
-        })
-        $('#box-question').removeClass('disable');
-        $('#box-question').html(tmpl(template_id, question));
-        $(".title-question").html(question.question);
-    }
-    $(document).on('click', '.btn-show-quiz', function () {
-        if (client.checkSpinning()) return;
-        console.log('click btn mission', {
-            current_question: current_question,
-            questions: questions
-        })
-        current_question = 0;
-        renderQuestion('question-tmpl');
-        MicroModal.show('w-quiz');
-    })
 })
 
 function fetchAllMission() {
