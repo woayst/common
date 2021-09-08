@@ -58,7 +58,7 @@ client.eventBus.on('login-done', function () {
             fetchMission()
             if (WHEEL_SETTINGS.Wheel.schema == 'tour') {
                 console.log('ko co kho phan thuong');
-            } else {
+            } else if (WHEEL_SETTINGS.Wheel.schema == 'mixed') {
                 updatePlayerHistory('#history', 'history-tmpl');
             }
             updateMyPoint();
