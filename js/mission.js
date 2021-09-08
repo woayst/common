@@ -17,20 +17,20 @@ function getDayNo() {
 function getQuestionAt(k) {
     var questions = client.mission.get('wiki').meta.question;
     var i = k % questions.length;
-    console.log('log i', i);
+    // console.log('log i', i);
     return questions[i];
 }
 
 function getTodayQuestions(question_per_day) {
     var firstIndex = getDayNo() * question_per_day;
-    console.log('firstIndex', firstIndex);
+    // console.log('firstIndex', firstIndex);
     var arr = [];
     for (var i = 0; i < question_per_day; i++) {
         var k = firstIndex + i;
-        console.log('log k', k);
+        // console.log('log k', k);
         arr.push(getQuestionAt(k));
     }
-    console.log('log arr', arr);
+    // console.log('log arr', arr);
     return arr;
 }
 
@@ -66,14 +66,13 @@ client.eventBus.on('login-done', function () {
         }, 1000)
     }
 
-    var question_per_day = client.mission.get('wiki').meta.question_per_day; // sửa lại lấy theo format
-    questions = getTodayQuestions(question_per_day);
-
     client.mission.fetch()
         .then(deactiveDoneMissions)
         .then(processMissionAutoCompleteMission)
         .then(processGoldHourMission)
         .then(function () {
+            var question_per_day = client.mission.get('wiki').meta.question_per_day; // sửa lại lấy theo format
+            questions = getTodayQuestions(question_per_day);
             var action_qr = '';
             var secret_qr = '';
             if (client.getParam('action') && client.getParam('secret')) {
@@ -126,20 +125,16 @@ client.eventBus.on('login-done', function () {
 })
 
 function fetchAllMission() {
-    var enableMission = true;
-
-    if (enableMission) {
-        client.mission.fetchAll()
-            .then(function () {
-                fetchMission();
-                if (!hasLogin) {
-                    $('.btn-challenge').html('<a class="bg-button-group color-button-group">Làm nhiệm vụ</a>');
-                    $('.btn-challenge a').on('click', function () {
-                        client.login.loginHandler();
-                    })
-                }
-            })
-    }
+    client.mission.fetchAll()
+        .then(function () {
+            fetchMission();
+            if (!hasLogin) {
+                $('.btn-challenge').html('<a class="bg-button-group color-button-group">Làm nhiệm vụ</a>');
+                $('.btn-challenge a').on('click', function () {
+                    client.login.loginHandler();
+                })
+            }
+        })
 }
 
 function fetchMission() {
