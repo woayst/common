@@ -54,8 +54,8 @@ function renderMissions(missions, template_id) {
 client.eventBus.on('login-done', function () {
     hasLogin = true;
     if (hasLogin) {
-        fetchMission()
         setTimeout(function () {
+            fetchMission()
             if (WHEEL_SETTINGS.Wheel.schema == 'tour') {
                 console.log('ko co kho phan thuong');
             } else {
