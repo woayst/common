@@ -52,77 +52,79 @@ function renderMissions(missions, template_id) {
     }
 }
 client.eventBus.on('login-done', function () {
-    hasLogin = true;
-    if (hasLogin) {
-        setTimeout(function () {
-            fetchMission()
-            if (WHEEL_SETTINGS.Wheel.schema == 'tour') {
-                console.log('ko co kho phan thuong');
-            } else if (WHEEL_SETTINGS.Wheel.schema == 'mixed') {
-                updatePlayerHistory('#history', 'history-tmpl');
-            }
-            updateMyPoint();
-            renderPlayerPoint('#your-point', 'my-score-tmpl');
+    client.mission.waitToReady()
+        .then(function () {
+            hasLogin = true;
+            if (hasLogin) {
+                fetchMission()
+                if (WHEEL_SETTINGS.Wheel.scheme == 'tour') {
+                    console.log('ko co kho phan thuong');
+                } else if (WHEEL_SETTINGS.Wheel.scheme == 'mixed') {
+                    updatePlayerHistory('#history', 'history-tmpl');
+                }
+                updateMyPoint();
+                renderPlayerPoint('#your-point', 'my-score-tmpl');
 
-            client.mission.fetch()
-                .then(deactiveDoneMissions)
-                .then(processMissionAutoCompleteMission)
-                .then(processGoldHourMission)
-                .then(function () {
-                    var action_qr = '';
-                    var secret_qr = '';
-                    if (client.getParam('action') && client.getParam('secret')) {
-                        action_qr = client.getParam('action');
-                        secret_qr = client.getParam('secret');
-                        processMissionQrCode(secret_qr);
-                    }
-                })
-                .then(function () {
-                    var question_per_day = client.mission.get('wiki').meta.question_per_day; // sửa lại lấy theo format
-                    questions = getTodayQuestions(question_per_day);
-                    $(document).on('click', '.item-question', function () {
-                        checkRightAnswer();
-                        setTimeout(function () {
-                            current_question++;
-                            console.log('tăng current question', {
-                                current_question: current_question,
+                client.mission.fetch()
+                    .then(deactiveDoneMissions)
+                    .then(processMissionAutoCompleteMission)
+                    .then(processGoldHourMission)
+                    .then(function () {
+                        var action_qr = '';
+                        var secret_qr = '';
+                        if (client.getParam('action') && client.getParam('secret')) {
+                            action_qr = client.getParam('action');
+                            secret_qr = client.getParam('secret');
+                            processMissionQrCode(secret_qr);
+                        }
+                    })
+                    .then(function () {
+                        var question_per_day = client.mission.get('wiki').meta.question_per_day; // sửa lại lấy theo format
+                        questions = getTodayQuestions(question_per_day);
+                        $(document).on('click', '.item-question', function () {
+                            checkRightAnswer();
+                            setTimeout(function () {
+                                current_question++;
+                                console.log('tăng current question', {
+                                    current_question: current_question,
+                                    questions: questions,
+                                    question_per_day: question_per_day
+                                })
+                                if (current_question >= question_per_day) {
+                                    console.log('show result');
+                                    showResult();
+                                } else {
+                                    console.log('render tiếp câu hỏi');
+                                    renderQuestion('question-tmpl');
+                                }
+                            }, 1000)
+                        })
+                        function renderQuestion(template_id) {
+                            var question = questions[current_question]; // today current_question = 3
+                            console.log('render question', {
                                 questions: questions,
-                                question_per_day: question_per_day
+                                question: question,
+                                current_question: current_question
                             })
-                            if (current_question >= question_per_day) {
-                                console.log('show result');
-                                showResult();
-                            } else {
-                                console.log('render tiếp câu hỏi');
-                                renderQuestion('question-tmpl');
-                            }
-                        }, 1000)
-                    })
-                    function renderQuestion(template_id) {
-                        var question = questions[current_question]; // today current_question = 3
-                        console.log('render question', {
-                            questions: questions,
-                            question: question,
-                            current_question: current_question
+                            $('#box-question').removeClass('disable');
+                            $('#box-question').html(tmpl(template_id, question));
+                            $(".title-question").html(question.question);
+                        }
+                        $(document).on('click', '.btn-show-quiz', function () {
+                            if (client.checkSpinning()) return;
+                            // if (client.isPicking()) return;
+                            console.log('click btn mission', {
+                                current_question: current_question,
+                                questions: questions
+                            })
+                            current_question = 0;
+                            renderQuestion('question-tmpl');
+                            MicroModal.show('w-quiz');
                         })
-                        $('#box-question').removeClass('disable');
-                        $('#box-question').html(tmpl(template_id, question));
-                        $(".title-question").html(question.question);
-                    }
-                    $(document).on('click', '.btn-show-quiz', function () {
-                        // if (client.checkSpinning()) return;
-                        if (client.isPicking()) return;
-                        console.log('click btn mission', {
-                            current_question: current_question,
-                            questions: questions
-                        })
-                        current_question = 0;
-                        renderQuestion('question-tmpl');
-                        MicroModal.show('w-quiz');
                     })
-                })
-        }, 1000)
-    }
+
+            }
+        })
 })
 
 function fetchAllMission() {
@@ -173,8 +175,8 @@ function missionComplete(name, new_quantity) {
         return;
     }
 
-    // if (client.checkSpinning()) return;
-    if (client.isPicking()) return;
+    if (client.checkSpinning()) return;
+    // if (client.isPicking()) return;
 
     var player_game_id = client.user.get().player_game_id;
     client.mission.complete(name, player_game_id, new_quantity)
@@ -259,14 +261,14 @@ function processGoldHourMission() {
 }
 
 $(document).on("click", '.btn-invite-friend', function () {
-    // if (client.checkSpinning()) return;
-    if (client.isPicking()) return;
+    if (client.checkSpinning()) return;
+    // if (client.isPicking()) return;
     MicroModal.show('w-share');
 })
 
 $(document).on("click", '.btn-share-fb', function () {
-    // if (client.checkSpinning()) return;
-    if (client.isPicking()) return;
+    if (client.checkSpinning()) return;
+    // if (client.isPicking()) return;
     FB.ui({
         method: 'share',
         href: getShareLink(),
@@ -282,8 +284,8 @@ $(document).on("click", '.my-copy-link-btn', function () {
 })
 
 $(document).on('click', '.btn-show-qrcode', function () {
-    // if (client.checkSpinning()) return;
-    if (client.isPicking()) return;
+    if (client.checkSpinning()) return;
+    // if (client.isPicking()) return;
     checkQrCode();
 })
 
