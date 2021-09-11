@@ -11,26 +11,28 @@ function getDayNo() {
     console.log('today', today);
     var airDate = new Date(WHEEL_SETTINGS.Wheel.campaign_start_at);
     airDate.setHours(0, 0, 0);
+    console.log('airDate', airDate);
+    console.log('get day', Math.floor((today - airDate) / 86400000));
     return Math.floor((today - airDate) / 86400000);
 }
 
 function getQuestionAt(k) {
     var questions = client.mission.get('wiki').meta.question;
     var i = k % questions.length;
-    // console.log('log i', i);
+    console.log('log i', i);
     return questions[i];
 }
 
 function getTodayQuestions(question_per_day) {
     var firstIndex = getDayNo() * question_per_day;
-    // console.log('firstIndex', firstIndex);
+    console.log('firstIndex', firstIndex);
     var arr = [];
     for (var i = 0; i < question_per_day; i++) {
         var k = firstIndex + i;
-        // console.log('log k', k);
+        console.log('log k', k);
         arr.push(getQuestionAt(k));
     }
-    // console.log('log arr', arr);
+    console.log('log arr', arr);
     return arr;
 }
 
@@ -111,8 +113,8 @@ client.eventBus.on('login-done', function () {
                             $(".title-question").html(question.question);
                         }
                         $(document).on('click', '.btn-show-quiz', function () {
-                            // if (client.checkSpinning()) return;
-                            if (client.isPicking()) return;
+                            if (client.checkSpinning()) return;
+                            // if (client.isPicking()) return;
                             console.log('click btn mission', {
                                 current_question: current_question,
                                 questions: questions
@@ -175,8 +177,8 @@ function missionComplete(name, new_quantity) {
         return;
     }
 
-    // if (client.checkSpinning()) return;
-    if (client.isPicking()) return;
+    if (client.checkSpinning()) return;
+    // if (client.isPicking()) return;
 
     var player_game_id = client.user.get().player_game_id;
     client.mission.complete(name, player_game_id, new_quantity)
@@ -261,14 +263,14 @@ function processGoldHourMission() {
 }
 
 $(document).on("click", '.btn-invite-friend', function () {
-    // if (client.checkSpinning()) return;
-    if (client.isPicking()) return;
+    if (client.checkSpinning()) return;
+    // if (client.isPicking()) return;
     MicroModal.show('w-share');
 })
 
 $(document).on("click", '.btn-share-fb', function () {
-    // if (client.checkSpinning()) return;
-    if (client.isPicking()) return;
+    if (client.checkSpinning()) return;
+    // if (client.isPicking()) return;
     FB.ui({
         method: 'share',
         href: getShareLink(),
@@ -284,8 +286,8 @@ $(document).on("click", '.my-copy-link-btn', function () {
 })
 
 $(document).on('click', '.btn-show-qrcode', function () {
-    // if (client.checkSpinning()) return;
-    if (client.isPicking()) return;
+    if (client.checkSpinning()) return;
+    // if (client.isPicking()) return;
     checkQrCode();
 })
 
