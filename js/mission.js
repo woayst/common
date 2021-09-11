@@ -110,7 +110,7 @@ client.eventBus.on('login-done', function () {
                         $(".title-question").html(question.question);
                     }
                     $(document).on('click', '.btn-show-quiz', function () {
-                        if (client.checkSpinning()) return;
+                        // if (client.checkSpinning()) return;
                         console.log('click btn mission', {
                             current_question: current_question,
                             questions: questions
@@ -172,7 +172,7 @@ function missionComplete(name, new_quantity) {
         return;
     }
 
-    if (client.checkSpinning()) return;
+    // if (client.checkSpinning()) return;
 
     var player_game_id = client.user.get().player_game_id;
     client.mission.complete(name, player_game_id, new_quantity)
@@ -257,12 +257,12 @@ function processGoldHourMission() {
 }
 
 $(document).on("click", '.btn-invite-friend', function () {
-    if (client.checkSpinning()) return;
+    // if (client.checkSpinning()) return;
     MicroModal.show('w-share');
 })
 
 $(document).on("click", '.btn-share-fb', function () {
-    if (client.checkSpinning()) return;
+    // if (client.checkSpinning()) return;
     FB.ui({
         method: 'share',
         href: getShareLink(),
@@ -278,7 +278,7 @@ $(document).on("click", '.my-copy-link-btn', function () {
 })
 
 $(document).on('click', '.btn-show-qrcode', function () {
-    if (client.checkSpinning()) return;
+    // if (client.checkSpinning()) return;
     checkQrCode();
 })
 
@@ -378,6 +378,7 @@ function renderRankChart() {
     for (var i = 1; i < 5; i++) {
         var from = new Date(startTime + (i - 1) * 7 * 86400000);
         var to = new Date(startTime + (i) * 7 * 86400000);
+        console.log('debug', { from, to, currentDate });
         if (currentDate > from) {
             console.log('log i: ', i);
             var html = '<li class="item-button"><a data-target="tuan' + i + '" class="tablinks">Tuần ' + i + '</a></li>'
