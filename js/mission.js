@@ -12,9 +12,9 @@ function getDayNo() {
     var airDate = new Date(WHEEL_SETTINGS.Wheel.campaign_start_at);
     // airDate.setHours(0, 0, 0);
     console.log('airDate', airDate);
-    console.log('get day', Math.floor((today - airDate) / 86400000));
+    console.log('get day', Math.floor((airDate - today) / 86400000));
     console.log('air date');
-    return Math.floor((today - airDate) / 86400000);
+    return Math.floor((airDate - today) / 86400000);
 }
 
 function getQuestionAt(k) {
