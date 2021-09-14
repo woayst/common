@@ -177,7 +177,7 @@ function missionComplete(name, new_quantity) {
 
     if (!client.mission.isReady()) return;
 
-    if (name === 'login' || name === 'invite_friend') {
+    if (name === 'invite_friend') {
         return;
     }
 
@@ -240,7 +240,8 @@ function processMissionAutoCompleteMission() {
     AUTO_COMPLETE_MISSIONS.forEach(function (key) {
         var m = client.mission.get(key);
         if (m.active && !m.isDone) {
-            client.mission.complete(m.name, player_game_id);
+            // client.mission.complete(m.name, player_game_id);
+            missionComplete('login');
             $('.mission-' + m.name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
             if (m.type == 'point') return;
             client.addTurnForMission(m.name, m.quantity);
