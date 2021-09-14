@@ -118,7 +118,7 @@ client.eventBus.on('login-done', function () {
                         }
                         $(document).on('click', '.btn-show-quiz', function () {
                             // if (client.checkSpinning()) return;
-                            if (client.isPicking()) return;
+                            // if (client.isPicking()) return;
                             console.log('click btn mission', {
                                 current_question: current_question,
                                 questions: questions
@@ -184,7 +184,7 @@ function missionComplete(name, new_quantity) {
     }
 
     // if (client.checkSpinning()) return;
-    if (client.isPicking()) return;
+    // if (client.isPicking()) return;
 
     var player_game_id = client.user.get().player_game_id;
     client.mission.complete(name, player_game_id, new_quantity)
@@ -278,13 +278,13 @@ function processGoldHourMission() {
 
 $(document).on("click", '.btn-invite-friend', function () {
     // if (client.checkSpinning()) return;
-    if (client.isPicking()) return;
+    // if (client.isPicking()) return;
     MicroModal.show('w-share');
 })
 
 $(document).on("click", '.btn-share-fb', function () {
     // if (client.checkSpinning()) return;
-    if (client.isPicking()) return;
+    // if (client.isPicking()) return;
     FB.ui({
         method: 'share',
         href: getShareLink(),
@@ -301,7 +301,7 @@ $(document).on("click", '.my-copy-link-btn', function () {
 
 $(document).on('click', '.btn-show-qrcode', function () {
     // if (client.checkSpinning()) return;
-    if (client.isPicking()) return;
+    // if (client.isPicking()) return;
     checkQrCode();
 })
 
