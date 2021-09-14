@@ -296,6 +296,10 @@ $(document).on('click', '.btn-show-qrcode', function () {
     checkQrCode();
 })
 
+$(document).on('click', '#w-complete .modal__close', function () {
+    MicroModal.close('w-complete');
+})
+
 function checkQrCode() {
     var action_qr = client.getParam('action');
     var secret_qr = client.getParam('secret');
