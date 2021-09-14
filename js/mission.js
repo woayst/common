@@ -117,7 +117,7 @@ client.eventBus.on('login-done', function () {
                             $(".title-question").html(question.question);
                         }
                         $(document).on('click', '.btn-show-quiz', function () {
-                            // if (client.checkSpinning()) return;
+                            if (client.checkSpinning()) return;
                             // if (client.isPicking()) return;
                             console.log('click btn mission', {
                                 current_question: current_question,
@@ -181,7 +181,7 @@ function missionComplete(name, new_quantity) {
         return;
     }
 
-    // if (client.checkSpinning()) return;
+    if (client.checkSpinning()) return;
     // if (client.isPicking()) return;
 
     var player_game_id = client.user.get().player_game_id;
@@ -226,6 +226,13 @@ function missionComplete(name, new_quantity) {
         })
 }
 
+function checkMissionInviteFriend() {
+    if (WHEEL_SETTINGS.Wheel.is_test_mode) {
+        $('.mission-invite_friend').css('display', 'none');
+    }
+    $('.mission-invite_friend').css('display', 'block');
+}
+
 function getShareLink() {
     var user = client.user.get();
     console.log('user', user);
@@ -268,13 +275,13 @@ function processGoldHourMission() {
 }
 
 $(document).on("click", '.btn-invite-friend', function () {
-    // if (client.checkSpinning()) return;
+    if (client.checkSpinning()) return;
     // if (client.isPicking()) return;
     MicroModal.show('w-share');
 })
 
 $(document).on("click", '.btn-share-fb', function () {
-    // if (client.checkSpinning()) return;
+    if (client.checkSpinning()) return;
     // if (client.isPicking()) return;
     FB.ui({
         method: 'share',
@@ -291,7 +298,7 @@ $(document).on("click", '.my-copy-link-btn', function () {
 })
 
 $(document).on('click', '.btn-show-qrcode', function () {
-    // if (client.checkSpinning()) return;
+    if (client.checkSpinning()) return;
     // if (client.isPicking()) return;
     checkQrCode();
 })
