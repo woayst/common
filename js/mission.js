@@ -137,8 +137,6 @@ function fetchAllMission() {
     client.mission.fetchAll()
         .then(function () {
             fetchMission();
-            console.log('check mission invite');
-            checkMissionInviteFriend();
             if (!hasLogin) {
                 $('.btn-challenge').html('<a class="bg-button-group color-button-group">Làm nhiệm vụ</a>');
                 $('.btn-challenge a').on('click', function () {
@@ -157,6 +155,8 @@ function fetchMission() {
     } else {
         renderMissions(missions, 'd-mission-tmpl');
     }
+    console.log('check mission invite');
+    checkMissionInviteFriend();
 }
 
 function deactiveDoneMissions() {
@@ -234,7 +234,7 @@ function checkMissionInviteFriend() {
         $('.mission-invite_friend').css('display', 'none');
     } else {
         console.log('not is test mode');
-        $('.mission-invite_friend').css('display', 'block');
+        $('.mission-invite_friend').css('display', 'flex');
     }
 }
 
