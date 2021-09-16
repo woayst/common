@@ -182,9 +182,11 @@ function missionComplete(name, new_quantity) {
     if (name === 'invite_friend') {
         return;
     }
-
-    // if (client.checkSpinning()) return;
-    // if (client.isPicking()) return;
+    if (WHEEL_SETTINGS.Wheel.game_type == 'wheel') {
+        if (client.checkSpinning()) return;
+    } else if (WHEEL_SETTINGS.Wheel.game_type == 'li_xi') {
+        if (client.isPicking()) return;
+    }
 
     var player_game_id = client.user.get().player_game_id;
     client.mission.complete(name, player_game_id, new_quantity)
@@ -277,14 +279,20 @@ function processGoldHourMission() {
 }
 
 $(document).on("click", '.btn-invite-friend', function () {
-    // if (client.checkSpinning()) return;
-    // if (client.isPicking()) return;
+    if (WHEEL_SETTINGS.Wheel.game_type == 'wheel') {
+        if (client.checkSpinning()) return;
+    } else if (WHEEL_SETTINGS.Wheel.game_type == 'li_xi') {
+        if (client.isPicking()) return;
+    }
     MicroModal.show('w-share');
 })
 
 $(document).on("click", '.btn-share-fb', function () {
-    // if (client.checkSpinning()) return;
-    // if (client.isPicking()) return;
+    if (WHEEL_SETTINGS.Wheel.game_type == 'wheel') {
+        if (client.checkSpinning()) return;
+    } else if (WHEEL_SETTINGS.Wheel.game_type == 'li_xi') {
+        if (client.isPicking()) return;
+    }
     FB.ui({
         method: 'share',
         href: getShareLink(),
@@ -300,8 +308,11 @@ $(document).on("click", '.my-copy-link-btn', function () {
 })
 
 $(document).on('click', '.btn-show-qrcode', function () {
-    // if (client.checkSpinning()) return;
-    // if (client.isPicking()) return;
+    if (WHEEL_SETTINGS.Wheel.game_type == 'wheel') {
+        if (client.checkSpinning()) return;
+    } else if (WHEEL_SETTINGS.Wheel.game_type == 'li_xi') {
+        if (client.isPicking()) return;
+    }
     checkQrCode();
 })
 
