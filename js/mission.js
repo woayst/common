@@ -222,8 +222,8 @@ function missionComplete(name, new_quantity) {
                 renderPlayerPoint('#your-point', 'my-score-tmpl');
                 return;
             }
-            client.addTurnForMission(mission_name, quantity);
-            client.updateTurnCount();
+            client.reward.addTurnForMission(mission_name, quantity);
+            client.reward.updateTurnCount();
         }).catch(function (err) {
             console.log(name, ' error');
             console.error(err);
@@ -430,7 +430,7 @@ function renderRankChart() {
 
 
 function updatePlayerHistory(table_selector, template_id) {
-    var rewards = client._.getRewardData().rewards;
+    var rewards = client.reward.getRewardData().rewards;
     console.log('rewards', rewards)
     $(table_selector).html('');
     if (rewards.length) {
