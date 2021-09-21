@@ -133,7 +133,7 @@ client.eventBus.on('login-done', function () {
                             })
                         })
                 }
-            }, 2000)
+            }, 1000)
         })
 })
 
@@ -459,7 +459,7 @@ function renderPlayerPoint(table_selector, template_id) {
                     if (point.type == 'mission') {
                         point.type = 'Nhiệm vụ: ' + client.mission.get(point.type_name).title;
                     } else if (point.type == 'reward') {
-                        point.type = 'Trúng thưởng: ' + point.type_name;
+                        point.type = 'Chơi game được: ' + point.type_name;
                     }
                     point.created_at = new Date(point.created_at).toLocaleString();
                     $(table_selector).append(tmpl(template_id, point));
