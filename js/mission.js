@@ -166,7 +166,7 @@ function deactiveDoneMissions() {
         if (!mission.active) return;
         if (mission.isDone) {
             console.log('mission is done');
-            $('.mission-' + mission.name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
+            $('.mission-' + mission.name + ' .btn-challenge a').html('<img src="https://working.woay.vn/assets/mission/button-status-3.png">').addClass('deactive');
             return;
         }
     })
@@ -214,7 +214,7 @@ function missionComplete(name, new_quantity) {
                 $('#w-complete .title-popup').html('Rất tiếc bạn không được cộng lượt');
             }
             if (mission_frequency !== 'unlimited') {
-                $('.mission-' + name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
+                $('.mission-' + name + ' .btn-challenge a').html('<img src="https://working.woay.vn/assets/mission/button-status-3.png">').addClass('deactive');
             }
             if (mission_type == 'point') {
                 console.log('update lai point cho lich su diem + tong diem cua toi');
@@ -256,7 +256,7 @@ function processMissionAutoCompleteMission() {
         if (m.active && !m.isDone) {
             // client.mission.complete(m.name, player_game_id);
             missionComplete('login');
-            $('.mission-' + m.name + ' .btn-challenge a').html('Đã hoàn thành').addClass('deactive');
+            $('.mission-' + m.name + ' .btn-challenge a').html('<img src="https://working.woay.vn/assets/mission/button-status-3.png">').addClass('deactive');
         }
     })
 }
