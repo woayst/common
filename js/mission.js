@@ -138,7 +138,7 @@ function fetchAllMission() {
         .then(function () {
             fetchMission();
             if (!hasLogin) {
-                $('.btn-challenge').html('<a class="bg-button-group color-button-group">Làm nhiệm vụ</a>');
+                $('.btn-challenge').html('<a class="bg-button-group color-button-group"><img src="https://working.woay.vn/assets/mission/button-status-1.png"></a>');
                 $('.btn-challenge a').on('click', function () {
                     client.login.loginHandler();
                 })
@@ -270,11 +270,11 @@ function processGoldHourMission() {
     var isValid = (GOLD_HOUR_START <= current_hour && current_hour < GOLD_HOUR_END);
     var isDone = client.mission.get('gold_hour').isDone;
     if (!isValid && !isDone) {
-        $('.mission-gold_hour .btn-challenge a').html('Chưa thực hiện').addClass('deactive');
+        $('.mission-gold_hour .btn-challenge a').html('<img src="https://working.woay.vn/assets/mission/button-status-3.png">').addClass('deactive');
     } else if (isValid && !isDone) {
-        $('.mission-gold_hour .btn-challenge a').html('Làm nhiệm vụ').addClass('active');
+        $('.mission-gold_hour .btn-challenge a').html('<img src="https://working.woay.vn/assets/mission/button-status-1.png">').addClass('active');
     } else {
-        $('.mission-gold_hour .btn-challenge a').html('Đã hoàn thành').addClass('active');
+        $('.mission-gold_hour .btn-challenge a').html('<img src="https://working.woay.vn/assets/mission/button-status-2.png">').addClass('active');
     }
 }
 
