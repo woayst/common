@@ -45,7 +45,7 @@ function renderMissions(missions, template_id) {
     var missions = client.mission.getAll();
     $('#mission-list').html('');
     var hasMissionActive = false;
-    missions.forEach(function(mission) {
+    missions.forEach(function (mission) {
         console.log('after for mission', mission);
         if (mission.active) {
             console.log('mission active', mission.active);
@@ -57,11 +57,11 @@ function renderMissions(missions, template_id) {
         $('.section-mission').css('display', 'none');
     }
 }
-client.eventBus.on('login-done', function() {
+client.eventBus.on('login-done', function () {
     client.mission.waitToReady()
-        .then(function() {
+        .then(function () {
             hasLogin = true;
-            setTimeout(function() {
+            setTimeout(function () {
                 if (hasLogin) {
                     fetchMission()
                     if (WHEEL_SETTINGS.Wheel.scheme == 'tour') {
@@ -76,7 +76,7 @@ client.eventBus.on('login-done', function() {
                         .then(deactiveDoneMissions)
                         .then(processMissionAutoCompleteMission)
                         .then(processGoldHourMission)
-                        .then(function() {
+                        .then(function () {
                             var action_qr = '';
                             var secret_qr = '';
                             if (client.getParam('action') && client.getParam('secret')) {
@@ -85,12 +85,12 @@ client.eventBus.on('login-done', function() {
                                 processMissionQrCode(secret_qr);
                             }
                         })
-                        .then(function() {
+                        .then(function () {
                             var question_per_day = client.mission.get('wiki').meta.question_per_day; // sửa lại lấy theo format
                             questions = getTodayQuestions(question_per_day);
-                            $(document).on('click', '.item-question', function() {
+                            $(document).on('click', '.item-question', function () {
                                 checkRightAnswer();
-                                setTimeout(function() {
+                                setTimeout(function () {
                                     current_question++;
                                     console.log('tăng current question', {
                                         current_question: current_question,
@@ -118,7 +118,7 @@ client.eventBus.on('login-done', function() {
                                 $('#box-question').html(tmpl(template_id, question));
                                 $(".title-question").html(question.question);
                             }
-                            $(document).on('click', '.btn-show-quiz', function() {
+                            $(document).on('click', '.btn-show-quiz', function () {
                                 if (WHEEL_SETTINGS.Wheel.game_type == 'wheel') {
                                     if (client.checkSpinning()) return;
                                 } else if (WHEEL_SETTINGS.Wheel.game_type == 'li_xi') {
@@ -140,11 +140,11 @@ client.eventBus.on('login-done', function() {
 
 function fetchAllMission() {
     client.mission.fetchAll()
-        .then(function() {
+        .then(function () {
             fetchMission();
             if (!hasLogin) {
                 $('.btn-challenge').html('<a class="bg-button-group color-button-group"><img src="https://working.woay.vn/assets/mission/button-status-1.png"></a>');
-                $('.btn-challenge a').on('click', function() {
+                $('.btn-challenge a').on('click', function () {
                     client.login.loginHandler();
                 })
             }
@@ -167,7 +167,7 @@ function fetchMission() {
 function deactiveDoneMissions() {
     var missions = client.mission.getAll();
     console.log('deactive done mission');
-    missions.forEach(function(mission) {
+    missions.forEach(function (mission) {
         if (!mission.active) return;
         if (mission.isDone) {
             console.log('mission is done');
@@ -196,7 +196,7 @@ function missionComplete(name, new_quantity) {
 
     var player_game_id = client.user.get().player_game_id;
     client.mission.complete(name, player_game_id, new_quantity)
-        .then(function() {
+        .then(function () {
             var mission_name = client.mission.get(name).name;
             var quantity = client.mission.get(name).quantity;
             var mission_type = client.mission.get(name).type;
@@ -230,7 +230,7 @@ function missionComplete(name, new_quantity) {
             }
             client.reward.addTurnForMission(mission_name, quantity);
             client.reward.updateTurnCount();
-        }).catch(function(err) {
+        }).catch(function (err) {
             console.log(name, ' error');
             console.error(err);
         })
@@ -239,10 +239,14 @@ function missionComplete(name, new_quantity) {
 function checkMissionInviteFriend() {
     if (WHEEL_SETTINGS.Wheel.is_test_mode) {
         console.log('is test mode');
-        $('.mission-invite_friend').css('display', 'none');
+        $('#w-share .modal__content').css('display', 'none');
+        $('#w-share .modal__footer').css('display', 'none');
+        $('#w-share .modal__header .title-popup').text('Nhiệm vụ này chỉ thực hiện được khi phát hành chính thức');
     } else {
         console.log('not is test mode');
-        $('.mission-invite_friend').css('display', 'flex');
+        $('#w-share .modal__content').css('display', 'block');
+        $('#w-share .modal__footer').css('display', 'block');
+        $('#w-share .modal__header .title-popup').text('Hãy chia sẻ cùng bạn bè');
     }
 }
 
@@ -258,7 +262,7 @@ function processMissionAutoCompleteMission() {
     var AUTO_COMPLETE_MISSIONS = ['login'];
     var player_game_id = client.user.get().player_game_id;
     console.log('player_game_id', player_game_id);
-    AUTO_COMPLETE_MISSIONS.forEach(function(key) {
+    AUTO_COMPLETE_MISSIONS.forEach(function (key) {
         var m = client.mission.get(key);
         if (m.active && !m.isDone) {
             // client.mission.complete(m.name, player_game_id);
@@ -285,7 +289,7 @@ function processGoldHourMission() {
     }
 }
 
-$(document).on("click", '.btn-invite-friend', function() {
+$(document).on("click", '.btn-invite-friend', function () {
     if (WHEEL_SETTINGS.Wheel.game_type == 'wheel') {
         if (client.checkSpinning()) return;
     } else if (WHEEL_SETTINGS.Wheel.game_type == 'li_xi') {
@@ -294,7 +298,7 @@ $(document).on("click", '.btn-invite-friend', function() {
     MicroModal.show('w-share');
 })
 
-$(document).on("click", '.btn-share-fb', function() {
+$(document).on("click", '.btn-share-fb', function () {
     if (WHEEL_SETTINGS.Wheel.game_type == 'wheel') {
         if (client.checkSpinning()) return;
     } else if (WHEEL_SETTINGS.Wheel.game_type == 'li_xi') {
@@ -303,18 +307,18 @@ $(document).on("click", '.btn-share-fb', function() {
     FB.ui({
         method: 'share',
         href: getShareLink(),
-    }, function(response) {
+    }, function (response) {
         if (response) {
             missionComplete('share_facebook');
         }
     });
 })
 
-$(document).on("click", '.my-copy-link-btn', function() {
+$(document).on("click", '.my-copy-link-btn', function () {
     client.copyToClipboard('#w-text-share-url');
 })
 
-$(document).on('click', '.btn-show-qrcode', function() {
+$(document).on('click', '.btn-show-qrcode', function () {
     if (WHEEL_SETTINGS.Wheel.game_type == 'wheel') {
         if (client.checkSpinning()) return;
     } else if (WHEEL_SETTINGS.Wheel.game_type == 'li_xi') {
@@ -323,7 +327,7 @@ $(document).on('click', '.btn-show-qrcode', function() {
     checkQrCode();
 })
 
-$(document).on('click', '#w-complete .modal__close', function() {
+$(document).on('click', '#w-complete .modal__close', function () {
     MicroModal.close('w-complete');
 })
 
@@ -401,8 +405,8 @@ var myUserId = null;
 function getTopPlayer(id, from, to) {
     var $ = client.$;
     client.api.getTopPlayer(from, to)
-        .then(function(data) {
-            var topPlayers = data.map(function(x, i) {
+        .then(function (data) {
+            var topPlayers = data.map(function (x, i) {
                 x.stt = i + 1;
                 x.percent = x.sum / data[0].sum * 100;
                 x.point = x.sum;
@@ -442,7 +446,7 @@ function updatePlayerHistory(table_selector, template_id) {
     console.log('rewards', rewards)
     $(table_selector).html('');
     if (rewards.length) {
-        rewards.forEach(function(reward) {
+        rewards.forEach(function (reward) {
             if (reward.sku == 'BADLUCK' || reward.item_type == 'point') return;
             reward.updated_at = new Date(reward.updated_at).toLocaleString();
             $(table_selector).append(tmpl(template_id, reward));
@@ -462,12 +466,12 @@ function padLeft(n, len) {
 
 function renderPlayerPoint(table_selector, template_id) {
     client.api.getHistoryPoint()
-        .then(function(data) {
+        .then(function (data) {
             var points = data;
             console.log('points', points)
             $(table_selector).html('');
             if (points.length) {
-                points.forEach(function(point) {
+                points.forEach(function (point) {
                     if (point.type == 'mission') {
                         point.type = 'Nhiệm vụ: ' + client.mission.get(point.type_name).title;
                     } else if (point.type == 'reward') {
@@ -487,7 +491,7 @@ function renderPlayerPoint(table_selector, template_id) {
 
 function updateMyPoint() {
     client.api.getMyRank()
-        .then(function(data) {
+        .then(function (data) {
             $('.total-point').css('opacity', '1');
             $('.your-point').html(data.sum);
         })
