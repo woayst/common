@@ -1092,7 +1092,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     color: #4A4A4A;
 }
 
-.item-score .item-time {
+.item-score .item-time, .item-reward .item-time {
     width: 100%;
     color: #4A4A4A;
     font-size: 12px;
