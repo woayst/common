@@ -1051,7 +1051,6 @@ input.error {
 .item-index {
     background-color: #F0F0F0;
     border-radius: 8px;
-    padding: 8px 16px;
     text-align: center;
     color: #fff;
     font-size: 18px;
@@ -1140,7 +1139,8 @@ input.error {
     color: #4A4A4A;
 }
 
-.item-score .item-time, .item-reward .item-time {
+.item-score .item-time,
+.item-reward .item-time {
     width: 100%;
     color: #4A4A4A;
     font-size: 12px;
