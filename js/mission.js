@@ -114,7 +114,7 @@ function fetchAllMission() {
         .then(function() {
             fetchMission();
             if (!hasLogin) {
-                $('.btn-challenge').html('<a class="bg-button-group color-button-group"><img src="https://working.woay.vn/assets/mission/button-status-1.png"></a>');
+                $('.btn-challenge').html('<a class="bg-button-group color-button-group"><img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png"></a>');
                 $('.btn-challenge a').on('click', function() {
                     client.login.loginHandler();
                 })
@@ -138,7 +138,7 @@ function deactiveDoneMissions() {
     missions.forEach(function(mission) {
         if (!mission.active) return;
         if (mission.isDone) {
-            $('.mission-' + mission.name + ' .btn-challenge a').html('<img src="https://working.woay.vn/assets/mission/button-status-2.png">').addClass('deactive');
+            $('.mission-' + mission.name + ' .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-2.png">').addClass('deactive');
             return;
         }
     })
@@ -183,7 +183,7 @@ function missionComplete(name, new_quantity) {
                 $('#w-complete .title-popup').html('Rất tiếc bạn không được cộng lượt');
             }
             if (mission_frequency !== 'unlimited') {
-                $('.mission-' + name + ' .btn-challenge a').html('<img src="https://working.woay.vn/assets/mission/button-status-2.png">').addClass('deactive');
+                $('.mission-' + name + ' .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-2.png">').addClass('deactive');
             }
             if (mission_type == 'point') {
                 updateMyPoint()
@@ -224,7 +224,7 @@ function processMissionAutoCompleteMission() {
         if (m.active && !m.isDone) {
             // client.mission.complete(m.name, player_game_id);
             missionComplete('login');
-            $('.mission-' + m.name + ' .btn-challenge a').html('<img src="https://working.woay.vn/assets/mission/button-status-2.png">').addClass('deactive');
+            $('.mission-' + m.name + ' .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-2.png">').addClass('deactive');
         }
     })
 }
@@ -237,11 +237,11 @@ function processGoldHourMission() {
     var isValid = (GOLD_HOUR_START <= current_hour && current_hour < GOLD_HOUR_END);
     var isDone = client.mission.get('gold_hour').isDone;
     if (!isValid && !isDone) {
-        $('.mission-gold_hour .btn-challenge a').html('<img src="https://working.woay.vn/assets/mission/button-status-3.png">').addClass('deactive');
+        $('.mission-gold_hour .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-3.png">').addClass('deactive');
     } else if (isValid && !isDone) {
-        $('.mission-gold_hour .btn-challenge a').html('<img src="https://working.woay.vn/assets/mission/button-status-1.png">').addClass('active');
+        $('.mission-gold_hour .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png">').addClass('active');
     } else {
-        $('.mission-gold_hour .btn-challenge a').html('<img src="https://working.woay.vn/assets/mission/button-status-2.png">').addClass('active');
+        $('.mission-gold_hour .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-2.png">').addClass('active');
     }
 }
 
