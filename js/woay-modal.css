@@ -901,3 +901,259 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 #lixi-game canvas {
     width: 100%;
 }
+
+/* new CSS UI */
+
+.section-mission ul {
+    max-width: 800px;
+}
+
+.section-mission ul li {
+    border-radius: 60px;
+    background-color: #fff;
+    margin-bottom: 25px;
+}
+
+.section-mission .box-img img {
+    max-width: 60px !important;
+}
+
+.section-mission ul li .box-info h5 {
+    font-size: 18px;
+    margin: 10px 0 5px;
+}
+
+.section-mission ul li .box-info p {
+    font-size: 15px;
+}
+
+.section-mission ul li .btn-challenge {
+    width: calc(25% - 30px);
+    margin-right: 30px;
+}
+
+.section-mission ul li .btn-challenge a {
+    background-color: unset;
+    display: block;
+    padding: 0;
+}
+
+.section-mission ul li .btn-challenge a {
+    width: 100%;
+}
+
+.section-mission .btn-challenge a img {
+    max-width: 100%;
+}
+
+.btn-challenge a.deactive {
+    border: unset !important;
+}
+
+.box-rank, .list-point, .list-reward {
+    background-color: #fff;
+    border-radius: 60px;
+}
+
+.list-reward {
+    border: unset;
+}
+
+.title-rank, .title-reward {
+    border: unset;
+    background-color: transparent;
+    color: #4a4a4a;
+    padding: 0;
+    font-size: 22px;
+}
+
+.title-reward {
+    padding-left: 15px;
+}
+
+.box-icon {
+    text-align: center;
+    padding: 15px 0;
+}
+
+.box-icon img {
+    max-width: 160px;
+}
+
+.list-reward .item-reward .box-icon {
+    padding: 15px;
+    border: 1px solid #EDEDED;
+    padding: 5px;
+    border: 1px solid #EDEDED;
+    width: 10%;
+    max-width: 50px;
+}
+
+.list-reward .item-reward .box-icon img {
+    max-width: 40px;
+}
+
+.pl-2 {
+    padding-left: 20px;
+}
+
+.wrap-item-button .item-button {
+    border-radius: 20px;
+    border: 1px solid #FF9F2C;
+}
+
+.wrap-item-button .active {
+    background-color: #FF9F2C;
+}
+
+.tabs .tab-links li a {
+    color: #FF9F2C;
+    border-radius: 20px;
+}
+
+.pd-box {
+    padding: 20px 60px 60px;
+}
+
+.item-index {
+    background-color: #FF9F2C;
+    border-radius: 8px;
+    padding: 8px 16px;
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.rank-item {
+    padding: 20px 0;
+}
+
+.rank-item .item-point {
+    text-align: right;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.rank-item .item-name {
+    text-align: left;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.box-800 {
+    max-width: 800px;
+    margin: 10px auto 40px;
+}
+
+.box-rank ul.tab-links {
+    display: none;
+}
+
+.box-shading {
+    box-shadow: 0 4px 2px -2px #EBEBEB;
+    padding-bottom: 30px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.box-title {
+    padding-left: 50px;
+    padding-top: 50px;
+}
+
+.list-point {
+    border: unset;
+}
+
+.list-point .box-img img, .list-reward .box-img img {
+    max-width: 70px;
+}
+
+.list-point .item-score, .list-reward .item-reward {
+    box-shadow: inset 0 -1px 0 rgb(0 0 0 / 15%);
+    padding: 15px 0;
+}
+
+.item-score .item-point, .item-reward .item-name {
+    font-weight: bold;
+    font-size: 20px;
+    width: 100%;
+    color: #4A4A4A;
+}
+
+.item-score .item-time {
+    width: 100%;
+    color: #4A4A4A;
+    font-size: 12px;
+}
+
+.item-score .item-type {
+    font-size: 17px;
+    color: #444444;
+}
+
+@media (max-width: 767px) {
+    .section-mission ul li .box-info {
+        padding: 0;
+    }
+    .pd-box {
+        padding: 30px;
+    }
+    .section-mission ul li {
+        border-radius: 30px;
+    }
+    .section-mission ul li .btn-challenge {
+        width: 100%;
+    }
+    .section-mission .btn-challenge a img {
+        max-width: 100%;
+    }
+    .rank-item .item-name {
+        font-size: 16px;
+    }
+    .rank-item .item-point {
+        font-size: 20px;
+    }
+    .box-rank, .list-point {
+        border-radius: 20px;
+    }
+    .section-mission ul li .box-img {
+        width: 30%;
+    }
+    .box-right {
+        width: 70%;
+        padding-left: 10px;
+    }
+    .section-mission .box-img img {
+        max-width: 100px !important;
+    }
+    .box-title {
+        padding-left: 30px;
+        padding-top: 30px;
+    }
+    .total-point {
+        font-size: 18px;
+        padding-top: 20px;
+    }
+}
+
+@media (max-width: 320px) {
+    .pd-box {
+        padding: 20px;
+    }
+}
