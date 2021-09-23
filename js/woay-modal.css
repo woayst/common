@@ -1046,10 +1046,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     margin: 10px auto 40px;
 }
 
-.box-rank ul.tab-links {
-    display: none;
-}
-
 .box-shading {
     box-shadow: 0 4px 2px -2px #EBEBEB;
     padding-bottom: 30px;
