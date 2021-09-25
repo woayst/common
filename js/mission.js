@@ -64,6 +64,7 @@ client.eventBus.on('login-done', function () {
                     .then(deactiveDoneMissions)
                     .then(processMissionAutoCompleteMission)
                     .then(processGoldHourMission)
+                    .then(processShareFbMission)
                     .then(function () {
                         var action_qr = '';
                         var secret_qr = '';
@@ -209,13 +210,6 @@ function checkMissionInviteFriend() {
     }
 }
 
-function getShareLink() {
-    var user = client.user.get();
-    var uid = user && user.player_game_id;
-    var share_link_url = window.location.href.split('?')[0];
-    return share_link_url + (uid ? '?wref=' + uid : '');
-}
-
 function processMissionAutoCompleteMission() {
     var AUTO_COMPLETE_MISSIONS = ['login'];
     var player_game_id = client.user.get().player_game_id;
@@ -253,24 +247,59 @@ $(document).on("click", '.btn-invite-friend', function () {
     }
     client.html.pushModal('w-share');
 })
-
+var FB_APP_ID = 1174938523033704;
 $(document).on("click", '.btn-share-fb', function () {
     if (WHEEL_SETTINGS.Wheel.game_type == 'wheel') {
         if (client.checkSpinning()) return;
     } else if (WHEEL_SETTINGS.Wheel.game_type == 'li_xi') {
         if (client.isPicking()) return;
     }
-    FB.ui({
-        method: 'share',
-        href: getShareLink(),
-    }, function (response) {
-        if (response) {
-            if (client.mission.get('share_facebook').active) {
-                missionComplete('share_facebook');
-            }
-        }
-    });
+    // FB.ui({
+    //     method: 'share',
+    //     href: getShareLink(),
+    // }, function (response) {
+    //     if (response) {
+    //         if (client.mission.get('share_facebook').active) {
+    //             missionComplete('share_facebook');
+    //         }
+    //     }
+    // });
+
+    shareFbByRedirect()
 })
+
+function getShareLink() {
+    var user = client.user.get();
+    var uid = user && user.player_game_id;
+    var share_link_url = window.location.href.split('?')[0];
+    return share_link_url + (uid ? '?wref=' + uid : '');
+}
+
+function getRedirectUrl() {
+    var url = window.location.href.split('#')[0];
+    url = decodeURIComponent(url);
+    url = url.replace('https://localhost:9000', 'https://app.woay.vn');
+
+    return url + '&shared=true'
+}
+
+function shareFbByRedirect() {
+    var url = [
+        'https://www.facebook.com/dialog/share?app_id=' + FB_APP_ID,
+        '&href=' + getShareLink(),
+        '&display=page',
+        '&redirect_uri=' + encodeURIComponent(getRedirectUrl())
+    ].join('');
+
+    window.open(url, '_self');
+}
+
+function processShareFbMission() {
+    var shareMission = client.mission.get('share_facebook');
+    if (client.getParam('shared') && shareMission && !shareMission.isDone && shareMission.active) {
+        client.mission.complete('share_facebook');
+    }
+}
 
 $(document).on("click", '.my-copy-link-btn', function () {
     client.copyToClipboard('#w-text-share-url');
