@@ -289,6 +289,13 @@ $(document).on('click', '#w-complete .modal__close', function () {
     MicroModal.close('w-complete');
 })
 
+document.addEventListener('keydown', function (event) {
+    if (event.keyCode === 27) {
+        console.log('esc click');
+        event.stopImmediatePropagation();
+    }
+});
+
 function checkQrCode() {
     var action_qr = client.getParam('action');
     var secret_qr = client.getParam('secret');
