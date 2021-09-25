@@ -278,9 +278,11 @@ function getShareLink() {
 function getRedirectUrl() {
     var url = window.location.href.split('#')[0];
     url = decodeURIComponent(url);
+    var user = client.user.get();
+    var uid = user && user.player_game_id;
     url = url.replace('https://localhost:9000', 'https://app.woay.vn');
 
-    return url + '&shared=true'
+    return url + '&shared=true&player_game_id=' + uid;
 }
 
 function shareFbByRedirect() {
@@ -296,7 +298,8 @@ function shareFbByRedirect() {
 
 function processShareFbMission() {
     var shareMission = client.mission.get('share_facebook');
-    if (client.getParam('shared') && shareMission && !shareMission.isDone && shareMission.active) {
+    var getParamShare = client.getParam('shared') && client.getParam('player_game_id');
+    if (getParamShare && shareMission && !shareMission.isDone && shareMission.active) {
         client.mission.complete('share_facebook');
     }
 }
