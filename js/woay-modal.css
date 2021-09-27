@@ -1018,11 +1018,13 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .item-index {
     background-color: #F0F0F0;
     border-radius: 8px;
-    padding: 8px 16px;
+    padding: 8px;
     text-align: center;
     color: #fff;
     font-size: 18px;
     font-weight: bold;
+    width: 100%;
+    max-width: 41px;
 }
 
 .item-index.top-1 {
@@ -1035,6 +1037,10 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 
 .item-index.top-3 {
     background-color: #FF9F2C99;
+}
+
+.item-index.top-1, .item-index.top-2, .item-index.top-3 {
+    color: #fff;
 }
 
 .rank-item {
