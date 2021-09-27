@@ -985,12 +985,12 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     border: 1px solid #EDEDED;
     padding: 5px;
     border: 1px solid #EDEDED;
-    width: 10%;
+    width: 100%;
     max-width: 50px;
 }
 
 .list-reward .item-reward .box-icon img {
-    max-width: 40px;
+    max-width: 100%;
 }
 
 .pl-2 {
@@ -1166,6 +1166,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     }
     .modal__close {
         right: 0;
+    }
+    .item-score .item-point, .item-reward .item-name {
+        font-size: 18px;
     }
 }
 
