@@ -1157,8 +1157,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         max-width: 100px !important;
     }
     .box-title {
-        padding-left: 30px;
-        padding-top: 30px;
+        padding: 30px;
     }
     .total-point {
         font-size: 18px;
@@ -1169,6 +1168,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     }
     .item-score .item-point, .item-reward .item-name {
         font-size: 18px;
+    }
+    .list-point .box-img img, .list-reward .box-img img {
+        max-width: 100%;
     }
 }
 
