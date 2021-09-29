@@ -266,7 +266,8 @@ $(document).on("click", '.btn-share-fb', function () {
     // });
 
     // shareFbByRedirect()
-    share('https://app.woay.vn')
+    var game_uid = WHEEL_SETTINGS.Wheel.WHEEL_ID;
+    share('https://app.woay.vn/w/' + game_uid);
 })
 
 function getShareLink() {
