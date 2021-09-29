@@ -64,7 +64,6 @@ client.eventBus.on('login-done', function () {
                     .then(deactiveDoneMissions)
                     .then(processMissionAutoCompleteMission)
                     .then(processGoldHourMission)
-                    .then(processShareFbMission)
                     .then(function () {
                         var action_qr = '';
                         var secret_qr = '';
@@ -247,7 +246,6 @@ $(document).on("click", '.btn-invite-friend', function () {
     }
     client.html.pushModal('w-share');
 })
-var FB_APP_ID = 1174938523033704;
 $(document).on("click", '.btn-share-fb', function () {
     if (WHEEL_SETTINGS.Wheel.game_type == 'wheel') {
         if (client.checkSpinning()) return;
@@ -268,6 +266,7 @@ $(document).on("click", '.btn-share-fb', function () {
     // shareFbByRedirect()
     var game_uid = WHEEL_SETTINGS.Wheel.WHEEL_ID;
     share('https://app.woay.vn/w/' + game_uid);
+    processShareFbMission();
 })
 
 // function getShareLink() {
@@ -313,9 +312,11 @@ function share(url) {
 
 function processShareFbMission() {
     var shareMission = client.mission.get('share_facebook');
-    var checkCompleteShare = client.getParam('shared') && shareMission && !shareMission.isDone && shareMission.active;
+    var checkCompleteShare = shareMission && !shareMission.isDone && shareMission.active;
     if (checkCompleteShare) {
-        missionComplete('share_facebook');
+        setTimeout(function () {
+            missionComplete('share_facebook');
+        }, 5000)
     }
 }
 
