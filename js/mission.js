@@ -265,7 +265,8 @@ $(document).on("click", '.btn-share-fb', function () {
     //     }
     // });
 
-    shareFbByRedirect()
+    // shareFbByRedirect()
+    share('https://app.woay.vn')
 })
 
 function getShareLink() {
@@ -273,6 +274,21 @@ function getShareLink() {
     var uid = user && user.player_game_id;
     var share_link_url = window.location.href.split('?')[0];
     return share_link_url + (uid ? '?wref=' + uid : '');
+}
+
+function getShareLink(url, quote) {
+    var s = 'https://www.facebook.com/sharer/sharer.php?u=';
+    var user = client.user.get();
+    var uid = user && user.player_game_id;
+    s += encodeURIComponent(url);
+    if (typeof quote === 'string' && quote.trim()) {
+        s += '&quote=' + encodeURIComponent(quote);
+    }
+    return s + (uid ? '?wref=' + uid : '');
+}
+function share(url) {
+    var sharedUrl = getShareLink(url);
+    window.open(sharedUrl, "_blank", "width=700,height=500,left=200,top=100");
 }
 
 function getRedirectUrl() {
