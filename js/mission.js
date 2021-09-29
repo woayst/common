@@ -269,12 +269,12 @@ $(document).on("click", '.btn-share-fb', function () {
     share('https://app.woay.vn');
 })
 
-function getShareLink() {
-    var user = client.user.get();
-    var uid = user && user.player_game_id;
-    var share_link_url = window.location.href.split('?')[0];
-    return share_link_url + (uid ? '?wref=' + uid : '');
-}
+// function getShareLink() {
+//     var user = client.user.get();
+//     var uid = user && user.player_game_id;
+//     var share_link_url = window.location.href.split('?')[0];
+//     return share_link_url + (uid ? '?wref=' + uid : '');
+// }
 
 function getShareLink(url, quote) {
     var s = 'https://www.facebook.com/sharer/sharer.php?u=';
@@ -291,24 +291,24 @@ function share(url) {
     window.open(sharedUrl, "_blank", "width=700,height=500,left=200,top=100");
 }
 
-function getRedirectUrl() {
-    var url = window.location.href.split('#')[0];
-    url = decodeURIComponent(url);
-    url = url.replace('https://localhost:9000', 'https://app.woay.vn');
+// function getRedirectUrl() {
+//     var url = window.location.href.split('#')[0];
+//     url = decodeURIComponent(url);
+//     url = url.replace('https://localhost:9000', 'https://app.woay.vn');
 
-    return url + '&shared=true';
-}
+//     return url + '&shared=true';
+// }
 
-function shareFbByRedirect() {
-    var url = [
-        'https://www.facebook.com/dialog/share?app_id=' + FB_APP_ID,
-        '&href=' + getShareLink(),
-        '&display=page',
-        '&redirect_uri=' + encodeURIComponent(getRedirectUrl())
-    ].join('');
+// function shareFbByRedirect() {
+//     var url = [
+//         'https://www.facebook.com/dialog/share?app_id=' + FB_APP_ID,
+//         '&href=' + getShareLink(),
+//         '&display=page',
+//         '&redirect_uri=' + encodeURIComponent(getRedirectUrl())
+//     ].join('');
 
-    window.open(url, '_self');
-}
+//     window.open(url, '_self');
+// }
 
 function processShareFbMission() {
     var shareMission = client.mission.get('share_facebook');
