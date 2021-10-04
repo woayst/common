@@ -410,7 +410,7 @@ function renderRankChart() {
 
 
 function updatePlayerHistory(table_selector, template_id) {
-    var rewards = client.reward.getCurrentReward().rewards;
+    var rewards = client.reward.getRewardData().rewards;
     $(table_selector).html('');
     if (rewards.length) {
         rewards.forEach(function (reward) {
