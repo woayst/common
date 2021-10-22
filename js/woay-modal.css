@@ -1121,6 +1121,12 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     color: #444444;
 }
 
+@media (max-width: 991px) {
+    #lixi-game canvas {
+        max-height: 40vh;
+    }
+}
+
 @media (max-width: 767px) {
     .section-mission ul li .box-info {
         padding: 0;
@@ -1171,6 +1177,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     }
     .list-point .box-img img, .list-reward .box-img img {
         max-width: 100%;
+    }
+    .bg-main {
+        background-position: center center;
     }
 }
 
