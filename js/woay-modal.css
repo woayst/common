@@ -1193,6 +1193,12 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     }
 }
 
+@media (max-width: 540px) {
+    #game {
+        max-height: 65vh !important;
+    }
+}
+
 @media (max-width: 320px) {
     .pd-box {
         padding: 20px;
