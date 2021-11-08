@@ -1121,6 +1121,16 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     color: #444444;
 }
 
+.w-form-group .oversize {
+    position: relative !important;
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.w-form-group.floating input:focus~.oversize, .w-form-group.floating select~.oversize {
+    top: 0 !important;
+}
+
 @media (max-width: 991px) {
     #lixi-game canvas {
         max-height: 40vh;

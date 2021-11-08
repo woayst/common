@@ -364,16 +364,6 @@ x #w-popup-reward .title-voucher {
     padding-top: 5px;
 }
 
-.w-form-group .oversize {
-    position: relative !important;
-    top: 0 !important;
-    left: 0 !important;
-}
-
-.w-form-group.floating input:focus~.oversize, .w-form-group.floating select~.oversize {
-    top: 0 !important;
-}
-
 @media (max-width: 991px) {
     #w-popup-reward .title-voucher {
         font-size: 28px;
