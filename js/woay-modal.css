@@ -1121,16 +1121,21 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     color: #444444;
 }
 
-.oversize label {
-    display: none !important;
-}
-
-.oversize .overtype {
+.overtype {
     position: relative !important;
     top: 0 !important;
     left: 0 !important;
     display: block !important;
-    padding-right: 10px !important;
+}
+
+.oversize {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 4rem !important;
+}
+
+.oversize .w-error-log {
+    bottom: -45px;
 }
 
 .item-reward .reward-name, .item-reward .reward-code {
