@@ -1131,6 +1131,19 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     top: 0 !important;
 }
 
+.item-reward .reward-name, .item-reward .reward-code {
+    font-size: 16px;
+}
+
+.item-reward .reward-time {
+    font-size: 12px;
+}
+
+.d-flex {
+    align-items: flex-start;
+    text-align: left;
+}
+
 @media (max-width: 991px) {
     #lixi-game canvas {
         max-height: 40vh;
@@ -1195,11 +1208,23 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         max-height: unset !important;
         width: 100% !important;
     }
+    .item-reward .reward-name, .item-reward .reward-code {
+        font-size: 14px;
+    }
+    .item-reward .reward-time {
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 320px) {
     .pd-box {
         padding: 20px;
+    }
+    .item-reward .reward-name, .item-reward .reward-code {
+        font-size: 12px;
+    }
+    .item-reward .reward-time {
+        font-size: 10px;
     }
 }
 
