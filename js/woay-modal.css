@@ -1136,7 +1136,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .oversize {
     display: flex;
     flex-direction: column-reverse;
-    margin-bottom: 4rem !important;
+    margin-bottom: 3rem !important;
 }
 
 .oversize .w-error-log {
