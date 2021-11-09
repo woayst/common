@@ -536,6 +536,11 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     letter-spacing: 0;
     transition: all 0.4s;
     opacity: 0;
+    display: -webkit-box;
+    max-width: 100%;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .error .w-error-log {
