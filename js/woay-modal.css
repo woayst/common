@@ -372,8 +372,7 @@
 }
 
 .w-modal .box-btn-2 .btn-popup, .w-modal .box-btn-3 .btn-popup {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin: 5px;
 }
 
 .w-modal .btn-facebook {
@@ -1195,7 +1194,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         padding-left: 10px;
     }
     .section-mission .box-img img {
-        max-width: 100px !important;
+        max-width: 80px !important;
     }
     .box-title {
         padding: 30px;
@@ -1237,6 +1236,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     }
     .item-reward .reward-time {
         font-size: 10px;
+    }
+    .section-mission .box-img img {
+        max-width: 65px !important;
     }
 }
 
