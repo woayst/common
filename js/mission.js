@@ -414,7 +414,10 @@ function updatePlayerHistory(table_selector, template_id) {
     $(table_selector).html('');
     if (rewards.length) {
         rewards.forEach(function (reward) {
-            if (reward.sku == 'BADLUCK' || reward.item_type == 'point') return;
+            if (reward.sku == 'BADLUCK' || reward.item_type == 'point') {
+                $(table_selector).html('<div style="text-align: center; padding: 15px">Bạn chưa có phần thưởng nào</div>');
+                return;
+            }
             reward.updated_at = new Date(reward.updated_at).toLocaleString();
             $(table_selector).append(tmpl(template_id, reward));
         })
