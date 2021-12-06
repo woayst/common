@@ -275,6 +275,7 @@ function getShareUrl(url, quote) {
     }
     return s + (uid ? '?wref=' + uid : '');
 }
+
 function share(url) {
     var sharedUrl = getShareUrl(url);
     window.open(sharedUrl, "_blank", "width=700,height=500,left=200,top=100");
@@ -286,7 +287,7 @@ function processShareFbMission() {
     if (checkCompleteShare) {
         setTimeout(function () {
             missionComplete('share_facebook');
-        }, 5000)
+        }, 10000)
     }
 }
 
