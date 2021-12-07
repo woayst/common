@@ -179,6 +179,9 @@ function missionComplete(name, new_quantity) {
                     $('#w-complete .title-popup').html('Chúc mừng bạn đã nhận được ' + quantity + ' lượt');
                 }
             }
+            if (name === 'share_facebook') {
+                MicroModal.close('w-complete');
+            }
             if (quantity <= 0) {
                 $('#w-complete .title-popup').html('Rất tiếc bạn không được cộng lượt');
             }
