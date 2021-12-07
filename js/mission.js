@@ -171,7 +171,7 @@ function missionComplete(name, new_quantity) {
             if (!isNaN(new_quantity)) {
                 quantity = new_quantity;
             }
-            if (name !== 'register') {
+            if (name !== 'register' || name != 'share_facebook') {
                 client.html.pushModal('w-complete');
                 if (mission_type == 'point') {
                     $('#w-complete .title-popup').html('Chúc mừng bạn đã nhận được ' + quantity + ' điểm');
@@ -285,9 +285,9 @@ function processShareFbMission() {
     var shareMission = client.mission.get('share_facebook');
     var checkCompleteShare = shareMission && !shareMission.isDone && shareMission.active;
     if (checkCompleteShare) {
-        setTimeout(function () {
-            missionComplete('share_facebook');
-        }, 10000)
+        // setTimeout(function () {
+        missionComplete('share_facebook');
+        // }, 10000)
     }
 }
 
