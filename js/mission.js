@@ -419,7 +419,7 @@ function updatePlayerHistory(table_selector, template_id) {
     if (rewards.length) {
         rewards.forEach(function (reward) {
             if (reward.sku == 'BADLUCK' || reward.item_type == 'point') {
-                $(table_selector).html('<div style="text-align: center; padding: 15px">Bạn chưa có phần thưởng nào</div>');
+                $(table_selector).append('');
                 return;
             }
             reward.updated_at = new Date(reward.updated_at).toLocaleString();
