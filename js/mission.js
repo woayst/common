@@ -171,7 +171,7 @@ function missionComplete(name, new_quantity) {
             if (!isNaN(new_quantity)) {
                 quantity = new_quantity;
             }
-            if (name !== 'register' || name != 'share_facebook') {
+            if (name !== 'register' || name !== 'share_facebook') {
                 client.html.pushModal('w-complete');
                 if (mission_type == 'point') {
                     $('#w-complete .title-popup').html('Chúc mừng bạn đã nhận được ' + quantity + ' điểm');
