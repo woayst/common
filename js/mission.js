@@ -54,7 +54,7 @@ client.eventBus.on('login-done', function () {
             hasLogin = true;
             if (hasLogin) {
                 fetchMission()
-                if (WHEEL_SETTINGS.Wheel.scheme == 'mixed') {
+                if (WHEEL_SETTINGS.Wheel.scheme == 'mixed' || (WHEEL_SETTINGS.Wheel.scheme == 'quick' && WHEEL_SETTINGS.Wheel.game_type == 'flipcard')) {
                     updatePlayerHistory('#history', 'history-tmpl');
                 }
                 updateMyPoint();
@@ -288,9 +288,9 @@ function processShareFbMission() {
     var shareMission = client.mission.get('share_facebook');
     var checkCompleteShare = shareMission && !shareMission.isDone && shareMission.active;
     if (checkCompleteShare) {
-        // setTimeout(function () {
-        missionComplete('share_facebook');
-        // }, 10000)
+        setTimeout(function () {
+            missionComplete('share_facebook');
+        }, 10000)
     }
 }
 
