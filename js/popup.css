@@ -387,7 +387,7 @@ x #w-popup-reward .title-voucher {
 }
 
 #w-popup-container .w-form-group.floating {
-    margin: 0 0 1rem;
+    margin: 0 0 1.5rem;
 }
 
 .box-game {
@@ -415,6 +415,21 @@ x #w-popup-reward .title-voucher {
     top: 50% !important;
     z-index: 99;
     transform: translate(-50%, -50%) !important;
+}
+
+.disable {
+    background: #E0E0E0 !important;
+    color: #828486 !important;
+    pointer-events: none;
+    box-shadow: 2px 2px 0px rgba(224, 224, 224, 0.5);
+}
+
+#w-popup-reward .copy-success {
+    color: #2729B3;
+    transition: all 0.4s;
+    opacity: 0;
+    text-align: center;
+    padding: 10px 0;
 }
 
 @media (max-width: 991px) {
