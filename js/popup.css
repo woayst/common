@@ -398,6 +398,18 @@ x #w-popup-reward .title-voucher {
     background: rgba(0, 0, 0, 0.6);
 }
 
+.anim-woay .woay-box-wheel {
+    max-width: 90%;
+}
+
+.anim-woay #vongquaymayman {
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    z-index: 99;
+    transform: translate(-50%, -50%);
+}
+
 @media (max-width: 991px) {
     #w-popup-reward .title-voucher {
         font-size: 28px;
