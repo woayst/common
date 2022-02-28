@@ -160,6 +160,7 @@ x #w-popup-reward .title-voucher {
     font-size: 38px;
     margin-bottom: 20px;
     margin-top: 15px;
+    color: #000;
 }
 
 #w-popup-section .award-image {
@@ -186,7 +187,7 @@ x #w-popup-reward .title-voucher {
 }
 
 #w-popup-reward .copy-code {
-    background: #f2f2f2;
+    background: #F2F4F6;
     border-radius: 4px;
     padding: 10px 24px;
     display: flex;
@@ -205,10 +206,14 @@ x #w-popup-reward .title-voucher {
 }
 
 #w-popup-reward #btn-copy-code {
-    text-align: right;
-    width: 40%;
-    color: #454644;
-    text-decoration: underline;
+    background: #FB7D21;
+    padding: 10px;
+    color: #fff;
+    text-decoration: unset;
+    text-align: center;
+    margin: 15px auto;
+    width: 97%;
+
 }
 
 #w-popup-reward .box-btn {
@@ -403,11 +408,11 @@ x #w-popup-reward .title-voucher {
 }
 
 .anim-woay #vongquaymayman {
-    width: 100%;
-    left: 50%;
-    top: 50%;
+    width: 100% !important;
+    left: 50% !important;
+    top: 50% !important;
     z-index: 99;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) !important;
 }
 
 @media (max-width: 991px) {
@@ -439,10 +444,6 @@ x #w-popup-reward .title-voucher {
 
     #w-popup-reward #w-text-code {
         margin-right: 0;
-    }
-
-    #w-popup-reward #btn-copy-code {
-        text-align: center;
     }
 
     #w-popup-section #vongquaymayman {
@@ -480,7 +481,7 @@ x #w-popup-reward .title-voucher {
     }
 
     #w-popup-reward #btn-copy-code {
-        width: 100%;
+        width: 93%;
     }
 
     #w-popup-container {
