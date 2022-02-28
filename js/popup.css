@@ -57,24 +57,27 @@
 #w-popup-section #vongquaymayman {
     margin: 0;
     position: absolute;
-    width: 75%;
-    max-height: 90%;
-    left: 43%;
-    top: 50%;
+    width: 60%;
+    /* max-height: 90%; */
+    left: 42%;
+    top: 10%;
     transform: translate(-100%, -50%);
+    transition: 0.4s all;
 }
 
 #w-popup-userinfo-form {
-    width: 46%;
     top: 0;
     right: 0;
-    padding: 15% 5% 5% 0;
-    position: absolute;
     color: white;
     opacity: 1;
     visibility: visible;
     transition: 0.4s all;
     /* display: none; */
+    width: 90%;
+    margin: auto;
+    position: relative;
+    padding: 0;
+    margin-top: 35vh;
 }
 
 #w-popup-userinfo-form h4 {
@@ -101,15 +104,17 @@
 }
 
 #w-popup-reward {
-    width: 46%;
     top: 0;
     right: 0;
-    padding: 15% 5% 5% 0;
-    position: absolute;
     color: white;
     visibility: hidden;
-    opacity: 0;
     transition: 0.4s all;
+    width: 90%;
+    margin: auto;
+    position: relative;
+    padding: 0;
+    margin-top: 35vh;
+    display: none;
 }
 
 #w-popup-section .w-btn-wrapper {
@@ -354,20 +359,50 @@ x #w-popup-reward .title-voucher {
     padding: 0;
 }
 
-#w-popup-section #vongquaymayman {
+.w-popup-remove-anim {
+    color: #fff;
+    display: none;
+}
+
+#w-popup-section .modal__close {
+    z-index: 100;
+    font-size: 40px;
+}
+
+/* #w-popup-section #vongquaymayman {
     top: 50%;
     left: 45%;
     position: absolute;
-}
+} */
 
 #w-popup-userinfo-form .w-error-log {
     padding-top: 5px;
+}
+
+#w-popup-container .w-form-group.floating {
+    margin: 0 0 1rem;
+}
+
+.box-game {
+    width: 100%;
+    position: absolute;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: transparent;
+    transition: 0.4s all;
+}
+
+.anim-woay .box-game {
+    z-index: 99;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 @media (max-width: 991px) {
     #w-popup-reward .title-voucher {
         font-size: 28px;
     }
+
     #w-popup-reward .title-big {
         font-size: 34px;
     }
@@ -378,21 +413,26 @@ x #w-popup-reward .title-voucher {
         width: 100%;
         display: block;
     }
+
     #w-popup-section #vongquaymayman {
         width: 90%;
         max-height: 90%;
         margin: auto;
         margin-bottom: 20px;
     }
+
     #w-popup-reward, #w-popup-userinfo-form {
-        padding-top: 5%;
+        margin-top: 25vh;
     }
+
     #w-popup-reward #w-text-code {
         margin-right: 0;
     }
+
     #w-popup-reward #btn-copy-code {
         text-align: center;
     }
+
     #w-popup-section #vongquaymayman {
         left: 50%;
     }
@@ -414,28 +454,36 @@ x #w-popup-reward .title-voucher {
     #w-popup-reward .text-guide {
         font-size: 13px;
     }
+
     #w-popup-reward .title-voucher {
         font-size: 14px;
     }
+
     .voucher-content span {
         font-size: 14px !important;
     }
+
     #w-popup-reward .title-big {
         font-size: 18px;
     }
+
     #w-popup-reward #btn-copy-code {
         width: 100%;
     }
+
     #w-popup-container {
         width: 90%;
     }
+
     #w-popup-userinfo-form h4 {
         font-size: 18px;
         margin-bottom: 10px;
     }
+
     #w-popup-userinfo-form .w-error-log {
         font-size: 12px;
     }
+
     #w-popup-reward .btn-popup {
         font-size: 12px;
     }
