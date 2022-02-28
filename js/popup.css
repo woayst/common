@@ -68,7 +68,7 @@
 #w-popup-userinfo-form {
     top: 0;
     right: 0;
-    color: white;
+    color: #000;
     opacity: 1;
     visibility: visible;
     transition: 0.4s all;
@@ -198,11 +198,13 @@ x #w-popup-reward .title-voucher {
 #w-popup-reward #w-text-code {
     background: transparent;
     border: none;
-    font-size: 14px;
+    font-size: 20px;
+    text-align: center;
     flex: 1;
     margin-right: 10px;
     color: #242628;
     width: 100%;
+    font-weight: bold;
 }
 
 #w-popup-reward #btn-copy-code {
