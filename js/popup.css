@@ -92,14 +92,14 @@
     color: #823435;
     font-size: 16px;
     letter-spacing: 2px;
-    padding: 0;
-    height: 36px;
+    padding: 5px 0;
+    /* height: 36px; */
     line-height: 36px;
     width: 100%;
     opacity: 1;
     border: none;
-    border-radius: 3px;
-    box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    box-shadow: 2px 2px 0px rgba(224, 224, 224, 0.5);
     cursor: pointer;
 }
 
@@ -214,7 +214,8 @@ x #w-popup-reward .title-voucher {
     text-decoration: unset;
     text-align: center;
     margin: 15px auto;
-    width: 97%;
+    width: 96%;
+    border-radius: 4px;
 
 }
 
@@ -384,10 +385,14 @@ x #w-popup-reward .title-voucher {
 
 #w-popup-userinfo-form .w-error-log {
     padding-top: 5px;
+    font-size: 12px;
 }
 
 #w-popup-container .w-form-group.floating {
     margin: 0 0 1.5rem;
+    border: 1px solid #9EA0FF;
+    border-radius: 2px;
+    padding: 0 10px;
 }
 
 .box-game {
@@ -430,6 +435,15 @@ x #w-popup-reward .title-voucher {
     opacity: 0;
     text-align: center;
     padding: 10px 0;
+}
+
+.w-form-group.floating input, .w-form-group.floating select {
+    padding: 0;
+    padding-left: 5px;
+}
+
+.w-form-group.floating input::placeholder, .w-form-group.floating select::placeholder {
+    font-size: 14px;
 }
 
 @media (max-width: 991px) {
@@ -508,10 +522,6 @@ x #w-popup-reward .title-voucher {
     #w-popup-userinfo-form h4 {
         font-size: 18px;
         margin-bottom: 10px;
-    }
-
-    #w-popup-userinfo-form .w-error-log {
-        font-size: 12px;
     }
 
     #w-popup-reward .btn-popup {

@@ -1150,11 +1150,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     font-size: 12px;
 }
 
-.d-flex {
-    align-items: flex-start;
-    text-align: left;
-}
-
 @media (max-width: 991px) {
     #lixi-game canvas {
         max-height: 40vh;

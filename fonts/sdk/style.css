@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'woay-sdk';
-  src:  url('fonts/woay-sdk.eot?ud9iy8');
-  src:  url('fonts/woay-sdk.eot?ud9iy8#iefix') format('embedded-opentype'),
+  src: url('fonts/woay-sdk.eot?ud9iy8');
+  src: url('fonts/woay-sdk.eot?ud9iy8#iefix') format('embedded-opentype'),
     url('fonts/woay-sdk.ttf?ud9iy8') format('truetype'),
     url('fonts/woay-sdk.woff?ud9iy8') format('woff'),
     url('fonts/woay-sdk.svg?ud9iy8#woay-sdk') format('svg');
@@ -19,13 +19,13 @@
   font-variant: normal;
   text-transform: none;
   line-height: 1;
-  
+
   /* Enable Ligatures ================ */
   letter-spacing: 0;
   -webkit-font-feature-settings: "liga";
   -moz-font-feature-settings: "liga=1";
   -moz-font-feature-settings: "liga";
-  -ms-font-feature-settings: "liga" 1;
+  -ms-font-feature-settings: "liga"1;
   font-feature-settings: "liga";
   -webkit-font-variant-ligatures: discretionary-ligatures;
   font-variant-ligatures: discretionary-ligatures;
@@ -38,39 +38,51 @@
 .wic-menu:before {
   content: "\e902";
 }
+
 .wic-volume-high:before {
   content: "\ea26";
 }
+
 .wic-volume-mute2:before {
   content: "\ea2a";
 }
+
 .wic-list:before {
   content: "\e9ba";
 }
+
 .wic-link:before {
   content: "\e9cb";
 }
+
 .wic-cancel-circle:before {
   content: "\ea0d";
 }
+
 .wic-facebook:before {
   content: "\ea90";
 }
+
 .wic-facebook2:before {
   content: "\ea91";
 }
+
 .wic-copy:before {
   content: "\e900";
 }
+
 .wic-checkmark1:before {
   content: "\e901";
 }
+
 .wic-tick1:before {
   content: "\e901";
 }
+
 .wic-approve:before {
   content: "\e901";
 }
+
 .wic-submit:before {
   content: "\e901";
 }
