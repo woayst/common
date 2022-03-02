@@ -417,6 +417,7 @@ x #w-popup-reward .title-voucher {
 #w-popup-userinfo-form .w-error-log {
     padding-top: 5px;
     font-size: 12px;
+    bottom: -20px;
 }
 
 #w-popup-container .w-form-group.floating {
