@@ -290,7 +290,7 @@ function processShareFbMission() {
     if (checkCompleteShare) {
         setTimeout(function () {
             missionComplete('share_facebook');
-        }, 10000)
+        }, 20000)
     }
 }
 
