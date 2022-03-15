@@ -67,9 +67,9 @@ $$woay.client.eventBus.on('login-done', function () {
                     .then(function () {
                         var action_qr = '';
                         var secret_qr = '';
-                        if ($$woay.client.getParam('action') && $$woay.client.getParam('secret')) {
-                            action_qr = $$woay.client.getParam('action');
-                            secret_qr = $$woay.client.getParam('secret');
+                        if ($$woay.client.utils.getParam('action') && $$woay.client.utils.getParam('secret')) {
+                            action_qr = $$woay.client.utils.getParam('action');
+                            secret_qr = $$woay.client.utils.getParam('secret');
                             processMissionQrCode(secret_qr);
                         }
                     })
