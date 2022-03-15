@@ -378,7 +378,7 @@ function showResult() {
 var myUserId = null;
 
 function getTopPlayer(id, from, to) {
-    var $ = $$woay.client.$;
+    var $ = $$woay.$;
     $$woay.client.api.getTopPlayer(from, to)
         .then(function (data) {
             var topPlayers = data.map(function (x, i) {
