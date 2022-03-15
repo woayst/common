@@ -180,7 +180,8 @@ function missionComplete(name, new_quantity) {
                 }
             }
             if (name === 'share_facebook') {
-                MicroModal.close('w-complete');
+                // MicroModal.close('w-complete');
+                $$woay.client.html.closeModal();
             }
             if (quantity <= 0) {
                 $('#w-complete .title-popup').html('Rất tiếc bạn không được cộng lượt');
@@ -308,7 +309,8 @@ $(document).on('click', '.btn-show-qrcode', function () {
 })
 
 $(document).on('click', '#w-complete .modal__close', function () {
-    MicroModal.close('w-complete');
+    // MicroModal.close('w-complete');
+    $$woay.client.html.closeModal();
 })
 
 document.addEventListener('keydown', function (event) {
@@ -369,7 +371,8 @@ function checkRightAnswer() {
 
 function showResult() {
     var quantity = count_right_answer;
-    MicroModal.close('w-quiz');
+    // MicroModal.close('w-quiz');
+    $$woay.client.html.closeModal();
     missionComplete('wiki', quantity);
     count_right_answer = 0;
 }
