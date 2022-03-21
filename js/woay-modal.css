@@ -39,10 +39,14 @@
     background-color: #fff;
     width: 80%;
     max-height: 100%;
-    margin-top: 10%;
+    margin-top: 5%;
     border-radius: 4px;
     overflow-y: auto;
     box-sizing: border-box;
+}
+
+.w-modal div[w-role="form"] {
+    height: 30vh;
 }
 
 @media (max-width: 1400px) {
