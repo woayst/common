@@ -45,7 +45,7 @@
     box-sizing: border-box;
 }
 
-.w-modal div[w-role="form"] {
+#modal-woay-userinfo div[w-role="form"] {
     height: 30vh;
 }
 
@@ -157,6 +157,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -166,6 +167,7 @@
     from {
         opacity: 1;
     }
+
     to {
         opacity: 0;
     }
@@ -175,6 +177,7 @@
     from {
         transform: translateY(15%);
     }
+
     to {
         transform: translateY(0);
     }
@@ -184,6 +187,7 @@
     from {
         transform: translateY(0);
     }
+
     to {
         transform: translateY(-10%);
     }
@@ -644,18 +648,23 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     .text-number-turns, .btn-check-reward, .info-more-vongquay .box-action a {
         font-size: 16px;
     }
+
     .text-number-turns {
         margin-bottom: 10px;
     }
+
     .text-number-turns span {
         font-size: 18px;
     }
+
     .info-more-vongquay .box-action {
         margin: 0 -10px;
     }
+
     .info-more-vongquay .box-action .box-btn {
         padding: 0 10px;
     }
+
     .info-more-vongquay .box-action a {
         padding: 10px;
         width: 100%;
@@ -668,19 +677,24 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         top: 5px;
         right: 5px;
     }
+
     .w-modal .title-popup {
         font-size: 16px;
         margin-bottom: 10px;
     }
+
     .info-more-vongquay .box-action .box-btn {
         width: 90%;
     }
+
     .info-more-vongquay .box-action a {
         font-size: 12px;
     }
+
     .w-modal .modal__content, .w-modal .modal__footer {
         padding: 10px;
     }
+
     .w-modal .text-tutorial span {
         font-size: 14px;
     }
@@ -783,6 +797,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     25% {
         -webkit-transform: translate(0, -50px) rotate(-180deg)
     }
+
     100% {
         -webkit-transform: translate(0, 0) rotate(-180deg)
     }
@@ -793,6 +808,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         transform: translate(0, -50px) rotate(-180deg);
         -webkit-transform: translate(0, -50px) rotate(-180deg)
     }
+
     100% {
         transform: translate(0, 0) rotate(-180deg);
         -webkit-transform: translate(0, 0) rotate(-180deg)
@@ -803,6 +819,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     25% {
         -webkit-transform: translate(50px, 0) rotate(-180deg)
     }
+
     100% {
         -webkit-transform: translate(0, 0) rotate(-180deg)
     }
@@ -813,6 +830,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         transform: translate(50px, 0) rotate(-180deg);
         -webkit-transform: translate(50px, 0) rotate(-180deg)
     }
+
     100% {
         transform: translate(0, 0) rotate(-180deg);
         -webkit-transform: translate(0, 0) rotate(-180deg)
@@ -823,6 +841,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     25% {
         -webkit-transform: translate(-50px, 0) rotate(-180deg)
     }
+
     100% {
         -webkit-transform: translate(0, 0) rotate(-180deg)
     }
@@ -833,6 +852,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         transform: translate(-50px, 0) rotate(-180deg);
         -webkit-transform: translate(-50px, 0) rotate(-180deg)
     }
+
     100% {
         transform: translate(0, 0) rotate(-180deg);
         -webkit-transform: rtranslate(0, 0) rotate(-180deg)
@@ -843,6 +863,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     25% {
         -webkit-transform: translate(0, 50px) rotate(-180deg)
     }
+
     100% {
         -webkit-transform: translate(0, 0) rotate(-180deg)
     }
@@ -853,6 +874,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         transform: translate(0, 50px) rotate(-180deg);
         -webkit-transform: translate(0, 50px) rotate(-180deg)
     }
+
     100% {
         transform: translate(0, 0) rotate(-180deg);
         -webkit-transform: translate(0, 0) rotate(-180deg)
@@ -1164,63 +1186,82 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     .section-mission ul li .box-info {
         padding: 0;
     }
+
     .pd-box {
         padding: 30px;
     }
+
     .section-mission ul li {
         border-radius: 30px;
     }
+
     .section-mission ul li .btn-challenge {
         width: 100%;
     }
+
     .section-mission .btn-challenge a img {
         max-width: 100%;
     }
+
     .rank-item .item-name {
         font-size: 16px;
     }
+
     .rank-item .item-point {
         font-size: 20px;
     }
+
     .box-rank, .list-point {
         border-radius: 20px;
     }
+
     .section-mission ul li .box-img {
         width: 30%;
     }
+
     .box-right {
         width: 70%;
         padding-left: 10px;
     }
+
     .section-mission .box-img img {
         max-width: 80px !important;
     }
+
     .box-title {
         padding: 30px;
     }
+
     .total-point {
         font-size: 18px;
         padding-top: 20px;
     }
+
     .modal__close {
         right: 0;
     }
+
     .item-score .item-point, .item-reward .item-name {
         font-size: 18px;
     }
+
     .list-point .box-img img, .list-reward .box-img img {
         max-width: 100%;
     }
+
     .bg-main {
         background-position: center center;
     }
+
     #game {
         max-height: unset !important;
         width: 100% !important;
     }
+
     .item-reward .reward-name, .item-reward .reward-code {
         font-size: 14px;
     }
+
     .item-reward .reward-time {
         font-size: 12px;
     }
@@ -1230,12 +1271,15 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     .pd-box {
         padding: 20px;
     }
+
     .item-reward .reward-name, .item-reward .reward-code {
         font-size: 12px;
     }
+
     .item-reward .reward-time {
         font-size: 10px;
     }
+
     .section-mission .box-img img {
         max-width: 65px !important;
     }
