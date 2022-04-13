@@ -4,6 +4,7 @@ var $ = $$woay.$;
 var current_question = 0;
 var count_right_answer = 0;
 var questions = []
+var hasLogin = false;
 
 function getDayNo() {
     var today = new Date();
@@ -48,7 +49,9 @@ function renderMissions(missions, template_id) {
         $('.section-mission').css('display', 'none');
     }
 }
+
 $$woay.client.eventBus.on('login-done', function () {
+    console.log('mission js login-done');
     $$woay.client.mission.waitToReady()
         .then(function () {
             hasLogin = true;

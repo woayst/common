@@ -303,7 +303,7 @@ function processShareFbMission() {
     if (checkCompleteShare) {
         setTimeout(function () {
             missionComplete('share_facebook');
-        }, 10000)
+        }, 25000)
     }
 }
 $(document).on("click", '.my-copy-link-btn', function () {
