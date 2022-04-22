@@ -1,17 +1,10 @@
 var enableMission = false;
 var wref = '';
 var $ = $$woay.$;
-var eventBus = $$woay.eventBus;
-var utils = $$core.client.utils;
-var mission = $$core.client.mission;
-var html = $$core.client.html;
-var auth = $$core.client.auth;
-var reward = $$core.client.reward;
 var current_question = 0;
 var count_right_answer = 0;
 var questions = []
 var hasLogin = false;
-var myUserId = null;
 
 function getDayNo() {
     var today = new Date();
@@ -26,7 +19,7 @@ function getDayNo() {
 }
 
 function getQuestionAt(k) {
-    var questions = mission.get('wiki').meta.question;
+    var questions = $$woay.client.mission.get('wiki').meta.question;
     var i = k % questions.length;
     return questions[i];
 }
@@ -43,7 +36,7 @@ function getTodayQuestions(question_per_day) {
 
 /// Render mission
 function renderMissions(missions, template_id) {
-    var missions = mission.getAll();
+    var missions = $$woay.client.mission.getAll();
     $('#mission-list').html('');
     var hasMissionActive = false;
     missions.forEach(function (mission) {
@@ -57,9 +50,9 @@ function renderMissions(missions, template_id) {
     }
 }
 
-eventBus.on('login-done', function () {
+$$woay.client.eventBus.on('login-done', function () {
     console.log('mission js login-done');
-    mission.waitToReady()
+    $$woay.client.mission.waitToReady()
         .then(function () {
             hasLogin = true;
             if (hasLogin) {
@@ -70,21 +63,21 @@ eventBus.on('login-done', function () {
                 updateMyPoint();
                 renderPlayerPoint('#your-point', 'my-score-tmpl');
 
-                mission.fetch()
+                $$woay.client.mission.fetch()
                     .then(deactiveDoneMissions)
                     .then(processMissionAutoCompleteMission)
                     .then(processGoldHourMission)
                     .then(function () {
                         var action_qr = '';
                         var secret_qr = '';
-                        if (utils.getParam('action') && utils.getParam('secret')) {
-                            action_qr = utils.getParam('action');
-                            secret_qr = utils.getParam('secret');
+                        if ($$woay.client.utils.getParam('action') && $$woay.client.utils.getParam('secret')) {
+                            action_qr = $$woay.client.utils.getParam('action');
+                            secret_qr = $$woay.client.utils.getParam('secret');
                             processMissionQrCode(secret_qr);
                         }
                     })
                     .then(function () {
-                        var question_per_day = mission.get('wiki').meta.question_per_day; // sửa lại lấy theo format
+                        var question_per_day = $$woay.client.mission.get('wiki').meta.question_per_day; // sửa lại lấy theo format
                         questions = getTodayQuestions(question_per_day);
                         $(document).on('click', '.item-question', function () {
                             checkRightAnswer();
@@ -112,7 +105,7 @@ eventBus.on('login-done', function () {
                             }
                             current_question = 0;
                             renderQuestion('question-tmpl');
-                            html.pushModal('w-quiz');
+                            $$woay.client.html.pushModal('w-quiz');
                         })
                     })
             }
@@ -120,21 +113,20 @@ eventBus.on('login-done', function () {
 })
 
 function fetchAllMission() {
-    console.log('mission', mission);
-    mission.fetchAll()
+    $$woay.client.mission.fetchAll()
         .then(function () {
             fetchMission();
             if (!hasLogin) {
                 $('.btn-challenge').html('<a class="bg-button-group color-button-group"><img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png"></a>');
                 $('.btn-challenge a').on('click', function () {
-                    auth.loginHandler();
+                    $$woay.client.auth.loginHandler();
                 })
             }
         })
 }
 
 function fetchMission() {
-    var missions = mission.getAll();
+    var missions = $$woay.client.mission.getAll();
     $('#w-text-share-url').val(getShareLink());
     if (mobileAndTabletCheck()) {
         renderMissions(missions, 'm-mission-tmpl');
@@ -145,7 +137,7 @@ function fetchMission() {
 }
 
 function deactiveDoneMissions() {
-    var missions = mission.getAll();
+    var missions = $$woay.client.mission.getAll();
     missions.forEach(function (mission) {
         if (!mission.active) return;
         if (mission.isDone) {
@@ -161,7 +153,7 @@ function removeHash(str) {
 
 function missionComplete(name, new_quantity) {
 
-    if (!mission.isReady()) return;
+    if (!$$woay.client.mission.isReady()) return;
 
     if (name === 'invite_friend') {
         return;
@@ -172,18 +164,18 @@ function missionComplete(name, new_quantity) {
         if ($$woay.isPicking()) return;
     }
 
-    var player_game_id = $$core.client.getUserInfo().player_game_id;
-    mission.complete(name, player_game_id, new_quantity)
+    var player_game_id = $$woay.client.getUserInfo().player_game_id;
+    $$woay.client.mission.complete(name, player_game_id, new_quantity)
         .then(function () {
-            var mission_name = mission.get(name).name;
-            var quantity = mission.get(name).quantity;
-            var mission_type = mission.get(name).type;
-            var mission_frequency = mission.get(name).frequency;
+            var mission_name = $$woay.client.mission.get(name).name;
+            var quantity = $$woay.client.mission.get(name).quantity;
+            var mission_type = $$woay.client.mission.get(name).type;
+            var mission_frequency = $$woay.client.mission.get(name).frequency;
             if (!isNaN(new_quantity)) {
                 quantity = new_quantity;
             }
             if (name !== 'register' || name !== 'share_facebook') {
-                html.pushModal('w-complete');
+                $$woay.client.html.pushModal('w-complete');
                 if (mission_type == 'point') {
                     $('#w-complete .title-popup').html('Chúc mừng bạn đã nhận được ' + quantity + ' điểm');
                 } else {
@@ -192,7 +184,7 @@ function missionComplete(name, new_quantity) {
             }
             if (name === 'share_facebook') {
                 // MicroModal.close('w-complete');
-                html.closeModal();
+                $$woay.client.html.closeModal();
             }
             if (quantity <= 0) {
                 $('#w-complete .title-popup').html('Rất tiếc bạn không được cộng lượt');
@@ -205,8 +197,8 @@ function missionComplete(name, new_quantity) {
                 renderPlayerPoint('#your-point', 'my-score-tmpl');
                 return;
             }
-            reward.addTurnForMission(mission_name, quantity);
-            reward.updateTurnCount();
+            $$woay.client.reward.addTurnForMission(mission_name, quantity);
+            $$woay.client.reward.updateTurnCount();
         }).catch(function (err) {
             console.error(err);
         })
@@ -226,10 +218,11 @@ function checkMissionInviteFriend() {
 
 function processMissionAutoCompleteMission() {
     var AUTO_COMPLETE_MISSIONS = ['login'];
-    var player_game_id = $$core.client.getUserInfo().player_game_id;
+    var player_game_id = $$woay.client.getUserInfo().player_game_id;
     AUTO_COMPLETE_MISSIONS.forEach(function (key) {
-        var m = mission.get(key);
+        var m = $$woay.client.mission.get(key);
         if (m.active && !m.isDone) {
+            // $$woay.client.mission.complete(m.name, player_game_id);
             missionComplete('login');
             $('.mission-' + m.name + ' .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-2.png">').addClass('deactive');
         }
@@ -238,11 +231,11 @@ function processMissionAutoCompleteMission() {
 
 function processGoldHourMission() {
     var date = new Date();
-    var GOLD_HOUR_START = parseInt(mission.get('gold_hour').meta.from);
-    var GOLD_HOUR_END = parseInt(mission.get('gold_hour').meta.to);
+    var GOLD_HOUR_START = parseInt($$woay.client.mission.get('gold_hour').meta.from);
+    var GOLD_HOUR_END = parseInt($$woay.client.mission.get('gold_hour').meta.to);
     var current_hour = date.getHours();
     var isValid = (GOLD_HOUR_START <= current_hour && current_hour < GOLD_HOUR_END);
-    var isDone = mission.get('gold_hour').isDone;
+    var isDone = $$woay.client.mission.get('gold_hour').isDone;
     if (!isValid && !isDone) {
         $('.mission-gold_hour .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-3.png">').addClass('deactive');
     } else if (isValid && !isDone) {
@@ -258,7 +251,7 @@ $(document).on("click", '.btn-invite-friend', function () {
     } else if (WHEEL_SETTINGS.Wheel.game_type == 'li_xi') {
         if ($$woay.isPicking()) return;
     }
-    html.pushModal('w-share');
+    $$woay.client.html.pushModal('w-share');
 })
 $(document).on("click", '.btn-share-fb', function () {
     if (WHEEL_SETTINGS.Wheel.game_type == 'wheel') {
@@ -273,7 +266,7 @@ $(document).on("click", '.btn-share-fb', function () {
 })
 
 function getShareLink() {
-    var user = $$core.client.getUserInfo();
+    var user = $$woay.client.getUserInfo();
     var uid = user && user.player_game_id;
     var share_link_url = window.location.href.split('?')[0];
     return share_link_url + (uid ? '?wref=' + uid : '');
@@ -281,7 +274,7 @@ function getShareLink() {
 
 function getShareUrl(url, quote) {
     var s = 'https://www.facebook.com/sharer/sharer.php?u=';
-    var user = $$core.client.getUserInfo();
+    var user = $$woay.client.getUserInfo();
     var uid = user && user.player_game_id;
     s += encodeURIComponent(url);
     if (typeof quote === 'string' && quote.trim()) {
@@ -296,7 +289,7 @@ function share(url) {
 }
 
 function processShareFbMission() {
-    var shareMission = mission.get('share_facebook');
+    var shareMission = $$woay.client.mission.get('share_facebook');
     var checkCompleteShare = shareMission && !shareMission.isDone && shareMission.active;
     if (checkCompleteShare) {
         setTimeout(function () {
@@ -306,7 +299,7 @@ function processShareFbMission() {
 }
 
 $(document).on("click", '.my-copy-link-btn', function () {
-    utils.copyToClipboard('#w-text-share-url');
+    $$woay.client.utils.copyToClipboard('#w-text-share-url');
 })
 
 $(document).on('click', '.btn-show-qrcode', function () {
@@ -320,7 +313,7 @@ $(document).on('click', '.btn-show-qrcode', function () {
 
 $(document).on('click', '#w-complete .modal__close', function () {
     // MicroModal.close('w-complete');
-    html.closeModal();
+    $$woay.client.html.closeModal();
 })
 
 document.addEventListener('keydown', function (event) {
@@ -331,18 +324,18 @@ document.addEventListener('keydown', function (event) {
 });
 
 function checkQrCode() {
-    var action_qr = utils.getParam('action');
-    var secret_qr = utils.getParam('secret');
+    var action_qr = $$woay.client.utils.getParam('action');
+    var secret_qr = $$woay.client.utils.getParam('secret');
     if (!action_qr && !secret_qr) {
         $('.text-qrcode').text('Nhiệm vụ quét mã QR CODE chỉ áp dụng khi đến cửa hàng');
     }
-    html.pushModal('w-qrcode');
+    $$woay.client.html.pushModal('w-qrcode');
 }
 
 
 function processMissionQrCode(secret_qr) {
-    var secret_key = mission.get('explore_store').meta.hash;
-    var mission_done = mission.get('explore_store').isDone;
+    var secret_key = $$woay.client.mission.get('explore_store').meta.hash;
+    var mission_done = $$woay.client.mission.get('explore_store').isDone;
     var passhash = CryptoJS.MD5(secret_qr).toString();
     if (passhash.localeCompare(secret_key) == 0) {
         missionComplete('explore_store');
@@ -356,7 +349,7 @@ function processMissionQrCode(secret_qr) {
 
 function checkRightAnswer() {
     var question = questions[current_question];
-    var quantity_per_question = mission.get('wiki').meta.quantity_per_question;
+    var quantity_per_question = $$woay.client.mission.get('wiki').meta.quantity_per_question;
     var answers = $('input[name="answer"]');
     var answer_val;
     var answer_right = question.rightAnswer;
@@ -382,13 +375,17 @@ function checkRightAnswer() {
 function showResult() {
     var quantity = count_right_answer;
     // MicroModal.close('w-quiz');
-    html.closeModal();
+    $$woay.client.html.closeModal();
     missionComplete('wiki', quantity);
     count_right_answer = 0;
 }
 
+
+var myUserId = null;
+
 function getTopPlayer(id, from, to) {
-    $$core.client.api.getTopPlayer(from, to)
+    var $ = $$woay.$;
+    $$woay.client.api.getTopPlayer(from, to)
         .then(function (data) {
             var topPlayers = data.map(function (x, i) {
                 x.stt = i + 1;
@@ -404,6 +401,7 @@ function getTopPlayer(id, from, to) {
 
 function renderRankChart() {
     getTopPlayer('thang', false, false);
+    var $ = $$woay.$;
     var startDate = new Date(onAirDate);
     var startTime = startDate.getTime();
     var currentDate = new Date();
@@ -422,7 +420,7 @@ function renderRankChart() {
 
 
 function updatePlayerHistory(table_selector, template_id) {
-    var rewards = reward.getRewardData().rewards;
+    var rewards = $$woay.client.reward.getRewardData().rewards;
     $(table_selector).html('');
     if (rewards.length) {
         rewards.forEach(function (reward) {
@@ -447,7 +445,7 @@ function padLeft(n, len) {
 }
 
 function renderPlayerPoint(table_selector, template_id) {
-    $$core.client.api.getHistoryPoint()
+    $$woay.client.api.getHistoryPoint()
         .then(function (data) {
             var points = data;
             $(table_selector).html('');
@@ -471,7 +469,7 @@ function renderPlayerPoint(table_selector, template_id) {
 }
 
 function updateMyPoint() {
-    $$core.client.api.getMyRank()
+    $$woay.client.api.getMyRank()
         .then(function (data) {
             $('.total-point').css('opacity', '1');
             $('.your-point').html(data.sum);
