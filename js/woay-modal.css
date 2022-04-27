@@ -49,6 +49,14 @@
     height: 30vh;
 }
 
+.sound-wrapper {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: #fff;
+    z-index: 9999
+}
+
 @media (max-width: 1400px) {
     .modal__container {
         margin-top: 5%;

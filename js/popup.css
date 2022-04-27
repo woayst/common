@@ -362,9 +362,10 @@ x #w-popup-reward .title-voucher {
     line-height: 40px;
     font-size: 16px;
     text-align: center;
-    z-index: 990;
+    z-index: 999999;
     background: #5e42eb;
     color: #fff;
+    top: 0;
 }
 
 .countdown-wrapper .close {
@@ -512,7 +513,7 @@ x #w-popup-reward .title-voucher {
     left: 50%;
 }
 
-.w-close-popup-desktop {
+.w-close-popup {
     position: absolute;
     bottom: 5%;
     right: 2%;
@@ -527,11 +528,11 @@ x #w-popup-reward .title-voucher {
     cursor: pointer;
 }
 
-.w-close-popup-desktop img {
+.w-close-popup img {
     padding-right: 10px;
 }
 
-#w-popup-section.desktop-mode .w-close-popup-desktop {
+#w-popup-section.desktop-mode .w-close-popup {
     display: flex;
 }
 
@@ -567,6 +568,14 @@ x #w-popup-reward .title-voucher {
 .style-1::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background: #2729B3;
+}
+
+.sound-wrapper {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: #fff;
+    z-index: 9999
 }
 
 @media (max-width: 991px) {
