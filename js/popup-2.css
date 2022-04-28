@@ -1686,14 +1686,6 @@ li.off-click a {
     cursor: pointer;
 }
 
-#btn-show-popup {
-    position: fixed;
-    z-index: 998;
-    bottom: 20px;
-    left: 20px;
-    cursor: pointer;
-}
-
 /* Floating menu css */
 
 * {
