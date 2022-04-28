@@ -7,6 +7,7 @@ var id_tab = document.getElementById("wTab");
 var btns = id_tab.getElementsByClassName("nav-item");
 for (var i = 0; i < btns.length; i++) {
     btns[i].addEventListener("click", function() {
+        console.log('click btn navbar');
         var current = id_tab.getElementsByClassName("active");
         current[0].className = current[0].className.replace(" active", "");
         this.className += " active";

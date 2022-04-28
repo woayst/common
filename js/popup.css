@@ -45,6 +45,37 @@
     box-shadow: 5px 2px 60px 0px #000;
 }
 
+#w-popup-section.desktop-mode #w-popup-out-of-turn {
+    margin-top: 0;
+    position: absolute;
+    max-width: 400px;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#w-popup-out-of-turn {
+    top: 0;
+    right: 0;
+    color: white;
+    visibility: hidden;
+    transition: 0.4s all;
+    width: 90%;
+    margin: auto;
+    position: relative;
+    padding: 0;
+    margin-top: 35vh;
+    display: none;
+}
+
+#w-popup-out-of-turn .title-big {
+    font-size: 38px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    color: #000;
+    font-weight: bold;
+}
+
 #w-popup-close {
     top: 0;
     right: 0;
