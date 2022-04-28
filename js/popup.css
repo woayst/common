@@ -93,6 +93,10 @@
     cursor: pointer;
 }
 
+#btn-show-popup img {
+    max-width: 76px;
+}
+
 #w-popup-section #vongquaymayman {
     margin: 0;
     position: absolute;
