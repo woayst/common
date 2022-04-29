@@ -2961,6 +2961,14 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     margin-top: 50px;
 }
 
+#game {
+    max-height: 70vh;
+    margin: 50px auto 0;
+    display: block;
+    width: auto;
+    max-width: 100%;
+}
+
 /* new CSS UI */
 
 .section-mission ul {
@@ -3286,6 +3294,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     #game {
         max-height: unset !important;
         width: 100% !important;
+        padding: 15px;
     }
 
     .item-reward .reward-name, .item-reward .reward-code {
