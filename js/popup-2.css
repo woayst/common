@@ -1826,6 +1826,15 @@ li.off-click a {
     background: #fff;
 }
 
+
+.s-quick .fab-wheel {
+    height: 8rem;
+}
+
+.s-quick .fab-wheel-2 {
+    height: 6rem;
+}
+
 .fab-wheel-2 .fab-action {
     padding-left: 15px;
 }
@@ -2940,7 +2949,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 
 #lixi-game canvas {
-    width: 100%;
+    width: 40vh;
+    height: auto;
+    margin-top: 50px;
 }
 
 /* new CSS UI */
@@ -3189,7 +3200,8 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 
 @media (max-width: 991px) {
     #lixi-game canvas {
-        max-height: 40vh;
+        width: 30vh;
+        margin-top: 15px;
     }
 }
 
