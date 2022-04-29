@@ -2954,6 +2954,13 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     margin-top: 50px;
 }
 
+#flying-gift canvas {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    margin-top: 50px;
+}
+
 /* new CSS UI */
 
 .section-mission ul {
