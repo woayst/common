@@ -268,7 +268,8 @@ $(document).on("click", '.btn-share-fb', function () {
 $(window).on('load', function() {
     console.log('All assets are loaded')
     var completeQuiz = $$woay.client.local.get('completeQuiz'); 
-    if (completeQuiz) {
+    if (completeQuiz || completeQuiz == 0) {
+        console.log('go there');
         missionComplete('wiki', parseInt(completeQuiz));
         $$woay.client.local.remove('completeQuiz');
     }
