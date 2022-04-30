@@ -265,6 +265,15 @@ $(document).on("click", '.btn-share-fb', function () {
     processShareFbMission();
 })
 
+$(window).on('load', function() {
+    console.log('All assets are loaded')
+    var completeQuiz = $$woay.client.local.get('completeQuiz'); 
+    if (completeQuiz) {
+        missionComplete('wiki', parseInt(completeQuiz));
+        $$woay.client.local.remove('completeQuiz');
+    }
+})
+
 function getShareLink() {
     var user = $$woay.client.getUserInfo();
     var uid = user && user.player_game_id;
@@ -369,6 +378,7 @@ function checkRightAnswer() {
             $(answers[i]).parent('.item-question').find('.checkmark').css('display', 'block');
         }
     }
+    $$woay.client.local.set('completeQuiz', count_right_answer, 1);
     $('#box-question').addClass('disable');
 }
 
