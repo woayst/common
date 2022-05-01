@@ -1835,6 +1835,14 @@ li.off-click a {
     height: 6rem;
 }
 
+.s-quick-skill .fab-wheel {
+    height: 12rem;
+}
+
+.s-quick-skill .fab-wheel-2 {
+    height: 9rem;
+}
+
 .fab-wheel-2 .fab-action {
     padding-left: 15px;
 }
