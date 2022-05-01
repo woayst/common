@@ -290,6 +290,16 @@ function getShareUrl(url, quote) {
     return s + (uid ? '?wref=' + uid : '');
 }
 
+$(window).on('load', function() {
+    console.log('All assets are loaded')
+    var completeQuiz = $$core.client.local.get('completeQuiz'); 
+    if (completeQuiz || completeQuiz == 0) {
+        console.log('go there');
+        missionComplete('wiki', parseInt(completeQuiz));
+        $$core.client.local.remove('completeQuiz');
+    }
+})
+
 function share(url) {
     var sharedUrl = getShareUrl(url);
     window.open(sharedUrl, "_blank", "width=700,height=500,left=200,top=100");
@@ -376,6 +386,7 @@ function checkRightAnswer() {
             $(answers[i]).parent('.item-question').find('.checkmark').css('display', 'block');
         }
     }
+    $$core.client.local.set('completeQuiz', count_right_answer, 1);
     $('#box-question').addClass('disable');
 }
 
