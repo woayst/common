@@ -290,14 +290,17 @@ function getShareUrl(url, quote) {
     return s + (uid ? '?wref=' + uid : '');
 }
 
-$(window).on('load', function() {
+$(window).on('load', function () {
     console.log('All assets are loaded')
-    var completeQuiz = $$core.client.local.get('completeQuiz'); 
-    if (completeQuiz || completeQuiz == 0) {
-        console.log('go there');
-        missionComplete('wiki', parseInt(completeQuiz));
-        $$core.client.local.remove('completeQuiz');
-    }
+    var completeQuiz = $$core.client.local.get('completeQuiz');
+    mission.waitToReady()
+        .then(function () {
+            if (completeQuiz || completeQuiz == 0) {
+                console.log('go there');
+                missionComplete('wiki', parseInt(completeQuiz));
+                $$core.client.local.remove('completeQuiz');
+            }
+        })
 })
 
 function share(url) {
