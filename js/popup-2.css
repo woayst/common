@@ -1699,9 +1699,9 @@ li.off-click a {
     z-index: 99;
 }
 
-.fab-wrapper-2 {
+/* .fab-wrapper-2 {
     left: 16rem;
-}
+} */
 
 .fab-checkbox {
     display: none;
@@ -1716,7 +1716,7 @@ li.off-click a {
     background: blue;
     border-radius: 50%;
     background: #fb7d21;
-    box-shadow: 0px 5px 20px #81a4f1;
+    /* box-shadow: 0px 5px 20px #81a4f1; */
     transition: all 0.3s ease;
     z-index: 1;
     border-top-left-radius: 6px;
@@ -1750,39 +1750,46 @@ li.off-click a {
 
 .fab-dots {
     position: absolute;
-    height: 8px;
-    width: 8px;
+    height: 3px;
+    width: 35px;
     background-color: white;
-    border-radius: 50%;
+    border-radius: unset;
     top: 50%;
-    transform: translateX(0%) translateY(-50%) rotate(0deg);
+    /* transform: translateX(0%) translateY(-50%) rotate(0deg); */
+    left: 50%;
+    transform: translate(-50%, -50%);
     opacity: 1;
     animation: blink 3s ease infinite;
     transition: all 0.3s ease;
 }
 
 .fab-dots-1 {
-    left: 15px;
+    /* left: 50%; */
     animation-delay: 0s;
+    top: 32%;
 }
 
 .fab-dots-2 {
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    top: 50%;
+    /* left: 50%; */
+    /* transform: translateX(-50%) translateY(-50%); */
     animation-delay: 0.4s;
 }
 
 .fab-dots-3 {
-    right: 15px;
+    top: 68%;
+    /* right: 15px; */
     animation-delay: 0.8s;
 }
 
 .fab-checkbox:checked~.fab .fab-dots {
-    height: 6px;
+    height: 3px;
+    top: 50%;
 }
 
 .fab .fab-dots-2 {
     transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    display: block;
 }
 
 .fab-checkbox:checked~.fab .fab-dots-1 {
@@ -1792,11 +1799,16 @@ li.off-click a {
     transform: translateX(-50%) translateY(-50%) rotate(45deg);
 }
 
+.fab-checkbox:checked~.fab .fab-dots-2 {
+    display: none;
+}
+
 .fab-checkbox:checked~.fab .fab-dots-3 {
     width: 32px;
     border-radius: 10px;
-    right: 50%;
+    /* right: 50%; */
     transform: translateX(50%) translateY(-50%) rotate(-45deg);
+    left: -10%;
 }
 
 @keyframes blink {
@@ -1862,7 +1874,7 @@ li.off-click a {
     /* justify-content: center; */
     color: White;
     /* box-shadow: 0 0.1rem 1rem rgba(24, 66, 154, 0.82); */
-    transition: all 1s ease;
+    transition: all 0.5s ease;
     opacity: 0;
 }
 
@@ -1878,10 +1890,15 @@ li.off-click a {
 
 .fab-checkbox:checked~.fab-wheel .fab-action {
     opacity: 1;
+    border-bottom: 1px solid #F2F4F6;
 }
 
 .fab-action:hover {
-    /* background-color: #f16100; */
+    background-color: #8C0103;
+}
+
+.fab-action:hover span {
+    color: #fff;
 }
 
 .fab-wheel .fab-action-1 {
@@ -2964,7 +2981,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 
 #flying-gift canvas {
     width: 100%;
-    height: 70vh;
+    height: 68vh;
     object-fit: cover;
     margin-top: 50px;
 }
