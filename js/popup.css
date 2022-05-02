@@ -38,11 +38,15 @@
     left: -50%;
     transition: all 0.7s;
     width: 80%;
-    min-height: calc(100vh - 30px);
+    min-height: 100vh;
     max-width: 1025px;
     padding: 15px;
     box-sizing: border-box;
     box-shadow: 5px 2px 60px 0px #000;
+}
+
+.p-test-mode #w-popup-container {
+    min-height: calc(100vh - 30px);
     margin-top: 30px;
 }
 
