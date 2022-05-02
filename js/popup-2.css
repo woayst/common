@@ -3334,10 +3334,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 
 /* Fix css */
 
-.warning-is-test-mode {
-    z-index: 90 !important;
-}
-
 .modal__container {
     position: relative;
 }

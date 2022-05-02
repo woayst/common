@@ -38,11 +38,12 @@
     left: -50%;
     transition: all 0.7s;
     width: 80%;
-    min-height: 100vh;
+    min-height: calc(100vh - 30px);
     max-width: 1025px;
     padding: 15px;
     box-sizing: border-box;
     box-shadow: 5px 2px 60px 0px #000;
+    margin-top: 30px;
 }
 
 #w-popup-section.desktop-mode #w-popup-out-of-turn {
@@ -703,6 +704,10 @@ x #w-popup-reward .title-voucher {
     #w-popup-userinfo-form .w-error-log {
         font-size: 10px;
     }
+}
+
+.warning-is-test-mode {
+    z-index: 1000 !important;
 }
 
 .badluck .hide-badluck {
