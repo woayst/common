@@ -1707,7 +1707,7 @@ li.off-click a {
     display: none;
 }
 
-.fab {
+.fab-wrapper .fab {
     position: absolute;
     bottom: -1rem;
     right: -1rem;
@@ -1724,7 +1724,7 @@ li.off-click a {
     cursor: pointer;
 }
 
-.fab:before {
+.fab-wrapper .fab:before {
     content: "";
     position: absolute;
     width: 100%;
