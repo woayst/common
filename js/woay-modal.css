@@ -953,7 +953,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 
 .section-mission .box-img img {
-    max-width: 60px !important;
+    max-width: 60px;
 }
 
 .section-mission ul li .box-info h5 {
@@ -1233,7 +1233,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     }
 
     .section-mission .box-img img {
-        max-width: 80px !important;
+        max-width: 80px;
     }
 
     .box-title {
@@ -1289,7 +1289,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     }
 
     .section-mission .box-img img {
-        max-width: 65px !important;
+        max-width: 65px;
     }
 }
 

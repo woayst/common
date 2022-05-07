@@ -125,7 +125,11 @@ function fetchAllMission() {
         .then(function () {
             fetchMission();
             if (!hasLogin) {
-                $('.btn-challenge').html('<a class="bg-button-group color-button-group"><img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png"></a>');
+                if (WHEEL_SETTINGS.Wheel.game_type == 'icon_drop') {
+                    $('.btn-challenge').html('<a class="bg-button-group color-button-group"><img src="https://working.woay.vn/assets/icondrop/misson.png"></a>');
+                } else {
+                    $('.btn-challenge').html('<a class="bg-button-group color-button-group"><img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png"></a>');
+                }
                 $('.btn-challenge a').on('click', function () {
                     auth.loginHandler();
                 })
@@ -149,7 +153,11 @@ function deactiveDoneMissions() {
     missions.forEach(function (mission) {
         if (!mission.active) return;
         if (mission.isDone) {
-            $('.mission-' + mission.name + ' .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-2.png">').addClass('deactive');
+            if (WHEEL_SETTINGS.Wheel.game_type == 'icon_drop') {
+                $('.mission-' + mission.name + ' .btn-challenge a').html('<img src="https://working.woay.vn/assets/icondrop/completed.png">').addClass('deactive');
+            } else {
+                $('.mission-' + mission.name + ' .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-2.png">').addClass('deactive');
+            }
             return;
         }
     })
