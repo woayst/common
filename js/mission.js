@@ -252,11 +252,24 @@ function processGoldHourMission() {
     var isValid = (GOLD_HOUR_START <= current_hour && current_hour < GOLD_HOUR_END);
     var isDone = mission.get('gold_hour').isDone;
     if (!isValid && !isDone) {
-        $('.mission-gold_hour .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-3.png">').addClass('deactive');
+        if (WHEEL_SETTINGS.Wheel.game_type == 'icon_drop') {
+            $('.mission-gold_hour .btn-challenge a').html('<img src="https://working.woay.vn/assets/icondrop/outtime.png">').addClass('deactive');
+        } else {
+            $('.mission-gold_hour .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-3.png">').addClass('deactive');
+        }
+
     } else if (isValid && !isDone) {
-        $('.mission-gold_hour .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png">').addClass('active');
+        if (WHEEL_SETTINGS.Wheel.game_type == 'icon_drop') {
+            $('.mission-gold_hour .btn-challenge a').html('<img src="https://working.woay.vn/assets/icondrop/misson.png">').addClass('active');
+        } else {
+            $('.mission-gold_hour .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png">').addClass('active');
+        }
     } else {
-        $('.mission-gold_hour .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-2.png">').addClass('active');
+        if (WHEEL_SETTINGS.Wheel.game_type == 'icon_drop') {
+            $('.mission-gold_hour .btn-challenge a').html('<img src="https://working.woay.vn/assets/icondrop/completed.png">').addClass('active');
+        } else {
+            $('.mission-gold_hour .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-2.png">').addClass('active');
+        }
     }
 }
 

@@ -911,7 +911,6 @@ canvas {
 
 .section-mission ul li {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     background-color: #E5E5E5;
@@ -938,27 +937,19 @@ canvas {
 }
 
 .section-mission ul li .box-img {
-    width: 20%;
     text-align: center;
 }
 
 .section-mission ul li .box-info {
-    width: calc(55% - 20px);
-    margin-right: 20px;
-}
-
-.section-mission ul li .btn-challenge {
-    width: 25%;
+    padding: 0 5px;
+    flex: 1;
+    text-align: left;
+    padding-left: 20px;
 }
 
 .box-img {
     display: block;
     overflow: hidden;
-}
-
-.section-mission .box-img img {
-    max-width: 50px;
-    height: auto;
 }
 
 .btn-challenge a.deactive {
@@ -1019,6 +1010,10 @@ input:focus {
     outline: none;
 }
 
+.box-right {
+    text-align: left;
+}
+
 @media (min-width: 768px) {
     .section-mission ul li .btn-challenge a {
         width: 166px;
@@ -1029,7 +1024,7 @@ input:focus {
 /* css mission mobile */
 .flex-box {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: center;
     align-items: center;
 }
@@ -1074,11 +1069,6 @@ input:focus {
         width: 100%;
     }
 
-    .section-mission ul li .btn-challenge a {
-        font-size: 12px;
-        padding: 12px;
-    }
-
     .section-mission ul li .box-info {
         padding: 0 15px;
         margin-right: 0;
@@ -1090,7 +1080,7 @@ input:focus {
     }
 
     .section-mission ul li .box-img {
-        width: 40%
+        width: unset !important;
     }
 
     .section-mission .meta {
@@ -1103,10 +1093,6 @@ input:focus {
 
     .section-mission ul li .btn-challenge {
         width: 100%;
-    }
-
-    .box-right {
-        width: 60%;
     }
 }
 
@@ -1534,7 +1520,7 @@ li.off-click a {
 }
 
 .main-wrapper.test-mode {
-    height: calc(100vh - 30px);
+    height: 100vh;
     padding-top: 30px;
 }
 
@@ -1570,6 +1556,8 @@ li.off-click a {
 #section-game {
     display: block !important;
     opacity: 0;
+    position: relative;
+    z-index: 2;
 }
 
 #section-game.active {
@@ -1578,10 +1566,19 @@ li.off-click a {
 
 #section-game canvas {
     position: fixed;
+    top: 0;
     left: 50%;
     transform: translateX(-50%);
     max-width: 60vh;
-    z-index: 2;
+}
+
+.test-mode #section-game canvas {
+    padding-top: 30px;
+}
+
+#section-mission {
+    position: relative;
+    z-index: 10;
 }
 
 .list-btn .btn-main {
@@ -1628,19 +1625,10 @@ li.off-click a {
     font-size: 12px;
 }
 
-.section-mission ul li .box-img {
-    width: 20%;
-    text-align: center;
-}
-
-.section-mission ul li .box-info {
-    width: calc(45% - 20px);
-    margin-right: 20px;
-}
-
 .section-mission ul li .btn-challenge {
-    width: calc(35% - 30px) !important;
-    margin-right: 30px;
+    margin-right: 0 !important;
+    width: 100% !important;
+    flex: 1;
 }
 
 .box-img {
@@ -1723,6 +1711,8 @@ li.off-click a {
     /* padding: 15px 30px; */
     border-radius: 8px;
     font-size: 16px;
+    width: 80% !important;
+    margin: auto;
 }
 
 .key-visual img {
@@ -1741,8 +1731,7 @@ img {
     border: 3px solid #016BED;
     padding: 10px;
     border-radius: 12px;
-
-    margin-top: 50px;
+    margin: 50px 10px 10px;
 }
 
 .bg-section .title-section {
@@ -1828,10 +1817,6 @@ img {
 }
 
 @media (max-width: 991px) {
-    .section-mission ul li {
-        display: block;
-    }
-
     .section-mission ul li .btn-challenge a {
         font-size: 12px;
         padding: 12px;
@@ -1847,10 +1832,6 @@ img {
         padding: 15px;
     }
 
-    .section-mission ul li .box-img {
-        width: 40%
-    }
-
     .section-mission ul li .box-info h5 {
         font-size: 18px;
     }
@@ -1862,6 +1843,37 @@ img {
     .section-mission ul li {
         padding: 0;
     }
+
+    .test-mode #section-game canvas {
+        padding-top: 50px;
+    }
+
+    .bg-section .title-section {
+        width: 70%;
+    }
+
+    .section-mission .box-img img {
+        max-width: 50px !important;
+    }
+
+    .section-mission ul li .box-img {
+        width: 35% !important;
+    }
+
+    .section-mission ul li .btn-challenge {
+        flex: unset;
+        width: 100% !important;
+    }
+
+    .box-right {
+        width: 100% !important;
+        padding-left: 15px !important;
+        max-width: 250px;
+    }
+
+    .section-mission ul li .box-info h5 {
+        font-size: 15px !important;
+    }
 }
 
 @media (min-width: 768px) {
@@ -1870,3 +1882,5 @@ img {
         text-align: center;
     }
 }
+
+@media (max-width: 767px) {}
