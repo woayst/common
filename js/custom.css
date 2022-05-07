@@ -909,15 +909,6 @@ canvas {
     margin: 30px auto;
 }
 
-.section-mission ul li {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #E5E5E5;
-    margin: 8px 0;
-    padding: 15px 0px;
-}
-
 .section-mission .box-point .point {
     background: #008ed6;
     color: #fff;
@@ -1529,6 +1520,7 @@ li.off-click a {
     width: 100%;
     position: relative;
     z-index: 10;
+    padding: 10px;
 }
 
 .screen.active {
@@ -1604,7 +1596,8 @@ li.off-click a {
     align-items: center;
     background-color: transparent !important;
     margin: 8px 0;
-    padding: 15px 0px;
+    padding: 5px 0px;
+    border-bottom: 1px solid #ececec;
 }
 
 .section-mission .box-point .point {
@@ -1657,19 +1650,9 @@ li.off-click a {
 }
 
 .section-mission ul li {
-    border-radius: 60px;
+    border-radius: unset !important;
     background-color: #fff;
     margin-bottom: 25px;
-}
-
-.section-mission ul li {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    background-color: #E5E5E5;
-    margin: 8px 0;
-    padding: 15px 0px;
 }
 
 .section-mission ul li .box-info p {
@@ -1731,7 +1714,7 @@ img {
     border: 3px solid #016BED;
     padding: 10px;
     border-radius: 12px;
-    margin: 50px 10px 10px;
+    margin-top: 50px;
 }
 
 .bg-section .title-section {
@@ -1810,6 +1793,37 @@ img {
     color: #fff;
 }
 
+.btn-back {
+    color: #0154E1;
+    font-weight: bold;
+    font-size: 25px;
+    border-bottom: 2px solid #0154E1;
+    width: 100%;
+    max-width: 100px;
+    margin: auto;
+    padding-top: 40px;
+}
+
+.box-shading {
+    display: none;
+}
+
+.item-index {
+    background-color: transparent !important;
+    border-radius: 8px;
+    padding: 8px;
+    text-align: center;
+    color: #040404;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    max-width: 41px;
+}
+
+.item-user {
+    padding-left: 20px;
+}
+
 @media (min-width: 992px) {
     .main-wrapper {
         max-width: 60vh;
@@ -1873,6 +1887,10 @@ img {
 
     .section-mission ul li .box-info h5 {
         font-size: 15px !important;
+    }
+
+    .item-user {
+        max-width: 60px;
     }
 }
 
