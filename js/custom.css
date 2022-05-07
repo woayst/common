@@ -1443,6 +1443,12 @@ li.off-click a {
     margin-bottom: 10px !important;
 }
 
+.text-editor {
+    width: 100%;
+    text-align: justify;
+    padding: 15px;
+}
+
 @media (max-width: 991px) {
     .total-point {
         font-size: 16px;
