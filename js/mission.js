@@ -497,7 +497,7 @@ function renderPlayerPoint(table_selector, template_id) {
             if (points.length) {
                 points.forEach(function (point) {
                     if (point.type == 'mission') {
-                        point.type = 'Nhiệm vụ: ' + $$woay.client.mission.get(point.type_name).title;
+                        point.type = 'Nhiệm vụ: ' + $$core.client.mission.get(point.type_name).title;
                     } else if (point.type == 'reward') {
                         point.type = 'Chơi game được ' + point.type_name;
                     }
