@@ -121,6 +121,10 @@ eventBus.on('login-done', function () {
 
 function fetchAllMission() {
     console.log('mission', mission);
+    var btnMission = '<a class="bg-button-group color-button-group"><img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png"></a>';
+    if (i18n && i18n.IMG_MISSION) {
+        btnMission = '<a class="bg-button-group color-button-group"><img src=" ' + i18n.IMG_MISSION + '"></a>';
+    }
     mission.fetchAll()
         .then(function () {
             fetchMission();
@@ -128,7 +132,7 @@ function fetchAllMission() {
                 if (WHEEL_SETTINGS.Wheel.game_type == 'icon_drop') {
                     $('.btn-challenge').html('<a class="bg-button-group color-button-group"><img src="https://working.woay.vn/assets/icondrop/misson.png"></a>');
                 } else {
-                    $('.btn-challenge').html('<a class="bg-button-group color-button-group"><img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png"></a>');
+                    $('.btn-challenge').html(btnMission);
                 }
                 $('.btn-challenge a').on('click', function () {
                     auth.loginHandler();
