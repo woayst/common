@@ -466,6 +466,10 @@ function renderRankChart() {
 
 function updatePlayerHistory(table_selector, template_id) {
     var rewards = reward.getRewardData().rewards;
+    var html = '<div style="text-align: center; padding: 15px">Bạn chưa có phần thưởng nào</div>';
+    if (i18n && i18n.history.description) {
+        html = '<div style="text-align: center; padding: 15px">' + i18n.history.description + '</div>';
+    }
     $(table_selector).html('');
     if (rewards.length) {
         rewards.forEach(function (reward) {
@@ -477,7 +481,7 @@ function updatePlayerHistory(table_selector, template_id) {
             $(table_selector).append(tmpl(template_id, reward));
         })
     } else {
-        $(table_selector).html('<div style="text-align: center; padding: 15px">Bạn chưa có phần thưởng nào</div>');
+        $(table_selector).html(html);
     }
 }
 
@@ -490,6 +494,10 @@ function padLeft(n, len) {
 }
 
 function renderPlayerPoint(table_selector, template_id) {
+    var html = '<div style="text-align: center; padding: 15px">Bạn hiện chưa có điểm</div>';
+    if (i18n && i18n.list_reward.description) {
+        html = '<div style="text-align: center; padding: 15px">' + i18n.list_reward.description + '</div>';
+    }
     $$core.client.api.getHistoryPoint()
         .then(function (data) {
             var points = data;
@@ -508,7 +516,7 @@ function renderPlayerPoint(table_selector, template_id) {
                     $(table_selector).append(tmpl(template_id, point));
                 })
             } else {
-                $(table_selector).html('<div style="text-align: center; padding: 15px">Bạn hiện chưa có điểm</div>');
+                $(table_selector).html(html);
             }
         })
 }
