@@ -40,6 +40,7 @@ function getTodayQuestions(question_per_day) {
     }
     return arr;
 }
+
 /// Render mission
 function renderMissions(missions, template_id) {
     var missions = mission.getAll();
@@ -55,6 +56,7 @@ function renderMissions(missions, template_id) {
         $('.section-mission').css('display', 'none');
     }
 }
+
 eventBus.on('login-done', function () {
     console.log('mission js login-done');
     mission.waitToReady()
@@ -67,6 +69,7 @@ eventBus.on('login-done', function () {
                 }
                 updateMyPoint();
                 renderPlayerPoint('#your-point', 'my-score-tmpl');
+
                 mission.fetch()
                     .then(deactiveDoneMissions)
                     .then(processMissionAutoCompleteMission)
@@ -118,6 +121,10 @@ eventBus.on('login-done', function () {
 
 function fetchAllMission() {
     console.log('mission', mission);
+    var btnMission = '<a class="bg-button-group color-button-group"><img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png"></a>';
+    if (i18n && i18n.IMG_MISSION) {
+        btnMission = '<a class="bg-button-group color-button-group"><img src=" ' + i18n.IMG_MISSION + '"></a>';
+    }
     mission.fetchAll()
         .then(function () {
             fetchMission();
@@ -125,7 +132,7 @@ function fetchAllMission() {
                 if (WHEEL_SETTINGS.Wheel.game_type == 'icon_drop') {
                     $('.btn-challenge').html('<a class="bg-button-group color-button-group"><img src="https://working.woay.vn/assets/icondrop/misson.png"></a>');
                 } else {
-                    $('.btn-challenge').html('<a class="bg-button-group color-button-group"><img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png"></a>');
+                    $('.btn-challenge').html(btnMission);
                 }
                 $('.btn-challenge a').on('click', function () {
                     auth.loginHandler();
@@ -165,7 +172,9 @@ function removeHash(str) {
 }
 
 function missionComplete(name, new_quantity) {
+
     if (!mission.isReady()) return;
+
     if (name === 'invite_friend') {
         return;
     }
@@ -174,6 +183,7 @@ function missionComplete(name, new_quantity) {
     } else if (WHEEL_SETTINGS.Wheel.game_type == 'li_xi') {
         if ($$woay.isPicking()) return;
     }
+
     var player_game_id = $$core.client.getUserInfo().player_game_id;
     mission.complete(name, player_game_id, new_quantity)
         .then(function () {
@@ -259,6 +269,7 @@ function processGoldHourMission() {
         } else {
             $('.mission-gold_hour .btn-challenge a').html('<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-3.png">').addClass('deactive');
         }
+
     } else if (isValid && !isDone) {
         if (WHEEL_SETTINGS.Wheel.game_type == 'icon_drop') {
             $('.mission-gold_hour .btn-challenge a').html('<img src="https://working.woay.vn/assets/icondrop/misson.png">').addClass('active');
@@ -273,6 +284,7 @@ function processGoldHourMission() {
         }
     }
 }
+
 $(document).on("click", '.btn-invite-friend', function () {
     if (WHEEL_SETTINGS.Wheel.game_type == 'wheel') {
         if ($$woay.checkSpinning()) return;
@@ -287,33 +299,11 @@ $(document).on("click", '.btn-share-fb', function () {
     } else if (WHEEL_SETTINGS.Wheel.game_type == 'li_xi') {
         if ($$woay.isPicking()) return;
     }
-    // var url = window.location.href.split('#')[0];
-    // url = decodeURIComponent(url);
-    // share(url);
-    // processShareFbMission();
-    shareFbByRedirect();
-})
-
-function shareFbByRedirect() {
-    var FB_APP_ID = WHEEL_SETTINGS.Facebook.APP_ID;
-    var SHARE_FB_URL = window.location.href.split('#')[0];
-    var url = [
-        'https://www.facebook.com/dialog/share?app_id=' + FB_APP_ID,
-        '&href=' + SHARE_FB_URL,
-        '&display=page',
-        '&redirect_uri=' + encodeURIComponent(getRedirectUrl())
-    ].join('');
-
-    window.open(url, '_self');
-}
-
-function getRedirectUrl() {
     var url = window.location.href.split('#')[0];
     url = decodeURIComponent(url);
-    // url = url.replace('https://localhost:9000', 'https://working.woay.vn/ssi2');
-
-    return url + '&shared=true'
-}
+    share(url);
+    processShareFbMission();
+})
 
 function getShareLink() {
     var user = $$core.client.getUserInfo();
@@ -332,6 +322,7 @@ function getShareUrl(url, quote) {
     }
     return s + (uid ? '?wref=' + uid : '');
 }
+
 $(window).on('load', function () {
     console.log('All assets are loaded')
     var completeQuiz = $$core.client.local.get('completeQuiz');
@@ -354,14 +345,16 @@ function processShareFbMission() {
     var shareMission = mission.get('share_facebook');
     var checkCompleteShare = shareMission && !shareMission.isDone && shareMission.active;
     if (checkCompleteShare) {
-        // setTimeout(function () {
-        missionComplete('share_facebook');
-        // }, 20000)
+        setTimeout(function () {
+            missionComplete('share_facebook');
+        }, 20000)
     }
 }
+
 $(document).on("click", '.my-copy-link-btn', function () {
     utils.copyToClipboard('#w-text-share-url');
 })
+
 $(document).on('click', '.btn-show-qrcode', function () {
     if (WHEEL_SETTINGS.Wheel.game_type == 'wheel') {
         if ($$woay.checkSpinning()) return;
@@ -370,10 +363,12 @@ $(document).on('click', '.btn-show-qrcode', function () {
     }
     checkQrCode();
 })
+
 $(document).on('click', '#w-complete .modal__close', function () {
     // MicroModal.close('w-complete');
     html.closeModal();
 })
+
 document.addEventListener('keydown', function (event) {
     if (event.keyCode === 27) {
         console.log('esc click');
@@ -389,6 +384,7 @@ function checkQrCode() {
     }
     html.pushModal('w-qrcode');
 }
+
 
 function processMissionQrCode(secret_qr) {
     var secret_key = mission.get('explore_store').meta.hash;
@@ -471,8 +467,13 @@ function renderRankChart() {
     }
 }
 
+
 function updatePlayerHistory(table_selector, template_id) {
     var rewards = reward.getRewardData().rewards;
+    var html = '<div style="text-align: center; padding: 15px">Bạn chưa có phần thưởng nào</div>';
+    if (i18n && i18n.history.description) {
+        html = '<div style="text-align: center; padding: 15px">' + i18n.history.description + '</div>';
+    }
     $(table_selector).html('');
     if (rewards.length) {
         rewards.forEach(function (reward) {
@@ -484,7 +485,7 @@ function updatePlayerHistory(table_selector, template_id) {
             $(table_selector).append(tmpl(template_id, reward));
         })
     } else {
-        $(table_selector).html('<div style="text-align: center; padding: 15px">Bạn chưa có phần thưởng nào</div>');
+        $(table_selector).html(html);
     }
 }
 
@@ -497,6 +498,10 @@ function padLeft(n, len) {
 }
 
 function renderPlayerPoint(table_selector, template_id) {
+    var html = '<div style="text-align: center; padding: 15px">Bạn hiện chưa có điểm</div>';
+    if (i18n && i18n.list_reward.description) {
+        html = '<div style="text-align: center; padding: 15px">' + i18n.list_reward.description + '</div>';
+    }
     $$core.client.api.getHistoryPoint()
         .then(function (data) {
             var points = data;
@@ -504,7 +509,7 @@ function renderPlayerPoint(table_selector, template_id) {
             if (points.length) {
                 points.forEach(function (point) {
                     if (point.type == 'mission') {
-                        point.type = 'Nhiệm vụ: ' + $$woay.client.mission.get(point.type_name).title;
+                        point.type = 'Nhiệm vụ: ' + $$core.client.mission.get(point.type_name).title;
                     } else if (point.type == 'reward') {
                         point.type = 'Chơi game được ' + point.type_name;
                     }
@@ -515,7 +520,7 @@ function renderPlayerPoint(table_selector, template_id) {
                     $(table_selector).append(tmpl(template_id, point));
                 })
             } else {
-                $(table_selector).html('<div style="text-align: center; padding: 15px">Bạn hiện chưa có điểm</div>');
+                $(table_selector).html(html);
             }
         })
 }
