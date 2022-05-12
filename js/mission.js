@@ -317,12 +317,12 @@ function processShareFbMission() {
     }
 }
 
-var checkShareFbInterval = setInterval(function() {
-    if ($$core && $$core.client && $$core.client.mission && $$core.client.mission.isReady()) {
-        processShareFbMission();
-        clearInterval(checkShareFbInterval);
-    }
-}, 1000)
+// var checkShareFbInterval = setInterval(function() {
+//     if ($$core && $$core.client && $$core.client.mission && $$core.client.mission.isReady()) {
+//         processShareFbMission();
+//         clearInterval(checkShareFbInterval);
+//     }
+// }, 1000)
 
 function getShareLink() {
     var user = $$core.client.getUserInfo();
