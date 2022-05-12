@@ -79,9 +79,6 @@ eventBus.on('login-done', function () {
                             secret_qr = utils.getParam('secret');
                             processMissionQrCode(secret_qr);
                         }
-                        if ($$core && $$core.client && $$core.client.mission && $$core.client.mission.isReady()) {
-                            processShareFbMission();
-                        }
                     })
                     .then(function () {
                         var question_per_day = mission.get('wiki').meta.question_per_day; // sửa lại lấy theo format
@@ -323,6 +320,13 @@ function processShareFbMission() {
         $$core.client.mission.complete('share_facebook');
     }
 }
+
+var checkShareFbInterval = setInterval(function () {
+    if ($$core && $$core.client && $$core.client.mission && $$core.client.mission.isReady()) {
+        processShareFbMission();
+        clearInterval(checkShareFbInterval);
+    }
+}, 1000)
 
 function getShareLink() {
     var user = $$core.client.getUserInfo();
