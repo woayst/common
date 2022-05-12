@@ -79,6 +79,9 @@ eventBus.on('login-done', function () {
                             secret_qr = utils.getParam('secret');
                             processMissionQrCode(secret_qr);
                         }
+                        if ($$core && $$core.client && $$core.client.mission && $$core.client.mission.isReady()) {
+                            processShareFbMission();
+                        }
                     })
                     .then(function () {
                         var question_per_day = mission.get('wiki').meta.question_per_day; // sửa lại lấy theo format
@@ -309,20 +312,15 @@ function shareFbByRedirect() {
 }
 
 function processShareFbMission() {
+    console.log('go there')
     var shared = $$core.client.utils.getParam('shared');
     var shareMission = $$core.client.mission.get('share_facebook')
     var checkCompleteShare = shareMission && !shareMission.isDone && shareMission.active && shared;
     if (checkCompleteShare) {
+        console.log('checkCompleteShare', checkCompleteShare);
         $$core.client.mission.complete('share_facebook');
     }
 }
-
-// var checkShareFbInterval = setInterval(function() {
-//     if ($$core && $$core.client && $$core.client.mission && $$core.client.mission.isReady()) {
-//         processShareFbMission();
-//         clearInterval(checkShareFbInterval);
-//     }
-// }, 1000)
 
 function getShareLink() {
     var user = $$core.client.getUserInfo();
@@ -359,15 +357,6 @@ function share(url) {
     window.open(sharedUrl, "_blank", "width=700,height=500,left=200,top=100");
 }
 
-function processShareFbMission() {
-    var shareMission = mission.get('share_facebook');
-    var checkCompleteShare = shareMission && !shareMission.isDone && shareMission.active;
-    if (checkCompleteShare) {
-        // setTimeout(function () {
-        missionComplete('share_facebook');
-        // }, 20000)
-    }
-}
 $(document).on("click", '.my-copy-link-btn', function () {
     utils.copyToClipboard('#w-text-share-url');
 })
