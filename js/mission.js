@@ -300,12 +300,14 @@ $(document).on("click", '.btn-share-fb', function () {
 function shareFbByRedirect() {
     var currentUrl = window.location.origin + window.location.pathname;
     var shareSuccessUrl = currentUrl + '?shared=true';
-    var FB_APP_ID = WHEEL_SETTINGS.Facebook.APP_ID
+    var base_url = WHEEL_SETTINGS.Wheel.SERVER_URL;
+    var redirectUrl = base_url + '/api.player/redirect?u=' + shareSuccessUrl;
+    var FB_APP_ID = WHEEL_SETTINGS.Facebook.APP_ID;
     var url = [
         'https://www.facebook.com/dialog/share?app_id=' + FB_APP_ID,
         '&href=' + currentUrl,
         '&display=page',
-        '&redirect_uri=' + encodeURIComponent(shareSuccessUrl)
+        '&redirect_uri=' + encodeURIComponent(redirectUrl)
     ].join('');
 
     window.open(url, '_self');
