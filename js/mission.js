@@ -235,7 +235,7 @@ function processMissionAutoCompleteMission() {
     var player_game_id = $$core.client.getUserInfo().player_game_id;
     AUTO_COMPLETE_MISSIONS.forEach(function (key) {
         var m = mission.get(key);
-        if (m.active && !m.isDone) {
+        if ($$core && $$core.client && $$core.client.mission && $$core.client.mission.isReady() && m.active && !m.isDone) {
             missionComplete('login');
             if (WHEEL_SETTINGS.Wheel.game_type == 'icon_drop') {
                 $('.mission-' + name + ' .btn-challenge a').html('<img src="https://working.woay.vn/assets/icondrop/completed.png">').addClass('deactive');
