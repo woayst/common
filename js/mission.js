@@ -295,25 +295,34 @@ $(document).on("click", '.btn-share-fb', function () {
 })
 
 function shareFbByRedirect() {
-    var FB_APP_ID = WHEEL_SETTINGS.Facebook.APP_ID;
-    var SHARE_FB_URL = window.location.href.split('#')[0];
+    var currentUrl = window.location.origin + window.location.pathname;
+    var shareSuccessUrl = currentUrl + '?shared=true';
+    var FB_APP_ID = WHEEL_SETTINGS.Facebook.APP_ID
     var url = [
         'https://www.facebook.com/dialog/share?app_id=' + FB_APP_ID,
-        '&href=' + SHARE_FB_URL,
+        '&href=' + currentUrl,
         '&display=page',
-        '&redirect_uri=' + encodeURIComponent(getRedirectUrl())
+        '&redirect_uri=' + encodeURIComponent(shareSuccessUrl)
     ].join('');
 
     window.open(url, '_self');
 }
 
-function getRedirectUrl() {
-    var url = window.location.href.split('#')[0];
-    url = decodeURIComponent(url);
-    // url = url.replace('https://localhost:9000', 'https://working.woay.vn/ssi2');
-
-    return url + '&shared=true'
+function processShareFbMission() {
+    var shared = $$core.client.utils.getParam('shared');
+    var shareMission = $$core.client.mission.get('share_facebook')
+    var checkCompleteShare = shareMission && !shareMission.isDone && shareMission.active && shared;
+    if (checkCompleteShare) {
+        $$core.client.mission.complete('share_facebook');
+    }
 }
+
+var checkShareFbInterval = setInterval(function() {
+    if ($$core && $$core.client && $$core.client.mission && $$core.client.mission.isReady()) {
+        processShareFbMission();
+        clearInterval(checkShareFbInterval);
+    }
+}, 1000)
 
 function getShareLink() {
     var user = $$core.client.getUserInfo();
