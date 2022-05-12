@@ -317,7 +317,7 @@ function processShareFbMission() {
     var checkCompleteShare = shareMission && !shareMission.isDone && shareMission.active && shared;
     if (checkCompleteShare) {
         console.log('checkCompleteShare', checkCompleteShare);
-        $$core.client.mission.complete('share_facebook');
+        missionComplete('share_facebook');
     }
 }
 
