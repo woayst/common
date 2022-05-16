@@ -499,8 +499,12 @@ function padLeft(n, len) {
 
 function renderPlayerPoint(table_selector, template_id) {
     var html = '<div style="text-align: center; padding: 15px">Bạn hiện chưa có điểm</div>';
+    var typePoint = 'Nhiệm vụ: ' + $$core.client.mission.get(point.type_name).title;
     if (i18n && i18n.list_reward.description) {
         html = '<div style="text-align: center; padding: 15px">' + i18n.list_reward.description + '</div>';
+    }
+    if (i18n && i18n.type_point) {
+        typePoint = i18n.type_point;
     }
     $$core.client.api.getHistoryPoint()
         .then(function (data) {
@@ -509,7 +513,7 @@ function renderPlayerPoint(table_selector, template_id) {
             if (points.length) {
                 points.forEach(function (point) {
                     if (point.type == 'mission') {
-                        point.type = 'Nhiệm vụ: ' + $$core.client.mission.get(point.type_name).title;
+                        point.type = typePoint;
                     } else if (point.type == 'reward') {
                         point.type = 'Chơi game được ' + point.type_name;
                     }
