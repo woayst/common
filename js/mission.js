@@ -1,4 +1,4 @@
-(function () {
+var missionData = (function () {
     var enableMission = false;
     var wref = '';
     var $ = $$woay.$;
