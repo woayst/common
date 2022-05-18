@@ -38,7 +38,7 @@
         var arr = [];
         for (var i = 0; i < question_per_day; i++) {
             var k = firstIndex + i;
-            arr.push(getQuestionAt(k));
+            arr.push(output.getQuestionAt(k));
         }
         return arr;
     }
