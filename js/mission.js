@@ -34,7 +34,7 @@
     }
 
     output.getTodayQuestions = function getTodayQuestions(question_per_day) {
-        var firstIndex = getDayNo() * question_per_day;
+        var firstIndex = output.getDayNo() * question_per_day;
         var arr = [];
         for (var i = 0; i < question_per_day; i++) {
             var k = firstIndex + i;
@@ -63,41 +63,41 @@
             .then(function () {
                 hasLogin = true;
                 if (hasLogin) {
-                    fetchMission()
+                    output.fetchMission()
                     if (WHEEL_SETTINGS.Wheel.scheme == 'mixed' || (WHEEL_SETTINGS.Wheel.scheme == 'quick' && WHEEL_SETTINGS.Wheel.game_type == 'flipcard')) {
-                        updatePlayerHistory('#history', 'history-tmpl');
+                        output.updatePlayerHistory('#history', 'history-tmpl');
                     }
-                    updateMyPoint();
-                    renderPlayerPoint('#your-point', 'my-score-tmpl');
+                    output.updateMyPoint();
+                    output.renderPlayerPoint('#your-point', 'my-score-tmpl');
                     mission.fetch()
-                        .then(deactiveDoneMissions)
-                        .then(processMissionAutoCompleteMission)
-                        .then(processGoldHourMission)
+                        .then(output.deactiveDoneMissions)
+                        .then(output.processMissionAutoCompleteMission)
+                        .then(output.processGoldHourMission)
                         .then(function () {
                             var action_qr = '';
                             var secret_qr = '';
                             if (utils.getParam('action') && utils.getParam('secret')) {
                                 action_qr = utils.getParam('action');
                                 secret_qr = utils.getParam('secret');
-                                processMissionQrCode(secret_qr);
+                                output.processMissionQrCode(secret_qr);
                             }
                         })
                         .then(function () {
                             var question_per_day = mission.get('wiki').meta.question_per_day; // sửa lại lấy theo format
-                            questions = getTodayQuestions(question_per_day);
+                            questions = output.getTodayQuestions(question_per_day);
                             $(document).on('click', '.item-question', function () {
-                                checkRightAnswer();
+                                output.checkRightAnswer();
                                 setTimeout(function () {
                                     current_question++;
                                     if (current_question >= question_per_day) {
-                                        showResult();
+                                        output.showResult();
                                     } else {
-                                        renderQuestion('question-tmpl');
+                                        output.renderQuestion('question-tmpl');
                                     }
                                 }, 1000)
                             })
 
-                            function renderQuestion(template_id) {
+                            output.renderQuestion = function renderQuestion(template_id) {
                                 var question = questions[current_question]; // today current_question = 3
                                 $('#box-question').removeClass('disable');
                                 $('#box-question').html(tmpl(template_id, question));
@@ -110,7 +110,7 @@
                                     if ($$woay.isPicking()) return;
                                 }
                                 current_question = 0;
-                                renderQuestion('question-tmpl');
+                                output.renderQuestion('question-tmpl');
                                 html.pushModal('w-quiz');
                             })
                         })
@@ -122,7 +122,7 @@
         console.log('mission', mission);
         mission.fetchAll()
             .then(function () {
-                fetchMission();
+                output.fetchMission();
                 if (!hasLogin) {
                     if (WHEEL_SETTINGS.Wheel.game_type == 'icon_drop') {
                         $('.btn-challenge').html('<a class="bg-button-group color-button-group"><img src="https://working.woay.vn/assets/icondrop/misson.png"></a>');
@@ -138,13 +138,13 @@
 
     output.fetchMission = function fetchMission() {
         var missions = mission.getAll();
-        $('#w-text-share-url').val(getShareLink());
+        $('#w-text-share-url').val(output.getShareLink());
         if (mobileAndTabletCheck()) {
-            renderMissions(missions, 'm-mission-tmpl');
+            output.renderMissions(missions, 'm-mission-tmpl');
         } else {
-            renderMissions(missions, 'd-mission-tmpl');
+            output.renderMissions(missions, 'd-mission-tmpl');
         }
-        checkMissionInviteFriend();
+        output.checkMissionInviteFriend();
     }
 
     output.deactiveDoneMissions = function deactiveDoneMissions() {
@@ -209,8 +209,8 @@
                     }
                 }
                 if (mission_type == 'point') {
-                    updateMyPoint()
-                    renderPlayerPoint('#your-point', 'my-score-tmpl');
+                    output.updateMyPoint()
+                    output.renderPlayerPoint('#your-point', 'my-score-tmpl');
                     return;
                 }
                 reward.addTurnForMission(mission_name, quantity);
@@ -293,7 +293,7 @@
         // url = decodeURIComponent(url);
         // share(url);
         // processShareFbMission();
-        shareFbByRedirect();
+        output.shareFbByRedirect();
     })
 
     output.shareFbByRedirect = function shareFbByRedirect() {
@@ -319,13 +319,13 @@
         var checkCompleteShare = shareMission && !shareMission.isDone && shareMission.active && shared;
         if (checkCompleteShare) {
             console.log('checkCompleteShare', checkCompleteShare);
-            missionComplete('share_facebook');
+            output.missionComplete('share_facebook');
         }
     }
 
     var checkShareFbInterval = setInterval(function () {
         if ($$core && $$core.client && $$core.client.mission && $$core.client.mission.isReady()) {
-            processShareFbMission();
+            output.processShareFbMission();
             clearInterval(checkShareFbInterval);
         }
     }, 1000)
@@ -354,14 +354,14 @@
             .then(function () {
                 if (completeQuiz || completeQuiz == 0) {
                     console.log('go there');
-                    missionComplete('wiki', parseInt(completeQuiz));
+                    output.missionComplete('wiki', parseInt(completeQuiz));
                     $$core.client.local.remove('completeQuiz');
                 }
             })
     })
 
     output.share = function share(url) {
-        var sharedUrl = getShareUrl(url);
+        var sharedUrl = output.getShareUrl(url);
         window.open(sharedUrl, "_blank", "width=700,height=500,left=200,top=100");
     }
 
@@ -374,7 +374,7 @@
         } else if (WHEEL_SETTINGS.Wheel.game_type == 'li_xi') {
             if ($$woay.isPicking()) return;
         }
-        checkQrCode();
+        output.checkQrCode();
     })
     $(document).on('click', '#w-complete .modal__close', function () {
         // MicroModal.close('w-complete');
@@ -401,7 +401,7 @@
         var mission_done = mission.get('explore_store').isDone;
         var passhash = CryptoJS.MD5(secret_qr).toString();
         if (passhash.localeCompare(secret_key) == 0) {
-            missionComplete('explore_store');
+            output.missionComplete('explore_store');
         } else {
             $('.text-qrcode').text('Mã QR CODE không chính xác');
         }
@@ -440,7 +440,7 @@
         var quantity = count_right_answer;
         // MicroModal.close('w-quiz');
         html.closeModal();
-        missionComplete('wiki', quantity);
+        output.missionComplete('wiki', quantity);
         count_right_answer = 0;
     }
 
@@ -460,7 +460,7 @@
     }
 
     output.renderRankChart = function renderRankChart() {
-        getTopPlayer('thang', false, false);
+        output.getTopPlayer('thang', false, false);
         var startDate = new Date(onAirDate);
         var startTime = startDate.getTime();
         var currentDate = new Date();
@@ -472,7 +472,7 @@
                 var html_tab_content = '<div class="tabcontent" id="tuan' + i + '"></div>'
                 $('.wrap-item-button').append(html);
                 $('.wrap-bxh').append(html_tab_content);
-                getTopPlayer('tuan' + i, from, to);
+                output.getTopPlayer('tuan' + i, from, to);
             }
         }
     }
@@ -516,7 +516,7 @@
                         }
                         var d = new Date(point.created_at);
                         var hour = d.toTimeString().split(' ')[0];
-                        var date = padLeft(d.getDate(), 2) + '/' + padLeft(d.getMonth() + 1, 2) + '/' + d.getFullYear();
+                        var date = output.padLeft(d.getDate(), 2) + '/' + output.padLeft(d.getMonth() + 1, 2) + '/' + d.getFullYear();
                         point.created_at = date + ' ' + hour;
                         $(table_selector).append(tmpl(template_id, point));
                     })
