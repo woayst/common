@@ -3359,7 +3359,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     z-index: 90 !important;
 }
 
-.s-quick #w-popup-section #vongquaymayman {
+#w-popup-section.s-quick #vongquaymayman {
     position: relative;
     top: unset;
     left: unset;
