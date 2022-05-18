@@ -1,4 +1,4 @@
-var missionData = (function () {
+(function (g) {
     var enableMission = false;
     var wref = '';
     var $ = $$woay.$;
@@ -13,8 +13,9 @@ var missionData = (function () {
     var questions = []
     var hasLogin = false;
     var myUserId = null;
+    var output = {};
 
-    function getDayNo() {
+    output.getDayNo = function getDayNo() {
         var today = new Date();
         today.setHours(0, 0, 0);
         var airDate = new Date(WHEEL_SETTINGS.Wheel.campaign_start_at);
@@ -26,13 +27,13 @@ var missionData = (function () {
         return result;
     }
 
-    function getQuestionAt(k) {
+    output.getQuestionAt = function getQuestionAt(k) {
         var questions = mission.get('wiki').meta.question;
         var i = k % questions.length;
         return questions[i];
     }
 
-    function getTodayQuestions(question_per_day) {
+    output.getTodayQuestions = function getTodayQuestions(question_per_day) {
         var firstIndex = getDayNo() * question_per_day;
         var arr = [];
         for (var i = 0; i < question_per_day; i++) {
@@ -42,7 +43,7 @@ var missionData = (function () {
         return arr;
     }
     /// Render mission
-    function renderMissions(missions, template_id) {
+    output.renderMissions = function renderMissions(missions, template_id) {
         var missions = mission.getAll();
         $('#mission-list').html('');
         var hasMissionActive = false;
@@ -117,7 +118,7 @@ var missionData = (function () {
             })
     })
 
-    function fetchAllMission() {
+    output.fetchAllMission = function fetchAllMission() {
         console.log('mission', mission);
         mission.fetchAll()
             .then(function () {
@@ -135,7 +136,7 @@ var missionData = (function () {
             })
     }
 
-    function fetchMission() {
+    output.fetchMission = function fetchMission() {
         var missions = mission.getAll();
         $('#w-text-share-url').val(getShareLink());
         if (mobileAndTabletCheck()) {
@@ -146,7 +147,7 @@ var missionData = (function () {
         checkMissionInviteFriend();
     }
 
-    function deactiveDoneMissions() {
+    output.deactiveDoneMissions = function deactiveDoneMissions() {
         var missions = mission.getAll();
         missions.forEach(function (mission) {
             if (!mission.active) return;
@@ -161,11 +162,11 @@ var missionData = (function () {
         })
     }
 
-    function removeHash(str) {
+    output.removeHash = function removeHash(str) {
         return str.replace('#', '');
     }
 
-    function missionComplete(name, new_quantity) {
+    output.missionComplete = function missionComplete(name, new_quantity) {
         if (!mission.isReady()) return;
         if (name === 'invite_friend') {
             return;
@@ -219,7 +220,7 @@ var missionData = (function () {
             })
     }
 
-    function checkMissionInviteFriend() {
+    output.checkMissionInviteFriend = function checkMissionInviteFriend() {
         if (WHEEL_SETTINGS.Wheel.is_test_mode) {
             $('#w-share .modal__content').css('display', 'none');
             $('#w-share .modal__footer').css('display', 'none');
@@ -231,7 +232,7 @@ var missionData = (function () {
         }
     }
 
-    function processMissionAutoCompleteMission() {
+    output.processMissionAutoCompleteMission = function processMissionAutoCompleteMission() {
         var AUTO_COMPLETE_MISSIONS = ['login'];
         var player_game_id = $$core.client.getUserInfo().player_game_id;
         AUTO_COMPLETE_MISSIONS.forEach(function (key) {
@@ -247,7 +248,7 @@ var missionData = (function () {
         })
     }
 
-    function processGoldHourMission() {
+    output.processGoldHourMission = function processGoldHourMission() {
         var date = new Date();
         var GOLD_HOUR_START = parseInt(mission.get('gold_hour').meta.from);
         var GOLD_HOUR_END = parseInt(mission.get('gold_hour').meta.to);
@@ -295,7 +296,7 @@ var missionData = (function () {
         shareFbByRedirect();
     })
 
-    function shareFbByRedirect() {
+    output.shareFbByRedirect = function shareFbByRedirect() {
         var currentUrl = window.location.origin + window.location.pathname;
         var shareSuccessUrl = currentUrl + '?shared=true';
         var base_url = WHEEL_SETTINGS.Wheel.SERVER_URL;
@@ -311,7 +312,7 @@ var missionData = (function () {
         window.open(url, '_self');
     }
 
-    function processShareFbMission() {
+    output.processShareFbMission = function processShareFbMission() {
         console.log('go there')
         var shared = $$core.client.utils.getParam('shared');
         var shareMission = $$core.client.mission.get('share_facebook')
@@ -329,14 +330,14 @@ var missionData = (function () {
         }
     }, 1000)
 
-    function getShareLink() {
+    output.getShareLink = function getShareLink() {
         var user = $$core.client.getUserInfo();
         var uid = user && user.player_game_id;
         var share_link_url = window.location.href.split('?')[0];
         return share_link_url + (uid ? '?wref=' + uid : '');
     }
 
-    function getShareUrl(url, quote) {
+    output.getShareUrl = function getShareUrl(url, quote) {
         var s = 'https://www.facebook.com/sharer/sharer.php?u=';
         var user = $$core.client.getUserInfo();
         var uid = user && user.player_game_id;
@@ -359,7 +360,7 @@ var missionData = (function () {
             })
     })
 
-    function share(url) {
+    output.share = function share(url) {
         var sharedUrl = getShareUrl(url);
         window.open(sharedUrl, "_blank", "width=700,height=500,left=200,top=100");
     }
@@ -386,7 +387,7 @@ var missionData = (function () {
         }
     });
 
-    function checkQrCode() {
+    output.checkQrCode = function checkQrCode() {
         var action_qr = utils.getParam('action');
         var secret_qr = utils.getParam('secret');
         if (!action_qr && !secret_qr) {
@@ -395,7 +396,7 @@ var missionData = (function () {
         html.pushModal('w-qrcode');
     }
 
-    function processMissionQrCode(secret_qr) {
+    output.processMissionQrCode = function processMissionQrCode(secret_qr) {
         var secret_key = mission.get('explore_store').meta.hash;
         var mission_done = mission.get('explore_store').isDone;
         var passhash = CryptoJS.MD5(secret_qr).toString();
@@ -409,7 +410,7 @@ var missionData = (function () {
         }
     }
 
-    function checkRightAnswer() {
+    output.checkRightAnswer = function checkRightAnswer() {
         var question = questions[current_question];
         var quantity_per_question = mission.get('wiki').meta.quantity_per_question;
         var answers = $('input[name="answer"]');
@@ -435,7 +436,7 @@ var missionData = (function () {
         $('#box-question').addClass('disable');
     }
 
-    function showResult() {
+    output.showResult = function showResult() {
         var quantity = count_right_answer;
         // MicroModal.close('w-quiz');
         html.closeModal();
@@ -443,7 +444,7 @@ var missionData = (function () {
         count_right_answer = 0;
     }
 
-    function getTopPlayer(id, from, to) {
+    output.getTopPlayer = function getTopPlayer(id, from, to) {
         $$core.client.api.getTopPlayer(from, to)
             .then(function (data) {
                 var topPlayers = data.map(function (x, i) {
@@ -458,7 +459,7 @@ var missionData = (function () {
             })
     }
 
-    function renderRankChart() {
+    output.renderRankChart = function renderRankChart() {
         getTopPlayer('thang', false, false);
         var startDate = new Date(onAirDate);
         var startTime = startDate.getTime();
@@ -476,7 +477,7 @@ var missionData = (function () {
         }
     }
 
-    function updatePlayerHistory(table_selector, template_id) {
+    output.updatePlayerHistory = function updatePlayerHistory(table_selector, template_id) {
         var rewards = reward.getRewardData().rewards;
         $(table_selector).html('');
         if (rewards.length) {
@@ -493,7 +494,7 @@ var missionData = (function () {
         }
     }
 
-    function padLeft(n, len) {
+    output.padLeft = function padLeft(n, len) {
         var s = '' + n;
         while (s.length < len) {
             s = '0' + s;
@@ -501,7 +502,7 @@ var missionData = (function () {
         return s;
     }
 
-    function renderPlayerPoint(table_selector, template_id) {
+    output.renderPlayerPoint = function renderPlayerPoint(table_selector, template_id) {
         $$core.client.api.getHistoryPoint()
             .then(function (data) {
                 var points = data;
@@ -525,11 +526,13 @@ var missionData = (function () {
             })
     }
 
-    function updateMyPoint() {
+    output.updateMyPoint = function updateMyPoint() {
         $$core.client.api.getMyRank()
             .then(function (data) {
                 $('.total-point').css('opacity', '1');
                 $('.your-point').html(data.sum);
             })
     }
-})();
+
+    g.$mission = output;
+})(window);
