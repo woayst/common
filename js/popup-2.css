@@ -3238,6 +3238,14 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     font-size: 12px;
 }
 
+#w-popup-section.s-quick #vongquaymayman {
+    position: relative;
+    top: unset;
+    left: unset;
+    transform: unset;
+    width: 60vh;
+}
+
 @media (max-width: 991px) {
     #lixi-game canvas {
         width: 30vh;
@@ -3329,6 +3337,10 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     .item-reward .reward-time {
         font-size: 12px;
     }
+
+    #w-popup-section.s-quick #vongquaymayman {
+        width: 90%;
+    }
 }
 
 @media (max-width: 320px) {
@@ -3357,11 +3369,4 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 
 .box-noti-fixed {
     z-index: 90 !important;
-}
-
-#w-popup-section.s-quick #vongquaymayman {
-    position: relative;
-    top: unset;
-    left: unset;
-    transform: unset;
 }
