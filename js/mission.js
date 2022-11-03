@@ -53,6 +53,8 @@
                 $('#mission-list').append(tmpl(template_id, mission))
             }
         })
+
+        $('#mission-list .btn-challenge .bg-button-group a img').attr('src', 'https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png');
         if (!hasMissionActive) {
             $('.section-mission').css('display', 'none');
         }
