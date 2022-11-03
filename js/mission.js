@@ -139,11 +139,11 @@
     output.fetchMission = function fetchMission() {
         var missions = mission.getAll();
         $('#w-text-share-url').val(output.getShareLink());
-        if (mobileAndTabletCheck()) {
-            output.renderMissions(missions, 'm-mission-tmpl');
-        } else {
-            output.renderMissions(missions, 'd-mission-tmpl');
-        }
+        // if (mobileAndTabletCheck()) {
+        //     output.renderMissions(missions, 'm-mission-tmpl');
+        // } else {
+        output.renderMissions(missions, 'mission-tmpl');
+        // }
         output.checkMissionInviteFriend();
     }
 
@@ -478,6 +478,7 @@
     }
 
     output.updatePlayerHistory = function updatePlayerHistory(table_selector, template_id) {
+        console.log(table_selector, template_id);
         var rewards = reward.getRewardData().rewards;
         $(table_selector).html('');
         if (rewards.length) {
