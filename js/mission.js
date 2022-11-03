@@ -54,7 +54,7 @@
             }
         })
 
-        $('#mission-list .btn-challenge .btn-invite-friend img').attr('src', 'https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png');
+        $('#mission-list .btn-challenge .bg-button-group img').attr('src', 'https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png');
         if (!hasMissionActive) {
             $('.section-mission').css('display', 'none');
         }
