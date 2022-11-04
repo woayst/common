@@ -300,7 +300,8 @@
 
     output.shareFbByRedirect = function shareFbByRedirect() {
         var currentUrl = window.location.origin + window.location.pathname;
-        var shareSuccessUrl = currentUrl + '?shared=true';
+        var sep = currentUrl.indexOf('?') == -1 ? '?' : '&';
+        var shareSuccessUrl = currentUrl + sep + 'shared=true';
         var base_url = WHEEL_SETTINGS.Wheel.SERVER_URL;
         var redirectUrl = base_url + '/api.player/redirect?u=' + shareSuccessUrl;
         var FB_APP_ID = WHEEL_SETTINGS.Facebook.APP_ID;
