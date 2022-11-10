@@ -447,8 +447,8 @@
         count_right_answer = 0;
     }
 
-    output.getTopPlayer = function getTopPlayer(id, from, to) {
-        $$core.client.api.getTopPlayer(from, to)
+    output.getTopPlayer = function getTopPlayer(id, from, to, limit) {
+        $$core.client.api.getTopPlayer(from, to, limit)
             .then(function (data) {
                 var topPlayers = data.map(function (x, i) {
                     x.stt = i + 1;
