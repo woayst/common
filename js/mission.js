@@ -141,11 +141,11 @@
     output.fetchMission = function fetchMission() {
         var missions = mission.getAll();
         $('#w-text-share-url').val(output.getShareLink());
-        // if (mobileAndTabletCheck()) {
-        //     output.renderMissions(missions, 'm-mission-tmpl');
-        // } else {
-        output.renderMissions(missions, 'mission-tmpl');
-        // }
+        if (mobileAndTabletCheck()) {
+            output.renderMissions(missions, 'm-mission-tmpl');
+        } else {
+            output.renderMissions(missions, 'd-mission-tmpl');
+        }
         output.checkMissionInviteFriend();
     }
 
