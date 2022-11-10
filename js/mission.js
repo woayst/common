@@ -462,7 +462,7 @@
             })
     }
 
-    output.renderRankChart = function renderRankChart() {
+    output.renderRankChart = function renderRankChart(limit) {
         output.getTopPlayer('thang', false, false);
         var startDate = new Date(onAirDate);
         var startTime = startDate.getTime();
@@ -475,7 +475,7 @@
                 var html_tab_content = '<div class="tabcontent" id="tuan' + i + '"></div>'
                 $('.wrap-item-button').append(html);
                 $('.wrap-bxh').append(html_tab_content);
-                output.getTopPlayer('tuan' + i, from, to);
+                output.getTopPlayer('tuan' + i, from, to, limit);
             }
         }
     }
