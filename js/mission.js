@@ -463,7 +463,7 @@
     }
 
     output.renderRankChart = function renderRankChart(limit) {
-        output.getTopPlayer('thang', false, false);
+        output.getTopPlayer('thang', false, false, limit);
         var startDate = new Date(onAirDate);
         var startTime = startDate.getTime();
         var currentDate = new Date();
