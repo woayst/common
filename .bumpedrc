@@ -17,4 +17,4 @@ plugins:
       command: 'git tag $newVersion && git push && git push --tags'
     Publishing in github:
       plugin: bumped-terminal
-      command: 'git push github main && git push github main --tags'
+      command: 'git push github master && git push github master --tags'

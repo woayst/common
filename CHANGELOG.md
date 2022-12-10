@@ -1,3 +1,8 @@
+## <small>2.0.1 (2022-12-10)</small>
+
+
+
+
 ## 2.0.0 (2022-12-10)
 
 * fix ([d3b4fba](https://gitlab.com/woay/sdk/common/commit/d3b4fba))
