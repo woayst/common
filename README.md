@@ -19,3 +19,8 @@ git clone git@gitlab.com:woay/sdk/common.git
 cd common
 git remote add github git@github.com:woayst/common.git
 ```
+
+## Publish new CDN version
+```
+bumped release patch
+```
