@@ -11,3 +11,11 @@ WOAY's Collection of Libraries
 - Font Icons
 - Some images
 - Sound files
+
+
+## How to start
+```
+git clone git@gitlab.com:woay/sdk/common.git
+cd common
+git remote add github git@github.com:woayst/common.git
+```
