@@ -19,6 +19,6 @@ plugins:
     Publishing tag:
       plugin: bumped-terminal
       command: 'git tag $newVersion && git push && git push --tags'
-    Publishing tag:
+    Publishing in github:
       plugin: bumped-terminal
       command: 'git tag $newVersion && git push github main && git push github main --tags'
