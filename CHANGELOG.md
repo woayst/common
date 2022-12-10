@@ -1,3 +1,21 @@
+## <small>1.4.2 (2022-12-10)</small>
+
+* fix ([d3b4fba](https://gitlab.com/woay/sdk/common/commit/d3b4fba))
+* update README ([1efe5fc](https://gitlab.com/woay/sdk/common/commit/1efe5fc))
+* update structure ([062c47a](https://gitlab.com/woay/sdk/common/commit/062c47a))
+* update structure ([c7c6c5c](https://gitlab.com/woay/sdk/common/commit/c7c6c5c))
+
+
+
+## <small>1.4.1 (2022-12-10)</small>
+
+* fix ([d3b4fba](https://gitlab.com/woay/sdk/common/commit/d3b4fba))
+* update README ([1efe5fc](https://gitlab.com/woay/sdk/common/commit/1efe5fc))
+* update structure ([062c47a](https://gitlab.com/woay/sdk/common/commit/062c47a))
+* update structure ([c7c6c5c](https://gitlab.com/woay/sdk/common/commit/c7c6c5c))
+
+
+
 ## 1.4.0 (2022-12-10)
 
 * update structure ([062c47a](https://gitlab.com/woay/sdk/common/commit/062c47a))
