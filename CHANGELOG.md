@@ -1,3 +1,10 @@
+## <small>2.0.8 (2022-12-12)</small>
+
+* Release 2.0.7 ([00bf772](https://gitlab.com/woay/sdk/common/commit/00bf772))
+* update style.css, modal.css ([e997ed1](https://gitlab.com/woay/sdk/common/commit/e997ed1))
+
+
+
 ## <small>2.0.7 (2022-12-12)</small>
 
 
