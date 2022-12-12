@@ -1,3 +1,9 @@
+## <small>3.0.11 (2022-12-12)</small>
+
+* fix sound ([11e96e0](https://gitlab.com/woay/sdk/common/commit/11e96e0))
+
+
+
 ## <small>3.0.10 (2022-12-12)</small>
 
 * fix prefix css ([ab0d117](https://gitlab.com/woay/sdk/common/commit/ab0d117))
