@@ -1,3 +1,9 @@
+## <small>3.0.6 (2022-12-12)</small>
+
+* fix loading ([bf14b96](https://gitlab.com/woay/sdk/common/commit/bf14b96))
+
+
+
 ## <small>3.0.5 (2022-12-12)</small>
 
 * fix prefix woay-modal.css ([06116c3](https://gitlab.com/woay/sdk/common/commit/06116c3))
