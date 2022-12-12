@@ -1,3 +1,8 @@
+## <small>3.0.4 (2022-12-12)</small>
+
+
+
+
 ## <small>3.0.3 (2022-12-12)</small>
 
 * Release 2.0.4 ([2581770](https://gitlab.com/woay/sdk/common/commit/2581770))
