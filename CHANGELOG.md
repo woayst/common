@@ -1,3 +1,11 @@
+## <small>2.0.6 (2022-12-12)</small>
+
+* Release 2.0.4 ([2581770](https://gitlab.com/woay/sdk/common/commit/2581770))
+* Release 2.0.5 ([2b50a09](https://gitlab.com/woay/sdk/common/commit/2b50a09))
+* updater version ([6589401](https://gitlab.com/woay/sdk/common/commit/6589401))
+
+
+
 ## <small>2.0.5 (2022-12-12)</small>
 
 * Release 2.0.4 ([2581770](https://gitlab.com/woay/sdk/common/commit/2581770))
