@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'woay-sdk';
-  src: url('woay-sdk.eot?ud9iy8');
-  src: url('woay-sdk.eot?ud9iy8#iefix') format('embedded-opentype'),
-    url('woay-sdk.ttf?ud9iy8') format('truetype'),
-    url('woay-sdk.woff?ud9iy8') format('woff'),
-    url('woay-sdk.svg?ud9iy8#woay-sdk') format('svg');
+  src: url('/fonts/woay-sdk.eot?ud9iy8');
+  src: url('/fonts/woay-sdk.eot?ud9iy8#iefix') format('embedded-opentype'),
+    url('/fonts/woay-sdk.ttf?ud9iy8') format('truetype'),
+    url('/fonts/fwoay-sdk.woff?ud9iy8') format('woff'),
+    url('/fonts/woay-sdk.svg?ud9iy8#woay-sdk') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;

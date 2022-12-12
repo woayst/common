@@ -1403,7 +1403,7 @@ li.off-click a {
     text-align: right;
 }
 
-.w-info-more-vongquay .box-action .box-btn {
+.info-more-vongquay .box-action .box-btn {
     margin-bottom: 10px !important;
 }
 
@@ -1424,11 +1424,11 @@ li.off-click a {
         flex: unset !important;
     }
 
-    .w-info-more-vongquay .box-action .box-btn {
+    .info-more-vongquay .box-action .box-btn {
         display: block !important;
     }
 
-    .w-info-more-vongquay .box-action a {
+    .info-more-vongquay .box-action a {
         margin: 5px auto;
     }
 }
@@ -1587,7 +1587,7 @@ li.off-click a {
     margin-top: 12% !important;
 } */
 
-/* .w-info-more-vongquay {
+/* .info-more-vongquay {
     position: absolute;
     width: 100%;
     left: 50%;
@@ -1635,7 +1635,7 @@ li.off-click a {
         margin-top: 20% !important;
     }
 
-    .w-info-more-vongquay {
+    .info-more-vongquay {
         bottom: 28%;
     }
 
@@ -2624,13 +2624,13 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     outline: none;
 }
 
-.w-info-more-vongquay {
+.info-more-vongquay {
     margin-bottom: 40px;
     max-width: 800px;
     margin: auto;
 }
 
-.w-info-more-vongquay a:hover {
+.info-more-vongquay a:hover {
     text-decoration: none;
 }
 
@@ -2656,7 +2656,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     cursor: pointer;
 }
 
-.w-info-more-vongquay .box-action .box-btn {
+.info-more-vongquay .box-action .box-btn {
     display: flex;
     padding: 0 15px;
     justify-content: space-between;
@@ -2666,7 +2666,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     margin: 0 auto;
 }
 
-.w-info-more-vongquay .box-action a {
+.info-more-vongquay .box-action a {
     display: inline-block;
     padding: 15px;
     border-radius: 5px;
@@ -2675,7 +2675,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     flex: 1;
 }
 
-.w-info-more-vongquay .box-action a:last-child {
+.info-more-vongquay .box-action a:last-child {
     margin-right: 0;
 }
 
@@ -2690,7 +2690,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 
 @media (max-width: 991px) {
-    .text-number-turns, .btn-check-reward, .w-info-more-vongquay .box-action a {
+    .text-number-turns, .btn-check-reward, .info-more-vongquay .box-action a {
         font-size: 16px;
     }
 
@@ -2702,15 +2702,15 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         font-size: 18px;
     }
 
-    .w-info-more-vongquay .box-action {
+    .info-more-vongquay .box-action {
         margin: 0 -10px;
     }
 
-    .w-info-more-vongquay .box-action .box-btn {
+    .info-more-vongquay .box-action .box-btn {
         padding: 0 10px;
     }
 
-    .w-info-more-vongquay .box-action a {
+    .info-more-vongquay .box-action a {
         padding: 10px;
         width: 100%;
         text-decoration: none;
@@ -2728,11 +2728,11 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
         margin-bottom: 10px;
     }
 
-    .w-info-more-vongquay .box-action .box-btn {
+    .info-more-vongquay .box-action .box-btn {
         width: 90%;
     }
 
-    .w-info-more-vongquay .box-action a {
+    .info-more-vongquay .box-action a {
         font-size: 12px;
     }
 
@@ -2798,29 +2798,29 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     animation: loading-center-absolute 1.5s infinite
 }
 
-.object {
+.w-object {
     width: 25px;
     height: 25px;
     background-color: #FFF;
     float: left
 }
 
-#object_one {
+#w-object_one {
     -webkit-animation: object_one 1.5s infinite;
     animation: object_one 1.5s infinite
 }
 
-#object_two {
+#w-object_two {
     -webkit-animation: object_two 1.5s infinite;
     animation: object_two 1.5s infinite
 }
 
-#object_three {
+#w-object_three {
     -webkit-animation: object_three 1.5s infinite;
     animation: object_three 1.5s infinite
 }
 
-#object_four {
+#w-object_four {
     -webkit-animation: object_four 1.5s infinite;
     animation: object_four 1.5s infinite
 }

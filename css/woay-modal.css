@@ -44,8 +44,10 @@
   max-height: 100%;
   margin-top: 5%;
   border-radius: 4px;
-  overflow-y: auto;
   box-sizing: border-box;
+  position: relative;
+  overflow: visible;
+  max-width: 470px;
 }
 
 #modal-woay-userinfo div[w-role="form"] {
@@ -120,6 +122,8 @@
   color: rgba(0, 0, 0, 0.8);
   padding: 40px;
   font-size: 14px;
+  max-height: 35vh;
+  overflow-y: auto;
 }
 
 .w-modal .modal__btn {
@@ -327,9 +331,7 @@
   color: #eb5757;
 }
 
-.w-modal .modal__container {
-  max-width: 470px;
-}
+
 
 .w-modal .sub-title {
   color: #9f9f9f;
@@ -780,29 +782,29 @@
   animation: loading-center-absolute 1.5s infinite;
 }
 
-.w-modal .object {
+.w-object {
   width: 25px;
   height: 25px;
   background-color: #fff;
   float: left;
 }
 
-.w-modal #object_one {
+#w-object_one {
   -webkit-animation: object_one 1.5s infinite;
   animation: object_one 1.5s infinite;
 }
 
-.w-modal #object_two {
+#w-object_two {
   -webkit-animation: object_two 1.5s infinite;
   animation: object_two 1.5s infinite;
 }
 
-.w-modal #object_three {
+#w-object_three {
   -webkit-animation: object_three 1.5s infinite;
   animation: object_three 1.5s infinite;
 }
 
-.w-modal #object_four {
+#w-object_four {
   -webkit-animation: object_four 1.5s infinite;
   animation: object_four 1.5s infinite;
 }
@@ -908,15 +910,6 @@
   }
 }
 
-.w-modal .modal__container {
-  max-height: auto;
-  overflow: visible;
-}
-
-.w-modal .modal__content {
-  max-height: 35vh;
-  overflow-y: auto;
-}
 
 .w-modal .modal__content::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -1327,9 +1320,6 @@
   z-index: 90 !important;
 }
 
-.w-modal .modal__container {
-  position: relative;
-}
 
 .w-modal .box-noti-fixed {
   z-index: 90 !important;
