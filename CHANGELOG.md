@@ -1,4 +1,14 @@
+## <small>2.0.3 (2022-12-12)</small>
+
+* Release 2.0.2 ([58efec4](https://gitlab.com/woay/sdk/common/commit/58efec4))
+
+
+
+<<<<<<< HEAD
 ## <small>2.0.2 (2022-12-10)</small>
+=======
+## <small>2.0.2 (2022-12-12)</small>
+>>>>>>> 6f35745 (Release 2.0.2)
 
 
 
@@ -2025,7 +2035,7 @@
 
 ## <small>1.3.12 (2021-07-07)</small>
 
-* update css box btn info-more-vongquay ([c4612f8](https://gitlab.com/woay/sdk/common/commit/c4612f8))
+* update css box btn w-info-more-vongquay ([c4612f8](https://gitlab.com/woay/sdk/common/commit/c4612f8))
 
 
 
