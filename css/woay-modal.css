@@ -648,7 +648,7 @@
 
 .w-info-more-vongquay .box-action a {
   display: inline-block;
-  padding: 10 0px;
+  padding: 10px 0px;
   border-radius: 5px;
   font-weight: bold;
   font-size: 20px;
@@ -926,9 +926,9 @@
   background-color: #bcc0c4;
 }
 
-.w-modal .reward-list {
+/* .w-modal .reward-list {
   text-align: center;
-}
+} */
 
 .w-modal .reward-list .item-reward {
   display: flex;
