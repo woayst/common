@@ -1,3 +1,8 @@
+## <small>2.0.2 (2022-12-12)</small>
+
+
+
+
 ## <small>2.0.1 (2022-12-10)</small>
 
 
@@ -2020,7 +2025,7 @@
 
 ## <small>1.3.12 (2021-07-07)</small>
 
-* update css box btn info-more-vongquay ([c4612f8](https://gitlab.com/woay/sdk/common/commit/c4612f8))
+* update css box btn w-info-more-vongquay ([c4612f8](https://gitlab.com/woay/sdk/common/commit/c4612f8))
 
 
 
