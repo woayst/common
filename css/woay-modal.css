@@ -602,17 +602,17 @@
   outline: none;
 }
 
-.w-modal .w-info-more-vongquay {
+.w-info-more-vongquay {
   margin-bottom: 40px;
-  max-width: 800px;
+  width: 80%;
   margin: auto;
 }
 
-.w-modal .w-info-more-vongquay a:hover {
+.w-info-more-vongquay a:hover {
   text-decoration: none;
 }
 
-.w-modal .text-number-turns {
+.w-info-more-vongquay .text-number-turns {
   font-weight: 900;
   font-size: 24px;
   color: #fff;
@@ -621,14 +621,14 @@
     1px 1px 0px #3c4915;
 }
 
-.w-modal .text-number-turns span {
+.w-info-more-vongquay .text-number-turns span {
   color: #fac53b;
   font-size: 40px;
   text-shadow: -1px -1px 0px #3c4915, 1px -1px 0px #3c4915, -1px 1px 0px #3c4915,
     1px 1px 0px #3c4915;
 }
 
-.w-modal .btn-check-reward {
+.w-info-more-vongquay .btn-check-reward {
   display: block;
   font-weight: 500;
   font-size: 18px;
@@ -646,9 +646,9 @@
   margin: 0 auto;
 }
 
-.more-vongquay .box-action a {
+.w-info-more-vongquay .box-action a {
   display: inline-block;
-  padding: 15px;
+  padding: 10 0px;
   border-radius: 5px;
   font-weight: bold;
   font-size: 20px;
@@ -659,41 +659,41 @@
   margin-right: 0;
 }
 
-.w-modal .box-action .btn-play {
+.w-info-more-vongquay .box-action .btn-play {
   background-color: #fac53b;
   color: #000;
 }
 
-.w-modal .box-action .btn-add-turn {
+.w-info-more-vongquay .box-action .btn-add-turn {
   color: #fff;
   background-color: #ff8144;
 }
 
 @media (max-width: 991px) {
 
-  .w-modal .text-number-turns,
-  .w-modal .btn-check-reward,
-  .w-modal .w-info-more-vongquay .box-action a {
+  .w-info-more-vongquay .text-number-turns,
+  .w-info-more-vongquay .btn-check-reward,
+  .w-info-more-vongquay .box-action a {
     font-size: 16px;
   }
 
-  .w-modal .text-number-turns {
+  .w-info-more-vongquay .text-number-turns {
     margin-bottom: 10px;
   }
 
-  .w-modal .text-number-turns span {
+  .w-info-more-vongquay .text-number-turns span {
     font-size: 18px;
   }
 
-  .w-modal .w-info-more-vongquay .box-action {
+  .w-info-more-vongquay .box-action {
     margin: 0 -10px;
   }
 
-  .w-modal .w-info-more-vongquay .box-action .box-btn {
+  .w-info-more-vongquay .box-action .box-btn {
     padding: 0 10px;
   }
 
-  .w-modal .w-info-more-vongquay .box-action a {
+  .w-info-more-vongquay .box-action a {
     padding: 10px;
     width: 100%;
     text-decoration: none;
@@ -711,11 +711,11 @@
     margin-bottom: 10px;
   }
 
-  .w-modal .w-info-more-vongquay .box-action .box-btn {
+  .w-info-more-vongquay .box-action .box-btn {
     width: 90%;
   }
 
-  .w-modal .w-info-more-vongquay .box-action a {
+  .w-info-more-vongquay .box-action a {
     font-size: 12px;
   }
 
