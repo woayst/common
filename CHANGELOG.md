@@ -1,3 +1,8 @@
+## <small>300.0.4 (2022-12-12)</small>
+
+
+
+
 ## <small>300.0.3 (2022-12-12)</small>
 
 * update version ([36418aa](https://gitlab.com/woay/sdk/common/commit/36418aa))
