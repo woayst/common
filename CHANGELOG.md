@@ -1,3 +1,9 @@
+## <small>3.0.8 (2022-12-12)</small>
+
+* fix prefix css ([ad82216](https://gitlab.com/woay/sdk/common/commit/ad82216))
+
+
+
 ## <small>3.0.7 (2022-12-12)</small>
 
 * fix prefix css ([f31b925](https://gitlab.com/woay/sdk/common/commit/f31b925))
