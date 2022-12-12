@@ -1960,7 +1960,7 @@ li.off-click a {
     border-radius: unset;
 }
 
-.sound-wrapper {
+.w-sound-wrapper {
     left: unset !important;
 }
 
@@ -2024,7 +2024,7 @@ li.off-click a {
         left: unset !important;
     }
 
-    .sound-wrapper {
+    .w-sound-wrapper {
         bottom: 80px !important;
     }
 
@@ -2086,7 +2086,7 @@ li.off-click a {
     height: 30vh;
 }
 
-.sound-wrapper {
+.w-sound-wrapper {
     position: fixed;
     bottom: 10px;
     right: 10px;
@@ -2326,7 +2326,7 @@ li.off-click a {
     border-radius: 4px;
 }
 
-.wheel-btn {
+.w-wheel-btn {
     cursor: pointer;
 }
 
@@ -2765,7 +2765,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 
 /*** LOADING  ***/
 
-#loading {
+#w-loading {
     background-color: rgba(0, 0, 0, 0.5);
     height: 100%;
     width: 100%;
@@ -2777,13 +2777,13 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     z-index: 9999
 }
 
-#loading-center {
+#w-loading-center {
     width: 100%;
     height: 100%;
     position: relative
 }
 
-#loading-center-absolute {
+#w-loading-center-absolute {
     position: absolute;
     left: 50%;
     top: 50%;

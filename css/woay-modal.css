@@ -6,6 +6,7 @@
   font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, ubuntu, roboto, noto, segoe ui, arial, sans-serif;
   z-index: 99;
   transition: 0.4s all;
+  display: none;
 }
 
 .w-modal button:focus,
@@ -54,7 +55,7 @@
   height: 30vh;
 }
 
-.w-modal .sound-wrapper {
+.w-sound-wrapper {
   position: fixed;
   bottom: 10px;
   right: 10px;
@@ -205,9 +206,6 @@
   }
 }
 
-.w-modal {
-  display: none;
-}
 
 .w-modal.is-open {
   display: block;
@@ -293,11 +291,11 @@
   border-radius: 4px;
 }
 
-.w-modal .wheel-btn {
+.w-wheel-btn {
   cursor: pointer;
 }
 
-.w-modal .woay-btn-default {
+.woay-btn-default {
   text-shadow: 0 1px 0 #fff;
   background-image: -webkit-linear-gradient(top, #fff 0, #e0e0e0 100%);
   background-image: -o-linear-gradient(top, #fff 0, #e0e0e0 100%);
@@ -314,7 +312,7 @@
   border-color: #ccc;
 }
 
-.w-modal .text-center {
+.text-center {
   text-align: center;
 }
 
@@ -661,7 +659,7 @@
   margin-right: 0;
 }
 
-.box-action .btn-play {
+.w-modal .box-action .btn-play {
   background-color: #fac53b;
   color: #000;
 }
@@ -749,7 +747,7 @@
   cursor: pointer;
 }
 
-.w-modal #loading {
+#w-loading {
   background-color: rgba(0, 0, 0, 0.5);
   height: 100%;
   width: 100%;
@@ -761,13 +759,13 @@
   z-index: 9999;
 }
 
-.w-modal #loading-center {
+#w-loading-center {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-.w-modal #loading-center-absolute {
+#w-loading-center-absolute {
   position: absolute;
   left: 50%;
   top: 50%;
