@@ -1,3 +1,9 @@
+## <small>3.0.2 (2022-12-12)</small>
+
+* update version ([f85041b](https://gitlab.com/woay/sdk/common/commit/f85041b))
+
+
+
 ## <small>2.1.3 (2022-12-12)</small>
 
 
