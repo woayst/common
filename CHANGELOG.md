@@ -1,3 +1,9 @@
+## <small>3.0.14 (2022-12-13)</small>
+
+* fix mission js ([b230b30](https://gitlab.com/woay/sdk/common/commit/b230b30))
+
+
+
 ## <small>3.0.13 (2022-12-13)</small>
 
 * fix mission js point ([2545ee1](https://gitlab.com/woay/sdk/common/commit/2545ee1))
