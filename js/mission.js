@@ -45,16 +45,16 @@
     /// Render mission
     output.renderMissions = function renderMissions(missions, template_id) {
         var missions = mission.getAll();
-        $('#mission-list').html('');
+        $('#w-mission-list').html('');
         var hasMissionActive = false;
         missions.forEach(function (mission) {
             if (mission.active) {
                 hasMissionActive = true;
-                $('#mission-list').append(tmpl(template_id, mission))
+                $('#w-mission-list').append(tmpl(template_id, mission))
             }
         })
 
-        $('#mission-list .btn-challenge .bg-button-group img').attr('src', 'https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png');
+        $('#w-mission-list .btn-challenge .bg-button-group img').attr('src', 'https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png');
         if (!hasMissionActive) {
             $('.section-mission').css('display', 'none');
         }
