@@ -1293,11 +1293,11 @@ li.off-click a {
     background-color: #ee1d23;
 }
 
-.tabcontent {
+.w-tabcontent {
     display: none;
 }
 
-.tabcontent.active {
+.w-tabcontent.active {
     display: block;
 }
 

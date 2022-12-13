@@ -472,7 +472,7 @@
             var to = new Date(startTime + (i) * 7 * 86400000);
             if (currentDate > from) {
                 var html = '<li class="item-button"><a data-target="tuan' + i + '" class="tablinks">Tuần ' + i + '</a></li>'
-                var html_tab_content = '<div class="tabcontent" id="tuan' + i + '"></div>'
+                var html_tab_content = '<div class="w-tabcontent" id="tuan' + i + '"></div>'
                 $('.wrap-item-button').append(html);
                 $('.wrap-bxh').append(html_tab_content);
                 output.getTopPlayer('tuan' + i, from, to, limit);
