@@ -70,7 +70,7 @@
                         output.updatePlayerHistory('#history', 'history-tmpl');
                     }
                     output.updateMyPoint();
-                    output.renderPlayerPoint('#your-point', 'my-score-tmpl');
+                    output.renderPlayerPoint('#w-your-point', 'my-score-tmpl');
                     mission.fetch()
                         .then(output.deactiveDoneMissions)
                         .then(output.processMissionAutoCompleteMission)
@@ -212,7 +212,7 @@
                 }
                 if (mission_type == 'point') {
                     output.updateMyPoint()
-                    output.renderPlayerPoint('#your-point', 'my-score-tmpl');
+                    output.renderPlayerPoint('#w-your-point', 'my-score-tmpl');
                     return;
                 }
                 reward.addTurnForMission(mission_name, quantity);
@@ -533,8 +533,8 @@
     output.updateMyPoint = function updateMyPoint() {
         $$core.client.api.getMyRank()
             .then(function (data) {
-                $('.total-point').css('opacity', '1');
-                $('.your-point').html(data.sum);
+                $('.w-total-point').css('opacity', '1');
+                $('.w-your-point').html(data.sum);
             })
     }
 

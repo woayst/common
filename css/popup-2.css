@@ -1378,7 +1378,7 @@ li.off-click a {
     text-align: center;
 }
 
-.your-point {
+.w-your-point {
     color: #FAC53B;
     font-size: 32px;
     text-shadow: -1px -1px 0px #3c4915, 1px -1px 0px #3c4915, -1px 1px 0px #3c4915, 1px 1px 0px #3c4915;
@@ -1412,7 +1412,7 @@ li.off-click a {
         font-size: 16px;
     }
 
-    .your-point {
+    .w-your-point {
         font-size: 18px;
     }
 }
