@@ -1,3 +1,9 @@
+## <small>3.0.13 (2022-12-13)</small>
+
+* fix mission js point ([2545ee1](https://gitlab.com/woay/sdk/common/commit/2545ee1))
+
+
+
 ## <small>3.0.12 (2022-12-13)</small>
 
 * fix css rank ([2fc5b87](https://gitlab.com/woay/sdk/common/commit/2fc5b87))
