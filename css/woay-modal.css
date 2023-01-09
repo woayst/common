@@ -959,7 +959,7 @@
   margin-bottom: 25px;
 }
 
-.w-modal .section-mission .box-img img {
+.w-modal .section-mission .w-box-img img {
   max-width: 60px;
 }
 
@@ -1144,8 +1144,8 @@
   border: unset;
 }
 
-.w-modal .list-point .box-img img,
-.w-modal .list-reward .box-img img {
+.w-modal .list-point .w-box-img img,
+.w-modal .list-reward .w-box-img img {
   max-width: 70px;
 }
 
@@ -1241,7 +1241,7 @@
     border-radius: 20px;
   }
 
-  .w-modal .section-mission ul li .box-img {
+  .w-modal .section-mission ul li .w-box-img {
     width: 30%;
   }
 
@@ -1250,7 +1250,7 @@
     padding-left: 10px;
   }
 
-  .w-modal .section-mission .box-img img {
+  .w-modal .section-mission .w-box-img img {
     max-width: 80px;
   }
 
@@ -1272,8 +1272,8 @@
     font-size: 18px;
   }
 
-  .w-modal .list-point .box-img img,
-  .w-modal .list-reward .box-img img {
+  .w-modal .list-point .w-box-img img,
+  .w-modal .list-reward .w-box-img img {
     max-width: 100%;
   }
 
@@ -1310,7 +1310,7 @@
     font-size: 10px;
   }
 
-  .w-modal .section-mission .box-img img {
+  .w-modal .section-mission .w-box-img img {
     max-width: 65px;
   }
 }
