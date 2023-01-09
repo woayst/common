@@ -762,7 +762,7 @@ ul li {
     background-color: initial;
 }
 
-.tab-content-main {
+.w-tab-content-main {
     padding: 20px;
 }
 
@@ -1220,11 +1220,11 @@ li.off-click a {
     opacity: 0.5 !important;
 }
 
-.tab-content .tab.active-bxh {
+.w-tab-content .tab.active-bxh {
     display: block
 }
 
-.tab-content .tab {
+.w-tab-content .tab {
     display: none
 }
 
@@ -1644,7 +1644,7 @@ li.off-click a {
         overflow: auto;
     }
 
-    .tab-content-main {
+    .w-tab-content-main {
         height: 65vh;
         overflow: auto;
     }

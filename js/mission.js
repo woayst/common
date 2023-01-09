@@ -458,7 +458,7 @@
                     return x;
                 })
                 var html = tmpl('highscore-tmpl', topPlayers);
-                $('.tab-content #' + id).html(html);
+                $('.w-tab-content #' + id).html(html);
             })
     }
 
