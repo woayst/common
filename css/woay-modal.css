@@ -209,6 +209,7 @@
 
 .w-modal.is-open {
   display: block;
+  position: relative;
 }
 
 .w-modal[aria-hidden="false"] .modal__overlay {
