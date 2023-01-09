@@ -1,3 +1,9 @@
+## <small>3.0.19 (2023-01-09)</small>
+
+* fix prefix popup.css ([ead9ca8](https://gitlab.com/woay/sdk/common/commit/ead9ca8))
+
+
+
 ## <small>3.0.18 (2023-01-09)</small>
 
 * fix prefix popup.css ([a191003](https://gitlab.com/woay/sdk/common/commit/a191003))
