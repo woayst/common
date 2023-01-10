@@ -764,6 +764,8 @@ ul li {
 
 .w-tab-content-main {
     padding: 20px;
+    height: 65vh;
+    overflow: auto;
 }
 
 /*# sourceMappingURL=style.css.map */
