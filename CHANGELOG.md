@@ -1,3 +1,9 @@
+## <small>3.0.23 (2023-01-10)</small>
+
+* fix popup.css ([8ffb486](https://gitlab.com/woay/sdk/common/commit/8ffb486))
+
+
+
 ## <small>3.0.22 (2023-01-10)</small>
 
 
