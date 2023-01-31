@@ -1,3 +1,9 @@
+## <small>3.0.26 (2023-01-31)</small>
+
+* update template ([0f6eaf2](https://gitlab.com/woay/sdk/common/commit/0f6eaf2))
+
+
+
 ## <small>3.0.25 (2023-01-31)</small>
 
 * update template ([1b8e531](https://gitlab.com/woay/sdk/common/commit/1b8e531))
