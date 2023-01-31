@@ -1,3 +1,9 @@
+## <small>3.0.25 (2023-01-31)</small>
+
+* update template ([1b8e531](https://gitlab.com/woay/sdk/common/commit/1b8e531))
+
+
+
 ## <small>3.0.23 (2023-01-10)</small>
 
 * fix popup.css ([8ffb486](https://gitlab.com/woay/sdk/common/commit/8ffb486))
