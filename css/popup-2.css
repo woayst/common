@@ -1053,22 +1053,22 @@ input:focus {
 }
 
 /* css mission quiz */
-.title-question {
+.w-title-question {
     font-weight: bold;
 }
 
-#box-question .list-question {
+#w-box-question .w-list-question {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
 
-#box-question.disable {
+#w-box-question.disable {
     pointer-events: none;
 }
 
-.list-question .item-question {
+.w-list-question .w-item-question {
     flex-basis: calc(50% - 10px);
     position: relative;
     text-align: center;
@@ -1077,7 +1077,7 @@ input:focus {
     margin: 5px;
 }
 
-.item-question input {
+.w-item-question input {
     position: absolute;
     opacity: 0;
     top: 0;
@@ -1087,7 +1087,7 @@ input:focus {
     height: 100%;
 }
 
-.item-question .checkmark {
+.w-item-question .checkmark {
     position: absolute;
     display: none;
     top: -10px;
@@ -1095,12 +1095,12 @@ input:focus {
     max-width: 50px;
 }
 
-.list-question .item-question.correct {
+.w-list-question .w-item-question.correct {
     background-color: #93F049;
     color: #fff;
 }
 
-.list-question .item-question.wrong {
+.w-list-question .w-item-question.wrong {
     background-color: #FA9494;
     color: #fff;
 }
@@ -1112,7 +1112,7 @@ input:focus {
 }
 
 @media (max-width: 991px) {
-    .list-question .item-question {
+    .w-list-question .w-item-question {
         flex-basis: 100%;
     }
 }
