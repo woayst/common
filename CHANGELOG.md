@@ -1,3 +1,9 @@
+## <small>3.0.27 (2023-02-20)</small>
+
+* fix popup mission ([cfd9f52](https://gitlab.com/woay/sdk/common/commit/cfd9f52))
+
+
+
 ## <small>3.0.26 (2023-01-31)</small>
 
 * update template ([0f6eaf2](https://gitlab.com/woay/sdk/common/commit/0f6eaf2))
