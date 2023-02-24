@@ -1,3 +1,9 @@
+## <small>3.0.28 (2023-02-24)</small>
+
+* fix w-box-rank ([41eb6f9](https://gitlab.com/woay/sdk/common/commit/41eb6f9))
+
+
+
 ## <small>3.0.27 (2023-02-20)</small>
 
 * fix popup mission ([cfd9f52](https://gitlab.com/woay/sdk/common/commit/cfd9f52))
