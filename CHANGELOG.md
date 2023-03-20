@@ -1,3 +1,9 @@
+## <small>3.0.30 (2023-03-20)</small>
+
+* update css sms_otp ([3a85d05](https://gitlab.com/woay/sdk/common/commit/3a85d05))
+
+
+
 ## <small>3.0.29 (2023-03-20)</small>
 
 * update css sms_otp ([f58f305](https://gitlab.com/woay/sdk/common/commit/f58f305))
