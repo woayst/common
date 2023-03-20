@@ -1,3 +1,9 @@
+## <small>3.0.29 (2023-03-20)</small>
+
+* update css sms_otp ([f58f305](https://gitlab.com/woay/sdk/common/commit/f58f305))
+
+
+
 ## <small>3.0.28 (2023-02-24)</small>
 
 * fix w-box-rank ([41eb6f9](https://gitlab.com/woay/sdk/common/commit/41eb6f9))
