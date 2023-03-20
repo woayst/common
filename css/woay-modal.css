@@ -1368,6 +1368,11 @@
 }
 
 /*# sourceMappingURL=style.css.map */
+.w-phone.disabled {
+  pointer-events: none;
+  color: #9a8d8d !important;
+  border: 1px solid #9a8d8d !important;
+}
 .w-form-note {
   position: absolute;
   font-size: 12px;
