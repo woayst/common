@@ -22,7 +22,8 @@
     opacity: 0.8;
 }
 
-#w-popup-section button:focus, #w-popup-section button:hover {
+#w-popup-section button:focus,
+#w-popup-section button:hover {
     outline: none;
     box-sizing: border-box;
 }
@@ -530,13 +531,15 @@
     padding: 10px 0;
 }
 
-.w-form-group.floating input, .w-form-group.floating select {
+.w-form-group.floating input,
+.w-form-group.floating select {
     padding: 0;
     padding-left: 5px;
     background: transparent;
 }
 
-.w-form-group.floating input::placeholder, .w-form-group.floating select::placeholder {
+.w-form-group.floating input::placeholder,
+.w-form-group.floating select::placeholder {
     font-size: 14px;
     color: #E0E0E0;
 }
@@ -599,7 +602,8 @@
     display: none;
 }
 
-.w-style-1::-webkit-scrollbar-button:decrement:end, .w-style-1::-webkit-scrollbar-button:increment:start {
+.w-style-1::-webkit-scrollbar-button:decrement:end,
+.w-style-1::-webkit-scrollbar-button:increment:start {
     display: none
 }
 
@@ -626,6 +630,74 @@
     z-index: 9999
 }
 
+.w-form-note {
+    position: absolute;
+    font-size: 12px;
+}
+
+.w-form-group.has-note .w-error-log {
+    bottom: -40px;
+    left: 0px !important;
+}
+
+.w-change-phone {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.w-change-phone a {
+    color: #999999;
+    display: flex;
+    align-items: center;
+}
+
+.w-change-phone a img {
+    width: 20px;
+}
+
+.w-otp {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+  }
+  
+  .w-otp::-webkit-inner-spin-button,
+  .w-otp::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  #modal-woay-otp .modal__content {
+    text-align: center;
+  }
+  
+  #btn-woay-otp-submit.disabled,
+  #btn-woay-otp-submit.block {
+    background-color: #ccc !important;
+    pointer-events: none;
+  }
+  
+  .w-otp-retry a.disabled,
+  .w-otp-retry a.block {
+    color: #ccc;
+    pointer-events: none;
+  }
+  
+  .w-otp-retry {
+    margin-top: 40px;
+  }
+  
+  #modal-woay-otp .w-error-log {
+    transform: translate(-50%, 0);
+    left: 50% !important;
+    width: 90%;
+    color: #000 !important;
+  }
+  
+  #modal-woay-otp .error input{
+    border-color: #000 !important;
+  }
 @media (max-width: 991px) {
     #w-popup-reward .title-voucher {
         font-size: 28px;
@@ -671,6 +743,10 @@
 }
 
 @media (max-width: 480px) {
+    .w-otp{
+        width: 40px;
+        height: 40px;
+      }
     #w-popup-reward .text-guide {
         font-size: 13px;
     }
