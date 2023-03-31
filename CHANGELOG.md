@@ -1,3 +1,9 @@
+## <small>3.0.34 (2023-03-31)</small>
+
+* fix misson ([05cb91e](https://gitlab.com/woay/sdk/common/commit/05cb91e))
+
+
+
 ## <small>3.0.33 (2023-03-31)</small>
 
 
