@@ -1,3 +1,9 @@
+## <small>3.0.32 (2023-03-31)</small>
+
+* fix mission gold_hour ([a0583f2](https://gitlab.com/woay/sdk/common/commit/a0583f2))
+
+
+
 ## <small>3.0.31 (2023-03-20)</small>
 
 * fix sms_css ([91aa660](https://gitlab.com/woay/sdk/common/commit/91aa660))
