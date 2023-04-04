@@ -1,3 +1,9 @@
+## <small>3.0.36 (2023-04-04)</small>
+
+* fix popup ([de0e1ae](https://gitlab.com/woay/sdk/common/commit/de0e1ae))
+
+
+
 ## <small>3.0.35 (2023-04-04)</small>
 
 * fix css popup ([f5d3065](https://gitlab.com/woay/sdk/common/commit/f5d3065))
