@@ -3050,6 +3050,9 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     overflow: hidden;
 }
 
+.w-box-game.w-game-mutipage-popup{
+	height: 100vh !important;
+}
 .w-list-reward {
     border: unset;
 }
