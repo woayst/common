@@ -847,10 +847,6 @@ button,
 }
 
 .w-section-mission ul li {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     background-color: #E5E5E5;
     margin: 8px 0;
     padding: 15px 0px;
@@ -3023,7 +3019,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 
 .w-section-mission ul li .btn-challenge {
-    width: calc(25% - 30px);
     margin-right: 30px;
 }
 
@@ -3095,6 +3090,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .wrap-item-button .item-button {
     border-radius: 20px;
     border: 1px solid #FF9F2C;
+    overflow: hidden;
 }
 
 .wrap-item-button .active {
