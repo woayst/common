@@ -1040,12 +1040,12 @@
 
 .w-modal .box-rank,
 .w-modal .list-point,
-.w-modal .list-reward {
+.w-modal .w-list-reward {
   background-color: #fff;
   border-radius: 60px;
 }
 
-.w-modal .list-reward {
+.w-modal .w-list-reward {
   border: unset;
 }
 
@@ -1071,7 +1071,7 @@
   max-width: 160px;
 }
 
-.w-modal .list-reward .item-reward .box-icon {
+.w-modal .w-list-reward .item-reward .box-icon {
   padding: 15px;
   border: 1px solid #ededed;
   padding: 5px;
@@ -1080,7 +1080,7 @@
   max-width: 50px;
 }
 
-.w-modal .list-reward .item-reward .box-icon img {
+.w-modal .w-list-reward .item-reward .box-icon img {
   max-width: 100%;
 }
 
@@ -1188,12 +1188,12 @@
 }
 
 .w-modal .list-point .w-box-img img,
-.w-modal .list-reward .w-box-img img {
+.w-modal .w-list-reward .w-box-img img {
   max-width: 70px;
 }
 
 .w-modal .list-point .item-score,
-.w-modal .list-reward .item-reward {
+.w-modal .w-list-reward .item-reward {
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   padding: 15px 0;
 }
@@ -1316,7 +1316,7 @@
   }
 
   .w-modal .list-point .w-box-img img,
-  .w-modal .list-reward .w-box-img img {
+  .w-modal .w-list-reward .w-box-img img {
     max-width: 100%;
   }
 
