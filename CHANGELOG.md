@@ -1,3 +1,10 @@
+## <small>3.0.39 (2023-04-06)</small>
+
+* fix css  btn-facebook ([b68cac4](https://gitlab.com/woay/sdk/common/commit/b68cac4))
+* fix css popup ([067bc3b](https://gitlab.com/woay/sdk/common/commit/067bc3b))
+
+
+
 ## <small>3.0.38 (2023-04-04)</small>
 
 * fix popup ([2407ed0](https://gitlab.com/woay/sdk/common/commit/2407ed0))
