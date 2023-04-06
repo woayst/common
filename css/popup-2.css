@@ -1696,8 +1696,8 @@ li.off-click a {
 
 .fab-wrapper {
     position: absolute;
-    bottom: 3rem;
-    left: 5rem;
+    bottom: 35px;
+    left: 35px;
     z-index: 99;
 }
 
@@ -1710,11 +1710,9 @@ li.off-click a {
 }
 
 .fab-wrapper .fab {
-    position: absolute;
-    bottom: -1rem;
-    right: -1rem;
-    width: 4rem;
-    height: 4rem;
+    position: relative;
+    width: 64px;
+    height: 64px;
     background: blue;
     border-radius: 50%;
     background: #fb7d21;
@@ -1824,30 +1822,21 @@ li.off-click a {
 }
 
 .fab-wheel {
-    position: absolute;
-    bottom: 60px;
-    left: -50px;
+    position: relative;
+    bottom: 75px;
+    left: -64px;
     /* border: 1px solid #fff; */
-    width: 10rem;
-    height: 20rem;
+    width: auto;
+    height: auto;
     transition: all 0.3s ease;
     transform-origin: left bottom;
     transform: scale(0);
 }
 
 .fab-wheel-2 {
-    height: 15rem;
     background: #fff;
 }
 
-
-.s-quick .fab-wheel {
-    height: 8rem;
-}
-
-.s-quick .fab-wheel-2 {
-    height: 6rem;
-}
 
 .s-quick-skill .fab-wheel {
     height: 12rem;
@@ -1858,7 +1847,7 @@ li.off-click a {
 }
 
 .fab-wheel-2 .fab-action {
-    padding-left: 15px;
+    padding: 5px 15px;
 }
 
 .fab-checkbox:checked~.fab-wheel {
@@ -1866,16 +1855,11 @@ li.off-click a {
 }
 
 .fab-action {
-    position: absolute;
-    /* background: #0f1941; */
-    width: 10rem;
-    height: 3rem;
-    /* border-radius: 50%; */
+    
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+    
     color: White;
-    /* box-shadow: 0 0.1rem 1rem rgba(24, 66, 154, 0.82); */
     transition: all 0.5s ease;
     opacity: 0;
 }
@@ -1968,7 +1952,7 @@ li.off-click a {
 
 .hidden-mobile {
     display: flex !important;
-    align-items: center;
+    align-items: flex-end;
 }
 
 .hidden-desktop {
