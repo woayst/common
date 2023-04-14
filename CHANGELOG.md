@@ -1,3 +1,10 @@
+## <small>3.0.40 (2023-04-14)</small>
+
+*  fix css ([6053736](https://gitlab.com/woay/sdk/common/commit/6053736))
+* fix mission gold_hour ([9a3a2c3](https://gitlab.com/woay/sdk/common/commit/9a3a2c3))
+
+
+
 ## <small>3.0.39 (2023-04-06)</small>
 
 * fix css  btn-facebook ([b68cac4](https://gitlab.com/woay/sdk/common/commit/b68cac4))
