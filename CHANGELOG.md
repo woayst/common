@@ -1,3 +1,9 @@
+## <small>3.0.41 (2023-04-14)</small>
+
+* fix mission gold_hour ([1730a96](https://gitlab.com/woay/sdk/common/commit/1730a96))
+
+
+
 ## <small>3.0.40 (2023-04-14)</small>
 
 *  fix css ([6053736](https://gitlab.com/woay/sdk/common/commit/6053736))
