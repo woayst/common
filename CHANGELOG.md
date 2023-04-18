@@ -1,3 +1,10 @@
+## <small>3.0.42 (2023-04-18)</small>
+
+* fix css ([1468c9e](https://gitlab.com/woay/sdk/common/commit/1468c9e))
+* fix popup-2.css ([43d1a15](https://gitlab.com/woay/sdk/common/commit/43d1a15))
+
+
+
 ## <small>3.0.41 (2023-04-14)</small>
 
 * fix mission gold_hour ([1730a96](https://gitlab.com/woay/sdk/common/commit/1730a96))
