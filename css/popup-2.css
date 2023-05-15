@@ -1944,7 +1944,7 @@ li.off-click a {
 
 .hidden-mobile {
     display: flex !important;
-    align-items: flex-end;
+    /* align-items: flex-end; */
 }
 
 .hidden-desktop {
