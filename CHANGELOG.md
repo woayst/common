@@ -1,3 +1,9 @@
+## <small>3.0.43 (2023-05-15)</small>
+
+* upadte popup ([624da88](https://gitlab.com/woay/sdk/common/commit/624da88))
+
+
+
 ## <small>3.0.42 (2023-04-18)</small>
 
 * fix css ([1468c9e](https://gitlab.com/woay/sdk/common/commit/1468c9e))
