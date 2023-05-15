@@ -1535,6 +1535,10 @@ li.off-click a {
     z-index: 999;
 }
 
+#w-section-main-screen .w-list-btn{
+    max-width: unset;
+}
+
 .w-list-btn .w-btn-main-woay {
     box-shadow: 2px 4px 4px rgba(0, 53, 79, 0.15);
     border-radius: 40px;
