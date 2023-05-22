@@ -14,7 +14,7 @@ function getTopPlayerHTML(rank, name, point) {
 
     return '<li class="highscore-item">' +
         '<div class = "best-player">' +
-        '<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.2/images/' + image + '.png"></div>' +
+        '<img src="https://cdn.woay.vn/gh/woayst/common@1.2/images/' + image + '.png"></div>' +
         '<div class="best-player-name">' +
         '<span class="player-name" title="' + name + '">' + name + '</span></div>' +
         '<div class="best-player-point">' +

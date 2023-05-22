@@ -61,7 +61,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
 
     $("#w-mission-list .btn-challenge .bg-button-group img").attr(
       "src",
-      "https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png"
+      "https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-1.png"
     );
     if (!hasMissionActive) {
       $(".section-mission").css("display", "none");
@@ -144,7 +144,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
           );
         } else {
           $(".btn-challenge").html(
-            '<a class="bg-button-group color-button-group"><img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png"></a>'
+            '<a class="bg-button-group color-button-group"><img src="https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-1.png"></a>'
           );
         }
         $(".btn-challenge a").on("click", function () {
@@ -179,7 +179,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
         } else {
           $(".mission-" + mission.name + " .btn-challenge a")
             .html(
-              '<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-2.png">'
+              '<img src="https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-2.png">'
             )
             .addClass("deactive");
         }
@@ -244,7 +244,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
           } else {
             $(".mission-" + name + " .btn-challenge a")
               .html(
-                '<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-2.png">'
+                '<img src="https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-2.png">'
               )
               .addClass("deactive");
           }
@@ -300,7 +300,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
           } else {
             $(".mission-" + name + " .btn-challenge a")
               .html(
-                '<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-2.png">'
+                '<img src="https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-2.png">'
               )
               .addClass("deactive");
           }
@@ -326,7 +326,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
       } else {
         $(".mission-gold_hour .btn-challenge a")
           .html(
-            '<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-3.png">'
+            '<img src="https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-3.png">'
           )
           .addClass("deactive");
       }
@@ -340,7 +340,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
       } else {
         $(".mission-gold_hour .btn-challenge a")
           .html(
-            '<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-1.png">'
+            '<img src="https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-1.png">'
           )
           .addClass("active");
       }
@@ -354,7 +354,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
       } else {
         $(".mission-gold_hour .btn-challenge a")
           .html(
-            '<img src="https://cdn.jsdelivr.net/gh/woayst/common@1.5.16/images/button-status-2.png">'
+            '<img src="https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-2.png">'
           )
           .addClass("active");
       }
