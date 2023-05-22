@@ -1,3 +1,10 @@
+## <small>3.0.44 (2023-05-22)</small>
+
+* fix css 2 ([d31f9d0](https://gitlab.com/woay/sdk/common/commit/d31f9d0))
+* update cdn.woay.vn ([15f5357](https://gitlab.com/woay/sdk/common/commit/15f5357))
+
+
+
 ## <small>3.0.43 (2023-05-15)</small>
 
 * upadte popup ([624da88](https://gitlab.com/woay/sdk/common/commit/624da88))
