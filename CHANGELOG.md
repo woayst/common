@@ -1,3 +1,9 @@
+## <small>3.0.47 (2023-08-17)</small>
+
+* fix style-game.css ([81c29d6](https://gitlab.com/woay/sdk/common/commit/81c29d6))
+
+
+
 ## <small>3.0.46 (2023-08-14)</small>
 
 * update css game diem-danh ([968d756](https://gitlab.com/woay/sdk/common/commit/968d756))
