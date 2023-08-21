@@ -2419,12 +2419,12 @@ li.w-off-click a {
 }
 
 #w-section-game canvas.flipcard {
-    position: absolute;
+    position: relative;
     height: auto;
     left: 0;
     transform: unset;
-    top: 50%;
-    transform: translate(0, -50%);
+    top: 0;
+    transform: unset;
 }
 
 #w-section-mission,
