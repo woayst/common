@@ -1,3 +1,9 @@
+## <small>3.0.48 (2023-08-21)</small>
+
+* fix feedback css style-game ([048d6c6](https://gitlab.com/woay/sdk/common/commit/048d6c6))
+
+
+
 ## <small>3.0.47 (2023-08-17)</small>
 
 * fix style-game.css ([81c29d6](https://gitlab.com/woay/sdk/common/commit/81c29d6))
