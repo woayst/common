@@ -1416,6 +1416,8 @@ ul {
 
 #woay-game.multiple_choice {
     height: 85vh;
+    position: relative;
+    top: 50px;
 }
 
 
