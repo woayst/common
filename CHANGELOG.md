@@ -1,3 +1,9 @@
+## <small>3.0.53 (2023-08-28)</small>
+
+* fix style-attendacne ([0d0d984](https://gitlab.com/woay/sdk/common/commit/0d0d984))
+
+
+
 ## <small>3.0.52 (2023-08-28)</small>
 
 * add style attendance game ([a367b28](https://gitlab.com/woay/sdk/common/commit/a367b28))
