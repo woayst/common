@@ -1,3 +1,9 @@
+## <small>3.0.52 (2023-08-28)</small>
+
+* add style attendance game ([a367b28](https://gitlab.com/woay/sdk/common/commit/a367b28))
+
+
+
 ## <small>3.0.51 (2023-08-28)</small>
 
 * add style attendance game ([ca1423e](https://gitlab.com/woay/sdk/common/commit/ca1423e))
