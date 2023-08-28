@@ -3195,38 +3195,3 @@ li.w-off-click a {
     width: 100%;
     height: auto
 }
-
-/* css game điểm danh */
-.w-logo-in-game{
-    margin: 15px auto;
-  }
-  
-  .w-attendance{
-      height: auto !important;
-      margin-bottom: 25px !important;
-  }
-  
-  .w-rewards-section{box-shadow:#2123261a 0 10px 10px -10px;padding-top:25px}@media (max-width: 450px){.w-rewards-section{padding-top:10px}}.w-rewards-section .rewards-wrapper{margin:auto;border-radius:8px;background:var(--grayscale-ffffff, #fff);padding:16px 16px 12px}.w-rewards-section .rewards-wrapper>span{font-size:13px;text-align:center;display:block;padding-bottom:10px;font-weight:500}@media (max-width: 450px){.w-rewards-section .rewards-wrapper>span{font-size:10px}}.w-rewards-section .rewards-wrapper .items{display:flex;justify-content:space-between;gap:8px}.w-rewards-section .rewards-wrapper .items .item{width:25%;text-align:center;display:flex;flex-direction:column;gap:6px;border-radius:8px;overflow:hidden;background:var(--grayscale-edeeee, #EDEEEE);box-shadow:4px 4px 8px #2426281a inset;position:relative}.w-rewards-section .rewards-wrapper .items .item.current-not-checked{border:1px solid gold;border-radius:8px}.w-rewards-section .rewards-wrapper .items .item.current-not-checked .item-box .checked{display:none}.w-rewards-section .rewards-wrapper .items .item.current-not-checked img{filter:none!important}.w-rewards-section .rewards-wrapper .items .item.current-not-checked .item-img .blur-icon{display:block!important}.w-rewards-section .rewards-wrapper .items .item.centre{position:relative}.w-rewards-section .rewards-wrapper .items .item.centre .days{opacity:0}.w-rewards-section .rewards-wrapper .items .item.centre img{bottom:0;left:0;filter:none!important}.w-rewards-section .rewards-wrapper .items .item.centre .blur-bg{width:100%;height:100%;position:absolute;left:0;top:0;background-color:#00000086;z-index:9}.w-rewards-section .rewards-wrapper .items .item.centre .blur-icon{display:none}.w-rewards-section .rewards-wrapper .items .item.centre .counter{color:#fff;position:absolute;z-index:10;display:block;width:80%;left:0;right:0;margin:auto;top:15px;font-size:13px;font-weight:700}.w-rewards-section .rewards-wrapper .items .item.centre .counter span{margin-top:-18px;font-size:40px;display:block}@media (max-width: 400px){.w-rewards-section .rewards-wrapper .items .item.centre .counter{font-size:11px}}.w-rewards-section .rewards-wrapper .items .item .item-box{position:relative;padding:10px 10px 15px}.w-rewards-section .rewards-wrapper .items .item .item-box .days{font-size:13px;font-weight:700}@media (max-width: 400px){.w-rewards-section .rewards-wrapper .items .item .item-box .days{font-size:11px}}.w-rewards-section .rewards-wrapper .items .item .item-box .cover-text{display:none}.w-rewards-section .rewards-wrapper .items .item .item-box .checked{position:absolute;bottom:8px;left:0;right:0;margin:auto;width:70%}.w-rewards-section .rewards-wrapper .items .item .item-box .checked img{width:100%;filter:none!important}.w-rewards-section .rewards-wrapper .items .item .item-box .checked.hidden{opacity:0}.w-rewards-section .rewards-wrapper .items .item .item-box .checked.active{opacity:1}.w-rewards-section .rewards-wrapper .items .item .item-box .item-img{margin:15px auto auto;position:relative;width:70%}@media (max-width: 450px){.w-logo-in-game{margin: 10px auto; height:auto} .w-logo-in-game img{height: auto;width: 100%;} .w-attendance{margin-bottom: 10px !important;} .w-rewards-section .rewards-wrapper .items .item .item-box .item-img{margin-top:10px}}.w-rewards-section .rewards-wrapper .items .item .item-box .item-img img{position:relative;z-index:1;width:100%;height:auto}
-  
-  
-  .w-gr-btn-attendance{
-      text-align: center;
-      width: 90%;
-      position: absolute;
-      margin: 20px auto 0 auto;
-      bottom: 20px;
-      left: 50%;
-      transform: translate(-50%, 0);
-  }
-  .w-gr-btn-attendance .w-btn-attendance{
-      background-color: #EB7606FF;
-      color: #FFFFFF;
-      padding: 12px 0;
-      border-radius: 8px;
-  }
-  
-  .gr-game-attendance{
-      height: 100%;
-      width: 100%;
-      /* overflow: auto; */
-  }
