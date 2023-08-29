@@ -227,11 +227,15 @@
     
     width: 100%;
     overflow: auto;
-    position: relative;
+
 }
 #w-section-game{
-    max-width: 500px;
+    max-width: 60vh;
     margin: auto;
+}
+
+.w-screen-container{
+    position: relative;
 }
 
 #w-section-game .gr-game-attendance img{
