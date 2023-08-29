@@ -1,3 +1,9 @@
+## <small>3.0.54 (2023-08-29)</small>
+
+* fix css game-attendacne ([b50a5ad](https://gitlab.com/woay/sdk/common/commit/b50a5ad))
+
+
+
 ## <small>3.0.53 (2023-08-28)</small>
 
 * fix style-attendacne ([0d0d984](https://gitlab.com/woay/sdk/common/commit/0d0d984))
