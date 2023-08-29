@@ -229,3 +229,11 @@
     overflow: auto;
     position: relative;
 }
+#w-section-game{
+    max-width: 500px;
+    margin: auto;
+}
+
+#w-section-game .gr-game-attendance img{
+width: 100%
+}
