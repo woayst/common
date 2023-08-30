@@ -1,3 +1,9 @@
+## <small>3.0.57 (2023-08-30)</small>
+
+* fix css cnv ([d4e374b](https://gitlab.com/woay/sdk/common/commit/d4e374b))
+
+
+
 ## <small>3.0.56 (2023-08-29)</small>
 
 * fix css game-attendacne ([c397b05](https://gitlab.com/woay/sdk/common/commit/c397b05))
