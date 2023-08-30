@@ -8,6 +8,10 @@
     text-align: center;
 }
 
+.w-reward-img img{
+    margin: auto;
+}
+
 .text-noti {
     display: flex;
     align-items: center;
@@ -1559,6 +1563,7 @@ ul {
 }
 
 #woay-crane-btn {
+    display: none;
     border: none;
     background: transparent;
     position: absolute;
