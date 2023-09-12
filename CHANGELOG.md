@@ -1,3 +1,9 @@
+## <small>3.0.58 (2023-09-12)</small>
+
+* fix mission mutiple play ([744e6a7](https://gitlab.com/woay/sdk/common/commit/744e6a7))
+
+
+
 ## <small>3.0.57 (2023-08-30)</small>
 
 * fix css cnv ([d4e374b](https://gitlab.com/woay/sdk/common/commit/d4e374b))
