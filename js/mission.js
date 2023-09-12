@@ -205,7 +205,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
     var player_game_id = $$core.client.getUserInfo().player_game_id;
     mission
       .complete(name, player_game_id, new_quantity)
-      .then(function () {
+      .then(async function () {
         var mission_name = mission.get(name).name;
         var quantity = mission.get(name).quantity;
         var mission_type = mission.get(name).type;
@@ -234,7 +234,12 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
             "Rất tiếc bạn không được cộng lượt"
           );
         }
-        if (mission_frequency !== "unlimited") {
+        
+        var missionData = await mission.fetch();
+        
+        
+        
+        if (mission_frequency !== "unlimited" && missionData[name].isDone) {
           if (WHEEL_SETTINGS.Wheel.game_type == "icon_drop") {
             $(".mission-" + name + " .btn-challenge a")
               .html(
