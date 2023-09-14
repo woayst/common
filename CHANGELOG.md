@@ -1,3 +1,9 @@
+## <small>3.0.59 (2023-09-14)</small>
+
+* fix mission share_fb ([4dfb932](https://gitlab.com/woay/sdk/common/commit/4dfb932))
+
+
+
 ## <small>3.0.58 (2023-09-12)</small>
 
 * fix mission mutiple play ([744e6a7](https://gitlab.com/woay/sdk/common/commit/744e6a7))
