@@ -213,6 +213,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
         if (!isNaN(new_quantity)) {
           quantity = new_quantity;
         }
+        
         if (name !== "register" || name !== "share_facebook") {
           html.pushModal("w-complete");
           if (mission_type == "point") {
@@ -224,6 +225,10 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
               "Chúc mừng bạn đã nhận được " + quantity + " lượt"
             );
           }
+        }
+        if (name === "explore_store") {
+          // MicroModal.close('w-complete');
+          html.closeModal();
         }
         if (name === "share_facebook") {
           // MicroModal.close('w-complete');
