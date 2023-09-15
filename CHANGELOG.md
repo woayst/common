@@ -1,3 +1,10 @@
+## <small>3.0.61 (2023-09-15)</small>
+
+* fix mission share_fb ([91a611c](https://gitlab.com/woay/sdk/common/commit/91a611c))
+* fix mission share_fb ([0486bec](https://gitlab.com/woay/sdk/common/commit/0486bec))
+
+
+
 ## <small>3.0.60 (2023-09-14)</small>
 
 * fix mission share_fb ([31bae89](https://gitlab.com/woay/sdk/common/commit/31bae89))
