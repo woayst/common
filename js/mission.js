@@ -399,7 +399,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
     var redirectUrl = base_url + "/api.player/redirect?u=" + shareSuccessUrl;
     var FB_APP_ID = WHEEL_SETTINGS.Facebook.APP_ID;
     var url = [
-      "https://www.facebook.com/sharer/sharer.php?app_id=" + FB_APP_ID,
+      "https://www.facebook.com/dialog/share?app_id=" + FB_APP_ID,
       "&href=" + currentUrl,
       "&display=page",
       "&redirect_uri=" + encodeURIComponent(redirectUrl),
