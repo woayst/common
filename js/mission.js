@@ -319,12 +319,30 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
     };
 
   output.processGoldHourMission = function processGoldHourMission() {
-    var date = new Date();
-    var GOLD_HOUR_START = parseInt(mission.get("gold_hour").meta.from);
-    var GOLD_HOUR_END = parseInt(mission.get("gold_hour").meta.to);
-    var current_hour = date.getHours();
-    var isValid =
-      GOLD_HOUR_START <= current_hour && current_hour < GOLD_HOUR_END;
+    var timeStart = mission.get("gold_hour").meta.from;
+    var timeEnd = mission.get("gold_hour").meta.to;
+
+    // Lấy thời gian hiện tại
+    var now = new Date();
+
+    // Chuyển đổi thời gian từ biến 'timeStart' và 'timeEnd' thành đối tượng Date
+    var startTimeParts = timeStart.split(':');
+    var endTimeParts = timeEnd.split(':');
+
+    var startDate = new Date();
+    startDate.setHours(parseInt(startTimeParts[0], 10));
+    startDate.setMinutes(parseInt(startTimeParts[1], 10));
+
+    var endDate = new Date();
+    endDate.setHours(parseInt(endTimeParts[0], 10));
+    endDate.setMinutes(parseInt(endTimeParts[1], 10));
+
+    // So sánh thời điểm hiện tại với khoảng thời gian
+    var isValid = now >= startDate && now <= endDate;
+
+
+    console.log('GOLD_HOUR_STARTGOLD_HOUR_START', isValid);
+    
     var isDone = mission.get("gold_hour").isDone;
     if (!isValid && !isDone) {
       if (WHEEL_SETTINGS.Wheel.game_type == "icon_drop") {
