@@ -1,3 +1,9 @@
+## <small>3.0.62 (2023-10-06)</small>
+
+* fix mission gold_hour ([3cde2a8](https://gitlab.com/woay/sdk/common/commit/3cde2a8))
+
+
+
 ## <small>3.0.61 (2023-09-15)</small>
 
 * fix mission share_fb ([91a611c](https://gitlab.com/woay/sdk/common/commit/91a611c))
