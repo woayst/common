@@ -2458,7 +2458,7 @@ li.off-click a {
     text-align: center;
     width: 40%;
     color: #454644;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .w-modal .text-tutorial {

@@ -483,17 +483,17 @@
 }
 
 .w-modal .copy-code input.code {
-  width: 60%;
-  line-height: 1.5;
+  width: 90%;
+  line-height: 1;
   text-align: center;
   outline: none;
 }
 
 .w-modal .copy-code .btn-copy {
   text-align: center;
-  width: 40%;
+  width: 10%;
   color: #454644;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .w-modal .text-tutorial {
