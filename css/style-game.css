@@ -1410,6 +1410,10 @@ ul {
     overflow: hidden;
 }
 
+#woay-game.flying_gift{
+    height: 95vh;
+}
+
 #woay-game.wheel {
     height: auto;
 }
@@ -2397,6 +2401,10 @@ li.w-off-click a {
     max-width: 60vh;
     height: 100%;
     margin: auto;
+}
+
+#w-section-game .flying_gift canvas{
+    height: auto;
 }
 
 #w-section-game canvas.merge_game,
