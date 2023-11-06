@@ -30,6 +30,11 @@
     top: 10%;
 }
 
+#w-woay-game{
+    height: 100%;
+    overflow: hidden;
+}
+
 .w-shake-game .w-qua-cau {
     top: 0;
     height: 55vh;
