@@ -1,3 +1,9 @@
+## <small>3.0.66 (2023-11-06)</small>
+
+* fix css ([b2b3ac4](https://gitlab.com/woay/sdk/common/commit/b2b3ac4))
+
+
+
 ## <small>3.0.65 (2023-10-16)</small>
 
 * fix css cnv ([c9fb796](https://gitlab.com/woay/sdk/common/commit/c9fb796))
