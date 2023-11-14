@@ -18,6 +18,8 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
   var myUserId = null;
   var output = {};
 
+  var checkMultipleClick = false;
+
   output.getDayNo = function getDayNo() {
     var today = new Date();
     today.setHours(0, 0, 0);
@@ -100,6 +102,8 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
             var question_per_day = mission.get("wiki").meta.question_per_day; // sửa lại lấy theo format
             questions = output.getTodayQuestions(question_per_day);
             $(document).on("click", ".w-item-question", function () {
+              if(checkMultipleClick) return;
+              checkMultipleClick = true;
               output.checkRightAnswer();
               setTimeout(function () {
                 current_question++;
@@ -108,6 +112,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
                 } else {
                   output.renderQuestion("question-tmpl");
                 }
+                checkMultipleClick = false;
               }, 1000);
             });
 
