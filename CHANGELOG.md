@@ -1,3 +1,9 @@
+## <small>3.0.67 (2023-11-14)</small>
+
+* fix mission quiz ([49481e0](https://gitlab.com/woay/sdk/common/commit/49481e0))
+
+
+
 ## <small>3.0.66 (2023-11-06)</small>
 
 * fix css ([b2b3ac4](https://gitlab.com/woay/sdk/common/commit/b2b3ac4))
