@@ -480,10 +480,11 @@
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .w-modal .copy-code input.code {
-  width: 90%;
+  width: 78%;
   line-height: 1;
   text-align: center;
   outline: none;
@@ -491,7 +492,7 @@
 
 .w-modal .copy-code .btn-copy {
   text-align: center;
-  width: 10%;
+  width: 22%;
   color: #454644;
   text-decoration: none;
 }

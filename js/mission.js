@@ -459,9 +459,9 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
     var user = $$core.client.getUserInfo();
     var uid = user && user.player_game_id;
     var share_link_url = window.location.href.split("?")[0];
+    
     return share_link_url + (uid ? "?wref=" + uid : "");
   };
-
   output.getShareUrl = function getShareUrl(url, quote) {
     var s = "https://www.facebook.com/sharer/sharer.php?u=";
     var user = $$core.client.getUserInfo();
