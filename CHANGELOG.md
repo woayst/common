@@ -1,3 +1,9 @@
+## <small>3.0.68 (2023-12-12)</small>
+
+* fix css popup ([daefc7b](https://gitlab.com/woay/sdk/common/commit/daefc7b))
+
+
+
 ## <small>3.0.67 (2023-11-14)</small>
 
 * fix mission quiz ([49481e0](https://gitlab.com/woay/sdk/common/commit/49481e0))
