@@ -526,6 +526,8 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
   };
 
   output.processMissionQrCode = function processMissionQrCode(secret_qr) {
+    var missionQrCode = mission.get("explore_store");
+    if (!missionQrCode) return;
     var secret_key = mission.get("explore_store").meta.hash;
     var mission_done = mission.get("explore_store").isDone;
     var passhash = CryptoJS.MD5(secret_qr).toString();
