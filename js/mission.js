@@ -325,6 +325,8 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
     };
 
   output.processGoldHourMission = function processGoldHourMission() {
+    var missionGoldHour = mission.get("gold_hour");
+    if (!missionGoldHour) return;
     var timeStart = mission.get("gold_hour").meta.from;
     var timeEnd = mission.get("gold_hour").meta.to;
 
