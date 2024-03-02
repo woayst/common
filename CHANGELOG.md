@@ -1,3 +1,9 @@
+## <small>3.0.70 (2024-03-02)</small>
+
+* fix: fix mission goldHour not found ([2d752d7](https://github.com/woayst/common/commit/2d752d7))
+
+
+
 ## <small>3.0.69 (2024-03-02)</small>
 
 * fix: fix mission login not found ([92dfedf](https://github.com/woayst/common/commit/92dfedf))
