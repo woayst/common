@@ -1,3 +1,9 @@
+## <small>3.0.71 (2024-03-02)</small>
+
+* fix: fix mission QRCode not found ([1194ff7](https://github.com/woayst/common/commit/1194ff7))
+
+
+
 ## <small>3.0.70 (2024-03-02)</small>
 
 * fix: fix mission goldHour not found ([2d752d7](https://github.com/woayst/common/commit/2d752d7))
