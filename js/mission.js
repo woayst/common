@@ -302,6 +302,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
           $$core.client &&
           $$core.client.mission &&
           $$core.client.mission.isReady() &&
+          m &&
           m.active &&
           !m.isDone
         ) {
