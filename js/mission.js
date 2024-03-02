@@ -118,6 +118,8 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
 
             output.renderQuestion = function renderQuestion(template_id) {
               var template = missionTemplate[template_id];
+              var question_per_day = mission.get("wiki").meta.question_per_day; // sửa lại lấy theo format
+              var questions = output.getTodayQuestions(question_per_day);
               var question = questions[current_question]; // today current_question = 3
               $("#w-box-question").removeClass("disable");
               $("#w-box-question").html(tmpl(template, question));
