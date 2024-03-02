@@ -1,3 +1,9 @@
+## <small>3.0.69 (2024-03-02)</small>
+
+* fix: fix mission login not found ([92dfedf](https://github.com/woayst/common/commit/92dfedf))
+
+
+
 ## <small>3.0.68 (2023-12-12)</small>
 
 * fix css popup ([daefc7b](https://gitlab.com/woay/sdk/common/commit/daefc7b))
