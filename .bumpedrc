@@ -14,7 +14,7 @@ plugins:
       command: 'git add CHANGELOG.md package.json && git commit -m "Release $newVersion"'
     Publishing tag:
       plugin: bumped-terminal
-      command: 'git tag $newVersion && git push && git push --tags'
+      command: 'git tag $newVersion && git push origin skyjoy-saas && git push origin skyjoy-saas --tags'
     Publishing in github:
       plugin: bumped-terminal
       command: 'git push github skyjoy-saas && git push github skyjoy-saas --tags'
