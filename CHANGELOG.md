@@ -1,3 +1,10 @@
+## <small>6.0.1 (2024-05-07)</small>
+
+* fix ([2293671](https://gitlab.com/woay/sdk/common/commit/2293671))
+* fix ([9a1e3d7](https://gitlab.com/woay/sdk/common/commit/9a1e3d7))
+
+
+
 ## <small>3.0.68 (2023-12-12)</small>
 
 * fix css popup ([daefc7b](https://gitlab.com/woay/sdk/common/commit/daefc7b))
