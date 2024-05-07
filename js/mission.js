@@ -119,6 +119,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
             output.renderQuestion = function renderQuestion(template_id) {
               var template = missionTemplate[template_id];
               var question = questions[current_question]; // today current_question = 3
+              console.log('questionquestionquestion', question);
               $("#w-box-question").removeClass("disable");
               $("#w-box-question").html(tmpl(template, question));
               $(".w-title-question").html(question.question);
@@ -131,7 +132,8 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
               }
               current_question = 0;
               output.renderQuestion("question-tmpl");
-              html.pushModal("w-quiz");
+              // html.pushModal("w-quiz");
+              $$core.jumpToView('w-section-quiz');
             });
           });
       }
@@ -218,7 +220,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
         if (!isNaN(new_quantity)) {
           quantity = new_quantity;
         }
-        
+        $$core.jumpToView('w-section-main-screen');
         if (name !== "register" || name !== "share_facebook") {
           html.pushModal("w-complete");
           if (mission_type == "point") {
@@ -324,6 +326,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
     };
 
   output.processGoldHourMission = function processGoldHourMission() {
+    if(!mission.get("gold_hour")) return;
     var timeStart = mission.get("gold_hour").meta.from;
     var timeEnd = mission.get("gold_hour").meta.to;
 
@@ -472,17 +475,17 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
     }
     return s + (uid ? "?wref=" + uid : "");
   };
-  $(window).on("load", function () {
-    console.log("All assets are loaded");
-    var completeQuiz = $$core.client.local.get("completeQuiz");
-    mission.waitToReady().then(function () {
-      if (completeQuiz || completeQuiz == 0) {
-        console.log("go there");
-        output.missionComplete("wiki", parseInt(completeQuiz));
-        $$core.client.local.remove("completeQuiz");
-      }
-    });
-  });
+  // $(window).on("load", function () {
+  //   console.log("All assets are loaded");
+  //   var completeQuiz = $$core.client.local.get("completeQuiz");
+  //   mission.waitToReady().then(function () {
+  //     if (completeQuiz || completeQuiz == 0) {
+  //       console.log("go there");
+  //       output.missionComplete("wiki", parseInt(completeQuiz));
+  //       $$core.client.local.remove("completeQuiz");
+  //     }
+  //   });
+  // });
 
   output.share = function share(url) {
     var sharedUrl = output.getShareUrl(url);
@@ -553,6 +556,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
             .css("display", "block");
           count_right_answer += quantity_per_question;
         } else {
+          
           $(answers[i]).parent(".w-item-question").addClass("wrong");
         }
       }
