@@ -1,3 +1,8 @@
+## <small>6.0.6 (2024-05-07)</small>
+
+
+
+
 ## <small>6.0.5 (2024-05-07)</small>
 
 * fix: ci ([de57893](https://gitlab.com/woay/sdk/common/commit/de57893))
