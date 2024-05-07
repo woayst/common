@@ -1,3 +1,8 @@
+## <small>6.0.4 (2024-05-07)</small>
+
+
+
+
 ## <small>6.0.3 (2024-05-07)</small>
 
 * feat: add another tag ([d49f0ff](https://gitlab.com/woay/sdk/common/commit/d49f0ff))
