@@ -1,3 +1,8 @@
+## <small>6.0.2 (2024-05-07)</small>
+
+
+
+
 ## <small>6.0.1 (2024-05-07)</small>
 
 * fix ([2293671](https://gitlab.com/woay/sdk/common/commit/2293671))
