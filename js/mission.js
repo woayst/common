@@ -223,15 +223,20 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
         $$core.jumpToView('w-section-main-screen');
         if (name !== "register" || name !== "share_facebook") {
           html.pushModal("w-complete");
-          if (mission_type == "point") {
-            $("#w-complete .title-popup").html(
-              "Chúc mừng bạn đã nhận được " + quantity + " điểm"
-            );
-          } else {
-            $("#w-complete .title-popup").html(
-              "Chúc mừng bạn đã nhận được " + quantity + " lượt"
-            );
+          if(quantity){
+            $('#w-complete').addClass('v2');
+            $("#w-complete .title-popup").html('Chúc mừng!!');
+            if (mission_type == "point") {
+              $("#w-complete .modal__content p[w-role='description']").html(
+                "Bạn vừa nhận được <b>" + quantity + " điểm</b>"
+              );
+            } else {
+              $("#w-complete .modal__content p[w-role='description']").html(
+                "Bạn vừa nhận được <b>" + quantity + " lượt chơi</b>"
+              );
+            }
           }
+        
         }
         if (name === "explore_store") {
           // MicroModal.close('w-complete');
@@ -242,9 +247,13 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
           html.closeModal();
         }
         if (quantity <= 0) {
-          $("#w-complete .title-popup").html(
-            "Rất tiếc bạn không được cộng lượt"
+          $('#w-complete').removeClass('v2');
+          $('#w-complete').addClass('v3');
+          $("#w-complete .title-popup").html('<img src="https://working.woay.vn/assets/sj/bg-title-modal.png"> <p>Tiếc quá!</p>');
+          $("#w-complete .modal__content p[w-role='description']").html(
+            "Chưa có câu trả lời đúng. Chúc bạn may mắn lần sau!"
           );
+          $("#w-complete .box-btn").html('<a class="btn-popup btn-close-full" href="javascript:void(0)">Đóng</a>')
         }
         
         var missionData = await mission.fetch();
@@ -304,7 +313,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
           $$core.client &&
           $$core.client.mission &&
           $$core.client.mission.isReady() &&
-          m.active &&
+          m?.active &&
           !m.isDone
         ) {
           output.missionComplete("login");
