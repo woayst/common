@@ -1,3 +1,9 @@
+## <small>6.0.10 (2024-05-10)</small>
+
+* fix ([2459a4c](https://gitlab.com/woay/sdk/common/commit/2459a4c))
+
+
+
 ## <small>6.0.9 (2024-05-09)</small>
 
 * fix ([bf7d2bd](https://gitlab.com/woay/sdk/common/commit/bf7d2bd))
