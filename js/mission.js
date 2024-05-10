@@ -57,6 +57,11 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
     missions.forEach(function (mission) {
       if (mission.active) {
         hasMissionActive = true;
+        
+        if(mission.name == 'wiki'){
+          mission.title = jQuery.i18n('text_wiki');
+          mission.description = jQuery.i18n('text_wiki_des');
+        }
         $("#w-mission-list").append(tmpl(template, mission));
       }
     });
