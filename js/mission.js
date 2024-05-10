@@ -117,12 +117,16 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
             });
 
             output.renderQuestion = function renderQuestion(template_id) {
+              
               var template = missionTemplate[template_id];
               var question = questions[current_question]; // today current_question = 3
-              console.log('questionquestionquestion', question);
+              var quesionId = question.id;
+              var locale = jQuery.i18n().locale;
+              var translatedQuestions = jQuery.i18n().messageStore.messages[locale].question;
+
               $("#w-box-question").removeClass("disable");
-              $("#w-box-question").html(tmpl(template, question));
-              $(".w-title-question").html(question.question);
+              $("#w-box-question").html(tmpl(template, translatedQuestions[quesionId]));
+              $(".w-title-question").html(translatedQuestions[quesionId].content);
             };
             $(document).on("click", ".btn-show-quiz", function () {
               if (WHEEL_SETTINGS.Wheel.game_type == "wheel") {
