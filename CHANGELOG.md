@@ -1,3 +1,10 @@
+## <small>6.0.13 (2024-05-15)</small>
+
+* Release 6.0.12 ([a248318](https://github.com/woayst/common/commit/a248318))
+* update: UI question time, show result question quantity ([21f9ae4](https://github.com/woayst/common/commit/21f9ae4))
+
+
+
 ## <small>6.0.12 (2024-05-15)</small>
 
 * update: UI question time, show result question quantity ([21f9ae4](https://github.com/woayst/common/commit/21f9ae4))
