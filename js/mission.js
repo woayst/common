@@ -1,5 +1,17 @@
-var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-challenge'>\n  <div class='w-flex-box'>\n    <div class='w-box-img'>\n      <img src='{%= o.image %}' alt=''>\n    </div>\n    <div class='w-box-right'>\n      <div class='box-info'>\n        <h5>{%= o.title %}</h5>\n      </div>\n      <div class='meta'>\n        <p class='desc'>{%= o.description %}</p>\n      </div>\n      <div class='btn-challenge'>\n        {% if (o.name === 'share_facebook') { %}\n        <a class='bg-button-group color-button-group btn-share-fb'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else if (o.name === 'invite_friend') { %}\n        <a class='bg-button-group color-button-group btn-invite-friend'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else if (o.name === 'wiki') { %}\n        <a class='bg-button-group color-button-group btn-show-quiz'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else if (o.name === 'explore_store') { %}\n        <a class='bg-button-group color-button-group btn-show-qrcode'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else { %}\n        <a class='bg-button-group color-button-group' onclick='$mission.missionComplete(\"{%= o.name %}\")'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } %}\n      </div>\n    </div>\n  </div>\n</li>","highscore-tmpl":"<div class='w-box-rank'>\n    <ul class='bg-white'>\n            {% if (!o || !o.length) { %}\n            <div style='text-align: center; padding: 15px'>Hiện chưa có dữ liệu</div>\n        {% } %}\n        {% for (var i = 0; i < o.length; i++) { %}\n            <li class='w-rank-item' {%= o[i].activeClass %}>\n                <div class='item-index'>{%= o[i].stt %}</div>\n                <div class='item-name'>{%= o[i].name %}</div>\n                <div class='item-point'>{%= o[i].point %}</div>\n            </li>\n        {% } %}\n    </ul>\n</div>","history-tmpl":"<li class='w-item-reward'>\n    <div class='box-icon'>\n        <img src='https://working.woay.vn/assets/mission/game-icon1.png' alt='Hình phần thưởng'>\n    </div>\n    <div class='d-flex align-center justify-center flex-col pl-2'>\n        <div class='item-name'>{%= o.item_name %}</div>\n    <div class='item-time'>{%= o.updated_at %}</div>\n    </div>\n    <div class='sku'>\n    <a>{%= o.code %}</a>\n    </div>\n</li>","m-mission-tmpl":"<li class='mission-{%= o.name %} m-challenge'>\n  <div class='w-flex-box'>\n    <div class='w-box-img'>\n      <img src='{%= o.image %}' alt=''>\n    </div>\n    <div class='w-box-right'>\n      <div class='box-info'>\n        <h5>{%= o.title %}</h5>\n      </div>\n      <div class='meta'>\n        <p class='desc'>{%= o.description %}</p>\n      </div>\n      <div class='btn-challenge'>\n        {% if (o.name === 'share_facebook') { %}\n        <a class='bg-button-group color-button-group btn-share-fb'>\n          <img src='https://working.woay.vn/assets/mission/button-status-1.png'>\n        </a>\n        {% } else if (o.name === 'invite_friend') { %}\n        <a class='bg-button-group color-button-group btn-invite-friend'>\n          <img src='https://working.woay.vn/assets/mission/button-status-1.png'>\n        </a>\n        {% } else if (o.name === 'wiki') { %}\n        <a class='bg-button-group color-button-group btn-show-quiz'>\n          <img src='https://working.woay.vn/assets/mission/button-status-1.png'>\n        </a>\n        {% } else if (o.name === 'explore_store') { %}\n        <a class='bg-button-group color-button-group btn-show-qrcode'>\n          <img src='https://working.woay.vn/assets/mission/button-status-1.png'>\n        </a>\n        {% } else { %}\n        <a class='bg-button-group color-button-group' onclick='$mission.missionComplete(\"{%= o.name %}\")'>\n          <img src='https://working.woay.vn/assets/mission/button-status-1.png'>\n        </a>\n        {% } %}\n      </div>\n    </div>\n  </div>\n</li>","my-score-tmpl":"<li class=\"w-item-score\">\n  <div class=\"d-flex align-center justify-center flex-col\">\n    <div class=\"item-point\">{%= o.value %} điểm</div>\n    <div class=\"item-time\">{%= o.created_at %}</div>\n  </div>\n  <div class=\"item-type\">{%= o.type %}</div>\n</li>\n","question-tmpl":"<div class='w-list-question'>\n  {% for (var i = 0; i < o.answer.length; i++) { %}\n  <div class='w-item-question'>\n    {%= o.answer[i] %}\n    <input type='radio' name='answer' value='{%= i %}'>\n    <span class='checkmark'><img src='<%= settings.mission_img_check %>' alt=''></<span>\n  </div>\n  {% } %}\n  {% if (!o.answer.length) { %}\n  <div class='w-item-question' style='display: none'></div>\n  {% } %}\n</div>"};
-
+var missionTemplate = {
+  "d-mission-tmpl":
+    "<li class='mission-{%= o.name %} m-challenge'>\n  <div class='w-flex-box'>\n    <div class='w-box-img'>\n      <img src='{%= o.image %}' alt=''>\n    </div>\n    <div class='w-box-right'>\n      <div class='box-info'>\n        <h5>{%= o.title %}</h5>\n      </div>\n      <div class='meta'>\n        <p class='desc'>{%= o.description %}</p>\n      </div>\n      <div class='btn-challenge'>\n        {% if (o.name === 'share_facebook') { %}\n        <a class='bg-button-group color-button-group btn-share-fb'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else if (o.name === 'invite_friend') { %}\n        <a class='bg-button-group color-button-group btn-invite-friend'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else if (o.name === 'wiki') { %}\n        <a class='bg-button-group color-button-group btn-show-quiz'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else if (o.name === 'explore_store') { %}\n        <a class='bg-button-group color-button-group btn-show-qrcode'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else { %}\n        <a class='bg-button-group color-button-group' onclick='$mission.missionComplete(\"{%= o.name %}\")'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } %}\n      </div>\n    </div>\n  </div>\n</li>",
+  "highscore-tmpl":
+    "<div class='w-box-rank'>\n    <ul class='bg-white'>\n            {% if (!o || !o.length) { %}\n            <div style='text-align: center; padding: 15px'>Hiện chưa có dữ liệu</div>\n        {% } %}\n        {% for (var i = 0; i < o.length; i++) { %}\n            <li class='w-rank-item' {%= o[i].activeClass %}>\n                <div class='item-index'>{%= o[i].stt %}</div>\n                <div class='item-name'>{%= o[i].name %}</div>\n                <div class='item-point'>{%= o[i].point %}</div>\n            </li>\n        {% } %}\n    </ul>\n</div>",
+  "history-tmpl":
+    "<li class='w-item-reward'>\n    <div class='box-icon'>\n        <img src='https://working.woay.vn/assets/mission/game-icon1.png' alt='Hình phần thưởng'>\n    </div>\n    <div class='d-flex align-center justify-center flex-col pl-2'>\n        <div class='item-name'>{%= o.item_name %}</div>\n    <div class='item-time'>{%= o.updated_at %}</div>\n    </div>\n    <div class='sku'>\n    <a>{%= o.code %}</a>\n    </div>\n</li>",
+  "m-mission-tmpl":
+    "<li class='mission-{%= o.name %} m-challenge'>\n  <div class='w-flex-box'>\n    <div class='w-box-img'>\n      <img src='{%= o.image %}' alt=''>\n    </div>\n    <div class='w-box-right'>\n      <div class='box-info'>\n        <h5>{%= o.title %}</h5>\n      </div>\n      <div class='meta'>\n        <p class='desc'>{%= o.description %}</p>\n      </div>\n      <div class='btn-challenge'>\n        {% if (o.name === 'share_facebook') { %}\n        <a class='bg-button-group color-button-group btn-share-fb'>\n          <img src='https://working.woay.vn/assets/mission/button-status-1.png'>\n        </a>\n        {% } else if (o.name === 'invite_friend') { %}\n        <a class='bg-button-group color-button-group btn-invite-friend'>\n          <img src='https://working.woay.vn/assets/mission/button-status-1.png'>\n        </a>\n        {% } else if (o.name === 'wiki') { %}\n        <a class='bg-button-group color-button-group btn-show-quiz'>\n          <img src='https://working.woay.vn/assets/mission/button-status-1.png'>\n        </a>\n        {% } else if (o.name === 'explore_store') { %}\n        <a class='bg-button-group color-button-group btn-show-qrcode'>\n          <img src='https://working.woay.vn/assets/mission/button-status-1.png'>\n        </a>\n        {% } else { %}\n        <a class='bg-button-group color-button-group' onclick='$mission.missionComplete(\"{%= o.name %}\")'>\n          <img src='https://working.woay.vn/assets/mission/button-status-1.png'>\n        </a>\n        {% } %}\n      </div>\n    </div>\n  </div>\n</li>",
+  "my-score-tmpl":
+    '<li class="w-item-score">\n  <div class="d-flex align-center justify-center flex-col">\n    <div class="item-point">{%= o.value %} điểm</div>\n    <div class="item-time">{%= o.created_at %}</div>\n  </div>\n  <div class="item-type">{%= o.type %}</div>\n</li>\n',
+  "question-tmpl":
+    "<div class='w-list-question'>\n  {% for (var i = 0; i < o.answer.length; i++) { %}\n  <div class='w-item-question'>\n    {%= o.answer[i] %}\n    <input type='radio' name='answer' value='{%= i %}'>\n    <span class='checkmark'><img src='<%= settings.mission_img_check %>' alt=''></<span>\n  </div>\n  {% } %}\n  {% if (!o.answer.length) { %}\n  <div class='w-item-question' style='display: none'></div>\n  {% } %}\n</div>",
+};
 
 (function (g) {
   var enableMission = false;
@@ -50,7 +62,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
   /// Render mission
   output.renderMissions = function renderMissions(missions, template_id) {
     var template = missionTemplate[template_id];
-    
+
     var missions = mission.getAll();
     $("#w-mission-list").html("");
     var hasMissionActive = false;
@@ -102,7 +114,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
             var question_per_day = mission.get("wiki").meta.question_per_day; // sửa lại lấy theo format
             questions = output.getTodayQuestions(question_per_day);
             $(document).on("click", ".w-item-question", function () {
-              if(checkMultipleClick) return;
+              if (checkMultipleClick) return;
               checkMultipleClick = true;
               output.checkRightAnswer();
               setTimeout(function () {
@@ -121,9 +133,11 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
               var question_per_day = mission.get("wiki").meta.question_per_day; // sửa lại lấy theo format
               var questions = output.getTodayQuestions(question_per_day);
               var question = questions[current_question]; // today current_question = 3
+              var questionTime = 10;
               $("#w-box-question").removeClass("disable");
               $("#w-box-question").html(tmpl(template, question));
               $(".w-title-question").html(question.question);
+              output.countDownQuestionTime(questionTime);
             };
             $(document).on("click", ".btn-show-quiz", function () {
               if (WHEEL_SETTINGS.Wheel.game_type == "wheel") {
@@ -139,6 +153,16 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
       }
     });
   });
+
+  output.countDownQuestionTime = function countDownQuestionTime(question_time) {
+    var inter = setInterval(function () {
+      question_time--;
+      $(".w-progress__number").html(question_time);
+      if (question_time <= 0) {
+        clearInterval(inter);
+      }
+    }, 1000);
+  };
 
   output.fetchAllMission = function fetchAllMission() {
     console.log("mission", mission);
@@ -220,7 +244,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
         if (!isNaN(new_quantity)) {
           quantity = new_quantity;
         }
-        
+
         if (name !== "register" || name !== "share_facebook") {
           html.pushModal("w-complete");
           if (mission_type == "point") {
@@ -230,6 +254,15 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
           } else {
             $("#w-complete .title-popup").html(
               "Chúc mừng bạn đã nhận được " + quantity + " lượt"
+            );
+          }
+          if (mission_name === "wiki") {
+            $("#w-complete .title-popup").append(
+              '<div class="quiz-quantity">Bạn đã hoàn thành ' +
+                count_right_answer +
+                "/" +
+                questions.length +
+                "</div>"
             );
           }
         }
@@ -246,11 +279,9 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
             "Rất tiếc bạn không được cộng lượt"
           );
         }
-        
+
         var missionData = await mission.fetch();
-        
-        
-        
+
         if (mission_frequency !== "unlimited" && missionData[name].isDone) {
           if (WHEEL_SETTINGS.Wheel.game_type == "icon_drop") {
             $(".mission-" + name + " .btn-challenge a")
@@ -336,8 +367,8 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
     var now = new Date();
 
     // Chuyển đổi thời gian từ biến 'timeStart' và 'timeEnd' thành đối tượng Date
-    var startTimeParts = timeStart.split(':');
-    var endTimeParts = timeEnd.split(':');
+    var startTimeParts = timeStart.split(":");
+    var endTimeParts = timeEnd.split(":");
 
     var startDate = new Date();
     startDate.setHours(parseInt(startTimeParts[0], 10));
@@ -350,9 +381,8 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
     // So sánh thời điểm hiện tại với khoảng thời gian
     var isValid = now >= startDate && now <= endDate;
 
+    console.log("GOLD_HOUR_STARTGOLD_HOUR_START", isValid);
 
-    console.log('GOLD_HOUR_STARTGOLD_HOUR_START', isValid);
-    
     var isDone = mission.get("gold_hour").isDone;
     if (!isValid && !isDone) {
       if (WHEEL_SETTINGS.Wheel.game_type == "icon_drop") {
@@ -464,7 +494,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
     var user = $$core.client.getUserInfo();
     var uid = user && user.player_game_id;
     var share_link_url = window.location.href.split("?")[0];
-    
+
     return share_link_url + (uid ? "?wref=" + uid : "");
   };
   output.getShareUrl = function getShareUrl(url, quote) {
@@ -579,8 +609,9 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
     var quantity = count_right_answer;
     // MicroModal.close('w-quiz');
     html.closeModal();
-    output.missionComplete("wiki", quantity);
-    count_right_answer = 0;
+    output.missionComplete("wiki", quantity).then(function () {
+      count_right_answer = 0;
+    });
   };
 
   output.getTopPlayer = function getTopPlayer(id, from, to, limit) {
@@ -694,6 +725,7 @@ var missionTemplate = {"d-mission-tmpl":"<li class='mission-{%= o.name %} m-chal
       $(".w-your-point").html(data.sum);
     });
   };
+  output.countRightAnswer = count_right_answer;
 
   g.$mission = output;
 })(window);
