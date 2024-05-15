@@ -1,3 +1,9 @@
+## <small>3.0.73 (2024-05-15)</small>
+
+* update: UI question time, show result question quantity ([d02b4ea](https://github.com/woayst/common/commit/d02b4ea))
+
+
+
 ## <small>3.0.72 (2024-03-02)</small>
 
 * fix: fix mission wiki ([8fddd6a](https://github.com/woayst/common/commit/8fddd6a))
