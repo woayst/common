@@ -285,7 +285,7 @@ var missionTemplate = {
             }
           }
           if (mission_name === "wiki") {
-            if (count_right_answer > 0) {
+            if (quantity > 0) {
               if (!flagInsertQuiz) {
                 $("#w-complete .modal__content p[w-role='description']").after(
                   '<div class="quiz-quantity"></div>'
