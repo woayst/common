@@ -124,6 +124,7 @@ var missionTemplate = {
               if (checkMultipleClick) return;
               checkMultipleClick = true;
               output.checkRightAnswer();
+              clearInterval(interQuiz);
               setTimeout(function () {
                 current_question++;
                 if (current_question >= question_per_day) {
@@ -142,7 +143,7 @@ var missionTemplate = {
               var locale = jQuery.i18n().locale;
               var translatedQuestions =
                 jQuery.i18n().messageStore.messages[locale].question;
-
+              questionTime = 10;
               $("#w-box-question").removeClass("disable");
               $("#w-box-question").html(
                 tmpl(template, translatedQuestions[quesionId])
