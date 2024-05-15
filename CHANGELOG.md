@@ -1,3 +1,9 @@
+## <small>6.0.12 (2024-05-15)</small>
+
+* update: UI question time, show result question quantity ([21f9ae4](https://github.com/woayst/common/commit/21f9ae4))
+
+
+
 ## <small>6.0.11 (2024-05-10)</small>
 
 * fix ([c5a1657](https://gitlab.com/woay/sdk/common/commit/c5a1657))
