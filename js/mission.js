@@ -136,7 +136,7 @@ var missionTemplate = {
               var locale = jQuery.i18n().locale;
               var translatedQuestions =
                 jQuery.i18n().messageStore.messages[locale].question;
-              questionTime = 10;
+              questionTime = 11;
               $("#w-box-question").removeClass("disable");
               $("#w-box-question").html(
                 tmpl(template, translatedQuestions[quesionId])
