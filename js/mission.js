@@ -292,6 +292,7 @@ var missionTemplate = {
                 "text_postfix_quiz"
               )}</div>`
             );
+            count_right_answer = 0;
           }
         }
         if (name === "explore_store") {
@@ -638,7 +639,6 @@ var missionTemplate = {
     // MicroModal.close('w-quiz');
     html.closeModal();
     output.missionComplete("wiki", quantity);
-    count_right_answer = 0;
   };
 
   output.getTopPlayer = function getTopPlayer(id, from, to, limit) {
