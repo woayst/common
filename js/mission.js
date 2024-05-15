@@ -125,15 +125,7 @@ var missionTemplate = {
               checkMultipleClick = true;
               output.checkRightAnswer();
               clearInterval(interQuiz);
-              setTimeout(function () {
-                current_question++;
-                if (current_question >= question_per_day) {
-                  output.showResult();
-                } else {
-                  output.renderQuestion("question-tmpl");
-                }
-                checkMultipleClick = false;
-              }, 1000);
+              output.quizActionHandler();
             });
 
             output.renderQuestion = function renderQuestion(template_id) {
@@ -170,12 +162,25 @@ var missionTemplate = {
     });
   });
 
+  output.quizActionHandler = function quizActionHandler() {
+    setTimeout(function () {
+      current_question++;
+      if (current_question >= question_per_day) {
+        output.showResult();
+      } else {
+        output.renderQuestion("question-tmpl");
+      }
+      checkMultipleClick = false;
+    }, 1000);
+  };
+
   output.countDownQuestionTime = function countDownQuestionTime() {
     interQuiz = setInterval(function () {
       questionTime--;
       $(".w-progress__number").html(questionTime);
       if (questionTime <= 0) {
         clearInterval(interQuiz);
+        output.quizActionHandler();
       }
     }, 1000);
   };
