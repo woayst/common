@@ -25,6 +25,7 @@ var missionTemplate = {
   var reward = $$core.client.reward;
   var current_question = 0;
   var count_right_answer = 0;
+  var questionTime = 10;
   var questions = [];
   var hasLogin = false;
   var myUserId = null;
@@ -149,7 +150,7 @@ var missionTemplate = {
               $(".w-title-question").html(
                 translatedQuestions[quesionId].content
               );
-              output.countDownQuestionTime(questionTime);
+              output.countDownQuestionTime();
             };
             $(document).on("click", ".btn-show-quiz", function () {
               if (WHEEL_SETTINGS.Wheel.game_type == "wheel") {
@@ -168,11 +169,11 @@ var missionTemplate = {
     });
   });
 
-  output.countDownQuestionTime = function countDownQuestionTime(question_time) {
+  output.countDownQuestionTime = function countDownQuestionTime() {
     interQuiz = setInterval(function () {
-      question_time--;
-      $(".w-progress__number").html(question_time);
-      if (question_time <= 0) {
+      questionTime--;
+      $(".w-progress__number").html(questionTime);
+      if (questionTime <= 0) {
         clearInterval(interQuiz);
       }
     }, 1000);
