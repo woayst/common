@@ -285,12 +285,12 @@ var missionTemplate = {
             }
           }
           if (mission_name === "wiki") {
-            $("#w-complete .title-popup").after(
-              '<div class="quiz-quantity">Bạn đã hoàn thành ' +
-                count_right_answer +
-                "/" +
-                questions.length +
-                "</div>"
+            $("#w-complete .modal__content p[w-role='description']").after(
+              `<div class="quiz-quantity">${jQuery.i18n(
+                "text_prefix_quiz"
+              )} ${count_right_answer}/${questions.length} ${jQuery.i18n(
+                "text_postfix_quiz"
+              )}</div>`
             );
           }
         }
@@ -637,9 +637,8 @@ var missionTemplate = {
     var quantity = count_right_answer;
     // MicroModal.close('w-quiz');
     html.closeModal();
-    output.missionComplete("wiki", quantity).then(function () {
-      count_right_answer = 0;
-    });
+    output.missionComplete("wiki", quantity);
+    count_right_answer = 0;
   };
 
   output.getTopPlayer = function getTopPlayer(id, from, to, limit) {
