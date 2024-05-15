@@ -31,6 +31,7 @@ var missionTemplate = {
   var myUserId = null;
   var output = {};
   let interQuiz;
+  var question_per_day;
 
   var checkMultipleClick = false;
 
@@ -118,7 +119,7 @@ var missionTemplate = {
             }
           })
           .then(function () {
-            var question_per_day = mission.get("wiki").meta.question_per_day; // sửa lại lấy theo format
+            question_per_day = mission.get("wiki").meta.question_per_day; // sửa lại lấy theo format
             questions = output.getTodayQuestions(question_per_day);
             $(document).on("click", ".w-item-question", function () {
               if (checkMultipleClick) return;
