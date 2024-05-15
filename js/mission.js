@@ -285,13 +285,15 @@ var missionTemplate = {
             }
           }
           if (mission_name === "wiki") {
-            $("#w-complete .modal__content p[w-role='description']").after(
-              `<div class="quiz-quantity">${jQuery.i18n(
-                "text_prefix_quiz"
-              )} ${count_right_answer}/${questions.length} ${jQuery.i18n(
-                "text_postfix_quiz"
-              )}</div>`
-            );
+            if (count_right_answer > 0) {
+              $("#w-complete .modal__content p[w-role='description']").after(
+                `<div class="quiz-quantity">${jQuery.i18n(
+                  "text_prefix_quiz"
+                )} ${count_right_answer}/${questions.length} ${jQuery.i18n(
+                  "text_postfix_quiz"
+                )}</div>`
+              );
+            }
             count_right_answer = 0;
           }
         }
