@@ -32,7 +32,7 @@ var missionTemplate = {
   var output = {};
   let interQuiz;
   var question_per_day;
-
+  var flagInsertQuiz = false;
   var checkMultipleClick = false;
 
   output.getDayNo = function getDayNo() {
@@ -286,13 +286,17 @@ var missionTemplate = {
           }
           if (mission_name === "wiki") {
             if (count_right_answer > 0) {
-              $("#w-complete .modal__content p[w-role='description']").after(
-                `<div class="quiz-quantity">${jQuery.i18n(
-                  "text_prefix_quiz"
-                )} ${count_right_answer}/${questions.length} ${jQuery.i18n(
-                  "text_postfix_quiz"
-                )}</div>`
+              if (!flagInsertQuiz) {
+                $("#w-complete .modal__content p[w-role='description']").after(
+                  '<div class="quiz-quantity"></div>'
+                );
+              }
+              $(".quiz-quantity").html(
+                `${jQuery.i18n("text_prefix_quiz")} ${count_right_answer}/${
+                  questions.length
+                } ${jQuery.i18n("text_postfix_quiz")}`
               );
+              flagInsertQuiz = true;
             }
             count_right_answer = 0;
           }
