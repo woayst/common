@@ -285,7 +285,7 @@ var missionTemplate = {
             }
           }
           if (mission_name === "wiki") {
-            $("#w-complete .title-popup").append(
+            $("#w-complete .title-popup").after(
               '<div class="quiz-quantity">Bạn đã hoàn thành ' +
                 count_right_answer +
                 "/" +
