@@ -3227,8 +3227,12 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     font-size: 12px;
 }
 
-#w-popup-section.s-quick {
+#w-popup-section.s-popup {
     width: 90%;
+}
+
+#w-popup-section.s-popup #woay-game {
+    margin: 0 !important;
 }
 
 #w-popup-section.s-quick #woay-game {
@@ -3237,7 +3241,6 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     left: unset;
     transform: unset;
     width: 60vh;
-    margin: 0 !important;
 }
 
 @media (max-width: 991px) {
