@@ -3227,6 +3227,10 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     font-size: 12px;
 }
 
+#w-popup-section.s-quick {
+    width: 90%;
+}
+
 #w-popup-section.s-quick #woay-game {
     position: relative;
     top: unset;
