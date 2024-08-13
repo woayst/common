@@ -102,7 +102,7 @@
     max-width: 76px;
 }
 
-#w-popup-section #vongquaymayman {
+#w-popup-section #woay-game {
     margin: 0;
     position: absolute;
     width: 60%;
@@ -124,7 +124,13 @@
     margin: auto;
     position: relative;
     padding: 0;
-    margin-top: 35vh;
+}
+
+@media (min-width: 768px) {
+    #w-popup-userinfo-form {
+        margin-top: 35vh;
+
+    }
 }
 
 #w-popup-container .logo-popup {
@@ -133,10 +139,19 @@
     top: 5%;
 }
 
+@media (max-width: 767px) {
+    #w-popup-container .logo-popup {
+        position: relative;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+}
+
 #w-popup-userinfo-form div[w-role=form] {
     height: 32vh;
     overflow: auto;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
 }
 
 #w-popup-userinfo-form h4 {
@@ -448,16 +463,17 @@
 
 .w-popup-remove-anim {
     color: #fff;
-    display: none;
+    display: none !important;
 }
 
 #w-popup-section .modal__close {
     z-index: 100;
     font-size: 40px;
     right: 2%;
+    display: block;
 }
 
-/* #w-popup-section #vongquaymayman {
+/* #w-popup-section #woay-game {
     top: 50%;
     left: 45%;
     position: absolute;
@@ -497,7 +513,7 @@
     max-width: 90%;
 }
 
-.anim-woay #vongquaymayman {
+.anim-woay #woay-game {
     width: 100% !important;
     left: 50% !important;
     top: 50% !important;
@@ -555,7 +571,7 @@
     transform: translateY(-50%);
 }
 
-#w-popup-section.desktop-mode #vongquaymayman {
+#w-popup-section.desktop-mode #woay-game {
     width: 50%;
     top: 50%;
     left: 50%;
@@ -642,7 +658,7 @@
         display: block;
     }
 
-    #w-popup-section #vongquaymayman {
+    #w-popup-section #woay-game {
         width: 90%;
         max-height: 90%;
         margin: auto;
@@ -653,7 +669,7 @@
         margin-right: 0;
     }
 
-    #w-popup-section #vongquaymayman {
+    #w-popup-section #woay-game {
         left: 50%;
     }
 }
