@@ -3231,6 +3231,10 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     width: 90%;
 }
 
+#w-popup-section.s-popup .btn-woay {
+    pointer-events: none !important;
+}
+
 #w-popup-section.s-popup #woay-game {
     margin: 0 !important;
 }
