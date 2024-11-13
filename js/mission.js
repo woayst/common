@@ -630,26 +630,26 @@ var missionTemplate = {
 
   output.renderRankChart = function renderRankChart(limit) {
     output.getTopPlayer("thang", false, false, limit);
-    var startDate = new Date(onAirDate);
-    var startTime = startDate.getTime();
-    var currentDate = new Date();
-    for (var i = 1; i < 5; i++) {
-      var from = new Date(startTime + (i - 1) * 7 * 86400000);
-      var to = new Date(startTime + i * 7 * 86400000);
-      if (currentDate > from) {
-        var html =
-          '<li class="item-button"><a data-target="tuan' +
-          i +
-          '" class="tablinks">Tuần ' +
-          i +
-          "</a></li>";
-        var html_tab_content =
-          '<div class="w-tabcontent" id="tuan' + i + '"></div>';
-        $(".wrap-item-button").append(html);
-        $(".wrap-bxh").append(html_tab_content);
-        output.getTopPlayer("tuan" + i, from, to, limit);
-      }
-    }
+    // var startDate = new Date(onAirDate);
+    // var startTime = startDate.getTime();
+    // var currentDate = new Date();
+    // for (var i = 1; i < 5; i++) {
+    //   var from = new Date(startTime + (i - 1) * 7 * 86400000);
+    //   var to = new Date(startTime + i * 7 * 86400000);
+    //   if (currentDate > from) {
+    //     var html =
+    //       '<li class="item-button"><a data-target="tuan' +
+    //       i +
+    //       '" class="tablinks">Tuần ' +
+    //       i +
+    //       "</a></li>";
+    //     var html_tab_content =
+    //       '<div class="w-tabcontent" id="tuan' + i + '"></div>';
+    //     $(".wrap-item-button").append(html);
+    //     $(".wrap-bxh").append(html_tab_content);
+    //     output.getTopPlayer("tuan" + i, from, to, limit);
+    //   }
+    // }
   };
 
   output.updatePlayerHistory = function updatePlayerHistory(
