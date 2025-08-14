@@ -736,6 +736,7 @@ var missionTemplate = {
   output.updateMyPoint = function updateMyPoint() {
     $$core.client.api.getMyRank().then(function (data) {
       $(".w-total-point").css("opacity", "1");
+      $(".w-my-rank--index").html(data.rank < 10 ? `#0${data.rank}` : `#${data.rank}`);
       $(".w-your-point").html(data.sum);
     });
   };
