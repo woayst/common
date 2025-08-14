@@ -2,7 +2,7 @@ var missionTemplate = {
   "d-mission-tmpl":
     "<li class='mission-{%= o.name %} m-challenge'>\n  <div class='w-flex-box'>\n    <div class='w-box-img'>\n      <img src='{%= o.image %}' alt=''>\n    </div>\n    <div class='w-box-right'>\n      <div class='box-info'>\n        <h5>{%= o.title %}</h5>\n      </div>\n      <div class='meta'>\n        <p class='desc'>{%= o.description %}</p>\n      </div>\n      <div class='btn-challenge'>\n        {% if (o.name === 'share_facebook') { %}\n        <a class='bg-button-group color-button-group btn-share-fb'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else if (o.name === 'invite_friend') { %}\n        <a class='bg-button-group color-button-group btn-invite-friend'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else if (o.name === 'wiki') { %}\n        <a class='bg-button-group color-button-group btn-show-quiz'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else if (o.name === 'explore_store') { %}\n        <a class='bg-button-group color-button-group btn-show-qrcode'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else { %}\n        <a class='bg-button-group color-button-group' onclick='$mission.missionComplete(\"{%= o.name %}\")'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } %}\n      </div>\n    </div>\n  </div>\n</li>",
   "highscore-tmpl":
-    "<div class='w-box-rank'>\n    <ul class='bg-white'>\n            {% if (!o || !o.length) { %}\n            <div style='text-align: center; padding: 15px'>Hiện chưa có dữ liệu</div>\n        {% } %}\n        {% for (var i = 0; i < o.length; i++) { %}\n            <li class='w-rank-item' {%= o[i].activeClass %}>\n                <div class='item-index'>{%= o[i].stt %}</div>\n                <div class='item-name'>{%= o[i].name %}</div>\n                <div class='item-point'>{%= o[i].point %}</div>\n            </li>\n        {% } %}\n    </ul>\n</div>",
+    "<div class='w-box-rank'>\n    <ul class='bg-white'>\n            {% if (!o || !o.length) { %}\n            <div style='text-align: center; padding: 15px'>Hiện chưa có dữ liệu</div>\n        {% } %}\n        {% for (var i = 0; i < o.length; i++) { %}\n            <li class='w-rank-item {%= o[i].activeClass %}' >\n                <div class='item-index'>{%= o[i].stt %}</div>\n                <div class='item-name'>{%= o[i].name %}</div>\n                <div class='item-point'>{%= o[i].point %}</div>\n            </li>\n        {% } %}\n    </ul>\n</div>",
   "history-tmpl":
     "<li class='w-item-reward'>\n    <div class='box-icon'>\n        <img src='https://working.woay.vn/assets/mission/game-icon1.png' alt='Hình phần thưởng'>\n    </div>\n    <div class='d-flex align-center justify-center flex-col pl-2'>\n        <div class='item-name'>{%= o.item_name %}</div>\n    <div class='item-time'>{%= o.updated_at %}</div>\n    </div>\n    <div class='sku'>\n    <a>{%= o.code %}</a>\n    </div>\n</li>",
   "m-mission-tmpl":
@@ -621,10 +621,24 @@ var missionTemplate = {
         x.percent = (x.sum / data[0].sum) * 100;
         x.point = x.sum;
         x.activeClass = x.user_id == myUserId ? "active" : "";
+        if (x.stt === 1) {
+          x.activeClass += " top-1";
+        } else if (x.stt === 2) {
+          x.activeClass += " top-2";
+        } else if (x.stt === 3) {
+          x.activeClass += " top-3";
+        }
+        x.stt = i + 1 < 10 ? "0" + x.stt : rank;
         return x;
       });
-      var html = tmpl(missionTemplate["highscore-tmpl"], topPlayers);
-      $(".w-tab-content #" + id).html(html);
+      var top3 = topPlayers.slice(0, 3);
+      var others = topPlayers.slice(3);
+
+      var top3Html = tmpl(missionTemplate["highscore-tmpl"], top3);
+      $(".w-tab-content #" + id + "-top3").html(top3Html);
+
+      var othersHtml = tmpl(missionTemplate["highscore-tmpl"], others);
+      $(".w-tab-content #" + id + "-others").html(othersHtml);
     });
   };
 
