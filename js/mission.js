@@ -1,12 +1,10 @@
 var missionTemplate = {
-  "d-mission-tmpl":
-    "<li class='mission-{%= o.name %} m-challenge'>\n  <div class='w-flex-box'>\n    <div class='w-box-img'>\n      <img src='{%= o.image %}' alt=''>\n    </div>\n    <div class='w-box-right'>\n      <div class='box-info'>\n        <h5>{%= o.title %}</h5>\n      </div>\n      <div class='meta'>\n        <p class='desc'>{%= o.description %}</p>\n      </div>\n      <div class='btn-challenge'>\n        {% if (o.name === 'share_facebook') { %}\n        <a class='bg-button-group color-button-group btn-share-fb'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else if (o.name === 'invite_friend') { %}\n        <a class='bg-button-group color-button-group btn-invite-friend'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else if (o.name === 'wiki') { %}\n        <a class='bg-button-group color-button-group btn-show-quiz'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else if (o.name === 'explore_store') { %}\n        <a class='bg-button-group color-button-group btn-show-qrcode'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } else { %}\n        <a class='bg-button-group color-button-group' onclick='$mission.missionComplete(\"{%= o.name %}\")'>\n          <img src='https://working.woay.vn/assets/icondrop/misson.png'>\n        </a>\n        {% } %}\n      </div>\n    </div>\n  </div>\n</li>",
   "highscore-tmpl":
     "<div class='w-box-rank'>\n    <ul class='bg-white'>\n            {% if (!o || !o.length) { %}\n            <div style='text-align: center; padding: 15px'>Hiện chưa có dữ liệu</div>\n        {% } %}\n        {% for (var i = 0; i < o.length; i++) { %}\n            <li class='w-rank-item {%= o[i].activeClass %}' >\n                <div class='item-index'>{%= o[i].stt %}</div>\n                <div class='item-name'>{%= o[i].name %}</div>\n                <div class='item-point'>{%= o[i].point %}</div>\n            </li>\n        {% } %}\n    </ul>\n</div>",
   "history-tmpl":
     "<li class='w-item-reward'>\n    <div class='box-icon'>\n        <img src='https://working.woay.vn/assets/mission/game-icon1.png' alt='Hình phần thưởng'>\n    </div>\n    <div class='d-flex align-center justify-center flex-col pl-2'>\n        <div class='item-name'>{%= o.item_name %}</div>\n    <div class='item-time'>{%= o.updated_at %}</div>\n    </div>\n    <div class='sku'>\n    <a>{%= o.code %}</a>\n    </div>\n</li>",
-  "m-mission-tmpl":
-    "<li class='mission-{%= o.name %} m-challenge'>\n  <div class='w-flex-box'>\n    <div class='w-box-img'>\n      <img src='{%= o.image %}' alt=''>\n    </div>\n    <div class='w-box-right'>\n      <div class='box-info'>\n        <h5>{%= o.title %}</h5>\n      </div>\n      <div class='meta'>\n        <p class='desc'>{%= o.description %}</p>\n      </div>\n      <div class='btn-challenge'>\n        {% if (o.name === 'share_facebook') { %}\n        <a class='bg-button-group color-button-group btn-share-fb'>\n          <img src='https://working.woay.vn/assets/mission/button-status-1.png'>\n        </a>\n        {% } else if (o.name === 'invite_friend') { %}\n        <a class='bg-button-group color-button-group btn-invite-friend'>\n          <img src='https://working.woay.vn/assets/mission/button-status-1.png'>\n        </a>\n        {% } else if (o.name === 'wiki') { %}\n        <a class='bg-button-group color-button-group btn-show-quiz'>\n          <img src='https://working.woay.vn/assets/mission/button-status-1.png'>\n        </a>\n        {% } else if (o.name === 'explore_store') { %}\n        <a class='bg-button-group color-button-group btn-show-qrcode'>\n          <img src='https://working.woay.vn/assets/mission/button-status-1.png'>\n        </a>\n        {% } else { %}\n        <a class='bg-button-group color-button-group' onclick='$mission.missionComplete(\"{%= o.name %}\")'>\n          <img src='https://working.woay.vn/assets/mission/button-status-1.png'>\n        </a>\n        {% } %}\n      </div>\n    </div>\n  </div>\n</li>",
+  "mission-tmpl":
+    "<li class='mission-{%= o.name %} m-challenge'>\n  <div class='w-flex-box'>\n    <div class='w-box-img'>\n      <img src='{%= o.image %}' alt=''>\n    </div>\n    <div class=\"w-box-info\">\n      <div class='box-info'>\n        <h5>{%= o.title %}</h5>\n      </div>\n      <div class='meta'>\n        {%= o.map_quantity %}\n      </div>\n    </div>\n    <div class='w-box-right'>\n      <div class=\"w-flex-box\">\n        <div class=\"w-mission-frequency\">\n          {%= o.map_frequency %}\n        </div>\n        {% if (SETTINGS.settings.icon_mission_detail != \"\") { %}\n        <div class=\"w-mission-des\">\n          <img src=\"{%= SETTINGS.settings.icon_mission_detail %}\" alt=\"\">\n        </div>\n        {% } %}\n      </div>\n      <div class='btn-challenge'>\n        {% if (o.name === 'share_facebook') { %}\n        <a class='btn-share-fb'>\n          Làm nhiệm vụ\n        </a>\n        {% } else if (o.name === 'invite_friend') { %}\n        <a class='btn-invite-friend'>\n          Làm nhiệm vụ\n        </a>\n        {% } else if (o.name === 'wiki') { %}\n        <a class='btn-show-quiz'>\n          Làm nhiệm vụ\n        </a>\n        {% } else if (o.name === 'explore_store') { %}\n        <a class='btn-show-qrcode'>\n          Làm nhiệm vụ\n        </a>\n        {% } else { %}\n        <a onclick='$mission.missionComplete(\"{%= o.name %}\")'>\n          Làm nhiệm vụ\n        </a>\n        {% } %}\n      </div>\n    </div>\n  </div>\n</li>",
   "my-score-tmpl":
     '<li class="w-item-score">\n  <div class="d-flex align-center justify-center flex-col">\n    <div class="item-point">{%= o.value %} điểm</div>\n    <div class="item-time">{%= o.created_at %}</div>\n  </div>\n  <div class="item-type">{%= o.type %}</div>\n</li>\n',
   "question-tmpl":
@@ -72,14 +70,16 @@ var missionTemplate = {
         $("#w-mission-list").append(tmpl(template, mission));
       }
     });
-
-    $("#w-mission-list .btn-challenge .bg-button-group img").attr(
-      "src",
-      "https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-1.png"
-    );
     if (!hasMissionActive) {
       $(".section-mission").css("display", "none");
     }
+  };
+  output.zeropad = function zeropad(num, length) {
+    var num_str = String(num);
+    while (num_str.length < length) {
+      num_str = "0" + num_str;
+    }
+    return num_str;
   };
   eventBus.on("login-done", function () {
     console.log("mission js login-done");
@@ -166,18 +166,11 @@ var missionTemplate = {
 
   output.fetchAllMission = function fetchAllMission() {
     console.log("mission", mission);
+    console.log('SETTINGS', SETTINGS);
     mission.fetchAll().then(function () {
       output.fetchMission();
       if (!hasLogin) {
-        if (WHEEL_SETTINGS.Wheel.game_type == "icon_drop") {
-          $(".btn-challenge").html(
-            '<a class="bg-button-group color-button-group"><img src="https://working.woay.vn/assets/icondrop/misson.png"></a>'
-          );
-        } else {
-          $(".btn-challenge").html(
-            '<a class="bg-button-group color-button-group"><img src="https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-1.png"></a>'
-          );
-        }
+        $(".btn-challenge").html("<a>Làm nhiệm vụ</a>");
         $(".btn-challenge a").on("click", function () {
           auth.loginHandler();
         });
@@ -187,13 +180,35 @@ var missionTemplate = {
 
   output.fetchMission = function fetchMission() {
     var missions = mission.getAll();
+    console.log("missions", missions);
+    output.mapMissions(missions);
     $("#w-text-share-url").val(output.getShareLink());
-    if (mobileAndTabletCheck()) {
-      output.renderMissions(missions, "m-mission-tmpl");
-    } else {
-      output.renderMissions(missions, "d-mission-tmpl");
-    }
+    output.renderMissions(missions, "mission-tmpl");
     output.checkMissionInviteFriend();
+  };
+
+  output.mapMissions = function mapMissions(missions) {
+    missions.forEach((m) => {
+      m.map_frequency = output.getFrequencyMission(m);
+      m.map_quantity = `${output.zeropad(m.quantity, 2)} ${
+        m.type === "turn" ? " lượt chơi" : " điểm"
+      }`;
+    });
+  };
+
+  output.getFrequencyMission = function getFrequencyMission(mission) {
+    switch (mission.frequency) {
+      case "once":
+        return `${output.zeropad(mission.limit, 2)} lần duy nhất`;
+      case "daily":
+        return `${output.zeropad(mission.limit, 2)} lần / ngày`;
+      case "weekly":
+        return `${output.zeropad(mission.limit, 2)} lần / tuần`;
+      case "monthly":
+        return `${output.zeropad(mission.limit, 2)} lần / tháng`;
+      default:
+        return "Không giới hạn";
+    }
   };
 
   output.deactiveDoneMissions = function deactiveDoneMissions() {
@@ -201,19 +216,12 @@ var missionTemplate = {
     missions.forEach(function (mission) {
       if (!mission.active) return;
       if (mission.isDone) {
-        if (WHEEL_SETTINGS.Wheel.game_type == "icon_drop") {
-          $(".mission-" + mission.name + " .btn-challenge a")
-            .html(
-              '<img src="https://working.woay.vn/assets/icondrop/completed.png">'
-            )
-            .addClass("deactive");
-        } else {
-          $(".mission-" + mission.name + " .btn-challenge a")
-            .html(
-              '<img src="https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-2.png">'
-            )
-            .addClass("deactive");
-        }
+        $(".mission-" + mission.name + " .btn-challenge a")
+          .html(
+            "<img src='https://app.woay.vn/lib/game_assets/images/icons/icon-checked.png' alt=''>" +
+              "<span>Hoàn thành</span>"
+          )
+          .addClass("completed");
         return;
       }
     });
@@ -283,19 +291,12 @@ var missionTemplate = {
         var missionData = await mission.fetch();
 
         if (mission_frequency !== "unlimited" && missionData[name].isDone) {
-          if (WHEEL_SETTINGS.Wheel.game_type == "icon_drop") {
-            $(".mission-" + name + " .btn-challenge a")
-              .html(
-                '<img src="https://working.woay.vn/assets/icondrop/completed.png">'
-              )
-              .addClass("deactive");
-          } else {
-            $(".mission-" + name + " .btn-challenge a")
-              .html(
-                '<img src="https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-2.png">'
-              )
-              .addClass("deactive");
-          }
+          $(".mission-" + name + " .btn-challenge a")
+            .html(
+              "<img src='https://app.woay.vn/lib/game_assets/images/icons/icon-checked.png' alt=''>" +
+                "<span>Hoàn thành</span>"
+            )
+            .addClass("completed");
         }
         if (mission_type == "point") {
           output.updateMyPoint();
@@ -327,7 +328,6 @@ var missionTemplate = {
   output.processMissionAutoCompleteMission =
     function processMissionAutoCompleteMission() {
       var AUTO_COMPLETE_MISSIONS = ["login"];
-      var player_game_id = $$core.client.getUserInfo().player_game_id;
       AUTO_COMPLETE_MISSIONS.forEach(function (key) {
         var m = mission.get(key);
         if (
@@ -340,19 +340,12 @@ var missionTemplate = {
           !m.isDone
         ) {
           output.missionComplete("login");
-          if (WHEEL_SETTINGS.Wheel.game_type == "icon_drop") {
-            $(".mission-" + name + " .btn-challenge a")
-              .html(
-                '<img src="https://working.woay.vn/assets/icondrop/completed.png">'
-              )
-              .addClass("deactive");
-          } else {
-            $(".mission-" + name + " .btn-challenge a")
-              .html(
-                '<img src="https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-2.png">'
-              )
-              .addClass("deactive");
-          }
+          $(".mission-" + name + " .btn-challenge a")
+            .html(
+              "<img src='https://app.woay.vn/lib/game_assets/images/icons/icon-checked.png' alt=''>" +
+              "<span>Hoàn thành</span>"
+            )
+            .addClass("completed");
         }
       });
     };
@@ -385,47 +378,20 @@ var missionTemplate = {
 
     var isDone = mission.get("gold_hour").isDone;
     if (!isValid && !isDone) {
-      if (WHEEL_SETTINGS.Wheel.game_type == "icon_drop") {
-        $(".mission-gold_hour .btn-challenge a")
-          .html(
-            '<img src="https://working.woay.vn/assets/icondrop/outtime.png">'
-          )
-          .addClass("deactive");
-      } else {
-        $(".mission-gold_hour .btn-challenge a")
-          .html(
-            '<img src="https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-3.png">'
-          )
-          .addClass("deactive");
-      }
+      $(".mission-gold_hour .btn-challenge a")
+        .html("Chưa thực hiện")
+        .addClass("deactive");
     } else if (isValid && !isDone) {
-      if (WHEEL_SETTINGS.Wheel.game_type == "icon_drop") {
-        $(".mission-gold_hour .btn-challenge a")
-          .html(
-            '<img src="https://working.woay.vn/assets/icondrop/misson.png">'
-          )
-          .addClass("active");
-      } else {
-        $(".mission-gold_hour .btn-challenge a")
-          .html(
-            '<img src="https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-1.png">'
-          )
-          .addClass("active");
-      }
+      $(".mission-gold_hour .btn-challenge a")
+        .html("Làm nhiệm vụ")
+        .addClass("active");
     } else {
-      if (WHEEL_SETTINGS.Wheel.game_type == "icon_drop") {
-        $(".mission-gold_hour .btn-challenge a")
-          .html(
-            '<img src="https://working.woay.vn/assets/icondrop/completed.png">'
-          )
-          .addClass("active");
-      } else {
-        $(".mission-gold_hour .btn-challenge a")
-          .html(
-            '<img src="https://cdn.woay.vn/gh/woayst/common@1.5.16/images/button-status-2.png">'
-          )
-          .addClass("active");
-      }
+      $(".mission-gold_hour .btn-challenge a")
+        .html(
+          "<img src='https://app.woay.vn/lib/game_assets/images/icons/icon-checked.png' alt=''>" +
+          "<span>Hoàn thành</span>"
+        )
+        .addClass("active");
     }
   };
   $(document).on("click", ".btn-invite-friend", function () {
@@ -620,7 +586,7 @@ var missionTemplate = {
         x.stt = i + 1;
         x.percent = (x.sum / data[0].sum) * 100;
         x.point = x.sum;
-        x.activeClass = x.user_id == myUserId ? "active" : "";
+        x.activeClass = x.player_game_id == myUserId ? "active" : "";
         if (x.stt === 1) {
           x.activeClass += " top-1";
         } else if (x.stt === 2) {
@@ -736,7 +702,13 @@ var missionTemplate = {
   output.updateMyPoint = function updateMyPoint() {
     $$core.client.api.getMyRank().then(function (data) {
       $(".w-total-point").css("opacity", "1");
-      $(".w-my-rank--index").html(data.rank < 10 ? `#0${data.rank}` : `#${data.rank}`);
+      $(".w-my-rank--index").html(
+        data.rank
+          ? data.rank < 10
+            ? `#0${data.rank}`
+            : `#${data.rank}`
+          : "#100+"
+      );
       $(".w-your-point").html(data.sum);
     });
   };
