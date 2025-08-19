@@ -147,8 +147,8 @@ var missionTemplate = {
               $("#w-box-question").html(tmpl(template, question));
               $(".w-title-question").html(question.question);
               $(".question-number").html(
-                `Câu ${output.zeropad(current_question + 1)}/${
-                  questions.length
+                `Câu ${output.zeropad(current_question + 1, 2)}/${
+                  output.zeropad(questions.length, 2)
                 }`
               );
               output.countDownQuestionTime(questionTime);
