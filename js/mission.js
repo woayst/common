@@ -8,7 +8,7 @@ var missionTemplate = {
   "my-score-tmpl":
     '<li class="w-item-score">\n  <div class="d-flex align-center justify-center flex-col">\n    <div class="item-point">{%= o.value %} điểm</div>\n    <div class="item-time">{%= o.created_at %}</div>\n  </div>\n  <div class="item-type">{%= o.type %}</div>\n</li>\n',
   "question-tmpl":
-    "<div class='w-list-question'>\n  {% for (var i = 0; i < o.answer.length; i++) { %}\n  <div class='w-item-question'>\n    {%= o.answer[i] %}\n    <input type='radio' name='answer' value='{%= i %}'>\n    <span class='checkmark'><img src='<%= settings.mission_img_check %>' alt=''></<span>\n  </div>\n  {% } %}\n  {% if (!o.answer.length) { %}\n  <div class='w-item-question' style='display: none'></div>\n  {% } %}\n</div>",
+    "<div class='w-list-question'>\n  {% for (var i = 0; i < o.answer.length; i++) { %}\n  <div class='w-item-question'>\n    <span class=\"answer-label\">{%= o.answer[i].label %} </span>\n    {%= o.answer[i].ans %}\n    <input type='radio' name='answer' value='{%= i %}'>\n    <span class='checkmark'><img src='<%= settings.mission_img_check %>' alt=''></<span>\n  </div>\n  {% } %}\n  {% if (!o.answer.length) { %}\n  <div class='w-item-question' style='display: none'></div>\n  {% } %}\n</div>",
 };
 
 (function (g) {
@@ -134,9 +134,23 @@ var missionTemplate = {
               var questions = output.getTodayQuestions(question_per_day);
               var question = questions[current_question]; // today current_question = 3
               var questionTime = 10;
+              if (question.answer && Array.isArray(question.answer)) {
+                question.answer = question.answer.map((ans, index) => {
+                  return {
+                    ans,
+                    label: String.fromCharCode(65 + index),
+                  };
+                });
+              }
+              console.log('question', question);
               $("#w-box-question").removeClass("disable");
               $("#w-box-question").html(tmpl(template, question));
               $(".w-title-question").html(question.question);
+              $(".question-number").html(
+                `Câu ${output.zeropad(current_question + 1)}/${
+                  questions.length
+                }`
+              );
               output.countDownQuestionTime(questionTime);
             };
             $(document).on("click", ".btn-show-quiz", function () {
@@ -147,7 +161,8 @@ var missionTemplate = {
               }
               current_question = 0;
               output.renderQuestion("question-tmpl");
-              html.pushModal("w-quiz");
+              $$core.jumpToView("w-section-mission-quiz");
+              // html.pushModal("w-quiz");
             });
           });
       }
@@ -166,7 +181,7 @@ var missionTemplate = {
 
   output.fetchAllMission = function fetchAllMission() {
     console.log("mission", mission);
-    console.log('SETTINGS', SETTINGS);
+    console.log("SETTINGS", SETTINGS);
     mission.fetchAll().then(function () {
       output.fetchMission();
       if (!hasLogin) {
@@ -282,6 +297,10 @@ var missionTemplate = {
           // MicroModal.close('w-complete');
           html.closeModal();
         }
+        if (name === "wiki") {
+          count_right_answer = 0;
+          $$core.jumpToView("w-section-mission");
+        }
         if (quantity <= 0) {
           $("#w-complete .title-popup").html(
             "Rất tiếc bạn không được cộng lượt"
@@ -343,7 +362,7 @@ var missionTemplate = {
           $(".mission-" + name + " .btn-challenge a")
             .html(
               "<img src='https://app.woay.vn/lib/game_assets/images/icons/icon-checked.png' alt=''>" +
-              "<span>Hoàn thành</span>"
+                "<span>Hoàn thành</span>"
             )
             .addClass("completed");
         }
@@ -389,7 +408,7 @@ var missionTemplate = {
       $(".mission-gold_hour .btn-challenge a")
         .html(
           "<img src='https://app.woay.vn/lib/game_assets/images/icons/icon-checked.png' alt=''>" +
-          "<span>Hoàn thành</span>"
+            "<span>Hoàn thành</span>"
         )
         .addClass("active");
     }
@@ -571,13 +590,11 @@ var missionTemplate = {
     $("#w-box-question").addClass("disable");
   };
 
-  output.showResult = function showResult() {
+  output.showResult = async function showResult() {
     var quantity = count_right_answer;
     // MicroModal.close('w-quiz');
     html.closeModal();
-    output.missionComplete("wiki", quantity).then(function () {
-      count_right_answer = 0;
-    });
+    output.missionComplete("wiki", quantity);
   };
 
   output.getTopPlayer = function getTopPlayer(id, from, to, limit) {
