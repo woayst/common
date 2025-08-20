@@ -44,7 +44,7 @@
   width: 80%;
   max-height: 100%;
   margin-top: 5%;
-  border-radius: 4px;
+  border-radius: 15px;
   box-sizing: border-box;
   position: relative;
   overflow: visible;
@@ -85,6 +85,8 @@
   display: block;
   padding: 10px;
   border-bottom: 1px solid #e5e5e5;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
 
 .w-modal .modal__title {
@@ -98,19 +100,24 @@
 }
 
 .w-modal .modal__close {
-  background: rgba(0, 0, 0, 0);
   position: absolute;
-  right: 10px;
-  top: 10px;
   border: 0;
-  font-size: 24px;
-  color: #424446;
   opacity: 1;
   width: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  bottom: -13vw;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  color: #fff;
+  background: #78797a;
+  border: 1px solid #fff;
+  width: 40px;
+  height: 40px;
+  font-size: 28px;
 }
 
 .w-modal .modal__footer {
@@ -123,7 +130,7 @@
   color: rgba(0, 0, 0, 0.8);
   padding: 40px;
   font-size: 14px;
-  max-height: 35vh;
+  max-height: 40vh;
   overflow-y: auto;
 }
 
@@ -246,7 +253,7 @@
   color: #000 !important;
 }
 
-#modal-woay-otp .error input{
+#modal-woay-otp .error input {
   border-color: #000 !important;
 }
 
@@ -277,7 +284,7 @@
 }
 
 .w-modal p[w-role="description"] {
-  margin-bottom: 1rem;
+  margin-bottom: 5px;
 }
 
 .w-modal .w-form-group {
@@ -387,7 +394,10 @@
   font-weight: bold;
   font-size: 18px;
   text-align: center;
-  margin-bottom: 0;
+}
+
+.w-modal [w-role="title"] {
+  font-size: 20px !important;
 }
 
 .w-modal .logo-popup {
@@ -446,6 +456,11 @@
   background: #3a5897;
 }
 
+.w-modal .w-btn-facebook img {
+  width: 24px;
+  margin-right: 5px;
+}
+
 .w-modal .btn-primary {
   background: #f2994a;
 }
@@ -484,7 +499,7 @@
 }
 
 .w-modal .copy-code input.code {
-  width: 78%;
+  width: 70%;
   line-height: 1;
   text-align: center;
   outline: none;
@@ -492,7 +507,7 @@
 
 .w-modal .copy-code .btn-copy {
   text-align: center;
-  width: 22%;
+  width: 30%;
   color: #454644;
   text-decoration: none;
 }
@@ -753,7 +768,6 @@
 
   .w-modal .title-popup {
     font-size: 16px;
-    margin-bottom: 10px;
   }
 
   .w-info-more-vongquay .box-action .box-btn {
@@ -1374,6 +1388,7 @@
   color: #9a8d8d !important;
   border: 1px solid #9a8d8d !important;
 }
+
 .w-form-note {
   position: absolute;
   font-size: 12px;
@@ -1398,8 +1413,9 @@
 .w-change-phone a img {
   width: 20px;
 }
+
 @media (max-width: 480px) {
-  .w-otp{
+  .w-otp {
     width: 40px;
     height: 40px;
   }

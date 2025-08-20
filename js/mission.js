@@ -341,7 +341,6 @@ var missionTemplate = {
     } else {
       $("#w-share .modal__content").css("display", "block");
       $("#w-share .modal__footer").css("display", "block");
-      $("#w-share .modal__header .title-popup").text("Hãy chia sẻ cùng bạn bè");
     }
   };
 
