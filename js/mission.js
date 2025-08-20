@@ -8,7 +8,7 @@ var missionTemplate = {
   "my-score-tmpl":
     '<li class="w-item-score">\n  <div class="d-flex align-center justify-center flex-col">\n    <div class="item-point">{%= o.value %} điểm</div>\n    <div class="item-time">{%= o.created_at %}</div>\n  </div>\n  <div class="item-type">{%= o.type %}</div>\n</li>\n',
   "question-tmpl":
-    "<div class='w-list-question'>\n  {% for (var i = 0; i < o.answer.length; i++) { %}\n  <div class='w-item-question'>\n    <span class=\"answer-label\">{%= o.answer[i].label %} </span>\n    {%= o.answer[i].ans %}\n    <input type='radio' name='answer' value='{%= i %}'>\n    <span class='checkmark'><img src='<%= settings.mission_img_check %>' alt=''></<span>\n  </div>\n  {% } %}\n  {% if (!o.answer.length) { %}\n  <div class='w-item-question' style='display: none'></div>\n  {% } %}\n</div>",
+    "<div class='w-list-question'>\n  {% for (var i = 0; i < o.answer.length; i++) { %}\n  <div class='w-item-question'>\n    <span class=\"answer-label\">{%= o.answer[i].label %} </span>\n    {%= o.answer[i].text %}\n    <input type='radio' name='answer' value='{%= i %}'>\n    <span class='checkmark'><img src='<%= settings.mission_img_check %>' alt=''></<span>\n  </div>\n  {% } %}\n  {% if (!o.answer.length) { %}\n  <div class='w-item-question' style='display: none'></div>\n  {% } %}\n</div>",
 };
 
 (function (g) {
@@ -136,8 +136,9 @@ var missionTemplate = {
               var questionTime = 10;
               if (question.answer && Array.isArray(question.answer)) {
                 question.answer = question.answer.map((ans, index) => {
+                  if (typeof ans === "object") return ans;
                   return {
-                    ans,
+                    text: ans,
                     label: String.fromCharCode(65 + index),
                   };
                 });
