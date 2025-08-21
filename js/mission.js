@@ -143,14 +143,15 @@ var missionTemplate = {
                   };
                 });
               }
-              console.log('question', question);
+              console.log("question", question);
               $("#w-box-question").removeClass("disable");
               $("#w-box-question").html(tmpl(template, question));
               $(".w-title-question").html(question.question);
               $(".question-number").html(
-                `Câu ${output.zeropad(current_question + 1, 2)}/${
-                  output.zeropad(questions.length, 2)
-                }`
+                `Câu ${output.zeropad(
+                  current_question + 1,
+                  2
+                )}/${output.zeropad(questions.length, 2)}`
               );
               output.countDownQuestionTime(questionTime);
             };
@@ -265,27 +266,36 @@ var missionTemplate = {
         var quantity = mission.get(name).quantity;
         var mission_type = mission.get(name).type;
         var mission_frequency = mission.get(name).frequency;
+        var mission_title = mission.get(name).title;
         if (!isNaN(new_quantity)) {
           quantity = new_quantity;
         }
 
-        if (name !== "register" || name !== "share_facebook") {
+        if (!["register", "share_facebook"].includes(name)) {
           html.pushModal("w-complete");
-          if (mission_type == "point") {
-            $("#w-complete .title-popup").html(
-              "Chúc mừng bạn đã nhận được " + quantity + " điểm"
-            );
-          } else {
-            $("#w-complete .title-popup").html(
-              "Chúc mừng bạn đã nhận được " + quantity + " lượt"
-            );
-          }
+          $("#w-complete .mission-content").html(
+            "<p w-role='description'>Bạn đã nhận được thêm " +
+              (mission.type === "point" ? " điểm" : " lượt chơi") +
+              " từ nhiệm vụ</p>" +
+              "<div class='title-big'>" +
+              mission_title +
+              "</div>" +
+              "<div class='title-superbig'>+" +
+              output.zeropad(quantity, 2) +
+              (mission.type === "point" ? " điểm" : " lượt chơi") +
+              "</div>"
+          );
           if (mission_name === "wiki") {
-            $("#w-complete .title-popup").append(
-              '<div class="quiz-quantity">Bạn đã hoàn thành ' +
-                count_right_answer +
+            $("#w-complete .mission-content").html(
+              "<p w-role='description'>Bạn đã hoàn thành nhiệm vụ trả lời câu hỏi</p>" +
+                "<div class='title-big'>Kết quả đáp án đúng: " +
+                output.zeropad(count_right_answer, 2) +
                 "/" +
-                questions.length +
+                output.zeropad(questions.length, 2) +
+                "</div>" +
+                "<div class='title-superbig'>+" +
+                output.zeropad(quantity, 2) +
+                (mission.type === "point" ? " điểm" : " lượt chơi") +
                 "</div>"
             );
           }
