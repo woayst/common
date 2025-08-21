@@ -67,7 +67,9 @@ var missionTemplate = {
     missions.forEach(function (mission) {
       if (mission.active) {
         hasMissionActive = true;
-        $("#w-mission-list").append(tmpl(template, mission));
+        var $li = $(tmpl(template, mission));
+        $li.data("mission", mission);
+        $("#w-mission-list").append($li);
       }
     });
     if (!hasMissionActive) {
@@ -165,6 +167,17 @@ var missionTemplate = {
               output.renderQuestion("question-tmpl");
               $$core.jumpToView("w-section-mission-quiz");
               // html.pushModal("w-quiz");
+            });
+            $(document).on("click", ".w-mission-des", function (e) {
+              var missionData = $(this).closest("li").data("mission");
+              if (missionData) {
+                try {
+                  var mission = typeof missionData === "string" ? JSON.parse(missionData) : missionData;
+                  html.getModalMissionDetail(mission);
+                } catch (e) {
+                  console.error("Mission data invalid", e);
+                }
+              }
             });
           });
       }
