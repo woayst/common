@@ -10,6 +10,31 @@
   font-display: block;
 }
 
+@font-face {
+  font-family: 'icielCadena';
+  src: url('../fonts/icielCadena.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'BarlowSemiBold';
+  src: url('../fonts/BarlowSemiCondensed-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+@font-face {
+  font-family: 'BarlowSemiRegular';
+  src: url('../fonts/BarlowSemiCondensed-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+
 [class^="wic-"], [class*=" wic-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'woay-sdk' !important;
