@@ -320,7 +320,7 @@ var missionTemplate = {
             $("#w-complete #btn-do-mission").css("display", "none");
           } else if (mission_name === "wiki" && count_right_answer <= 0) {
             $("#w-complete .mission-content").html(
-              "<p w-role='description'>Bạn đã không hoàn thành nhiệm vụ trả lời câu hỏi</p>" +
+              "<p w-role='description'>Bạn đã không hoàn thành nhiệm vụ <br /> trả lời câu hỏi</p>" +
                 "<div class='title-big text-uppercase'>Kết quả đáp án đúng: " +
                 output.zeropad(count_right_answer, 2) +
                 "/" +
