@@ -172,7 +172,10 @@ var missionTemplate = {
               var missionData = $(this).closest("li").data("mission");
               if (missionData) {
                 try {
-                  var mission = typeof missionData === "string" ? JSON.parse(missionData) : missionData;
+                  var mission =
+                    typeof missionData === "string"
+                      ? JSON.parse(missionData)
+                      : missionData;
                   html.getModalMissionDetail(mission);
                 } catch (e) {
                   console.error("Mission data invalid", e);
@@ -298,6 +301,9 @@ var missionTemplate = {
               (mission.type === "point" ? " điểm" : " lượt chơi") +
               "</div>"
           );
+          if (mission_name !== "wiki") {
+            $("#w-complete #btn-do-mission").css("display", "none");
+          }
           if (mission_name === "wiki" && count_right_answer > 0) {
             $("#w-complete .mission-content").html(
               "<p w-role='description'>Bạn đã hoàn thành nhiệm vụ trả lời câu hỏi</p>" +
@@ -311,6 +317,7 @@ var missionTemplate = {
                 (mission.type === "point" ? " điểm" : " lượt chơi") +
                 "</div>"
             );
+            $("#w-complete #btn-do-mission").css("display", "none");
           } else if (mission_name === "wiki" && count_right_answer <= 0) {
             $("#w-complete .mission-content").html(
               "<p w-role='description'>Bạn đã không hoàn thành nhiệm vụ trả lời câu hỏi</p>" +
@@ -320,6 +327,7 @@ var missionTemplate = {
                 output.zeropad(questions.length, 2) +
                 "</div>"
             );
+            $("#w-complete #btn-play-game").css("display", "none");
           }
         }
         if (name === "explore_store") {
@@ -335,9 +343,7 @@ var missionTemplate = {
           $$core.jumpToView("w-section-mission");
         }
         if (quantity <= 0) {
-          $("#w-complete .title-popup").html(
-            "Rất tiếc bạn không được cộng lượt"
-          );
+          $("#w-complete .title-popup").html("Rất tiếc");
         }
 
         var missionData = await mission.fetch();
