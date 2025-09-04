@@ -4,7 +4,7 @@ var missionTemplate = {
   "history-tmpl":
     "<li class='w-item-reward'>\n    <div class='box-icon'>\n        <img src='https://working.woay.vn/assets/mission/game-icon1.png' alt='Hình phần thưởng'>\n    </div>\n    <div class='d-flex align-center justify-center flex-col pl-2'>\n        <div class='item-name'>{%= o.item_name %}</div>\n    <div class='item-time'>{%= o.updated_at %}</div>\n    </div>\n    <div class='sku'>\n    <a>{%= o.code %}</a>\n    </div>\n</li>",
   "mission-tmpl":
-    "<li class='mission-{%= o.name %} m-challenge'>\n  <div class='w-flex-box'>\n    <div class='w-box-img'>\n      <img src='{%= o.image %}' alt=''>\n    </div>\n    <div class=\"w-box-info\">\n      <div class='box-info'>\n        <h5>{%= o.title %}</h5>\n      </div>\n      <div class='meta'>\n        {%= o.map_quantity %}\n      </div>\n    </div>\n    <div class='w-box-right'>\n      <div class=\"w-flex-box\">\n        <div class=\"w-mission-frequency\">\n          {%= o.map_frequency %}\n        </div>\n        {% if (SETTINGS.settings.icon_mission_detail != \"\") { %}\n        <div class=\"w-mission-des\">\n          <img src=\"{%= SETTINGS.settings.icon_mission_detail %}\" alt=\"\">\n        </div>\n        {% } %}\n      </div>\n      <div class='btn-challenge'>\n        {% if (o.name === 'share_facebook') { %}\n        <a class='btn-share-fb'>\n          Làm nhiệm vụ\n        </a>\n        {% } else if (o.name === 'invite_friend') { %}\n        <a class='btn-invite-friend'>\n          Làm nhiệm vụ\n        </a>\n        {% } else if (o.name === 'wiki') { %}\n        <a class='btn-show-quiz'>\n          Làm nhiệm vụ\n        </a>\n        {% } else if (o.name === 'explore_store') { %}\n        <a class='btn-show-qrcode'>\n          Làm nhiệm vụ\n        </a>\n        {% } else { %}\n        <a onclick='$mission.missionComplete(\"{%= o.name %}\")'>\n          Làm nhiệm vụ\n        </a>\n        {% } %}\n      </div>\n    </div>\n  </div>\n</li>",
+    "<li class='mission-{%= o.name %} m-challenge'>\n  <div class='w-flex-box'>\n    <div class='w-box-img'>\n      <img src='{%= o.image %}' alt=''>\n    </div>\n    <div class=\"w-box-info\">\n      <div class='box-info'>\n        <h5>{%= o.title %}</h5>\n      </div>\n      <div class='meta'>\n        {%= o.map_quantity %}\n      </div>\n    </div>\n    <div class='w-box-right'>\n      <div class=\"w-flex-box\">\n        <div class=\"w-mission-frequency\">\n          {%= o.map_frequency %}\n        </div>\n        {% if (SETTINGS.settings.icon_mission_detail != \"\") { %}\n        <div class=\"w-mission-des\">\n          <img src=\"https://app.woay.vn/lib/game_assets/images/icons/icon-des.png\" alt=\"\">\n        </div>\n        {% } %}\n      </div>\n      <div class='btn-challenge'>\n        {% if (o.name === 'share_facebook') { %}\n        <a class='btn-share-fb'>\n          Làm nhiệm vụ\n        </a>\n        {% } else if (o.name === 'invite_friend') { %}\n        <a class='btn-invite-friend'>\n          Làm nhiệm vụ\n        </a>\n        {% } else if (o.name === 'wiki') { %}\n        <a class='btn-show-quiz'>\n          Làm nhiệm vụ\n        </a>\n        {% } else if (o.name === 'explore_store') { %}\n        <a class='btn-show-qrcode'>\n          Làm nhiệm vụ\n        </a>\n        {% } else { %}\n        <a onclick='$mission.missionComplete(\"{%= o.name %}\")'>\n          Làm nhiệm vụ\n        </a>\n        {% } %}\n      </div>\n    </div>\n  </div>\n</li>",
   "my-score-tmpl":
     '<li class="w-item-score">\n  <div class="d-flex align-center justify-center flex-col">\n    <div class="item-point">{%= o.value %} điểm</div>\n    <div class="item-time">{%= o.created_at %}</div>\n  </div>\n  <div class="item-type">{%= o.type %}</div>\n</li>\n',
   "question-tmpl":
@@ -223,7 +223,7 @@ var missionTemplate = {
   output.mapMissions = function mapMissions(missions) {
     missions.forEach((m) => {
       m.map_frequency = output.getFrequencyMission(m);
-      m.map_quantity = `${output.zeropad(m.quantity, 2)} ${
+      m.map_quantity = `+${output.zeropad(m.quantity, 2)} ${
         m.type === "turn" ? " lượt chơi" : " điểm"
       }`;
     });
@@ -635,12 +635,19 @@ var missionTemplate = {
     output.missionComplete("wiki", quantity);
   };
 
+  output.formatPoint = function formatPoint(point) {
+    if (point >= 1000000) {
+      return (point / 1000).toLocaleString("de-DE") + "k";
+    }
+    return point.toLocaleString("de-DE");
+  };
+
   output.getTopPlayer = function getTopPlayer(id, from, to, limit) {
     $$core.client.api.getTopPlayer(from, to, limit).then(function (data) {
       var topPlayers = data.map(function (x, i) {
         x.stt = i + 1;
         x.percent = (x.sum / data[0].sum) * 100;
-        x.point = x.sum;
+        x.point = output.formatPoint(Number(x.sum));
         x.activeClass = x.player_game_id == myUserId ? "active" : "";
         if (x.stt === 1) {
           x.activeClass += " top-1";
@@ -649,12 +656,16 @@ var missionTemplate = {
         } else if (x.stt === 3) {
           x.activeClass += " top-3";
         }
-        x.stt = i + 1 < 10 ? "0" + x.stt : rank;
+        x.stt = i + 1 < 10 ? "0" + x.stt : x.stt;
         return x;
       });
       var top3 = topPlayers.slice(0, 3);
       var others = topPlayers.slice(3);
 
+      console.log("topPlayer", {
+        top3,
+        others,
+      });
       var top3Html = tmpl(missionTemplate["highscore-tmpl"], top3);
       $(".w-tab-content #" + id + "-top3").html(top3Html);
 
@@ -764,7 +775,7 @@ var missionTemplate = {
             : `#${data.rank}`
           : "#100+"
       );
-      $(".w-your-point").html(data.sum);
+      $(".w-your-point").html(output.formatPoint(Number(data.sum)));
     });
   };
   output.countRightAnswer = count_right_answer;

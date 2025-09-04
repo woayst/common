@@ -77,7 +77,7 @@
 
 @media (min-width: 768px) {
   .w-modal .modal__container {
-    width: 600px;
+    width: 400px;
   }
 }
 
@@ -108,7 +108,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  bottom: -13vw;
+  bottom: -60px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 50%;
