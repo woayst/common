@@ -130,7 +130,6 @@
   color: rgba(0, 0, 0, 0.8);
   padding: 40px;
   font-size: 14px;
-  min-height: 30vh;
   overflow-y: auto;
 }
 
@@ -566,7 +565,7 @@
   height: 40px;
   display: block;
   width: 100%;
-  padding: 0 20px;
+  padding: 0 10px;
   background: #fff;
   color: #323840;
   border: none !important;
