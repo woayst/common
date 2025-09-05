@@ -168,20 +168,6 @@ var missionTemplate = {
               $$core.jumpToView("w-section-mission-quiz");
               // html.pushModal("w-quiz");
             });
-            $(document).on("click", ".w-mission-des", function (e) {
-              var missionData = $(this).closest("li").data("mission");
-              if (missionData) {
-                try {
-                  var mission =
-                    typeof missionData === "string"
-                      ? JSON.parse(missionData)
-                      : missionData;
-                  html.getModalMissionDetail(mission);
-                } catch (e) {
-                  console.error("Mission data invalid", e);
-                }
-              }
-            });
           });
       }
     });
@@ -206,6 +192,21 @@ var missionTemplate = {
         $(".btn-challenge").html("<a>Làm nhiệm vụ</a>");
         $(".btn-challenge a").on("click", function () {
           auth.loginHandler();
+        });
+        $(document).on("click", ".w-mission-des", function (e) {
+          var missionData = $(this).closest("li").data("mission");
+          console.log("missionData", missionData);
+          if (missionData) {
+            try {
+              var mission =
+                typeof missionData === "string"
+                  ? JSON.parse(missionData)
+                  : missionData;
+              html.getModalMissionDetail(mission);
+            } catch (e) {
+              console.error("Mission data invalid", e);
+            }
+          }
         });
       }
     });

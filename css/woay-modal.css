@@ -130,7 +130,7 @@
   color: rgba(0, 0, 0, 0.8);
   padding: 40px;
   font-size: 14px;
-  max-height: 40vh;
+  min-height: 30vh;
   overflow-y: auto;
 }
 
@@ -734,7 +734,7 @@
 }
 
 .w-modal .title-big {
-  font-size: 16px;
+  font-size: 19px;
   color: #242628;
   font-weight: bold;
 }
